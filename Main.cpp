@@ -29,8 +29,10 @@ Log David:
 
 #include "Header.h"
 using namespace std;
+//MODIFICAAAAAAR
 
 int main() {
+
 	int opcion;
 	owners listaOwners[MAXOWNERS];
 
