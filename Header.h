@@ -6,24 +6,6 @@ const int MAXNEGOS = 10;
 const int MAXOFICINAS = 10;
 const int MAXPETICIONES = 10;
 
-class fecha2{
-private:
-	int dia;
-	int mes;
-	int anio;
-	void setFecha(unsigned int, unsigned int, unsigned int);
-public:
-	fecha2();
-	fecha2(int, int, int);
-	~fecha2();
-	fecha2 getFecha();
-};
-
-typedef struct fecha{
-	int dia = -1;
-	int mes = -1;
-	int anio = -1;
-};
 
 typedef struct peticiones{
 	int id = -1;
