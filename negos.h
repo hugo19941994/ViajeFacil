@@ -32,8 +32,6 @@ public:
     int getId();
     int getNumeroPlazas();
     Fecha getFecha();
-
-    negos getNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha);
 };
 
 #endif // NEGOS_H

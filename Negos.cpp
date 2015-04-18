@@ -1,20 +1,89 @@
 #include "header.h"
-using namespace std;
+#include "negos.h"
 
+negos::negos() {
+	this->origen = "";
+	this->destino = "";
+	this->id = -1;
+	this->numeroPlazas = 0;
+	this->fecha = Fecha(-1, -1, -1);
+}
+
+negos::negos(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
+	this->origen = origen;
+	this->destino = destino;
+	this->id = id;
+	this->numeroPlazas = numeroPlazas;
+	this->fecha = fecha;
+}
+
+negos::~negos() {
+	delete this;
+}
+
+void negos::setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
+	this->origen = origen;
+	this->destino = destino;
+	this->id = id;
+	this->numeroPlazas = numeroPlazas;
+	this->fecha = fecha;
+}
+
+void negos::setOrigen(QString origen){
+	this->origen = origen;
+}
+
+void negos::setDestino(QString destino){
+	this->destino = destino;
+}
+
+void negos::setId(int id){
+	this->id = id;
+}
+
+void negos::setNumeroPlazas(int numeroPlazas){
+	this->numeroPlazas = numeroPlazas;
+}
+
+void negos::setFecha(Fecha fecha){
+	this->fecha = fecha;
+}
+
+QString negos::getOrigen(){
+	return this->origen;
+}
+
+QString negos::getDestino(){
+	return this->destino;
+}
+
+int negos::getId(){
+	return this->id;
+}
+
+int negos::getNumeroPlazas(){
+	return this->numeroPlazas;
+}
+
+Fecha negos::getFecha(){
+	return this->fecha;
+}
+
+//Negos viejo - eliminar
 void menuNegos(owners *listaOwners){
 	int opcion;
 
 	do {
 		system("CLS");
-		std::cout << "********** Menu Negos **********" << endl << endl;
-		std::cout << "Pulse 1 para crear nego" << endl;
-		std::cout << "Pulse 2 para modificar nego" << endl;
-		std::cout << "Pulse 3 para consultar lista de negos" << endl;
-		std::cout << "Pulse 4 para borrar nego" << endl;
-		std::cout << "Pulse 0 para volver al menu principal" << endl;
+		std::cout << "********** Menu Negos **********" << std::endl << std::endl;
+		std::cout << "Pulse 1 para crear nego" << std::endl;
+		std::cout << "Pulse 2 para modificar nego" << std::endl;
+		std::cout << "Pulse 3 para consultar lista de negos" << std::endl;
+		std::cout << "Pulse 4 para borrar nego" << std::endl;
+		std::cout << "Pulse 0 para volver al menu principal" << std::endl;
 		std::cin >> opcion;
 
-		if (opcion < 1 || opcion > 5) std::cout << "Numero no valido, tiene que ser 1, 2, 3, 4 o 5" << endl;
+		if (opcion < 1 || opcion > 5) std::cout << "Numero no valido, tiene que ser 1, 2, 3, 4 o 5" << std::endl;
 		switch (opcion) {
 		case 1:
 			crearNego(&listaOwners[0]);
@@ -42,25 +111,25 @@ void crearNego(owners *listaOwners) {
 
 	std::cout << "Introduce el origen: ";
 	std::cin >> sel[contNegos].origen;
-	std::cout << endl;
+	std::cout << std::endl;
 
 	std::cout << "Introduce el destino: ";
 	std::cin >> sel[contNegos].destino;
-	std::cout << endl;
+	std::cout << std::endl;
 
 	sel[contNegos].id = contNegos;
 
 	do {
-		cin.clear();
-		cin.sync();
-		cout << "Introduce el numero de plazas: ";
-		cin >> sel[contNegos].numeroPlazas;
-	} while (!cin.good());
-	std::cout << endl;
+		std::cin.clear();
+		std::cin.sync();
+		std::cout << "Introduce el numero de plazas: ";
+		std::cin >> sel[contNegos].numeroPlazas;
+	} while (!std::cin.good());
+	std::cout << std::endl;
 
 	sel[contNegos].fecha.pedirFecha();
 
-	std::cout << "Ya se han creado los negos que usted deseaba, muchas gracias" << endl;
+	std::cout << "Ya se han creado los negos que usted deseaba, muchas gracias" << std::endl;
 	
 	system("Pause");
 }
@@ -78,46 +147,46 @@ void modificarNego(owners *listaOwners){
 	//Si uso consultarNegos(&listaOwners[0]); pide el Owner dos veces...
 	for (int i = 0; i < MAXNEGOS; i++){
 		if (sel[i].id != -1){
-			std::cout << "Nego numero " << i << endl << endl;
-			std::cout << "Origen: " << sel[i].origen << endl;
-			std::cout << "Destino: " << sel[i].destino << endl;
-			std::cout << "Id: " << sel[i].id << endl;
-			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << endl;
+			std::cout << "Nego numero " << i << std::endl << std::endl;
+			std::cout << "Origen: " << sel[i].origen << std::endl;
+			std::cout << "Destino: " << sel[i].destino << std::endl;
+			std::cout << "Id: " << sel[i].id << std::endl;
+			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << std::endl;
 			sel[i].fecha.mostrarFecha(sel[i].fecha); //cambiar
 		}
 	}
 
 	int negoVacio = 0;
 	do {
-		cin.clear();
-		cin.sync();
-		cout << "Que nego deseas modificar? Introduza un numero de nego que aparezca en la lista por favor" << endl;
-		cin >> i;
+		std::cin.clear();
+		std::cin.sync();
+		std::cout << "Que nego deseas modificar? Introduza un numero de nego que aparezca en la lista por favor" << std::endl;
+		std::cin >> i;
 		if (sel[i].id == -1){
 			negoVacio = 1;
-			cout << "Nego vacio" << endl;
+			std::cout << "Nego vacio" << std::endl;
 		}
-	} while (!(cin.good()) || (negoVacio == 1));
+	} while (!(std::cin.good()) || (negoVacio == 1));
 
 	std::cout << "Introduce el origen nuevo: ";
 	std::cin >> sel[i].origen;
-	std::cout << endl;
+	std::cout << std::endl;
 
 	std::cout << "Introduce el destino nuevo: ";
 	std::cin >> sel[i].destino;
-	std::cout << endl;
+	std::cout << std::endl;
 
 	do {
-		cin.clear();
-		cin.sync();
-		cout << "Introduce el numero de plazas nuevo: ";
-		cin >> sel[i].numeroPlazas;
-	} while (!cin.good());
-	std::cout << endl;
+		std::cin.clear();
+		std::cin.sync();
+		std::cout << "Introduce el numero de plazas nuevo: ";
+		std::cin >> sel[i].numeroPlazas;
+	} while (!std::cin.good());
+	std::cout << std::endl;
 
 	sel[i].fecha.pedirFecha();
 
-	std::cout << "La modificacion del nego con id " << i << " ha sido satisfactorio, gracias" << endl;
+	std::cout << "La modificacion del nego con id " << i << " ha sido satisfactorio, gracias" << std::endl;
 	system("Pause");
 }
 
@@ -126,15 +195,15 @@ void consultarNegos(owners *listaOwners){
 	int idOwner;
 	nego *sel = devolverNegos(&listaOwners[0], &idOwner);
 
-	std::cout << "Esta es tu lista actual de negos" << endl << endl;
+	std::cout << "Esta es tu lista actual de negos" << std::endl << std::endl;
 
 	for (int i = 0; i < MAXNEGOS; i++){
 		if (sel[i].id != -1){
-			std::cout << "Nego numero " << i << endl << endl;
-			std::cout << "Origen: " << sel[i].origen << endl;
-			std::cout << "Destino: " << sel[i].destino << endl;
-			std::cout << "Id: " << sel[i].id << endl;
-			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << endl;
+			std::cout << "Nego numero " << i << std::endl << std::endl;
+			std::cout << "Origen: " << sel[i].origen << std::endl;
+			std::cout << "Destino: " << sel[i].destino << std::endl;
+			std::cout << "Id: " << sel[i].id << std::endl;
+			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << std::endl;
 			sel[i].fecha.mostrarFecha(sel[i].fecha); //cambiar
 		}
 	}
@@ -149,19 +218,19 @@ void borrarNego(owners *listaOwners){
 	int idOwner;
 	nego *sel = devolverNegos(&listaOwners[0], &idOwner);
 
-	std::cout << "Negos Disponibles" << endl;
+	std::cout << "Negos Disponibles" << std::endl;
 	for (int i = 0; i < MAXNEGOS; i++){
 		if (sel[i].id != -1){
-			std::cout << "Nego numero " << i << endl << endl;
-			std::cout << "Origen: " << sel[i].origen << endl;
-			std::cout << "Destino: " << sel[i].destino << endl;
-			std::cout << "Id: " << sel[i].id << endl;
-			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << endl;
+			std::cout << "Nego numero " << i << std::endl << std::endl;
+			std::cout << "Origen: " << sel[i].origen << std::endl;
+			std::cout << "Destino: " << sel[i].destino << std::endl;
+			std::cout << "Id: " << sel[i].id << std::endl;
+			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << std::endl;
 			sel[i].fecha.mostrarFecha(sel[i].fecha);
 		}
 	}
 
-	std::cout << "Que nego deseas borrar?" << endl;
+	std::cout << "Que nego deseas borrar?" << std::endl;
 	std::cin >> i;
 
 	sel[i].origen = "";
@@ -172,7 +241,7 @@ void borrarNego(owners *listaOwners){
 	sel[i].fecha.setMes(-1);
 	sel[i].fecha.setAnio(-1);
 
-	std::cout << "Enhorabuena, su nego numero " << i << " ha sido borrado correctamente, gracias." << endl;
+	std::cout << "Enhorabuena, su nego numero " << i << " ha sido borrado correctamente, gracias." << std::endl;
 
 	//Reordenamos el array
 	for (int i = 1; i < MAXNEGOS; i++){

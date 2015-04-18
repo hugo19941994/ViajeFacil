@@ -15,7 +15,9 @@ Fecha::Fecha(size_t pDia,size_t pMes,int pAnio){
   this->anio=pAnio;
 }
 /* DESTRUCTOR (al destruirse el objeto) */
-Fecha::~Fecha(){}
+Fecha::~Fecha(){
+	delete this;
+}
 /* MÉTODOS SET Y GET */
 void Fecha::setFecha(size_t pDia,size_t pMes,int pAnio){
   this->dia = pDia;
