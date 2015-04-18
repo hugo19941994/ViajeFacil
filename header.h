@@ -17,7 +17,7 @@ typedef struct peticiones{
     std::string destino = "";
     Fecha fecha;
     int plazasPedidas = -1;
-};
+} peticiones;
 
 typedef struct nego{
     std::string origen = "";
@@ -25,7 +25,7 @@ typedef struct nego{
     int id = -1;
     int numeroPlazas = -1;
     Fecha fecha;
-};
+} nego;
 
 typedef struct oficinas{
     std::string nombre = "";
@@ -37,7 +37,7 @@ typedef struct oficinas{
     //string historial[1024];//[IdPeticion][Aceptada]
     int historial[1024];
     int contHistorial = 0;
-};
+} oficinas;
 
 typedef struct owners{
     std::string nombre = "";
@@ -46,7 +46,7 @@ typedef struct owners{
     int contOficinas = 0;
     nego negos[MAXNEGOS];
     int contNegos = 0;
-};
+} owners;
 
 nego* devolverNegos(owners *listaOwners, int* idOwner);
 oficinas* devolverOficinas(owners *listaOwners, int* idOwner);

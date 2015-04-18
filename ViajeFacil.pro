@@ -18,7 +18,10 @@ SOURCES += main.cpp\
     Negos.cpp \
     Oficinas.cpp \
     Peticiones.cpp \
-    debug/moc_mainwindow.cpp
+    debug/moc_mainwindow.cpp \
+    negos.cpp \
+    oficinas.cpp \
+    peticiones.cpp
 
 HEADERS  += mainwindow.h \
     fecha.h \
@@ -28,6 +31,7 @@ HEADERS  += mainwindow.h \
     nego.h \
     oficinas.h \
     owner.h \
-    peticion.h
+    peticion.h \
+    header.h
 
 FORMS    += mainwindow.ui
