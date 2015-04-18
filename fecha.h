@@ -1,6 +1,8 @@
 #ifndef FECHA_H
 #define FECHA_H
 
+#include <stdlib.h>
+
 class Fecha
 {
 private:
