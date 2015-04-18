@@ -5,10 +5,10 @@
 #include <string>
 #include "fecha.h"
 
-const int MAXOWNERS = 10;
-const int MAXNEGOS = 10;
-const int MAXOFICINAS = 10;
-const int MAXPETICIONES = 10;
+const size_t MAXOWNERS = 10;
+const size_t MAXNEGOS = 10;
+const size_t MAXOFICINAS = 10;
+const size_t MAXPETICIONES = 10;
 
 
 typedef struct peticiones{

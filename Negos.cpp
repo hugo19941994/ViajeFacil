@@ -1,7 +1,7 @@
 #include "header.h"
-#include "negos.h"
+#include "nego.h"
 
-negos::negos() {
+Nego::Nego() {
 	this->origen = "";
 	this->destino = "";
 	this->id = -1;
@@ -9,7 +9,7 @@ negos::negos() {
 	this->fecha = Fecha(-1, -1, -1);
 }
 
-negos::negos(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
+Nego::Nego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
 	this->origen = origen;
 	this->destino = destino;
 	this->id = id;
@@ -17,11 +17,11 @@ negos::negos(QString origen, QString destino, int id, int numeroPlazas, Fecha fe
 	this->fecha = fecha;
 }
 
-negos::~negos() {
-	delete this;
+Nego::~Nego() {
+	//delete this;
 }
 
-void negos::setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
+void Nego::setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
 	this->origen = origen;
 	this->destino = destino;
 	this->id = id;
@@ -29,43 +29,43 @@ void negos::setNego(QString origen, QString destino, int id, int numeroPlazas, F
 	this->fecha = fecha;
 }
 
-void negos::setOrigen(QString origen){
+void Nego::setOrigen(QString origen){
 	this->origen = origen;
 }
 
-void negos::setDestino(QString destino){
+void Nego::setDestino(QString destino){
 	this->destino = destino;
 }
 
-void negos::setId(int id){
+void Nego::setId(int id){
 	this->id = id;
 }
 
-void negos::setNumeroPlazas(int numeroPlazas){
+void Nego::setNumeroPlazas(int numeroPlazas){
 	this->numeroPlazas = numeroPlazas;
 }
 
-void negos::setFecha(Fecha fecha){
+void Nego::setFecha(Fecha fecha){
 	this->fecha = fecha;
 }
 
-QString negos::getOrigen(){
+QString Nego::getOrigen(){
 	return this->origen;
 }
 
-QString negos::getDestino(){
+QString Nego::getDestino(){
 	return this->destino;
 }
 
-int negos::getId(){
+int Nego::getId(){
 	return this->id;
 }
 
-int negos::getNumeroPlazas(){
+int Nego::getNumeroPlazas(){
 	return this->numeroPlazas;
 }
 
-Fecha negos::getFecha(){
+Fecha Nego::getFecha(){
 	return this->fecha;
 }
 

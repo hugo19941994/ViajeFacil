@@ -1,12 +1,11 @@
-#ifndef NEGOS_H
-#define NEGOS_H
+#ifndef NEGO_H
+#define NEGO_H
 
-#include <QString>
 #include "fecha.h"
+#include <QString>
 
-class negos
+class Nego
 {
-
 private:
     QString origen;
     QString destino;
@@ -14,11 +13,10 @@ private:
     int numeroPlazas;
     Fecha fecha;
 
-//MIRAR LO DE CONST Y SUICIDARSE UN POCO
 public:
-    negos();
-    negos(QString, QString, int, int, Fecha);
-    ~negos();
+    Nego();
+    Nego(QString, QString, int, int, Fecha);
+    ~Nego();
 
     void setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha);
     void setOrigen(QString origen);
@@ -34,4 +32,4 @@ public:
     Fecha getFecha();
 };
 
-#endif // NEGOS_H
+#endif // NEGO_H

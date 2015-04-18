@@ -1,15 +1,14 @@
 #include "header.h"
-using namespace std;
 
 void gestionarOficinas(owners *listaOwners){
 	int opcion;
 	do {
 		system("CLS");
-		std::cout << "********** Menu Oficinas **********" << endl << endl;
-		std::cout << "Pulse 1 para crear oficinas" << endl;
-		std::cout << "Pulse 2 para borrar oficinas" << endl;
-		std::cout << "Pulse 3 para consultar la lista de oficinas" << endl;
-		std::cout << "Pulse 0 para salir" << endl;
+		std::cout << "********** Menu Oficinas **********" << std::endl << std::endl;
+		std::cout << "Pulse 1 para crear oficinas" << std::endl;
+		std::cout << "Pulse 2 para borrar oficinas" << std::endl;
+		std::cout << "Pulse 3 para consultar la lista de oficinas" << std::endl;
+		std::cout << "Pulse 0 para salir" << std::endl;
 		std::cin >> opcion;
 
 		switch (opcion){
@@ -38,11 +37,11 @@ void crearOficinas(owners *listaOwners){
 	oficinas *sel = devolverOficinas(&listaOwners[0], &idOwner);
 	int contOficinas = listaOwners[idOwner].contOficinas++; //Post incrementamos el contador
 	
-	cout << "Creando oficinas para Owner" << listaOwners[idOwner].nombre << endl;
+	std::cout << "Creando oficinas para Owner" << listaOwners[idOwner].nombre << std::endl;
 
 	std::cout << "Introduce el nombre de la oficina: ";
 	std::cin >> sel[contOficinas].nombre;
-	std::cout << endl;
+	std::cout << std::endl;
 
 	sel[contOficinas].id = contOficinas;
 
@@ -51,7 +50,7 @@ void crearOficinas(owners *listaOwners){
 
 	std::cout << "Introduce el continente: ";
 	std::cin >> sel[contOficinas].continente;
-	std::cout << endl;
+	std::cout << std::endl;
 
 	//Inicializamos su historial a -1
 	std::fill_n(sel[contOficinas].historial, 1024, -1);
@@ -70,14 +69,14 @@ void borrarOficinas(owners *listaOwners){
 	//consultarOficinas(&listaOwners[0]);
 	for (int i = 0; i < MAXOFICINAS; i++) {
 		if (sel[i].id != -1){
-			std::cout << "ID de la oficina: " << sel[i].id << endl;
-			std::cout << "Nombre de la oficina: " << sel[i].nombre << endl;
-			std::cout << "Pais: " << sel[i].pais << endl;
-			std::cout << "Continente: " << sel[i].continente << endl << endl;
+			std::cout << "ID de la oficina: " << sel[i].id << std::endl;
+			std::cout << "Nombre de la oficina: " << sel[i].nombre << std::endl;
+			std::cout << "Pais: " << sel[i].pais << std::endl;
+			std::cout << "Continente: " << sel[i].continente << std::endl << std::endl;
 		}
 	}
 
-	std::cout << "Que oficina deseas borrar?" << endl;
+	std::cout << "Que oficina deseas borrar?" << std::endl;
 	int idOficina;
 	std::cin >> idOficina;
 
@@ -86,7 +85,7 @@ void borrarOficinas(owners *listaOwners){
 	sel[idOficina].pais = "";
 	sel[idOficina].continente = "";
 
-	std::cout << "Enhorabuena, su oficina numero " << idOficina << " ha sido borrado correctamente, gracias." << endl;
+	std::cout << "Enhorabuena, su oficina numero " << idOficina << " ha sido borrado correctamente, gracias." << std::endl;
 	
 	//Reordenamos el array
 	for (int i = 1; i < MAXNEGOS; i++){
@@ -117,13 +116,13 @@ void consultarOficinas(owners *listaOwners){
 	int idOwner;
 	oficinas *sel = devolverOficinas(&listaOwners[0], &idOwner);
 
-	std::cout << "La lista de oficinas actual es:" << endl << endl;
+	std::cout << "La lista de oficinas actual es:" << std::endl << std::endl;
 	for (int i = 0; i < MAXOFICINAS; i++) {
 		if (sel[i].id != -1){
-			std::cout << "ID de la oficina: " << sel[i].id << endl;
-			std::cout << "Nombre de la oficina: " << sel[i].nombre << endl;
-			std::cout << "Pais: " << sel[i].pais << endl;
-			std::cout << "Continente: " << sel[i].continente << endl << endl;
+			std::cout << "ID de la oficina: " << sel[i].id << std::endl;
+			std::cout << "Nombre de la oficina: " << sel[i].nombre << std::endl;
+			std::cout << "Pais: " << sel[i].pais << std::endl;
+			std::cout << "Continente: " << sel[i].continente << std::endl << std::endl;
 		}
 	}
 	system("Pause");

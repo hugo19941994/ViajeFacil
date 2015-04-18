@@ -1,5 +1,5 @@
-#include <iostream>
 #include "fecha.h"
+#include <iostream>
 
 /* CONSTRUCTOR FECHA SIN PARÁMETROS */
 Fecha::Fecha()
@@ -8,16 +8,19 @@ Fecha::Fecha()
     this->mes=1;
     this->anio=1;
 }
+
 /* CONSTRUCTOR FECHA CON PARÁMETROS */
 Fecha::Fecha(size_t pDia,size_t pMes,int pAnio){
   this->dia=pDia;
   this->mes=pMes;
   this->anio=pAnio;
 }
+
 /* DESTRUCTOR (al destruirse el objeto) */
 Fecha::~Fecha(){
-	delete this;
+	//delete this;
 }
+
 /* MÉTODOS SET Y GET */
 void Fecha::setFecha(size_t pDia,size_t pMes,int pAnio){
   this->dia = pDia;
@@ -44,7 +47,7 @@ int Fecha::getAnio() {
   return this->anio;
 }
 
-//quitar
+//Quitar
 Fecha Fecha::pedirFecha() {
 
 	do {
