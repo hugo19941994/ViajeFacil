@@ -1,11 +1,12 @@
-﻿/*	
+/*
 Proyecto:	Unisys 2015
 Titulo:		Viaje Facil
-Miembros:	David Jimenez Cuevas
+Miembros:	David Jiménez Cuevas
 			Hugo Ferrando Seage
-			Guillermo
-			Fernando Saavedra
-TODO Web: https://github.com/???
+			Guillermo González Moreno
+			Fernando Saavedra Hernández
+			Estefanía Ortego García
+TODO Web: https://github.com/hugo19941994/ViajeFacil
 Descripcion:
 	Owners:		Compañias de vuelo (Iberia, Halcon Viajes)
 	Negos:		Paquetes de vuelo
@@ -27,64 +28,70 @@ Log David:
 	Añadida funcion mostrarPeticiones
 */
 
-#include "Header.h"
-using namespace std;
-//MODIFICAAAAAAR
+#include "mainwindow.h"
+#include "header.h"
+#include "fecha.h"
+#include <QApplication>
 
-int main() {
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
-	int opcion;
-	owners listaOwners[MAXOWNERS];
+    //Main viejo
+    int opcion;
+    owners listaOwners[MAXOWNERS];
 
-	listaOwners[0].id = 0;
-	listaOwners[0].nombre = "El Corte Ingles";
+    listaOwners[0].id = 0;
+    listaOwners[0].nombre = "El Corte Ingles";
 
-	listaOwners[1].id = 1;
-	listaOwners[1].nombre = "Halcon Viajes";
+    listaOwners[1].id = 1;
+    listaOwners[1].nombre = "Halcon Viajes";
 
-	do {
-		system("CLS");
-		std::cout << "********** BIENVENIDO A LA AGENCIA MAS ORGANIZADA DEL MUNDO **********" << std::endl << std::endl << std::endl;
-		std::cout << "********** Menu Principal **********" << std::endl << std::endl;
-		std::cout << "Pulse 1 para acceder a Negos" << std::endl;
-		std::cout << "Pulse 2 para acceder a Oficinas" << std::endl;
-		std::cout << "Pulse 3 para acceder a Peticiones" << std::endl;
-		std::cout << "Pulse 0 para salir" << std::endl << std::endl;
-		std::cin >> opcion;
-		std::cout << std::endl;
+    do {
+      system("CLS");
+      std::cout << "********** BIENVENIDO A LA AGENCIA MAS ORGANIZADA DEL MUNDO **********" << std::endl << std::endl << std::endl;
+      std::cout << "********** Menu Principal **********" << std::endl << std::endl;
+      std::cout << "Pulse 1 para acceder a Negos" << std::endl;
+      std::cout << "Pulse 2 para acceder a Oficinas" << std::endl;
+      std::cout << "Pulse 3 para acceder a Peticiones" << std::endl;
+      std::cout << "Pulse 0 para salir" << std::endl << std::endl;
+      std::cin >> opcion;
+      std::cout << std::endl;
 
-		switch (opcion) {
-			case 1:
-				std::cout << "Estas dentro de Compania" << std::endl << std::endl;
-				menuNegos(&listaOwners[0]);
-				std::cout << std::endl << std::endl;
-				break;
-			case 2:  std::cout << "Estas dentro de Owners" << std::endl;
-				gestionarOficinas(&listaOwners[0]);
-				break;
-			case 3:  std::cout << "Estas dentro de Oficina" << endl;
-				oficina(&listaOwners[0]);
-				break;
-		}
-	} while (opcion != 0);
+      switch (opcion) {
+        case 1:
+          std::cout << "Estas dentro de Compania" << std::endl << std::endl;
+          menuNegos(&listaOwners[0]);
+          std::cout << std::endl << std::endl;
+          break;
+        case 2:  std::cout << "Estas dentro de Owners" << std::endl;
+          gestionarOficinas(&listaOwners[0]);
+          break;
+		case 3:  std::cout << "Estas dentro de Oficina" << std::endl;
+          oficina(&listaOwners[0]);
+          break;
+      }
+    } while (opcion != 0);
 
-	std::cout << "Ha sido un placer, que tenga un buen dia!" << endl;
+	std::cout << "Ha sido un placer, que tenga un buen dia!" << std::endl;
 
-	system("Pause");
+    system("Pause");
 
-	return 0;
+    return a.exec();
 }
 
 nego* devolverNegos(owners *listaOwners, int* idOwner){
 	/*	Pregunta por el Owner y devuelve un puntero a sus negos
 		idOwner es un puntero por si hay que acceder desde fuera al owner	*/
-	std::cout << "Seleccione Owner" << endl;
+	std::cout << "Seleccione Owner" << std::endl;
 	int posicion = 0;
 	for (int i = 0; i < MAXOWNERS; i++){
 		if (listaOwners[i].id != -1)
-			std::cout << listaOwners[i].id << " " << listaOwners[i].nombre << endl;
+			std::cout << listaOwners[i].id << " " << listaOwners[i].nombre << std::endl;
 	}
-	cin >> *idOwner;
+	std::cin >> *idOwner;
 	nego *sel = &listaOwners[*idOwner].negos[0];
 	return sel;
 }
@@ -92,13 +99,13 @@ nego* devolverNegos(owners *listaOwners, int* idOwner){
 oficinas* devolverOficinas(owners *listaOwners, int* idOwner){
 	/*	Pregunta por el Owner y devuelve un puntero a sus oficinas
 		idOwner es un puntero por si hay que acceder desde fuera al owner	*/
-	std::cout << "Seleccione Owner" << endl;
+	std::cout << "Seleccione Owner" << std::endl;
 	int posicion = 0;
 	for (int i = 0; i < MAXOWNERS; i++){
 		if (listaOwners[i].id != -1)
-			std::cout << listaOwners[i].id << " " << listaOwners[i].nombre << endl;
+			std::cout << listaOwners[i].id << " " << listaOwners[i].nombre << std::endl;
 	}
-	cin >> *idOwner;
+	std::cin >> *idOwner;
 	oficinas *sel = &listaOwners[*idOwner].oficinas[0];
 	return sel;
 }
@@ -107,56 +114,22 @@ peticiones* devolverPeticiones(owners *listaOwners, int* idOwner, int *idOficina
 	/*	Pregunta por el Owner, Oficina y devuelve un puntero a sus peticiones
 		idOwner es un puntero por si hay que acceder desde fuera al owner
 		idOficina es un puntero por si hay que acceder a las oficinas	*/
-	std::cout << "Seleccione Owner" << endl;
+	std::cout << "Seleccione Owner" << std::endl;
 	for (int i = 0; i < MAXOWNERS; i++){
 		if (listaOwners[i].id != -1)
-			std::cout << listaOwners[i].id << " " << listaOwners[i].nombre << endl;
+			std::cout << listaOwners[i].id << " " << listaOwners[i].nombre << std::endl;
 	}
-	cin >> *idOwner;
+	std::cin >> *idOwner;
 	oficinas *sel = &listaOwners[*idOwner].oficinas[0];
 
-	std::cout << "Seleccione Oficina" << endl;
+	std::cout << "Seleccione Oficina" << std::endl;
 	int posicion = 0;
 	for (int i = 0; i < MAXOFICINAS; i++){
 		if (sel[i].id!= -1)
-			std::cout << sel[i].id << " " << sel[i].nombre << endl;
+			std::cout << sel[i].id << " " << sel[i].nombre << std::endl;
 	}
-	cin >> *idOficina;
+	std::cin >> *idOficina;
 	peticiones *sel2 = &sel[*idOficina].peticiones[0];
 
 	return sel2;
-}
-
-fecha pedirFecha() {
-	fecha fecha;
-
-	do {
-		cin.clear();
-		cin.sync();
-		cout << "Introduce el dia:  ";
-		cin >> fecha.dia;
-	} while (!cin.good());
-
-	do {
-		cin.clear();
-		cin.sync();
-		cout << "Introduce el mes:  ";
-		cin >> fecha.mes;
-	} while (!cin.good());
-
-	do {
-		cin.clear();
-		cin.sync();
-		cout << "Introduce el anio:  ";
-		cin >> fecha.anio;
-	} while (!cin.good());
-
-	return fecha;
-}
-
-void mostrarFecha(fecha fecha){
-	std::cout << "Fecha: ";
-	std::cout << "Dia " << fecha.dia << " ";
-	std::cout << "Mes " << fecha.mes << " ";
-	std::cout << "Anio " << fecha.anio << endl;
 }

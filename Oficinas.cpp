@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "header.h"
 using namespace std;
 
 void gestionarOficinas(owners *listaOwners){

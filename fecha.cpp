@@ -1,4 +1,6 @@
+#include <iostream>
 #include "fecha.h"
+
 /* CONSTRUCTOR FECHA SIN PARÁMETROS */
 Fecha::Fecha()
 {
@@ -20,9 +22,10 @@ void Fecha::setFecha(size_t pDia,size_t pMes,int pAnio){
   this->mes = pMes;
   this->anio = pAnio;
 }
+
 void Fecha::setDia(size_t pDia){
   this->dia = pDia;
-}
+};
 void Fecha::setMes(size_t pMes){
   this->mes = pMes;
 }
@@ -37,4 +40,38 @@ size_t Fecha::getMes() {
 }
 int Fecha::getAnio() {
   return this->anio;
+}
+
+//quitar
+Fecha Fecha::pedirFecha() {
+
+	do {
+		std::cin.clear();
+		std::cin.sync();
+		std::cout << "Introduce el dia:  ";
+		std::cin >> this->dia;
+	} while (!std::cin.good());
+
+	do {
+		std::cin.clear();
+		std::cin.sync();
+		std::cout << "Introduce el mes:  ";
+		std::cin >> this->mes;
+	} while (!std::cin.good());
+
+	do {
+		std::cin.clear();
+		std::cin.sync();
+		std::cout << "Introduce el anio:  ";
+		std::cin >> this->anio;
+	} while (!std::cin.good());
+
+	return *this;
+}
+
+void Fecha::mostrarFecha(Fecha fecha){
+	std::cout << "Fecha: ";
+	std::cout << "Dia " << fecha.dia << " ";
+	std::cout << "Mes " << fecha.mes << " ";
+	std::cout << "Anio " << fecha.anio << std::endl;
 }

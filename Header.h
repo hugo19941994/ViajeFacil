@@ -1,5 +1,9 @@
-﻿#include <iostream>
+﻿#ifndef HEADER_H
+#define HEADER_H
+
+#include <iostream>
 #include <string>
+#include "fecha.h"
 
 const int MAXOWNERS = 10;
 const int MAXNEGOS = 10;
@@ -8,40 +12,40 @@ const int MAXPETICIONES = 10;
 
 
 typedef struct peticiones{
-	int id = -1;
-	std::string origen = "";
-	std::string destino = "";
-	fecha fecha;
-	int plazasPedidas = -1;
+    int id = -1;
+    std::string origen = "";
+    std::string destino = "";
+    Fecha fecha;
+    int plazasPedidas = -1;
 };
 
 typedef struct nego{
-	std::string origen = "";
-	std::string destino = "";
-	int id = -1;
-	int numeroPlazas = -1;
-	fecha fecha;
+    std::string origen = "";
+    std::string destino = "";
+    int id = -1;
+    int numeroPlazas = -1;
+    Fecha fecha;
 };
 
 typedef struct oficinas{
-	std::string nombre = "";
-	int id = -1;
-	std::string pais = "";
-	std::string continente = "";
-	peticiones peticiones[MAXPETICIONES];
-	int contPeticiones = 0;
-	//string historial[1024];//[IdPeticion][Aceptada]
-	int historial[1024];
-	int contHistorial = 0;
+    std::string nombre = "";
+    int id = -1;
+    std::string pais = "";
+    std::string continente = "";
+    peticiones peticiones[MAXPETICIONES];
+    int contPeticiones = 0;
+    //string historial[1024];//[IdPeticion][Aceptada]
+    int historial[1024];
+    int contHistorial = 0;
 };
 
 typedef struct owners{
-	std::string nombre = "";
-	int id = -1;
-	oficinas oficinas[MAXOFICINAS];
-	int contOficinas = 0;
-	nego negos[MAXNEGOS];
-	int contNegos = 0;
+    std::string nombre = "";
+    int id = -1;
+    oficinas oficinas[MAXOFICINAS];
+    int contOficinas = 0;
+    nego negos[MAXNEGOS];
+    int contNegos = 0;
 };
 
 nego* devolverNegos(owners *listaOwners, int* idOwner);
@@ -67,6 +71,6 @@ void consultarLog(owners *listaOwners);
 void mostrarPeticiones(owners *listaOwners);
 bool resolucionPeticion(owners *listaOwners);
 
-fecha pedirFecha();
-void mostrarFecha(fecha);
 std::string mirar(int);
+
+#endif

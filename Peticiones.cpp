@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "header.h"
 using namespace std;
 
 void oficina(owners *listaOwners) {
@@ -64,7 +64,7 @@ void crearPeticiones(owners *listaOwners) {
 		std::cout << "Introduce el id de la destino: ";
 		std::cin >> sel[contPeticiones].destino;
 
-		sel[contPeticiones].fecha = pedirFecha();
+		sel[contPeticiones].fecha.pedirFecha(); //cambiar
 
 		std::cout << "Cuantas plazas quiere?" << endl;
 		std::cin >> sel[contPeticiones].plazasPedidas;
@@ -86,7 +86,7 @@ void modificarPeticiones(owners *listaOwners) {
 
 	std::cout << "Introduce el nuevo numero de plazas: ";
 	std::cin >> sel[idPeticion].plazasPedidas;
-	sel[idPeticion].fecha = pedirFecha();
+	sel[idPeticion].fecha.pedirFecha();
 	system("Pause");
 }
 
@@ -102,7 +102,7 @@ void borrarPeticiones(owners *listaOwners) {
 		if (sel[i].id != -1){
 			std::cout << "ID: " << sel[i].id;
 			std::cout << "Plazas Pedidas: " << sel[i].plazasPedidas;
-			mostrarFecha(sel[i].fecha);
+			sel[i].fecha.mostrarFecha(sel[i].fecha);
 		}
 		std::cout << endl;
 	}
@@ -115,9 +115,9 @@ void borrarPeticiones(owners *listaOwners) {
 	sel[idPeticion].destino = "";
 	sel[idPeticion].origen = "";
 	sel[idPeticion].plazasPedidas = -1;
-	sel[idPeticion].fecha.dia = -1;
-	sel[idPeticion].fecha.mes = -1;
-	sel[idPeticion].fecha.anio = -1;
+	sel[idPeticion].fecha.setDia(-1);
+	sel[idPeticion].fecha.setMes(-1);
+	sel[idPeticion].fecha.setAnio(-1);
 	
 	for (int i = idPeticion; i < MAXPETICIONES-1; i++)
 		sel[i] = sel[i+1];
@@ -134,9 +134,9 @@ void borrarPeticiones(owners *listaOwners) {
 				sel[idPeticion].destino = "";
 				sel[idPeticion].origen = "";
 				sel[idPeticion].plazasPedidas = -1;
-				sel[idPeticion].fecha.dia = -1;
-				sel[idPeticion].fecha.mes = -1;
-				sel[idPeticion].fecha.anio = -1;
+				sel[idPeticion].fecha.setDia(-1);
+				sel[idPeticion].fecha.setMes(-1);
+				sel[idPeticion].fecha.setAnio(-1);
 
 				i = 1;
 			}
@@ -158,7 +158,7 @@ void mostrarPeticiones(owners *listaOwners) {
 		if (sel[i].id != -1){
 			std::cout << "ID: " << sel[i].id;
 			std::cout << "Plazas Pedidas: " << sel[i].plazasPedidas;
-			mostrarFecha(sel[i].fecha);
+			sel[i].fecha.mostrarFecha(sel[i].fecha);
 		}
 		std::cout << endl;
 	}
@@ -210,7 +210,7 @@ bool resolucionPeticion(owners *listaOwners){
 		if (sel[i].id != -1){
 			std::cout << "ID: " << sel[i].id;
 			std::cout << "Plazas Pedidas: " << sel[i].plazasPedidas;
-			mostrarFecha(sel[i].fecha);
+			sel[i].fecha.mostrarFecha(sel[i].fecha);
 		}
 		std::cout << endl;
 	}
@@ -223,9 +223,9 @@ bool resolucionPeticion(owners *listaOwners){
 	bool insuficientesPlazas = false;
 
 	for (int i = 0; i < MAXNEGOS; i++){
-		if ((sel[idPeticion].fecha.anio == listaOwners[idOwner].negos[i].fecha.anio)
-			&& (sel[idPeticion].fecha.mes == listaOwners[idOwner].negos[i].fecha.mes)
-			&& (sel[idPeticion].fecha.dia == listaOwners[idOwner].negos[i].fecha.dia)
+		if ((sel[idPeticion].fecha.getAnio() == listaOwners[idOwner].negos[i].fecha.getAnio())
+			&& (sel[idPeticion].fecha.getMes() == listaOwners[idOwner].negos[i].fecha.getMes())
+			&& (sel[idPeticion].fecha.getDia() == listaOwners[idOwner].negos[i].fecha.getDia())
 			&& (sel[idPeticion].origen == listaOwners[idOwner].negos[i].origen)
 			&& (sel[idPeticion].destino == listaOwners[idOwner].negos[i].destino)){
 			//posicionNego = i;

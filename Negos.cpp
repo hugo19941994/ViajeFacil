@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "header.h"
 using namespace std;
 
 void menuNegos(owners *listaOwners){
@@ -58,7 +58,7 @@ void crearNego(owners *listaOwners) {
 	} while (!cin.good());
 	std::cout << endl;
 
-	sel[contNegos].fecha = pedirFecha();
+	sel[contNegos].fecha.pedirFecha();
 
 	std::cout << "Ya se han creado los negos que usted deseaba, muchas gracias" << endl;
 	
@@ -83,7 +83,7 @@ void modificarNego(owners *listaOwners){
 			std::cout << "Destino: " << sel[i].destino << endl;
 			std::cout << "Id: " << sel[i].id << endl;
 			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << endl;
-			mostrarFecha(sel[i].fecha);
+			sel[i].fecha.mostrarFecha(sel[i].fecha); //cambiar
 		}
 	}
 
@@ -115,7 +115,7 @@ void modificarNego(owners *listaOwners){
 	} while (!cin.good());
 	std::cout << endl;
 
-	sel[i].fecha = pedirFecha();
+	sel[i].fecha.pedirFecha();
 
 	std::cout << "La modificacion del nego con id " << i << " ha sido satisfactorio, gracias" << endl;
 	system("Pause");
@@ -135,7 +135,7 @@ void consultarNegos(owners *listaOwners){
 			std::cout << "Destino: " << sel[i].destino << endl;
 			std::cout << "Id: " << sel[i].id << endl;
 			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << endl;
-			mostrarFecha(sel[i].fecha);
+			sel[i].fecha.mostrarFecha(sel[i].fecha); //cambiar
 		}
 	}
 	system("Pause");
@@ -157,7 +157,7 @@ void borrarNego(owners *listaOwners){
 			std::cout << "Destino: " << sel[i].destino << endl;
 			std::cout << "Id: " << sel[i].id << endl;
 			std::cout << "Numero de plazas: " << sel[i].numeroPlazas << endl;
-			mostrarFecha(sel[i].fecha);
+			sel[i].fecha.mostrarFecha(sel[i].fecha);
 		}
 	}
 
@@ -168,9 +168,9 @@ void borrarNego(owners *listaOwners){
 	sel[i].destino = "";
 	sel[i].id = -1;
 	sel[i].numeroPlazas = -1;
-	sel[i].fecha.dia = -1;
-	sel[i].fecha.mes = -1;
-	sel[i].fecha.anio = -1;
+	sel[i].fecha.setDia(-1);
+	sel[i].fecha.setMes(-1);
+	sel[i].fecha.setAnio(-1);
 
 	std::cout << "Enhorabuena, su nego numero " << i << " ha sido borrado correctamente, gracias." << endl;
 
@@ -186,9 +186,9 @@ void borrarNego(owners *listaOwners){
 				sel[i].destino = "";
 				sel[i].id = -1;
 				sel[i].numeroPlazas = -1;
-				sel[i].fecha.dia = -1;
-				sel[i].fecha.mes = -1;
-				sel[i].fecha.anio = -1;
+				sel[i].fecha.setDia(-1);
+				sel[i].fecha.setMes(-1);
+				sel[i].fecha.setAnio(-1);
 
 				i = 1;
 			}

@@ -1,6 +1,8 @@
 #ifndef FECHA_H
 #define FECHA_H
+
 #include <cstdlib>
+
 class Fecha
 {
 private:
@@ -18,5 +20,8 @@ public:
   size_t getDia();
   size_t getMes();
   int getAnio();
+  Fecha pedirFecha(); //Quitar
+  void mostrarFecha(Fecha fecha);
 };
+
 #endif // FECHA_H
