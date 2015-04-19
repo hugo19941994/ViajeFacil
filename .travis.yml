@@ -9,6 +9,7 @@ addons:
   #- sudo apt-get install qt5-default qttools5-dev-tools
 
 script:
+  - cd ./config/qt/
   - qmake -project
   - qmake ViajeFacil.pro
   - make

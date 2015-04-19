@@ -37,48 +37,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fecha.cpp">
+    <ClCompile Include="..\..\source\fecha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="..\..\source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mainwindow.cpp">
+    <ClCompile Include="..\..\source\mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="nego.cpp">
+    <ClCompile Include="..\..\source\nego.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="oficina.cpp">
+    <ClCompile Include="..\..\source\oficina.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="peticion.cpp">
+    <ClCompile Include="..\..\source\peticion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fecha.h">
+    <ClInclude Include="..\..\source\fecha.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header.h">
+    <ClInclude Include="..\..\source\header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <CustomBuild Include="mainwindow.h">
+    <CustomBuild Include="..\..\source\mainwindow.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <ClInclude Include="nego.h">
+    <ClInclude Include="..\..\source\nego.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="oficina.h">
+    <ClInclude Include="..\..\source\oficina.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="owner.h">
+    <ClInclude Include="..\..\source\owner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="peticion.h">
+    <ClInclude Include="..\..\source\peticion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ui_mainwindow.h">
+    <ClInclude Include="..\..\source\ui_mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -94,7 +94,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="mainwindow.ui">
+    <CustomBuild Include="..\..\source\mainwindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
   </ItemGroup>

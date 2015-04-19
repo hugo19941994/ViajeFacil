@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-project(ViajeFacil_master)
+project(ViajeFacil)
 
 # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
@@ -21,21 +21,21 @@ add_definitions(${Qt5Widgets_DEFINITIONS})
 set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-    fecha.cpp
-    fecha.h
-    header.h
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    nego.h
-    negos.cpp
-    oficinas.cpp
-    oficinas.h
-    owner.h
-    peticion.h
-    peticiones.cpp
-    ui_mainwindow.h)
+    ./../../source/fecha.cpp
+    ./../../source/fecha.h
+    ./../../source/header.h
+    ./../../source/main.cpp
+    ./../../source/mainwindow.cpp
+    ./../../source/mainwindow.h
+    ./../../source/mainwindow.ui
+    ./../../source/nego.h
+    ./../../source/negos.cpp
+    ./../../source/oficinas.cpp
+    ./../../source/oficinas.h
+    ./../../source/owner.h
+    ./../../source/peticion.h
+    ./../../source/peticiones.cpp
+    ./../../source/ui_mainwindow.h)
 
 add_executable(ViajeFacil_master ${SOURCE_FILES})
 
