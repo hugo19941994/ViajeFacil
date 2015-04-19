@@ -12,26 +12,21 @@ TARGET = ViajeFacil
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
         mainwindow.cpp \
-    fecha.cpp \
-    Negos.cpp \
-    Oficinas.cpp \
-    Peticiones.cpp \
-    debug/moc_mainwindow.cpp \
-    negos.cpp \
-    oficinas.cpp \
-    peticiones.cpp
+        fecha.cpp \
+        nego.cpp \
+        peticion.cpp \
+        oficina.cpp \
+        peticion.cpp
 
 HEADERS  += mainwindow.h \
-    fecha.h \
-    Header.h \
-    negos.h \
-    ui_mainwindow.h \
-    nego.h \
-    oficinas.h \
-    owner.h \
-    peticion.h \
-    header.h
+        fecha.h \
+        header.h \
+        nego.h \
+        ui_mainwindow.h \
+        owner.h \
+        peticion.h \
+        oficina.h
 
 FORMS    += mainwindow.ui

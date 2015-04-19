@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Form Files">
@@ -37,15 +37,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Negos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Oficinas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Peticiones.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="fecha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -55,21 +46,21 @@
     <ClCompile Include="mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="debug\moc_mainwindow.cpp">
+    <ClCompile Include="nego.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="debug\moc_mainwindow.cpp">
-      <Filter>Generated Files</Filter>
+    <ClCompile Include="oficina.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="debug\moc_mainwindow.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="debug\moc_mainwindow.cpp">
-      <Filter>Generated Files</Filter>
+    <ClCompile Include="peticion.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fecha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <CustomBuild Include="mainwindow.h">
@@ -78,7 +69,7 @@
     <ClInclude Include="nego.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="oficinas.h">
+    <ClInclude Include="oficina.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="owner.h">
@@ -88,18 +79,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ui_mainwindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_mainwindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_mainwindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_mainwindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
