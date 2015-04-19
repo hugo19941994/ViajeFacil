@@ -8,6 +8,7 @@ addons:
     packages:
     - qt5-default
     - qttools5-dev-tools
+    - g++-4.9
 
 #install:
   #- sudo apt-get update
