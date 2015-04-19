@@ -29,13 +29,12 @@ set(SOURCE_FILES
     ./../../source/mainwindow.h
     ./../../source/mainwindow.ui
     ./../../source/nego.h
-    ./../../source/negos.cpp
-    ./../../source/oficinas.cpp
-    ./../../source/oficinas.h
+    ./../../source/nego.cpp
+    ./../../source/oficina.cpp
+    ./../../source/oficina.h
     ./../../source/owner.h
     ./../../source/peticion.h
-    ./../../source/peticiones.cpp
-    ./../../source/ui_mainwindow.h)
+    ./../../source/peticion.cpp)
 
 add_executable(ViajeFacil_master ${SOURCE_FILES})
 

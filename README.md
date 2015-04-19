@@ -1,6 +1,6 @@
 # ViajeFacil
 
-[![Build Status](https://magnum.travis-ci.com/hugo19941994/ViajeFacil.svg?token=uZQLRmskW3ypFsCoHyMx&branch=master)](https://magnum.travis-ci.com/hugo19941994/ViajeFacil)
+[![Build Status](https://hugofs.com/jenkins/job/ViajeFacil/badge/icon)](https://hugofs.com/jenkins/job/ViajeFacil)
 
 Software para gestionar agencias de vuelos
 

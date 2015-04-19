@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ViajeFacil
 TEMPLATE = app
 CONFIG += c++11
-
+QMAKE_CXXFLAGS += -fpermissive
 
 SOURCES += ../../source/fecha.cpp \
     ../../source/main.cpp \
@@ -26,7 +26,6 @@ HEADERS  += ../../source/fecha.h \
     ../../source/nego.h \
     ../../source/oficina.h \
     ../../source/owner.h \
-    ../../source/peticion.h \
-    ../../source/ui_mainwindow.h
+    ../../source/peticion.h
 
 FORMS    += ../../source/mainwindow.ui

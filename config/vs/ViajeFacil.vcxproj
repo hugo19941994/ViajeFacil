@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{88A46A33-697D-34A1-8996-0C6F04F3E1EE}</ProjectGuid>
+    <ProjectGuid>{222F31F5-A5F6-3132-86C4-49541B089D0B}</ProjectGuid>
     <RootNamespace>ViajeFacil</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
@@ -147,11 +147,11 @@
     <ClInclude Include="..\..\source\header.h" />
     <CustomBuild Include="..\..\source\mainwindow.h">
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\source\mainwindow.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -I&quot;D:/Users/Hugo/Desktop/git/ViajeFacil - Copy/config/qt&quot; -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o release\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Users/Hugo/Desktop/git/ViajeFacil/config/qt -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o release\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC ..\..\source\mainwindow.h</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_mainwindow.cpp;%(Outputs)</Outputs>
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\source\mainwindow.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -I&quot;D:/Users/Hugo/Desktop/git/ViajeFacil - Copy/config/qt&quot; -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o debug\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Users/Hugo/Desktop/git/ViajeFacil/config/qt -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o debug\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC ..\..\source\mainwindow.h</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_mainwindow.cpp;%(Outputs)</Outputs>
     </CustomBuild>
@@ -159,7 +159,6 @@
     <ClInclude Include="..\..\source\oficina.h" />
     <ClInclude Include="..\..\source\owner.h" />
     <ClInclude Include="..\..\source\peticion.h" />
-    <ClInclude Include="..\..\source\ui_mainwindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="debug\moc_mainwindow.cpp">
