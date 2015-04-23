@@ -1,5 +1,67 @@
 #include "header.h"
+#include "peticion.h"
 
+Peticion::Peticion(){
+	this->id = -1;
+	this->origen = "";
+	this->destino = "";
+	this->fecha = Fecha::Fecha();
+	this->plazasPedidas = -1;
+}
+
+Peticion::Peticion(size_t id, QString origen, QString destino, Fecha fecha, size_t plazasPedidas){
+	this->id = id;
+	this->origen = origen;
+	this->destino = destino;
+	this->fecha = fecha;
+	this->plazasPedidas = plazasPedidas;
+}
+
+Peticion::~Peticion(){
+
+}
+
+void Peticion::setId(size_t){
+	this->id = id;
+}
+
+void Peticion::setOrigen(QString){
+	this->origen = origen;
+}
+
+void Peticion::setDestino(QString){
+	this->destino = destino;
+}
+
+void Peticion::setFecha(Fecha){
+	this->fecha = fecha;
+}
+
+void Peticion::setPlazasPedidas(size_t){
+	this->plazasPedidas = plazasPedidas;
+}
+
+size_t Peticion::getId(){
+	return this->id;
+}
+
+QString Peticion::getOrigen(){
+	return this->origen;
+}
+
+QString Peticion::getDestino(){
+	return this->destino;
+}
+
+Fecha Peticion::getFecha(){
+	return this->fecha;
+}
+
+size_t Peticion::getPlazasPedidas(){
+	return this->plazasPedidas;
+}
+
+//implementacion vieja - quitar
 void oficina(owners *listaOwners) {
 	int opcion;
 

@@ -39,45 +39,45 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    //Main viejo
-    int opcion;
-    owners listaOwners[MAXOWNERS];
+//    //Main viejo
+//    int opcion;
+//    owners listaOwners[MAXOWNERS];
 
-    listaOwners[0].id = 0;
-    listaOwners[0].nombre = "El Corte Ingles";
+//    listaOwners[0].id = 0;
+//    listaOwners[0].nombre = "El Corte Ingles";
 
-    listaOwners[1].id = 1;
-    listaOwners[1].nombre = "Halcon Viajes";
+//    listaOwners[1].id = 1;
+//    listaOwners[1].nombre = "Halcon Viajes";
 
-    do {
-      system("CLS");
-      std::cout << "********** BIENVENIDO A LA AGENCIA MAS ORGANIZADA DEL MUNDO **********" << std::endl << std::endl << std::endl;
-      std::cout << "********** Menu Principal **********" << std::endl << std::endl;
-      std::cout << "Pulse 1 para acceder a Negos" << std::endl;
-      std::cout << "Pulse 2 para acceder a Oficinas" << std::endl;
-      std::cout << "Pulse 3 para acceder a Peticiones" << std::endl;
-      std::cout << "Pulse 0 para salir" << std::endl << std::endl;
-      std::cin >> opcion;
-      std::cout << std::endl;
+//    do {
+//      system("CLS");
+//      std::cout << "********** BIENVENIDO A LA AGENCIA MAS ORGANIZADA DEL MUNDO **********" << std::endl << std::endl << std::endl;
+//      std::cout << "********** Menu Principal **********" << std::endl << std::endl;
+//      std::cout << "Pulse 1 para acceder a Negos" << std::endl;
+//      std::cout << "Pulse 2 para acceder a Oficinas" << std::endl;
+//      std::cout << "Pulse 3 para acceder a Peticiones" << std::endl;
+//      std::cout << "Pulse 0 para salir" << std::endl << std::endl;
+//      std::cin >> opcion;
+//      std::cout << std::endl;
 
-      switch (opcion) {
-        case 1:
-          std::cout << "Estas dentro de Compania" << std::endl << std::endl;
-          menuNegos(&listaOwners[0]);
-          std::cout << std::endl << std::endl;
-          break;
-        case 2:  std::cout << "Estas dentro de Owners" << std::endl;
-          gestionarOficinas(&listaOwners[0]);
-          break;
-		case 3:  std::cout << "Estas dentro de Oficina" << std::endl;
-          oficina(&listaOwners[0]);
-          break;
-      }
-    } while (opcion != 0);
+//      switch (opcion) {
+//        case 1:
+//          std::cout << "Estas dentro de Compania" << std::endl << std::endl;
+//          menuNegos(&listaOwners[0]);
+//          std::cout << std::endl << std::endl;
+//          break;
+//        case 2:  std::cout << "Estas dentro de Owners" << std::endl;
+//          gestionarOficinas(&listaOwners[0]);
+//          break;
+//		case 3:  std::cout << "Estas dentro de Oficina" << std::endl;
+//          oficina(&listaOwners[0]);
+//          break;
+//      }
+//    } while (opcion != 0);
 
-	std::cout << "Ha sido un placer, que tenga un buen dia!" << std::endl;
+//	std::cout << "Ha sido un placer, que tenga un buen dia!" << std::endl;
 
-    system("Pause");
+//    system("Pause");
 
     return a.exec();
 }

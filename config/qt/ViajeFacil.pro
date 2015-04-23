@@ -18,7 +18,8 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/mainwindow.cpp \
     ../../source/nego.cpp \
     ../../source/oficina.cpp \
-    ../../source/peticion.cpp
+    ../../source/peticion.cpp \
+    ../../source/mainwindow2.cpp
 
 HEADERS  += ../../source/fecha.h \
     ../../source/header.h \
@@ -26,6 +27,8 @@ HEADERS  += ../../source/fecha.h \
     ../../source/nego.h \
     ../../source/oficina.h \
     ../../source/owner.h \
-    ../../source/peticion.h
+    ../../source/peticion.h \
+    ../../source/mainwindow2.h
 
-FORMS    += ../../source/mainwindow.ui
+FORMS    += ../../source/mainwindow.ui \
+    ../../source/mainwindow2.ui

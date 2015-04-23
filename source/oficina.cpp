@@ -1,5 +1,53 @@
 #include "header.h"
+#include "oficina.h"
 
+Oficina::Oficina(){
+	this->nombre = "";
+	this->id = -1;
+	this->pais = "";
+	this->continente = "";
+}
+
+Oficina::Oficina(QString nombre, size_t id, QString pais, QString continente){
+	this->nombre = nombre;
+	this->id = id;
+	this->pais = pais;
+	this->continente = continente;
+}
+
+void Oficina::setNombre(QString nombre){
+	this->nombre = nombre;
+}
+
+void Oficina::setId(size_t id){
+	this->id = id;
+}
+
+void Oficina::setPais(QString pais){
+	this->pais = pais;
+}
+
+void Oficina::setContinente(QString continente){
+	this->continente = continente;
+}
+
+QString Oficina::getNombre(){
+	return this->nombre;
+}
+
+int Oficina::getId(){
+    return this->id;
+}
+
+QString Oficina::getPais(){
+    return this->pais;
+}
+
+QString Oficina::getContinente(){
+    return this->continente;
+}
+
+//Implementacion veija - quitar
 void gestionarOficinas(owners *listaOwners){
 	int opcion;
 	do {
