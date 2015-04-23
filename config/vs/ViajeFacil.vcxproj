@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{83C8DEE9-E004-3BF5-9EA5-F410E1ECC4E8}</ProjectGuid>
+    <ProjectGuid>{B315ECCF-EADC-3EDD-BF3A-10DE5C3D3CC2}</ProjectGuid>
     <RootNamespace>ViajeFacil</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
   </PropertyGroup>
@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
     <ClCompile>
-      <AdditionalIncludeDirectories>&quot;.&quot;;&quot;C:\Qt\5.4\msvc2013_64\include&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtWidgets&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtGui&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtANGLE&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtCore&quot;;&quot;release&quot;;&quot;.&quot;;&quot;C:\Qt\5.4\msvc2013_64\mkspecs\win32-msvc2013&quot;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>&quot;.&quot;;&quot;D:\Qt\5.4\msvc2013_64\include&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtWidgets&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtGui&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtANGLE&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtCore&quot;;&quot;release&quot;;&quot;.&quot;;&quot;D:\Qt\5.4\msvc2013_64\mkspecs\win32-msvc2013&quot;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm200 -Zc:strictStrings -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -74,8 +74,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>C:\Qt\5.4\msvc2013_64\lib\qtmain.lib;shell32.lib;C:\Qt\5.4\msvc2013_64\lib\Qt5Widgets.lib;C:\Qt\5.4\msvc2013_64\lib\Qt5Gui.lib;C:\Qt\5.4\msvc2013_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Qt\5.4\msvc2013_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\Qt\5.4\msvc2013_64\lib\qtmain.lib;shell32.lib;D:\Qt\5.4\msvc2013_64\lib\Qt5Widgets.lib;D:\Qt\5.4\msvc2013_64\lib\Qt5Gui.lib;D:\Qt\5.4\msvc2013_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Qt\5.4\msvc2013_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -97,7 +97,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
     <ClCompile>
-      <AdditionalIncludeDirectories>&quot;.&quot;;&quot;C:\Qt\5.4\msvc2013_64\include&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtWidgets&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtGui&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtANGLE&quot;;&quot;C:\Qt\5.4\msvc2013_64\include\QtCore&quot;;&quot;debug&quot;;&quot;.&quot;;&quot;C:\Qt\5.4\msvc2013_64\mkspecs\win32-msvc2013&quot;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>&quot;.&quot;;&quot;D:\Qt\5.4\msvc2013_64\include&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtWidgets&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtGui&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtANGLE&quot;;&quot;D:\Qt\5.4\msvc2013_64\include\QtCore&quot;;&quot;debug&quot;;&quot;.&quot;;&quot;D:\Qt\5.4\msvc2013_64\mkspecs\win32-msvc2013&quot;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zm200 -w34100 -w34189 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -114,8 +114,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>C:\Qt\5.4\msvc2013_64\lib\qtmaind.lib;shell32.lib;C:\Qt\5.4\msvc2013_64\lib\Qt5Widgetsd.lib;C:\Qt\5.4\msvc2013_64\lib\Qt5Guid.lib;C:\Qt\5.4\msvc2013_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Qt\5.4\msvc2013_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>D:\Qt\5.4\msvc2013_64\lib\qtmaind.lib;shell32.lib;D:\Qt\5.4\msvc2013_64\lib\Qt5Widgetsd.lib;D:\Qt\5.4\msvc2013_64\lib\Qt5Guid.lib;D:\Qt\5.4\msvc2013_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Qt\5.4\msvc2013_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\fecha.cpp" />
+    <ClCompile Include="..\..\source\login.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
     <ClCompile Include="..\..\source\mainwindow.cpp" />
     <ClCompile Include="..\..\source\nego.cpp" />
@@ -145,13 +146,23 @@
   <ItemGroup>
     <ClInclude Include="..\..\source\fecha.h" />
     <ClInclude Include="..\..\source\header.h" />
+    <CustomBuild Include="..\..\source\login.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\source\login.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Users/Hugo/Desktop/ViajeFacil/config/qt -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\login.h -o release\moc_login.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC ..\..\source\login.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_login.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\source\login.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Users/Hugo/Desktop/ViajeFacil/config/qt -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\login.h -o debug\moc_login.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC ..\..\source\login.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_login.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
     <CustomBuild Include="..\..\source\mainwindow.h">
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\source\mainwindow.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/Hugo/Desktop/ViajeFacil/config/qt -IC:/Qt/5.4/msvc2013_64/include -IC:/Qt/5.4/msvc2013_64/include/QtWidgets -IC:/Qt/5.4/msvc2013_64/include/QtGui -IC:/Qt/5.4/msvc2013_64/include/QtANGLE -IC:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o release\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Users/Hugo/Desktop/ViajeFacil/config/qt -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o release\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC ..\..\source\mainwindow.h</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_mainwindow.cpp;%(Outputs)</Outputs>
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\source\mainwindow.h;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -IC:/Users/Hugo/Desktop/ViajeFacil/config/qt -IC:/Qt/5.4/msvc2013_64/include -IC:/Qt/5.4/msvc2013_64/include/QtWidgets -IC:/Qt/5.4/msvc2013_64/include/QtGui -IC:/Qt/5.4/msvc2013_64/include/QtANGLE -IC:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o debug\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -ID:/Qt/5.4/msvc2013_64/mkspecs/win32-msvc2013 -ID:/Users/Hugo/Desktop/ViajeFacil/config/qt -ID:/Qt/5.4/msvc2013_64/include -ID:/Qt/5.4/msvc2013_64/include/QtWidgets -ID:/Qt/5.4/msvc2013_64/include/QtGui -ID:/Qt/5.4/msvc2013_64/include/QtANGLE -ID:/Qt/5.4/msvc2013_64/include/QtCore ..\..\source\mainwindow.h -o debug\moc_mainwindow.cpp&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC ..\..\source\mainwindow.h</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_mainwindow.cpp;%(Outputs)</Outputs>
     </CustomBuild>
@@ -161,23 +172,41 @@
     <ClInclude Include="..\..\source\peticion.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="debug\moc_login.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_login.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="release\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
     </ClCompile>
+    <ClInclude Include="ui_login.h" />
     <ClInclude Include="ui_mainwindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="..\..\source\login.ui">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\source\login.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\uic.exe ..\..\source\login.ui -o ui_login.h&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">UIC ..\..\source\login.ui</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">ui_login.h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\source\login.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\uic.exe ..\..\source\login.ui -o ui_login.h&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">UIC ..\..\source\login.ui</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">ui_login.h;%(Outputs)</Outputs>
+    </CustomBuild>
     <CustomBuild Include="..\..\source\mainwindow.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\source\mainwindow.ui;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt\5.4\msvc2013_64\bin\uic.exe ..\..\source\mainwindow.ui -o ui_mainwindow.h&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\uic.exe ..\..\source\mainwindow.ui -o ui_mainwindow.h&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">UIC ..\..\source\mainwindow.ui</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">ui_mainwindow.h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\source\mainwindow.ui;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;C:\Qt\5.4\msvc2013_64\bin\uic.exe ..\..\source\mainwindow.ui -o ui_mainwindow.h&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">setlocal&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;D:\Qt\5.4\msvc2013_64\bin\uic.exe ..\..\source\mainwindow.ui -o ui_mainwindow.h&#x000D;&#x000A;if errorlevel 1 goto VCEnd&#x000D;&#x000A;endlocal</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">UIC ..\..\source\mainwindow.ui</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">ui_mainwindow.h;%(Outputs)</Outputs>
     </CustomBuild>

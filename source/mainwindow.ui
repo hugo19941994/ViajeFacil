@@ -6,76 +6,106 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>437</width>
-    <height>274</height>
+    <width>545</width>
+    <height>356</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
+  <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_4">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Buscar Id:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Aceptar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>Login</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
            <string>Usuario:</string>
           </property>
-          <property name="buddy">
-           <cstring>lineEdit_2</cstring>
-          </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_2"/>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>Contraseña:</string>
-          </property>
-          <property name="buddy">
-           <cstring>lineEdit_4</cstring>
+           <string>TextLabel</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_4">
-          <property name="inputMethodHints">
-           <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
-          </property>
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-          <property name="clearButtonEnabled">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>Iniciar Sesión</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="text">
-           <string>Cerrar Sesión</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Nego</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListView" name="listView"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Oficina</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListView" name="listView_2"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Peticiones</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListView" name="listView_3"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -83,66 +113,128 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>545</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuCrear">
+    <property name="title">
+     <string>Crear</string>
+    </property>
+    <addaction name="actionOwner"/>
+    <addaction name="actionNego"/>
+    <addaction name="actionOficina"/>
+    <addaction name="actionPeticion"/>
+   </widget>
+   <widget class="QMenu" name="menuBorrar">
+    <property name="title">
+     <string>Borrar</string>
+    </property>
+    <addaction name="actionOwner_2"/>
+    <addaction name="actionNego_2"/>
+    <addaction name="actionOficina_2"/>
+    <addaction name="actionPeticion_2"/>
+   </widget>
+   <widget class="QMenu" name="menuModificar">
+    <property name="title">
+     <string>Modificar</string>
+    </property>
+    <addaction name="actionNego_3"/>
+    <addaction name="actionNego_4"/>
+    <addaction name="actionOficina_3"/>
+    <addaction name="actionPeticion_3"/>
+   </widget>
+   <addaction name="menuCrear"/>
+   <addaction name="menuBorrar"/>
+   <addaction name="menuModificar"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNego">
+   <property name="text">
+    <string>Nego</string>
+   </property>
+  </action>
+  <action name="actionOficina">
+   <property name="text">
+    <string>Oficina</string>
+   </property>
+  </action>
+  <action name="actionPeticion">
+   <property name="text">
+    <string>Peticion</string>
+   </property>
+  </action>
+  <action name="actionOwner">
+   <property name="text">
+    <string>Owner</string>
+   </property>
+  </action>
+  <action name="actionOwner_2">
+   <property name="text">
+    <string>Owner</string>
+   </property>
+  </action>
+  <action name="actionNego_2">
+   <property name="text">
+    <string>Nego</string>
+   </property>
+  </action>
+  <action name="actionOficina_2">
+   <property name="text">
+    <string>Oficina</string>
+   </property>
+  </action>
+  <action name="actionPeticion_2">
+   <property name="text">
+    <string>Peticion</string>
+   </property>
+  </action>
+  <action name="actionNego_3">
+   <property name="text">
+    <string>Owner</string>
+   </property>
+  </action>
+  <action name="actionNego_4">
+   <property name="text">
+    <string>Nego</string>
+   </property>
+  </action>
+  <action name="actionOficina_3">
+   <property name="text">
+    <string>Oficina</string>
+   </property>
+  </action>
+  <action name="actionPeticion_3">
+   <property name="text">
+    <string>Peticion</string>
+   </property>
+  </action>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
- <tabstops>
-  <tabstop>lineEdit_2</tabstop>
-  <tabstop>lineEdit_4</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_2</tabstop>
- </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>pushButton_2</sender>
    <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
+   <receiver>MainWindow2</receiver>
+   <slot>openLogin()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>386</x>
-     <y>217</y>
+     <x>209</x>
+     <y>43</y>
     </hint>
     <hint type="destinationlabel">
-     <x>322</x>
-     <y>260</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>186</x>
-     <y>213</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>168</x>
-     <y>252</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>openNewWindow2()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>50</x>
-     <y>237</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>66</x>
-     <y>271</y>
+     <x>242</x>
+     <y>60</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>openNewWindow2()</slot>
+  <slot>openLogin()</slot>
  </slots>
 </ui>

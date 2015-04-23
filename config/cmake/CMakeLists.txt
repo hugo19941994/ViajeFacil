@@ -34,7 +34,10 @@ set(SOURCE_FILES
     ./../../source/oficina.h
     ./../../source/owner.h
     ./../../source/peticion.h
-    ./../../source/peticion.cpp)
+    ./../../source/peticion.cpp
+    ./../../source/login.cpp
+    ./../../source/login.h
+    ./../../source/login.ui)
 
 add_executable(ViajeFacil_master ${SOURCE_FILES})
 

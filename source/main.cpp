@@ -28,7 +28,9 @@ Log David:
 	Añadida funcion mostrarPeticiones
 */
 
+//#include "mainwindow.h"
 #include "mainwindow.h"
+#include "login.h"
 #include "header.h"
 #include "fecha.h"
 #include <QApplication>

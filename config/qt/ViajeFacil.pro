@@ -15,20 +15,21 @@ QMAKE_CXXFLAGS += -fpermissive
 
 SOURCES += ../../source/fecha.cpp \
     ../../source/main.cpp \
-    ../../source/mainwindow.cpp \
     ../../source/nego.cpp \
     ../../source/oficina.cpp \
     ../../source/peticion.cpp \
-    ../../source/mainwindow2.cpp
+    ../../source/login.cpp \
+    ../../source/mainwindow.cpp
 
 HEADERS  += ../../source/fecha.h \
     ../../source/header.h \
-    ../../source/mainwindow.h \
     ../../source/nego.h \
     ../../source/oficina.h \
     ../../source/owner.h \
     ../../source/peticion.h \
-    ../../source/mainwindow2.h
+    ../../source/login.h \
+    ../../source/mainwindow.h
 
-FORMS    += ../../source/mainwindow.ui \
-    ../../source/mainwindow2.ui
+FORMS    += \
+    ../../source/login.ui \
+    ../../source/mainwindow.ui
