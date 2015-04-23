@@ -1,5 +1,6 @@
 #include "fecha.h"
 #include <iostream>
+//PROBANDO
 
 /* CONSTRUCTOR FECHA SIN PARÁMETROS */
 Fecha::Fecha()

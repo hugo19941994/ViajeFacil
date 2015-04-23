@@ -69,6 +69,8 @@ Fecha Nego::getFecha(){
 	return this->fecha;
 }
 
+
+
 //Negos viejo - eliminar
 void menuNegos(owners *listaOwners){
 	int opcion;
