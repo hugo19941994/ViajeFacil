@@ -55,6 +55,9 @@
     <ClCompile Include="..\..\source\oficina.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\owner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\source\peticion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

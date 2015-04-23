@@ -2,66 +2,66 @@
 #include "peticion.h"
 
 Peticion::Peticion(){
-	this->id = -1;
-	this->origen = "";
-	this->destino = "";
-	this->fecha = Fecha::Fecha();
-	this->plazasPedidas = -1;
+	this->id_ = -1;
+	this->origen_ = "";
+	this->destino_ = "";
+	this->fecha_ = Fecha::Fecha();
+	this->plazasPedidas_ = -1;
 }
 
 Peticion::Peticion(size_t id, QString origen, QString destino, Fecha fecha, size_t plazasPedidas){
-	this->id = id;
-	this->origen = origen;
-	this->destino = destino;
-	this->fecha = fecha;
-	this->plazasPedidas = plazasPedidas;
+	this->id_ = id;
+	this->origen_ = origen;
+	this->destino_ = destino;
+	this->fecha_ = fecha;
+	this->plazasPedidas_ = plazasPedidas;
 }
 
 Peticion::~Peticion(){
 
 }
 
-void Peticion::setId(size_t){
-	this->id = id;
+void Peticion::setId(size_t id){
+	this->id_ = id;
 }
 
-void Peticion::setOrigen(QString){
-	this->origen = origen;
+void Peticion::setOrigen(QString origen){
+	this->origen_ = origen;
 }
 
-void Peticion::setDestino(QString){
-	this->destino = destino;
+void Peticion::setDestino(QString destino){
+	this->destino_ = destino;
 }
 
-void Peticion::setFecha(Fecha){
-	this->fecha = fecha;
+void Peticion::setFecha(Fecha fecha){
+	this->fecha_ = fecha;
 }
 
-void Peticion::setPlazasPedidas(size_t){
-	this->plazasPedidas = plazasPedidas;
+void Peticion::setPlazasPedidas(size_t plazasPedidas){
+	this->plazasPedidas_ = plazasPedidas;
 }
 
 size_t Peticion::getId(){
-	return this->id;
+	return this->id_;
 }
 
 QString Peticion::getOrigen(){
-	return this->origen;
+	return this->origen_;
 }
 
 QString Peticion::getDestino(){
-	return this->destino;
+	return this->destino_;
 }
 
 Fecha Peticion::getFecha(){
-	return this->fecha;
+	return this->fecha_;
 }
 
 size_t Peticion::getPlazasPedidas(){
-	return this->plazasPedidas;
+	return this->plazasPedidas_;
 }
 
-//implementacion vieja - quitar
+//Implementacion vieja - quitar
 void oficina(owners *listaOwners) {
 	int opcion;
 

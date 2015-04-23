@@ -1,33 +1,33 @@
 #ifndef PETICION_H
 #define PETICION_H
 
-#include "fecha.h"
 #include <QString>
+#include "fecha.h"
 
 class Peticion
 {
 private:
-	size_t id;
-	QString origen;
-	QString destino;
-	Fecha fecha;
-	size_t plazasPedidas;
+	std::size_t id_;
+	QString origen_;
+	QString destino_;
+	Fecha fecha_;
+	std::size_t plazasPedidas_;
 public:
 	Peticion();
-	Peticion(size_t, QString, QString, Fecha, size_t);
+	Peticion(std::size_t id, QString origen, QString destino, Fecha fecha, std::size_t plazasPedidas);
 	~Peticion();
 
-	void setId(size_t);
-	void setOrigen(QString);
-	void setDestino(QString);
-	void setFecha(Fecha);
-	void setPlazasPedidas(size_t);
+	void setId(std::size_t id);
+	void setOrigen(QString origen);
+	void setDestino(QString destino);
+	void setFecha(Fecha fecha);
+	void setPlazasPedidas(std::size_t plazasPedidas);
 
-	size_t getId();
+	std::size_t getId();
 	QString getOrigen();
 	QString getDestino();
 	Fecha getFecha();
-	size_t getPlazasPedidas();
+	std::size_t getPlazasPedidas();
 };
 
 #endif // PETICION_H

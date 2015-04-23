@@ -2,19 +2,19 @@
 #include "nego.h"
 
 Nego::Nego() {
-	this->origen = "";
-	this->destino = "";
-	this->id = -1;
-	this->numeroPlazas = 0;
-	this->fecha = Fecha(-1, -1, -1);
+	this->origen_ = "";
+	this->destino_ = "";
+	this->id_ = -1;
+	this->numeroPlazas_ = 0;
+	this->fecha_ = Fecha(-1, -1, -1);
 }
 
 Nego::Nego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
-	this->origen = origen;
-	this->destino = destino;
-	this->id = id;
-	this->numeroPlazas = numeroPlazas;
-	this->fecha = fecha;
+	this->origen_ = origen;
+	this->destino_ = destino;
+	this->id_ = id;
+	this->numeroPlazas_ = numeroPlazas;
+	this->fecha_ = fecha;
 }
 
 Nego::~Nego() {
@@ -22,51 +22,51 @@ Nego::~Nego() {
 }
 
 void Nego::setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha) {
-	this->origen = origen;
-	this->destino = destino;
-	this->id = id;
-	this->numeroPlazas = numeroPlazas;
-	this->fecha = fecha;
+	this->origen_ = origen;
+	this->destino_ = destino;
+	this->id_ = id;
+	this->numeroPlazas_ = numeroPlazas;
+	this->fecha_ = fecha;
 }
 
 void Nego::setOrigen(QString origen){
-	this->origen = origen;
+	this->origen_ = origen;
 }
 
 void Nego::setDestino(QString destino){
-	this->destino = destino;
+	this->destino_ = destino;
 }
 
 void Nego::setId(int id){
-	this->id = id;
+	this->id_ = id;
 }
 
 void Nego::setNumeroPlazas(int numeroPlazas){
-	this->numeroPlazas = numeroPlazas;
+	this->numeroPlazas_ = numeroPlazas;
 }
 
 void Nego::setFecha(Fecha fecha){
-	this->fecha = fecha;
+	this->fecha_ = fecha;
 }
 
 QString Nego::getOrigen(){
-	return this->origen;
+	return this->origen_;
 }
 
 QString Nego::getDestino(){
-	return this->destino;
+	return this->destino_;
 }
 
 int Nego::getId(){
-	return this->id;
+	return this->id_;
 }
 
 int Nego::getNumeroPlazas(){
-	return this->numeroPlazas;
+	return this->numeroPlazas_;
 }
 
 Fecha Nego::getFecha(){
-	return this->fecha;
+	return this->fecha_;
 }
 
 

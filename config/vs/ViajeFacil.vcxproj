@@ -141,6 +141,7 @@
     <ClCompile Include="..\..\source\mainwindow.cpp" />
     <ClCompile Include="..\..\source\nego.cpp" />
     <ClCompile Include="..\..\source\oficina.cpp" />
+    <ClCompile Include="..\..\source\owner.cpp" />
     <ClCompile Include="..\..\source\peticion.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,21 +1,21 @@
 #ifndef NEGO_H
 #define NEGO_H
 
-#include "fecha.h"
 #include <QString>
+#include "fecha.h"
 
 class Nego
 {
 private:
-    QString origen;
-    QString destino;
-    int id;
-    int numeroPlazas;
-    Fecha fecha;
+    QString origen_;
+    QString destino_;
+    int id_;
+    int numeroPlazas_;
+    Fecha fecha_;
 
 public:
     Nego();
-    Nego(QString, QString, int, int, Fecha);
+	Nego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha);
     ~Nego();
 
     void setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha);

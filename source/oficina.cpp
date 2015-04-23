@@ -2,50 +2,61 @@
 #include "oficina.h"
 
 Oficina::Oficina(){
-	this->nombre = "";
-	this->id = -1;
-	this->pais = "";
-	this->continente = "";
+	this->nombre_ = "";
+	this->id_ = -1;
+	this->pais_ = "";
+	this->continente_ = "";
+	this->peticiones_.resize(0);
 }
 
-Oficina::Oficina(QString nombre, size_t id, QString pais, QString continente){
-	this->nombre = nombre;
-	this->id = id;
-	this->pais = pais;
-	this->continente = continente;
+Oficina::Oficina(QString nombre, size_t id, QString pais, QString continente , std::size_t tPeticiones){
+	this->nombre_ = nombre;
+	this->id_ = id;
+	this->pais_ = pais;
+	this->continente_ = continente;
+	this->peticiones_.resize(tPeticiones);
+}
+
+Oficina::~Oficina(){
+
 }
 
 void Oficina::setNombre(QString nombre){
-	this->nombre = nombre;
+	this->nombre_ = nombre;
 }
 
 void Oficina::setId(size_t id){
-	this->id = id;
+	this->id_ = id;
 }
 
 void Oficina::setPais(QString pais){
-	this->pais = pais;
+	this->pais_ = pais;
 }
 
 void Oficina::setContinente(QString continente){
-	this->continente = continente;
+	this->continente_ = continente;
 }
 
 QString Oficina::getNombre(){
-	return this->nombre;
+	return this->nombre_;
 }
 
 int Oficina::getId(){
-    return this->id;
+    return this->id_;
 }
 
 QString Oficina::getPais(){
-    return this->pais;
+    return this->pais_;
 }
 
 QString Oficina::getContinente(){
-    return this->continente;
+    return this->continente_;
 }
+
+//Implementar
+//std::vector<Peticion>& getPeticiones(){
+//	return this->peticiones_;
+//}
 
 //Implementacion veija - quitar
 void gestionarOficinas(owners *listaOwners){

@@ -1,20 +1,19 @@
-#include "fecha.h"
 #include <iostream>
-//PROBANDO
+#include "fecha.h"
 
 /* CONSTRUCTOR FECHA SIN PARÁMETROS */
 Fecha::Fecha()
 {
-    this->dia=1;
-    this->mes=1;
-    this->anio=1;
+    this->dia_=1;
+    this->mes_=1;
+    this->anio_=1;
 }
 
 /* CONSTRUCTOR FECHA CON PARÁMETROS */
-Fecha::Fecha(size_t pDia,size_t pMes,int pAnio){
-  this->dia=pDia;
-  this->mes=pMes;
-  this->anio=pAnio;
+Fecha::Fecha(size_t dia,size_t mes,int anio){
+  this->dia_=dia;
+  this->mes_=mes;
+  this->anio_=anio;
 }
 
 /* DESTRUCTOR (al destruirse el objeto) */
@@ -23,29 +22,29 @@ Fecha::~Fecha(){
 }
 
 /* MÉTODOS SET Y GET */
-void Fecha::setFecha(size_t pDia,size_t pMes,int pAnio){
-  this->dia = pDia;
-  this->mes = pMes;
-  this->anio = pAnio;
+void Fecha::setFecha(size_t dia,size_t mes,int anio){
+  this->dia_ = dia;
+  this->mes_ = mes;
+  this->anio_ = anio;
 }
 
-void Fecha::setDia(size_t pDia){
-  this->dia = pDia;
+void Fecha::setDia(size_t dia){
+  this->dia_ = dia;
 };
-void Fecha::setMes(size_t pMes){
-  this->mes = pMes;
+void Fecha::setMes(size_t mes){
+  this->mes_ = mes;
 }
-void Fecha::setAnio(int pAnio){
-  this->dia = pAnio;
+void Fecha::setAnio(int anio){
+  this->dia_ = anio;
 }
 size_t Fecha::getDia() {
-  return this->dia;
+  return this->dia_;
 }
 size_t Fecha::getMes() {
-  return this->mes;
+  return this->mes_;
 }
 int Fecha::getAnio() {
-  return this->anio;
+  return this->anio_;
 }
 
 //Quitar
@@ -55,21 +54,21 @@ Fecha Fecha::pedirFecha() {
 		std::cin.clear();
 		std::cin.sync();
 		std::cout << "Introduce el dia:  ";
-		std::cin >> this->dia;
+		std::cin >> this->dia_;
 	} while (!std::cin.good());
 
 	do {
 		std::cin.clear();
 		std::cin.sync();
 		std::cout << "Introduce el mes:  ";
-		std::cin >> this->mes;
+		std::cin >> this->mes_;
 	} while (!std::cin.good());
 
 	do {
 		std::cin.clear();
 		std::cin.sync();
 		std::cout << "Introduce el anio:  ";
-		std::cin >> this->anio;
+		std::cin >> this->anio_;
 	} while (!std::cin.good());
 
 	return *this;
@@ -77,7 +76,7 @@ Fecha Fecha::pedirFecha() {
 
 void Fecha::mostrarFecha(Fecha fecha){
 	std::cout << "Fecha: ";
-	std::cout << "Dia " << fecha.dia << " ";
-	std::cout << "Mes " << fecha.mes << " ";
-	std::cout << "Anio " << fecha.anio << std::endl;
+	std::cout << "Dia " << fecha.dia_ << " ";
+	std::cout << "Mes " << fecha.mes_ << " ";
+	std::cout << "Anio " << fecha.anio_ << std::endl;
 }

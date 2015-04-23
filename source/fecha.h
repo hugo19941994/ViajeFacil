@@ -6,22 +6,22 @@
 class Fecha
 {
 private:
-  size_t dia;
-  size_t mes;
-  int anio; //Año puede ser negativo??
+  std::size_t dia_;
+  std::size_t mes_;
+  int anio_; //Año puede ser negativo??
 
 public:
   Fecha();
-  Fecha(size_t, size_t, int);
+  Fecha(std::size_t dia, std::size_t mes, int anio);
   ~Fecha();
 
-  void setFecha(size_t pDia, size_t pMes, int pAnio);
-  void setDia(size_t pDia);
-  void setMes(size_t pMes);
-  void setAnio(int pAnio);
+  void setFecha(std::size_t dia, size_t mes, int anio);
+  void setDia(std::size_t dia);
+  void setMes(std::size_t mes);
+  void setAnio(int anio);
 
-  size_t getDia();
-  size_t getMes();
+  std::size_t getDia();
+  std::size_t getMes();
   int getAnio();
 
   //Quitar

@@ -19,6 +19,7 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/oficina.cpp \
     ../../source/peticion.cpp \
     ../../source/login.cpp \
+    ../../source/owner.cpp \
     ../../source/mainwindow.cpp
 
 HEADERS  += ../../source/fecha.h \

@@ -2,26 +2,25 @@
 #define OFICINA_H
 
 #include <QString>
+#include <vector>
+#include "peticion.h"
 
 class Oficina
 {
 private:
-	QString nombre;
-	size_t id;
-	QString pais;
-	QString continente;
-	//peticiones peticiones[MAXPETICIONES];
-	//int contPeticiones;
-	//int historial[1024];
-	//int contHistorial = 0;
+	QString nombre_;
+	std::size_t id_;
+	QString pais_;
+	QString continente_;
+	std::vector<Peticion> peticiones_;
 
 public:
 	Oficina();
-	Oficina(QString, size_t, QString, QString);
+	Oficina(QString nombre, std::size_t id, QString pais, QString continente, std::size_t tPeticiones);
 	~Oficina();
 
 	void setNombre(QString);
-	void setId(size_t);
+	void setId(std::size_t);
 	void setPais(QString);
 	void setContinente(QString);
 
@@ -29,6 +28,8 @@ public:
 	int getId();
 	QString getPais();
 	QString getContinente();
+	std::vector<Peticion>* getPeticiones();
+
 };
 
 #endif // OFICINA_H
