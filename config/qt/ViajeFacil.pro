@@ -20,7 +20,8 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/peticion.cpp \
     ../../source/login.cpp \
     ../../source/owner.cpp \
-    ../../source/mainwindow.cpp
+    ../../source/mainwindow.cpp \
+    ../../source/bcrypt.cpp
 
 HEADERS  += ../../source/fecha.h \
     ../../source/header.h \
@@ -29,7 +30,8 @@ HEADERS  += ../../source/fecha.h \
     ../../source/owner.h \
     ../../source/peticion.h \
     ../../source/login.h \
-    ../../source/mainwindow.h
+    ../../source/mainwindow.h \
+    ../../souurce/bcrypt.h
 
 FORMS    += \
     ../../source/login.ui \
