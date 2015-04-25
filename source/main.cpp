@@ -28,13 +28,6 @@ TODO:
 
 int main(int argc, char *argv[])
 {
-    Owner* iberia = new Owner;
-	iberia->getOficinas().at(0).setNombre("Oficina1");
-	iberia->getOficinas().at(0).setId(9);
-	iberia->getOficinas().at(0).setPais("España");
-
-   std::vector<Owner> listaOwners;
-
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
