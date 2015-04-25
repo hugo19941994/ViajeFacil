@@ -25,10 +25,10 @@ public:
 	void setContinente(QString);
 
 	QString getNombre();
-	int getId();
+    std::size_t getId();
 	QString getPais();
 	QString getContinente();
-	std::vector<Peticion>* getPeticiones();
+    std::vector<Peticion> &getPeticiones();
 
 };
 

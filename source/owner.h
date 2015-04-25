@@ -23,8 +23,9 @@ public:
 
 	QString getNombre();
 	std::size_t getID();
-	std::vector<Nego>* getNegos(); //Ver como implementar
-	std::vector<Oficina>* getOficinas();
+
+	std::vector<Nego> &getNegos();
+	std::vector<Oficina> &getOficinas();
 };
 
 #endif // OWNER_H

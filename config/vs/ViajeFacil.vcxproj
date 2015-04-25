@@ -135,6 +135,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\bcrypt.cpp" />
     <ClCompile Include="..\..\source\fecha.cpp" />
     <ClCompile Include="..\..\source\login.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
@@ -145,6 +146,7 @@
     <ClCompile Include="..\..\source\peticion.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\source\bcrypt.h" />
     <ClInclude Include="..\..\source\fecha.h" />
     <ClInclude Include="..\..\source\header.h" />
     <CustomBuild Include="..\..\source\login.h">

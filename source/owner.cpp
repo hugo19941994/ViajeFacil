@@ -4,7 +4,8 @@
 Owner::Owner(){
 	this->nombre_ = "";
 	this->id_ = -1;
-	this->negos_.resize(0);
+	this->negos_.resize(1);
+	this->oficinas_.resize(1);
 }
 
 Owner::Owner(QString nombre, std::size_t id, std::size_t tNegos, std::size_t tOficinas){
@@ -34,11 +35,6 @@ std::size_t Owner::getID(){
 	return this->id_;
 }
 
-//Implementar
-//std::vector<Nego>& getNegos(){
-//	return this->negos_;
-//}
-//
-//std::vector<Oficina>& getOficinas(){
-//	return this->oficina_;
-//}
+std::vector<Oficina> &Owner::getOficinas() { return this->oficinas_; }
+
+std::vector<Nego> &Owner::getNegos() { return this->negos_; }

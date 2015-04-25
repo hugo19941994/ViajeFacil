@@ -14,29 +14,27 @@ Descripcion:
 	Peticiones:	Viajes que piden las oficinas
 TODO:
 	Hay que hacer que cuando se aproxime a la fecha del vuelo, se le quite un 20% de peticiones a las oficinas
-	En las funciones de borrar oficinas y negos, borras el contenido pero dejas el hueco en el array
-	Al entrar eb oficinas no se que tengo que hacer??
-	El log de peticiones ??
-Log David:
-	En general he añadido espacios entre variables y operadores a = 1 en vez de a=1 y lo mismo con cout<< y cin
-	En las funciones de modificar y borrar nego, he cambiado la parte de mostrar los negos por la funcion que ya tenías, consultar negos
-	En las funciones de modificar y borrar oficinas, lo mismo que en la anterior
-	He creado una funcion para pedir la fecha, en lugar de repetir en crearNego y modificarNego el mismo código
-	He creado otra función para mostrar un tFecha, en lugar de poner en todas las funciones dia, mes y anyo
-	He creado una funcion que inicializa todos los campos en las listas, aunque como solo vas a utilizar la id para las comparaciones bastaria con inicializar ese campo
-	Para las peticiones utilizo una lista con contador, es el array normal de peticiones y un contador que se incrementa cada vez que introduces un nuevo dato
-	Añadida funcion mostrarPeticiones
+	El log de peticiones
 */
 
-//#include "mainwindow.h"
 #include "mainwindow.h"
 #include "login.h"
 #include "header.h"
 #include "fecha.h"
+#include "owner.h"
+#include "oficina.h"
+#include "vector"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
+    Owner* iberia = new Owner;
+	iberia->getOficinas().at(0).setNombre("Oficina1");
+	iberia->getOficinas().at(0).setId(9);
+	iberia->getOficinas().at(0).setPais("España");
+
+   std::vector<Owner> listaOwners;
+
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

@@ -16,6 +16,13 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_4">
     <item>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="text">
+       <string>Refresh</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <layout class="QGridLayout" name="gridLayout">
       <item row="2" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -73,7 +80,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QListView" name="listView"/>
+             <widget class="QListWidget" name="listWidget"/>
             </item>
            </layout>
           </item>
@@ -130,6 +137,7 @@
     <addaction name="actionNego"/>
     <addaction name="actionOficina"/>
     <addaction name="actionPeticion"/>
+    <addaction name="actionUsuario"/>
    </widget>
    <widget class="QMenu" name="menuBorrar">
     <property name="title">
@@ -156,22 +164,22 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNego">
    <property name="text">
-    <string>Nego</string>
+    <string>Crear Nego</string>
    </property>
   </action>
   <action name="actionOficina">
    <property name="text">
-    <string>Oficina</string>
+    <string>Crear Oficina</string>
    </property>
   </action>
   <action name="actionPeticion">
    <property name="text">
-    <string>Peticion</string>
+    <string>Crear Peticion</string>
    </property>
   </action>
   <action name="actionOwner">
    <property name="text">
-    <string>Owner</string>
+    <string>Crear Owner</string>
    </property>
   </action>
   <action name="actionOwner_2">
@@ -214,26 +222,14 @@
     <string>Peticion</string>
    </property>
   </action>
+  <action name="actionUsuario">
+   <property name="text">
+    <string>Crear Usuario</string>
+   </property>
+  </action>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow2</receiver>
-   <slot>openLogin()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>209</x>
-     <y>43</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>242</x>
-     <y>60</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>openLogin()</slot>
  </slots>

@@ -6,7 +6,7 @@ Oficina::Oficina(){
 	this->id_ = -1;
 	this->pais_ = "";
 	this->continente_ = "";
-	this->peticiones_.resize(0);
+	this->peticiones_.resize(1);
 }
 
 Oficina::Oficina(QString nombre, size_t id, QString pais, QString continente , std::size_t tPeticiones){
@@ -41,7 +41,7 @@ QString Oficina::getNombre(){
 	return this->nombre_;
 }
 
-int Oficina::getId(){
+std::size_t Oficina::getId(){
     return this->id_;
 }
 
@@ -53,10 +53,7 @@ QString Oficina::getContinente(){
     return this->continente_;
 }
 
-//Implementar
-//std::vector<Peticion>& getPeticiones(){
-//	return this->peticiones_;
-//}
+std::vector<Peticion> &Oficina::getPeticiones(){ return this->peticiones_; };
 
 //Implementacion veija - quitar
 void gestionarOficinas(owners *listaOwners){

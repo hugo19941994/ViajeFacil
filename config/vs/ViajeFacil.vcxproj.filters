@@ -37,6 +37,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\bcrypt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\source\fecha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,6 +66,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\source\bcrypt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\source\fecha.h">
       <Filter>Header Files</Filter>
     </ClInclude>
