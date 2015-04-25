@@ -13,6 +13,7 @@ class Login : public QDialog
 
 public:
     explicit Login(QWidget *parent = 0);
+    void setEstado(int estado);
     ~Login();
 
 private slots:
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    int estado_;//0 para login, 1 para crear usuario
 };
 
 #endif // LOGIN_H
