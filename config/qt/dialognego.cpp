@@ -12,3 +12,16 @@ DialogNego::~DialogNego()
 {
     delete ui;
 }
+
+
+void DialogNego::on_buttonBox_accepted()
+{
+    Nego *newN = new Nego;
+    newN->setNombre(this->ui->lineEdit->text());
+    this->ne->push_back(*newN);
+}
+
+void DialogNego::setNe(std::vector<Nego> &neg)
+{
+    this->ne = &neg
+}

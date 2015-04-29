@@ -9,7 +9,9 @@ INPUT(
 ./debug\mainwindow.o
 ./debug\bcrypt.o
 ./debug\diagowner.o
+./debug\dialognego.o
 ./debug\moc_login.o
 ./debug\moc_mainwindow.o
 ./debug\moc_diagowner.o
+./debug\moc_dialognego.o
 );
