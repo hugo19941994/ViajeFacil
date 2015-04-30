@@ -28,6 +28,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_actionNego_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::vector<Owner> listaOw;

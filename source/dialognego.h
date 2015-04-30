@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "nego.h"
+#include "owner.h"
 
 
 namespace Ui {
@@ -17,12 +18,15 @@ public:
     explicit DialogNego(QWidget *parent = 0);
     ~DialogNego();
     void setNe(std::vector<Nego>& neg);
+    void setOw(std::vector<Owner>& own);
+
 
 private slots:
     void on_buttonBox_accepted();
 
 private:
     Ui::DialogNego *ui;
+    std::vector<Owner> *ow;
     std::vector<Nego>* ne;
 };
 

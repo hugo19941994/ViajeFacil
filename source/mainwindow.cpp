@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "login.h"
 #include "diagowner.h"
+#include "dialognego.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -51,4 +52,12 @@ void MainWindow::on_pushButton_3_clicked()
 
         this->ui->listWidget->addItem(it->getNombre());
     }
+}
+
+void MainWindow::on_actionNego_triggered()
+{
+    DialogNego ng;
+    ng.setOw(this->listaOw);
+    ng.setModal(true);
+    ng.exec();
 }
