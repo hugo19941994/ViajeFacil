@@ -1,5 +1,2 @@
-hugo:$2a$12$MOAAU.....B.jfSuy.....wmTeujDAsoQkmSIF5PbZ609mlI3KSPW
-pepe:$2a$12$MOAf3dz9...C....Yu....SBImKnpEW/0Z5TeUE6arQvHE5ijIteC
-hugo:$2a$12$MOAf3dz9...C....2u....brCk5mwx4V47/mJAZ.Edh4WL7tIurK.
-pepebotella:$2a$12$KuAf3dz9...C....2u....vA7xfT4FPmiSrhXKB.iKKuE1VPtfLB2
-HUGO:$2a$12$MO/huCS...............jFjSpzq04gvQQjtti3lbiGjWNB4QK3e
+Hugo:$2a$12$MO.m.I/y4Vdraenh9t999uEkoeWzkKjvjZFY4p/SSrx3lSbNAJm9a
+Pepe:$2a$12$Ku.m.I/y4Vdraenh9t999uWXVxZuL.jc.9s.GWnWO7DLNDvymy9Ii

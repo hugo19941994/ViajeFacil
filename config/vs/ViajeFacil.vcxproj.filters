@@ -40,6 +40,12 @@
     <ClCompile Include="..\..\source\bcrypt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\source\diagowner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\dialognego.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\source\fecha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -69,6 +75,12 @@
     <ClInclude Include="..\..\source\bcrypt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <CustomBuild Include="..\..\source\diagowner.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\source\dialognego.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
     <ClInclude Include="..\..\source\fecha.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -95,6 +107,18 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="debug\moc_diagowner.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_diagowner.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug\moc_dialognego.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_dialognego.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
     <ClCompile Include="debug\moc_login.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -107,6 +131,12 @@
     <ClCompile Include="release\moc_mainwindow.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClInclude Include="ui_diagowner.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_dialognego.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
     <ClInclude Include="ui_login.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
@@ -115,6 +145,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="..\..\source\diagowner.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\source\dialognego.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
     <CustomBuild Include="..\..\source\login.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>

@@ -11,7 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ViajeFacil
 TEMPLATE = app
 CONFIG += c++11
-QMAKE_CXXFLAGS += -fpermissive
+QMAKE_CXXFLAGS += -Wall
+INCLUDEPATH += ../../source/include/
 
 SOURCES += ../../source/fecha.cpp \
     ../../source/main.cpp \
@@ -25,17 +26,16 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/diagowner.cpp \
     ../../source/dialognego.cpp
 
-HEADERS  += ../../source/fecha.h \
-    ../../source/header.h \
-    ../../source/nego.h \
-    ../../source/oficina.h \
-    ../../source/owner.h \
-    ../../source/peticion.h \
-    ../../source/login.h \
-    ../../source/mainwindow.h \
-    ../../source/bcrypt.h \
-    ../../source/diagowner.h \
-    ../../source/dialognego.h
+HEADERS  += ../../source/fecha.hpp \
+    ../../source/nego.hpp \
+    ../../source/oficina.hpp \
+    ../../source/owner.hpp \
+    ../../source/peticion.hpp \
+    ../../source/login.hpp \
+    ../../source/mainwindow.hpp \
+    ../../source/diagowner.hpp \
+    ../../source/dialognego.hpp \
+    ../../source/bcrypt.h
 
 FORMS    += \
     ../../source/login.ui \

@@ -2,32 +2,31 @@
 #define DIALOGNEGO_H
 
 #include <QDialog>
-#include "nego.h"
-#include "owner.h"
+#include <vector>
+#include "./nego.hpp"
+#include "./owner.hpp"
 
 
 namespace Ui {
 class DialogNego;
 }
 
-class DialogNego : public QDialog
-{
+class DialogNego : public QDialog {
     Q_OBJECT
 
-public:
+ public:
     explicit DialogNego(QWidget *parent = 0);
     ~DialogNego();
     void setNe(std::vector<Nego>& neg);
     void setOw(std::vector<Owner>& own);
 
-
-private slots:
+ private slots:
     void on_buttonBox_accepted();
 
-private:
+ private:
     Ui::DialogNego *ui;
     std::vector<Owner> *ow;
     std::vector<Nego>* ne;
 };
 
-#endif // DIALOGNEGO_H
+#endif  // DIALOGNEGO_H
