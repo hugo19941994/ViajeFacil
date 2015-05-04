@@ -22,6 +22,8 @@ void MainWindow::on_pushButton_2_clicked() {
     Login log;
     log.setEstado(0);
     log.setModal(true);
+    // Signal & slot mechanism with new syntax http://wiki.qt.io/New_Signal_Slot_Syntax
+    connect(&log, &Login::cambioDeUsuario, this, &MainWindow::cambiarUsuario);
     log.exec();
 }
 
@@ -45,9 +47,6 @@ void MainWindow::on_actionOwner_triggered() {
 
     std::ofstream myfile;
     myfile.open("../../data/data.json");
-    std::vector<int> list;
-    list.push_back(0);
-    list.push_back(2);
     cereal::JSONOutputArchive archive(myfile);
     archive(cereal::make_nvp("Owner", this->listaOw));
 }
@@ -59,4 +58,9 @@ void MainWindow::on_actionNego_triggered() {
     ng.setOw(this->listaOw);
     ng.setModal(true);
     ng.exec();
+}
+
+void MainWindow::cambiarUsuario( std::string nombre){
+    QString QNombre = QString::fromUtf8(nombre.c_str());
+    this->ui->label_2->setText(QNombre);
 }

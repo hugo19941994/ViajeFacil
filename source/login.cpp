@@ -6,6 +6,7 @@
 #include "./login.hpp"
 #include "./ui_login.h"
 #include "./bcrypt.h"
+#include "./mainwindow.hpp"
 
 
 Login::Login(QWidget *parent) :
@@ -49,7 +50,6 @@ void Login::on_buttonBox_accepted() {
         // Coger el usuario y pasarlo a char * de C
         std::string usuario = this->ui->lineEdit_2->text().toStdString();
         std::cout << usuario << "\n";
-        const char * usuarioC = usuario.c_str();
 
         // Coger la contraseña y pasarla a char * de C
         std::string pass = this->ui->lineEdit->text().toStdString();
@@ -75,8 +75,10 @@ void Login::on_buttonBox_accepted() {
 
         assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
         std::cout << outhash << "\n";
-        if (strcmp(myStringC, outhash) == 0)
-          printf("The password matches\n");
+        if (strcmp(myStringC, outhash) == 0){ //Poner en mainWindow el usuario
+            printf("The password matches\n");
+            emit cambioDeUsuario(usuario);
+        }
         else
           printf("NOOO\n");
     }

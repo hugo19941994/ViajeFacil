@@ -17,20 +17,16 @@ class MainWindow : public QMainWindow {
     ~MainWindow();
     std::vector<Owner> &getOwners();
 
-
  private slots:
     void on_pushButton_2_clicked();
-
     void on_actionUsuario_triggered();
-
     void on_actionOwner_triggered();
-
     void on_actionNego_triggered();
+    void cambiarUsuario( std::string nombre);
 
- private:
+private:
     Ui::MainWindow *ui;
     std::vector<Owner> listaOw;
-
 };
 
 #endif  // MAINWINDOW_H

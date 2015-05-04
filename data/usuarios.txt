@@ -1,4 +1,1 @@
-hugo:$2a$12$MO..eNv9..BeZCHfJu....EghvM2E25riQOC03GEdTbszXpelTnfS
-pepe:$2a$12$MO..eNv9...ebAn0U.....CYw7FLaqz/fJHpDitMw8VU.WdYbA8Za
-salvador:$2a$12$MO..eNv9../eGQ1Mne....s0dmjPjjWI1ynp2ThtLNJ9k9Pxy5gMK
-serafin:$2a$12$MO..eNv9../eiCPBxu....KEsNGVYb4SWKKJhXMg97PGGGWd17HQ.
+

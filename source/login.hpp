@@ -21,6 +21,9 @@ class Login : public QDialog {
  private:
     Ui::Login *ui;
     int estado_;  // 0 para login, 1 para crear usuario
+
+ signals:
+    void cambioDeUsuario(std::string);
 };
 
 #endif  // LOGIN_H

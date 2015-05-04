@@ -30,9 +30,6 @@ class Fecha {
         cereal::make_nvp("Mes", mes_),
         cereal::make_nvp("Año", anio_));
     }
-    // Quitar
-    Fecha pedirFecha();
-    void mostrarFecha(Fecha fecha);
 };
 
 #endif  // FECHA_H
