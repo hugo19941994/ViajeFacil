@@ -19,14 +19,19 @@ class DialogNego : public QDialog {
     ~DialogNego();
     void setNe(std::vector<Nego>& neg);
     void setOw(std::vector<Owner>& own);
+    void cargar();
 
  private slots:
     void on_buttonBox_accepted();
 
- private:
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_buttonOkCancel_accepted();
+
+private:
     Ui::DialogNego *ui;
     std::vector<Owner> *ow;
-    std::vector<Nego>* ne;
+    std::vector<Nego> *ne;
 };
 
 #endif  // DIALOGNEGO_H

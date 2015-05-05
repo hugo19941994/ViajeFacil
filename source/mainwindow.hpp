@@ -24,6 +24,10 @@ class MainWindow : public QMainWindow {
     void on_actionNego_triggered();
     void cambiarUsuario( std::string nombre);
 
+    void on_listWidget_2_currentRowChanged(int currentRow);
+
+    void on_listWidget_2_pressed(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     std::vector<Owner> listaOw;

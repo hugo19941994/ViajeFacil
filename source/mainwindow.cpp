@@ -54,13 +54,22 @@ void MainWindow::on_actionOwner_triggered() {
 std::vector<Owner> &MainWindow::getOwners() { return this->listaOw; }
 
 void MainWindow::on_actionNego_triggered() {
-    DialogNego ng;
-    ng.setOw(this->listaOw);
-    ng.setModal(true);
-    ng.exec();
+    DialogNego *ng = new DialogNego;
+    ng->setOw(this->listaOw);
+    ng->cargar();
+    ng->setModal(true);
+    ng->exec();
 }
 
-void MainWindow::cambiarUsuario( std::string nombre){
+void MainWindow::cambiarUsuario(std::string nombre) {
     QString QNombre = QString::fromUtf8(nombre.c_str());
     this->ui->label_2->setText(QNombre);
+}
+
+void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
+    auto ow = this->listaOw.at(index.row());
+    this->ui->listWidget->clear();
+    for (std::vector<Nego>::iterator it = ow.getNegos().begin(); it != ow.getNegos().end(); ++it) {
+        this->ui->listWidget->addItem(it->getOrigen());
+    }
 }

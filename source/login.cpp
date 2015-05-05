@@ -68,9 +68,10 @@ void Login::on_buttonBox_accepted() {
               std::getline(myfile, myString, '\n');
               break;
           }
-          else
-              std::getline(myfile, myString, '\n');
+          //else
+              //std::getline(myfile, myString, '\n');
         }
+        std::cout << myString;
         const char * myStringC = myString.c_str();
 
         assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);

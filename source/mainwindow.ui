@@ -86,7 +86,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListView" name="listView_2"/>
+           <widget class="QListWidget" name="listWidget_3"/>
           </item>
          </layout>
         </item>
@@ -100,7 +100,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListView" name="listView_3"/>
+           <widget class="QListWidget" name="listWidget_4"/>
           </item>
          </layout>
         </item>
