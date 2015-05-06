@@ -1,7 +1,59 @@
 {
     "Owner": [
         {
-            "Nombre": "zdfg",
+            "Nombre": "dfgzdfg",
+            "Negos": [
+                {
+                    "Origen": "saf",
+                    "Destino": "aef",
+                    "Numero de Plazas": 1234,
+                    "Fecha": {
+                        "Día": 18446744073709551615,
+                        "Mes": 18446744073709551615,
+                        "Año": -1
+                    }
+                },
+                {
+                    "Origen": "efeaf",
+                    "Destino": "qefewf",
+                    "Numero de Plazas": 12333,
+                    "Fecha": {
+                        "Día": 18446744073709551615,
+                        "Mes": 18446744073709551615,
+                        "Año": -1
+                    }
+                },
+                {
+                    "Origen": "wer",
+                    "Destino": "werwer",
+                    "Numero de Plazas": 321,
+                    "Fecha": {
+                        "Día": 18446744073709551615,
+                        "Mes": 18446744073709551615,
+                        "Año": -1
+                    }
+                }
+            ],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "sdfsdfwsfefewf",
+            "Negos": [
+                {
+                    "Origen": "fde",
+                    "Destino": "wedfr",
+                    "Numero de Plazas": 13,
+                    "Fecha": {
+                        "Día": 18446744073709551615,
+                        "Mes": 18446744073709551615,
+                        "Año": -1
+                    }
+                }
+            ],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "fsdf",
             "Negos": [],
             "Oficinas": []
         }
