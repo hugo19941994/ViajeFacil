@@ -25,7 +25,7 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/bcrypt.cpp \
     ../../source/diagowner.cpp \
     ../../source/dialognego.cpp \
-    dialogpeticiones.cpp
+    ../../source/dialogpeticiones.cpp
 
 HEADERS  += ../../source/fecha.hpp \
     ../../source/nego.hpp \
@@ -37,11 +37,11 @@ HEADERS  += ../../source/fecha.hpp \
     ../../source/diagowner.hpp \
     ../../source/dialognego.hpp \
     ../../source/bcrypt.h \
-    dialogpeticiones.h
+    ../../source/dialogpeticiones.h
 
 FORMS    += \
     ../../source/login.ui \
     ../../source/mainwindow.ui \
     ../../source/diagowner.ui \
     ../../source/dialognego.ui \
-    dialogpeticiones.ui
+    ../../source/dialogpeticiones.ui

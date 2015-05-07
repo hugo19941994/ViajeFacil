@@ -26,6 +26,10 @@ class MainWindow : public QMainWindow {
 
     void on_listWidget_2_pressed(const QModelIndex &index);
 
+    void on_pushButton_clicked();
+
+    void on_actionPeticion_triggered();
+
 private:
     Ui::MainWindow *ui;
     std::vector<Owner> listaOw;

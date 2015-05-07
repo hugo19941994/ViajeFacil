@@ -7,6 +7,7 @@
 #include "./dialognego.hpp"
 #include "./cereal/archives/json.hpp"
 #include "./cereal/types/vector.hpp"
+#include "dialogpeticiones.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -72,4 +73,16 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     for (std::vector<Nego>::iterator it = ow.getNegos().begin(); it != ow.getNegos().end(); ++it) {
         this->ui->listWidget->addItem(it->getOrigen());
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
+}
+
+void MainWindow::on_actionPeticion_triggered()
+{
+    DialogPeticiones* vpeticion = new DialogPeticiones;
+
+
 }
