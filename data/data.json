@@ -1,59 +1,54 @@
 {
     "Owner": [
         {
-            "Nombre": "dfgzdfg",
+            "Nombre": "Iberia",
             "Negos": [
                 {
-                    "Origen": "saf",
-                    "Destino": "aef",
-                    "Numero de Plazas": 1234,
+                    "Origen": "Palencia",
+                    "Destino": "Roma",
+                    "Numero_de_Plazas": 100,
                     "Fecha": {
-                        "Día": 18446744073709551615,
-                        "Mes": 18446744073709551615,
-                        "Año": -1
-                    }
-                },
-                {
-                    "Origen": "efeaf",
-                    "Destino": "qefewf",
-                    "Numero de Plazas": 12333,
-                    "Fecha": {
-                        "Día": 18446744073709551615,
-                        "Mes": 18446744073709551615,
-                        "Año": -1
-                    }
-                },
-                {
-                    "Origen": "wer",
-                    "Destino": "werwer",
-                    "Numero de Plazas": 321,
-                    "Fecha": {
-                        "Día": 18446744073709551615,
-                        "Mes": 18446744073709551615,
-                        "Año": -1
+                        "Día": 0,
+                        "Mes": 0,
+                        "Año": 0
                     }
                 }
             ],
             "Oficinas": []
         },
         {
-            "Nombre": "sdfsdfwsfefewf",
+            "Nombre": "Halcon",
+            "Negos": [],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "Marsans",
             "Negos": [
                 {
-                    "Origen": "fde",
-                    "Destino": "wedfr",
-                    "Numero de Plazas": 13,
+                    "Origen": "Polonia",
+                    "Destino": "Benidrom",
+                    "Numero_de_Plazas": 9587,
                     "Fecha": {
-                        "Día": 18446744073709551615,
-                        "Mes": 18446744073709551615,
-                        "Año": -1
+                        "Día": 0,
+                        "Mes": 0,
+                        "Año": 0
                     }
                 }
             ],
             "Oficinas": []
         },
         {
-            "Nombre": "fsdf",
+            "Nombre": "IberiaCheap",
+            "Negos": [],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "rt",
+            "Negos": [],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "cfghnxfhnzxdfhdfxzhf",
             "Negos": [],
             "Oficinas": []
         }

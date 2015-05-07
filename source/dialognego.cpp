@@ -12,17 +12,11 @@ DialogNego::~DialogNego() {
     delete ui;
 }
 
-void DialogNego::on_buttonBox_accepted() { //QUITAAAAR
-    Nego newN;
-    newN.setOrigen(this->ui->lineOrigen->text());
-    newN.setDestino(this->ui->lineDestino->text());
-    newN.setNumeroPlazas(this->ui->linePlazas->text().toInt());
-    this->ne->push_back(newN);
-}
-
 void DialogNego::cargar(){
-    for (std::vector<Owner>::iterator it = this->ow->begin(); it != this->ow->end(); ++it)
-        this->ui->comboBox->addItem(it->getNombre());
+    for(auto &it : *this->ow)
+        this->ui->comboBox->addItem(it.getNombre().c_str());
+    //for (std::vector<Owner>::iterator it = this->ow->begin(); it != this->ow->end(); ++it)
+
 }
 
 void DialogNego::setNe(std::vector<Nego> &neg) {
@@ -43,8 +37,8 @@ void DialogNego::on_comboBox_currentIndexChanged(int index)
 void DialogNego::on_buttonOkCancel_accepted()
 {
     Nego *newN = new Nego;
-    newN->setOrigen(this->ui->lineOrigen->text());
-    newN->setDestino(this->ui->lineDestino->text());
+    newN->setOrigen(this->ui->lineOrigen->text().toStdString());
+    newN->setDestino(this->ui->lineDestino->text().toStdString());
     newN->setNumeroPlazas(this->ui->linePlazas->text().toInt());
     this->ne->push_back(*newN);
 }

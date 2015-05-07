@@ -25,6 +25,6 @@ private:
     Ui::DialogPeticiones *ui;
     std::vector<Owner> *ow;
 
-}
+};
 
 #endif // DIALOGPETICIONES_H

@@ -1,18 +1,32 @@
 #include <vector>
 #include <fstream>
+#include <QStringBuilder>
 #include "./mainwindow.hpp"
 #include "./ui_mainwindow.h"
 #include "./login.hpp"
 #include "./diagowner.hpp"
 #include "./dialognego.hpp"
 #include "./cereal/archives/json.hpp"
+#include "./cereal/archives/xml.hpp"
 #include "./cereal/types/vector.hpp"
-#include "dialogpeticiones.h"
+#include "./dialogpeticiones.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
+    std::ifstream myfile;
+    myfile.open("../../data/data.json");
+    cereal::JSONInputArchive ar(myfile);
+    ar(this->listaOw);
+
+    this->ui->listWidget_2->clear();
+    for(auto &it : listaOw){
+    //for (std::vector<Owner>::iterator it = this->listaOw.begin(); it != this->listaOw.end(); ++it) {
+        //QString nombre = it.getNombre().c_str();
+        this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
+    }
 }
 
 MainWindow::~MainWindow() {
@@ -42,8 +56,10 @@ void MainWindow::on_actionOwner_triggered() {
     ow.exec();
 
     this->ui->listWidget_2->clear();
-    for (std::vector<Owner>::iterator it = this->listaOw.begin(); it != this->listaOw.end(); ++it) {
-        this->ui->listWidget_2->addItem(it->getNombre());
+    for(auto &it : listaOw){
+    //for (std::vector<Owner>::iterator it = this->listaOw.begin(); it != this->listaOw.end(); ++it) {
+        //QString nombre = it->getNombre().c_str();
+        this->ui->listWidget_2->addItem(it.getNombre().c_str());
     }
 
     std::ofstream myfile;
@@ -70,19 +86,16 @@ void MainWindow::cambiarUsuario(std::string nombre) {
 void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(index.row());
     this->ui->listWidget->clear();
-    for (std::vector<Nego>::iterator it = ow.getNegos().begin(); it != ow.getNegos().end(); ++it) {
-        this->ui->listWidget->addItem(it->getOrigen());
+    for(auto it : ow.getNegos()){
+    //for (std::vector<Nego>::iterator it = ow.getNegos().begin(); it != ow.getNegos().end(); ++it) {
+        QString orDe = it.getOrigen().c_str();  // TODO:Se puede hacer en una linea?
+        orDe.append(" - ");
+        orDe.append(it.getDestino().c_str());
+        this->ui->listWidget->addItem(orDe);
     }
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-
 }
 
 void MainWindow::on_actionPeticion_triggered()
 {
     DialogPeticiones* vpeticion = new DialogPeticiones;
-
-
 }

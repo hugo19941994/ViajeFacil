@@ -13,8 +13,8 @@ diagOwner::~diagOwner() {
 }
 
 void diagOwner::on_buttonBox_accepted() {
-    Owner *newO = new Owner;
-    newO->setNombre(this->ui->lineEdit->text());
+    Owner *newO = new Owner;  // Va bien declararlo sin new? en el stack?
+    newO->setNombre(this->ui->lineEdit->text().toStdString());
     this->ow->push_back(*newO);
 }
 

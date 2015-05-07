@@ -1,4 +1,4 @@
-#include "dialogpeticiones.h"
+#include "dialogpeticiones.hpp"
 #include "ui_dialogpeticiones.h"
 
 DialogPeticiones::DialogPeticiones(QWidget *parent) :

@@ -22,11 +22,9 @@ class MainWindow : public QMainWindow {
     void on_actionUsuario_triggered();
     void on_actionOwner_triggered();
     void on_actionNego_triggered();
-    void cambiarUsuario( std::string nombre);
+    void cambiarUsuario(std::string nombre);
 
     void on_listWidget_2_pressed(const QModelIndex &index);
-
-    void on_pushButton_clicked();
 
     void on_actionPeticion_triggered();
 

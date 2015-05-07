@@ -2,40 +2,40 @@
 #define NEGO_H
 
 #include <QString>
+#include <string>
 #include "./fecha.hpp"
 
 class Nego {
  private:
-    QString origen_;
-    QString destino_;
-    int id_;
+    std::string origen_;
+    std::string destino_;
     int numeroPlazas_;
     Fecha fecha_;
 
  public:
     Nego();
-	  Nego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha);
+    Nego(std::string origen, std::string destino,
+         int numeroPlazas, Fecha fecha);
     ~Nego();
 
-    void setNego(QString origen, QString destino, int id, int numeroPlazas, Fecha fecha);
-    void setOrigen(QString origen);
-    void setDestino(QString destino);
-    void setId(int id);
+    void setNego(std::string origen, std::string destino,
+        int numeroPlazas, Fecha fecha);
+    void setOrigen(std::string origen);
+    void setDestino(std::string destino);
     void setNumeroPlazas(int numeroPlazas);
     void setFecha(Fecha fecha);
 
-    QString getOrigen();
-    QString getDestino();
-    int getId();
+    std::string getOrigen();
+    std::string getDestino();
     int getNumeroPlazas();
     Fecha getFecha();
 
-    template<class Archive>
-    void serialize(Archive & archive) {
-        archive(cereal::make_nvp("Origen", origen_.toStdString()),
-            cereal::make_nvp("Destino", destino_.toStdString()),
-            cereal::make_nvp("Numero de Plazas", numeroPlazas_),
-            cereal::make_nvp("Fecha", fecha_)); // serialize things by passing them to the archive
+    template<class Archive>  // Serialize things by passing them to the archive
+    void serialize(Archive &archive) {
+        archive(cereal::make_nvp("Origen", origen_),
+            cereal::make_nvp("Destino", destino_),
+            cereal::make_nvp("Numero_de_Plazas", numeroPlazas_),
+            cereal::make_nvp("Fecha", fecha_));
     }
 };
 

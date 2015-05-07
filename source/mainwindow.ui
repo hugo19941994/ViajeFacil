@@ -111,7 +111,7 @@
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>Buscar Id:</string>
+           <string>Buscar</string>
           </property>
          </widget>
         </item>

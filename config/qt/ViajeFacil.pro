@@ -37,7 +37,7 @@ HEADERS  += ../../source/fecha.hpp \
     ../../source/diagowner.hpp \
     ../../source/dialognego.hpp \
     ../../source/bcrypt.h \
-    ../../source/dialogpeticiones.h
+    ../../source/dialogpeticiones.hpp
 
 FORMS    += \
     ../../source/login.ui \

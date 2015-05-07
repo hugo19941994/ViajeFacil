@@ -22,8 +22,6 @@ class DialogNego : public QDialog {
     void cargar();
 
  private slots:
-    void on_buttonBox_accepted();
-
     void on_comboBox_currentIndexChanged(int index);
 
     void on_buttonOkCancel_accepted();
