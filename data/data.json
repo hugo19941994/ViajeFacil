@@ -12,13 +12,34 @@
                         "Mes": 0,
                         "Año": 0
                     }
+                },
+                {
+                    "Origen": "madrid",
+                    "Destino": "cadiz",
+                    "Numero_de_Plazas": 3,
+                    "Fecha": {
+                        "Día": 0,
+                        "Mes": 0,
+                        "Año": 0
+                    }
                 }
             ],
             "Oficinas": []
         },
         {
             "Nombre": "Halcon",
-            "Negos": [],
+            "Negos": [
+                {
+                    "Origen": "madrid",
+                    "Destino": "cadiz",
+                    "Numero_de_Plazas": 3,
+                    "Fecha": {
+                        "Día": 0,
+                        "Mes": 0,
+                        "Año": 0
+                    }
+                }
+            ],
             "Oficinas": []
         },
         {

@@ -18,12 +18,16 @@ public:
     explicit DialogPeticiones(QWidget *parent = 0);
     ~DialogPeticiones();
      void setOw(std::vector<Owner>& own);
+     void setPe(std::vector<Peticion>& pet);
+     void cargar();
 
-
+private slots:
+     void on_comboBox_currentIndexChanged(int index);
 
 private:
     Ui::DialogPeticiones *ui;
     std::vector<Owner> *ow;
+    std::vector<Peticion> *pe;
 
 };
 

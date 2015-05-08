@@ -75,6 +75,9 @@ void MainWindow::on_actionNego_triggered() {
 
     // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
     this->ui->listWidget->clear();
+    for(auto &it : listaOw) {
+        this->ui->listWidget->addItem(it.getNombre().c_str());
+    }
 }
 
 void MainWindow::guardarEnArchivo() {
@@ -101,5 +104,29 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
 }
 
 void MainWindow::on_actionPeticion_triggered() {
-    DialogPeticiones* vpeticion = new DialogPeticiones;
+    DialogPeticiones peticiones;
+    peticiones.setOw(this->listaOw);
+    peticiones.setModal(true);
+    peticiones.exec();
+
+    this->ui->listWidget_4->clear();
+    for (auto &it : listaOw){
+        this->ui->listWidget_4->addItem(it.getNombre().c_str());
+    }
+
+
+
+
 }
+    /*ow.setOw(this->listaOw);
+    ow.setModal(true);
+    ow.exec();
+
+    this->ui->listWidget_2->clear();
+    for (auto &it : listaOw) {
+        this->ui->listWidget_2->addItem(it.getNombre().c_str());
+    }
+
+   guardarEnArchivo();*/
+
+

@@ -10,3 +10,30 @@ DialogPeticiones::DialogPeticiones(QWidget *parent) :
 DialogPeticiones::~DialogPeticiones() {
     delete ui;
 }
+
+void DialogPeticiones::setOw(std::vector<Owner> &own)
+{
+    this->ow = &own;
+}
+
+void DialogPeticiones::setPe(std::vector<Peticion> &pet)
+{
+    this->pe = &pet;
+}
+
+/*void DialogPeticiones::cargar()  //NO SE PARA QUE SIRVE NI FUNCIONA
+{
+    for(auto &it : this->ow)
+        this->ui->comboBox->addItem(it.getNombre().c_str());
+}*/
+
+
+
+
+
+
+
+void DialogPeticiones::on_comboBox_currentIndexChanged(int index)
+{
+
+}
