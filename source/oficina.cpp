@@ -1,43 +1,34 @@
 #include <vector>
 #include "./oficina.hpp"
 
-Oficina::Oficina() {
-  this->nombre_ = "";
-  this->pais_ = "";
-  this->continente_ = "";
-}
+Oficina::Oficina() : nombre_{""}, pais_{""}, continente_{""} {}
 
-Oficina::Oficina(QString nombre, QString pais,
-    QString continente , std::size_t tPeticiones) {
-  this->nombre_ = nombre;
-  this->pais_ = pais;
-  this->continente_ = continente;
-  this->peticiones_.resize(tPeticiones);
-}
+Oficina::Oficina(std::string nombre, std::string pais, std::string continente)
+    : nombre_{nombre}, pais_{pais}, continente_{continente} {}
 
 Oficina::~Oficina() {}
 
-void Oficina::setNombre(QString nombre) {
+void Oficina::setNombre(std::string nombre) {
   this->nombre_ = nombre;
 }
 
-void Oficina::setPais(QString pais) {
+void Oficina::setPais(std::string pais) {
   this->pais_ = pais;
 }
 
-void Oficina::setContinente(QString continente) {
+void Oficina::setContinente(std::string continente) {
   this->continente_ = continente;
 }
 
-QString Oficina::getNombre() {
+std::string Oficina::getNombre() {
   return this->nombre_;
 }
 
-QString Oficina::getPais() {
+std::string Oficina::getPais() {
     return this->pais_;
 }
 
-QString Oficina::getContinente() {
+std::string Oficina::getContinente() {
     return this->continente_;
 }
 

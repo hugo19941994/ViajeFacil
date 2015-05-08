@@ -1,5 +1,6 @@
 #include <vector>
 #include <fstream>
+#include <string>
 #include <QStringBuilder>
 #include "./mainwindow.hpp"
 #include "./ui_mainwindow.h"
@@ -22,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ar(this->listaOw);
 
     this->ui->listWidget_2->clear();
-    for(auto &it : listaOw){
+    for (auto &it : listaOw) {
         this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
     }
 }
@@ -54,7 +55,7 @@ void MainWindow::on_actionOwner_triggered() {
     ow.exec();
 
     this->ui->listWidget_2->clear();
-    for(auto &it : listaOw){
+    for (auto &it : listaOw) {
         this->ui->listWidget_2->addItem(it.getNombre().c_str());
     }
 
@@ -76,7 +77,7 @@ void MainWindow::on_actionNego_triggered() {
     this->ui->listWidget->clear();
 }
 
-void MainWindow::guardarEnArchivo(){
+void MainWindow::guardarEnArchivo() {
     std::ofstream myfile;
     myfile.open("../../data/data.json");
     cereal::JSONOutputArchive archive(myfile);
@@ -91,7 +92,7 @@ void MainWindow::cambiarUsuario(std::string nombre) {
 void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(index.row());
     this->ui->listWidget->clear();
-    for(auto it : ow.getNegos()){
+    for (auto it : ow.getNegos()) {
         QString orDe = it.getOrigen().c_str();  // TODO:Se puede hacer en una linea?
         orDe.append(" - ");
         orDe.append(it.getDestino().c_str());
@@ -99,7 +100,6 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     }
 }
 
-void MainWindow::on_actionPeticion_triggered()
-{
+void MainWindow::on_actionPeticion_triggered() {
     DialogPeticiones* vpeticion = new DialogPeticiones;
 }

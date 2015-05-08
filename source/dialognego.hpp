@@ -26,7 +26,7 @@ class DialogNego : public QDialog {
 
     void on_buttonOkCancel_accepted();
 
-private:
+ private:
     Ui::DialogNego *ui;
     std::vector<Owner> *ow;
     std::vector<Nego> *ne;

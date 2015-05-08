@@ -24,9 +24,9 @@ class Fecha {
     std::size_t getMes();
     int getAnio();
 
-    template<class Archive>
-    void serialize(Archive & archive) {         // Serialize things by passing
-        archive(cereal::make_nvp("Día", dia_),  // them the to the archive
+    template<class Archive>  // Serialize things by passing them to the archive
+    void serialize(Archive & archive) {
+        archive(cereal::make_nvp("Día", dia_),
         cereal::make_nvp("Mes", mes_),
         cereal::make_nvp("Año", anio_));
     }

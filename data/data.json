@@ -12,46 +12,6 @@
                         "Mes": 0,
                         "Año": 0
                     }
-                },
-                {
-                    "Origen": "aregaetrgae",
-                    "Destino": "taetaet",
-                    "Numero_de_Plazas": 234234,
-                    "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
-                    }
-                },
-                {
-                    "Origen": "eatgraetgartg",
-                    "Destino": "retqetrqetrqt",
-                    "Numero_de_Plazas": 0,
-                    "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
-                    }
-                },
-                {
-                    "Origen": "faerftreawtret",
-                    "Destino": "wetrwetewrtret",
-                    "Numero_de_Plazas": 324324234,
-                    "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
-                    }
-                },
-                {
-                    "Origen": "regezatgre",
-                    "Destino": "tgreatgasert",
-                    "Numero_de_Plazas": 123132,
-                    "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
-                    }
                 }
             ],
             "Oficinas": []
@@ -67,7 +27,7 @@
                 {
                     "Origen": "Polonia",
                     "Destino": "Benidrom",
-                    "Numero_de_Plazas": 9587,
+                    "Numero_de_Plazas": 900,
                     "Fecha": {
                         "Día": 0,
                         "Mes": 0,
@@ -75,21 +35,6 @@
                     }
                 }
             ],
-            "Oficinas": []
-        },
-        {
-            "Nombre": "IberiaCheap",
-            "Negos": [],
-            "Oficinas": []
-        },
-        {
-            "Nombre": "rt",
-            "Negos": [],
-            "Oficinas": []
-        },
-        {
-            "Nombre": "cfghnxfhnzxdfhdfxzhf",
-            "Negos": [],
             "Oficinas": []
         }
     ]

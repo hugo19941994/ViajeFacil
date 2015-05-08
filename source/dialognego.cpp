@@ -12,10 +12,9 @@ DialogNego::~DialogNego() {
     delete ui;
 }
 
-void DialogNego::cargar(){
-    for(auto &it : *this->ow)
+void DialogNego::cargar() {
+    for (auto &it : *this->ow)
         this->ui->comboBox->addItem(it.getNombre().c_str());
-
 }
 
 void DialogNego::setNe(std::vector<Nego> &neg) {
@@ -26,15 +25,13 @@ void DialogNego::setOw(std::vector<Owner> &own) {
     this->ow = &own;
 }
 
-void DialogNego::on_comboBox_currentIndexChanged(int index)
-{
-    //Repasar!!!
+void DialogNego::on_comboBox_currentIndexChanged(int index) {
+    // Repasar!!!
     Owner *ow = &this->ow->at(index);
     this->setNe(ow->getNegos());
 }
 
-void DialogNego::on_buttonOkCancel_accepted()
-{
+void DialogNego::on_buttonOkCancel_accepted() {
     Nego *newN = new Nego;
     newN->setOrigen(this->ui->lineOrigen->text().toStdString());
     newN->setDestino(this->ui->lineDestino->text().toStdString());

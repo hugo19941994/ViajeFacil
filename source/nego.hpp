@@ -1,7 +1,6 @@
 #ifndef NEGO_H
 #define NEGO_H
 
-#include <QString>
 #include <string>
 #include "./fecha.hpp"
 

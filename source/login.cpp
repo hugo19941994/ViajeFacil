@@ -62,21 +62,21 @@ void Login::on_buttonBox_accepted() {
 
         // Cogemos el hash que corresponda
         std::string myString;
-        while (!myfile.eof()){
+        while (!myfile.eof()) {
           std::getline(myfile, myString, ':');
-          if(myString == usuario){
+          if (myString == usuario) {
               std::getline(myfile, myString, '\n');
               break;
           }
-          //else
-              //std::getline(myfile, myString, '\n');
+         // else
+             // std::getline(myfile, myString, '\n');
         }
         std::cout << myString;
         const char * myStringC = myString.c_str();
 
         assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
         std::cout << outhash << "\n";
-        if (strcmp(myStringC, outhash) == 0){ //Poner en mainWindow el usuario
+        if (strcmp(myStringC, outhash) == 0) {  // Poner en mainWindow el usuario
             printf("The password matches\n");
             emit cambioDeUsuario(usuario);
         }

@@ -1,7 +1,6 @@
 #ifndef OWNER_H
 #define OWNER_H
 
-#include <QString>
 #include <vector>
 #include <string>
 #include "./nego.hpp"

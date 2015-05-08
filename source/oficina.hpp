@@ -1,37 +1,36 @@
 #ifndef OFICINA_H
 #define OFICINA_H
 
-#include <QString>
 #include <vector>
+#include <string>
 #include "./peticion.hpp"
 
 class Oficina {
  private:
-  QString nombre_;
-  QString pais_;
-  QString continente_;
+  std::string nombre_;
+  std::string pais_;
+  std::string continente_;
   std::vector<Peticion> peticiones_;
 
  public:
   Oficina();
-  Oficina(QString nombre, QString pais,
-      QString continente, std::size_t tPeticiones);
+  Oficina(std::string nombre, std::string pais, std::string continente);
   ~Oficina();
 
-  void setNombre(QString);
-  void setPais(QString);
-  void setContinente(QString);
+  void setNombre(std::string);
+  void setPais(std::string);
+  void setContinente(std::string);
 
-  QString getNombre();
-  QString getPais();
-  QString getContinente();
+  std::string getNombre();
+  std::string getPais();
+  std::string getContinente();
   std::vector<Peticion> &getPeticiones();
 
   template<class Archive>  // Serialize things by passing them to the archive
     void serialize(Archive &archive) {
-      archive(cereal::make_nvp("Nombre", nombre_.toStdString()),
-        cereal::make_nvp("País", pais_.toStdString()),
-        cereal::make_nvp("Continente", continente_.toStdString()),
+      archive(cereal::make_nvp("Nombre", nombre_),
+        cereal::make_nvp("País", pais_),
+        cereal::make_nvp("Continente", continente_),
         cereal::make_nvp("Peticiones", peticiones_));
     }
 };
