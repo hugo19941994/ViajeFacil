@@ -15,7 +15,6 @@ DialogNego::~DialogNego() {
 void DialogNego::cargar(){
     for(auto &it : *this->ow)
         this->ui->comboBox->addItem(it.getNombre().c_str());
-    //for (std::vector<Owner>::iterator it = this->ow->begin(); it != this->ow->end(); ++it)
 
 }
 

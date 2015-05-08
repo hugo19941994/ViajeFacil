@@ -24,6 +24,8 @@ class MainWindow : public QMainWindow {
     void on_actionNego_triggered();
     void cambiarUsuario(std::string nombre);
 
+    void guardarEnArchivo();
+
     void on_listWidget_2_pressed(const QModelIndex &index);
 
     void on_actionPeticion_triggered();

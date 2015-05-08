@@ -23,8 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->ui->listWidget_2->clear();
     for(auto &it : listaOw){
-    //for (std::vector<Owner>::iterator it = this->listaOw.begin(); it != this->listaOw.end(); ++it) {
-        //QString nombre = it.getNombre().c_str();
         this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
     }
 }
@@ -57,15 +55,10 @@ void MainWindow::on_actionOwner_triggered() {
 
     this->ui->listWidget_2->clear();
     for(auto &it : listaOw){
-    //for (std::vector<Owner>::iterator it = this->listaOw.begin(); it != this->listaOw.end(); ++it) {
-        //QString nombre = it->getNombre().c_str();
         this->ui->listWidget_2->addItem(it.getNombre().c_str());
     }
 
-    std::ofstream myfile;
-    myfile.open("../../data/data.json");
-    cereal::JSONOutputArchive archive(myfile);
-    archive(cereal::make_nvp("Owner", this->listaOw));
+   guardarEnArchivo();
 }
 
 std::vector<Owner> &MainWindow::getOwners() { return this->listaOw; }
@@ -76,6 +69,18 @@ void MainWindow::on_actionNego_triggered() {
     ng->cargar();
     ng->setModal(true);
     ng->exec();
+
+    guardarEnArchivo();
+
+    // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
+    this->ui->listWidget->clear();
+}
+
+void MainWindow::guardarEnArchivo(){
+    std::ofstream myfile;
+    myfile.open("../../data/data.json");
+    cereal::JSONOutputArchive archive(myfile);
+    archive(cereal::make_nvp("Owner", this->listaOw));
 }
 
 void MainWindow::cambiarUsuario(std::string nombre) {
@@ -87,7 +92,6 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(index.row());
     this->ui->listWidget->clear();
     for(auto it : ow.getNegos()){
-    //for (std::vector<Nego>::iterator it = ow.getNegos().begin(); it != ow.getNegos().end(); ++it) {
         QString orDe = it.getOrigen().c_str();  // TODO:Se puede hacer en una linea?
         orDe.append(" - ");
         orDe.append(it.getDestino().c_str());
