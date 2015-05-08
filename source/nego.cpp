@@ -2,12 +2,12 @@
 #include <string>
 
 Nego::Nego()
-    : origen_{""}, destino_{""}, numeroPlazas_{0}, fecha_{Fecha(0, 0, 0)} {}
+    : origen_(""), destino_(""), numeroPlazas_(0), fecha_(Fecha(0, 0, 0)) {}
 
 Nego::Nego(std::string origen, std::string destino,
     int numeroPlazas, Fecha fecha)
-    : origen_{origen}, destino_{destino},
-    numeroPlazas_{numeroPlazas}, fecha_{fecha} {}
+    : origen_(origen), destino_(destino),
+    numeroPlazas_(numeroPlazas), fecha_(fecha) {}
 
 Nego::~Nego() {}
 

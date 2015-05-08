@@ -3,12 +3,12 @@
 #include "./fecha.hpp"
 
 Peticion::Peticion()
-    : origen_{""}, destino_{""}, fecha_{Fecha(0, 0, 0)}, plazasPedidas_{0} {}
+    : origen_(""), destino_(""), fecha_(Fecha(0, 0, 0)), plazasPedidas_(0) {}
 
 Peticion::Peticion(std::string origen, std::string destino,
     Fecha fecha, std::size_t plazasPedidas)
-    : origen_{origen}, destino_{destino},
-    fecha_{fecha}, plazasPedidas_{plazasPedidas} {}
+    : origen_(origen), destino_(destino),
+    fecha_(fecha), plazasPedidas_(plazasPedidas) {}
 
 Peticion::~Peticion() {}
 

@@ -1,10 +1,10 @@
 #include <iostream>
 #include "./fecha.hpp"
 
-Fecha::Fecha() : dia_{0}, mes_{0}, anio_{0} {}
+Fecha::Fecha() : dia_(0), mes_(0), anio_(0) {}
 
 Fecha::Fecha(size_t dia, size_t mes, int anio)
-    : dia_{dia}, mes_{mes}, anio_{anio} {}
+    : dia_(dia), mes_(mes), anio_(anio) {}
 
 Fecha::~Fecha() {}
 

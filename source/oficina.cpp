@@ -1,10 +1,10 @@
 #include <vector>
 #include "./oficina.hpp"
 
-Oficina::Oficina() : nombre_{""}, pais_{""}, continente_{""} {}
+Oficina::Oficina() : nombre_(""), pais_(""), continente_("") {}
 
 Oficina::Oficina(std::string nombre, std::string pais, std::string continente)
-    : nombre_{nombre}, pais_{pais}, continente_{continente} {}
+    : nombre_(nombre), pais_(pais), continente_(continente) {}
 
 Oficina::~Oficina() {}
 

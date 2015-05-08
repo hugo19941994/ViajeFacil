@@ -15,7 +15,7 @@ class Fecha {
     Fecha(std::size_t dia, std::size_t mes, int anio);
     ~Fecha();
 
-    void setFecha(std::size_t dia, size_t mes, int anio);
+    void setFecha(std::size_t dia, std::size_t mes, int anio);
     void setDia(std::size_t dia);
     void setMes(std::size_t mes);
     void setAnio(int anio);

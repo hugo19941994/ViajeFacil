@@ -3,9 +3,9 @@
 #include "./owner.hpp"
 #include "./nego.hpp"
 
-Owner::Owner() : nombre_{""} {}
+Owner::Owner() : nombre_("") {}
 
-Owner::Owner(std::string nombre) : nombre_{nombre} {}
+Owner::Owner(std::string nombre) : nombre_(nombre) {}
 
 Owner::~Owner() {}
 
