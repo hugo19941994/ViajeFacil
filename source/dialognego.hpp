@@ -20,6 +20,8 @@ class DialogNego : public QDialog {
     void setNe(std::vector<Nego>& neg);
     void setOw(std::vector<Owner>& own);
     void cargar();
+    void setRows(int modRowOwner, int modRowNego);
+    void setMod();
 
  private slots:
     void on_comboBox_currentIndexChanged(int index);
@@ -27,6 +29,9 @@ class DialogNego : public QDialog {
     void on_buttonOkCancel_accepted();
 
  private:
+    int modRowOwner;
+    int modRowNego;
+    bool mod = false;
     Ui::DialogNego *ui;
     std::vector<Owner> *ow;
     std::vector<Nego> *ne;

@@ -8,7 +8,6 @@
 #include "./diagowner.hpp"
 #include "./dialognego.hpp"
 #include "./cereal/archives/json.hpp"
-#include "./cereal/archives/xml.hpp"
 #include "./cereal/types/vector.hpp"
 #include "./dialogpeticiones.hpp"
 
@@ -17,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
+    // TODO: Comprobar si existe
     std::ifstream myfile;
     myfile.open("../../data/data.json");
     cereal::JSONInputArchive ar(myfile);
@@ -41,45 +41,6 @@ void MainWindow::on_pushButton_2_clicked() {
     log.exec();
 }
 
-void MainWindow::on_actionUsuario_triggered() {
-    Login log;
-    log.setModal(true);
-    log.setEstado(1);
-    log.exec();
-}
-
-void MainWindow::on_actionOwner_triggered() {
-    diagOwner ow;
-    ow.setOw(this->listaOw);
-    ow.setModal(true);
-    ow.exec();
-
-    this->ui->listWidget_2->clear();
-    for (auto &it : listaOw) {
-        this->ui->listWidget_2->addItem(it.getNombre().c_str());
-    }
-
-   guardarEnArchivo();
-}
-
-std::vector<Owner> &MainWindow::getOwners() { return this->listaOw; }
-
-void MainWindow::on_actionNego_triggered() {
-    DialogNego *ng = new DialogNego;
-    ng->setOw(this->listaOw);
-    ng->cargar();
-    ng->setModal(true);
-    ng->exec();
-
-    guardarEnArchivo();
-
-    // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
-    this->ui->listWidget->clear();
-    for(auto &it : listaOw) {
-        this->ui->listWidget->addItem(it.getNombre().c_str());
-    }
-}
-
 void MainWindow::guardarEnArchivo() {
     std::ofstream myfile;
     myfile.open("../../data/data.json");
@@ -101,6 +62,9 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
         orDe.append(it.getDestino().c_str());
         this->ui->listWidget->addItem(orDe);
     }
+
+    // TODO: Cuando este oficinas hecho agregar
+    // aqui el codigo de refresco de oficinas
 }
 
 void MainWindow::on_actionPeticion_triggered() {
@@ -113,12 +77,26 @@ void MainWindow::on_actionPeticion_triggered() {
     for (auto &it : listaOw){
         this->ui->listWidget_4->addItem(it.getNombre().c_str());
     }
-
-
-
-
 }
-    /*ow.setOw(this->listaOw);
+
+void MainWindow::on_actionCreNego_triggered()
+{
+    DialogNego *ng = new DialogNego;
+    ng->setOw(this->listaOw);
+    ng->cargar();
+    ng->setModal(true);
+    ng->exec();
+
+    guardarEnArchivo();
+
+    // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
+    this->ui->listWidget->clear();
+}
+
+void MainWindow::on_actionCreOwner_triggered()
+{
+    diagOwner ow;
+    ow.setOw(this->listaOw);
     ow.setModal(true);
     ow.exec();
 
@@ -127,6 +105,83 @@ void MainWindow::on_actionPeticion_triggered() {
         this->ui->listWidget_2->addItem(it.getNombre().c_str());
     }
 
-   guardarEnArchivo();*/
+   guardarEnArchivo();
+}
 
+void MainWindow::on_actionCreUsuario_triggered()
+{
+    Login log;
+    log.setModal(true);
+    log.setEstado(1);
+    log.exec();
+}
 
+void MainWindow::on_actionBorOwner_triggered()
+{
+    // TODO: Preguntar si estas seguro de borrar owner y mostrar datos
+
+    // Calcular el indice del owner seleccionado y borrarlo
+    QListWidgetItem *selected = this->ui->listWidget_2->selectedItems().first();
+    if(selected != NULL)  // ARREGLAR - NO FUNCIONA
+        listaOw.erase(listaOw.begin() + this->ui->listWidget_2->row(selected));
+
+    this->ui->listWidget_2->clear();
+    for (auto &it : listaOw) {
+        this->ui->listWidget_2->addItem(it.getNombre().c_str());
+    }
+
+    guardarEnArchivo();
+}
+
+void MainWindow::on_actionModOwner_triggered()
+{
+    QListWidgetItem *selected = this->ui->listWidget_2->selectedItems().first();
+
+    diagOwner ow;
+    ow.setOw(this->listaOw);
+    ow.setRow(this->ui->listWidget_2->row(selected)); // Le pasamos el indice del owner que queremos modificar
+    ow.setMod();
+    ow.setModal(true);
+    ow.exec();
+
+    this->ui->listWidget_2->clear();
+    for (auto &it : listaOw) {
+        this->ui->listWidget_2->addItem(it.getNombre().c_str());
+    }
+
+   guardarEnArchivo();
+}
+
+void MainWindow::on_actionModNego_triggered()
+{
+    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+    QListWidgetItem *selectedNego = this->ui->listWidget->selectedItems().first();
+
+    DialogNego *ng = new DialogNego;
+    ng->setOw(this->listaOw);
+    ng->cargar();
+    ng->setRows(this->ui->listWidget_2->row(selectedOwner),
+                this->ui->listWidget->row(selectedNego));
+    ng->setMod();
+    ng->setModal(true);
+    ng->exec();
+
+    guardarEnArchivo();
+
+    // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
+    this->ui->listWidget->clear();
+}
+
+void MainWindow::on_actionBorNego_triggered()
+{
+    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+    QListWidgetItem *selectedNego = this->ui->listWidget->selectedItems().first();
+
+    std::vector<Nego> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
+    listaNegos.erase(listaNegos.begin() + this->ui->listWidget->row(selectedNego));
+
+    // TODO: Refrescar la lista de negos que toque
+    this->ui->listWidget->clear();
+
+    guardarEnArchivo();
+}

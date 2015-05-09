@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>341</height>
+    <width>572</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>ViajeFacil - Nego Space</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -136,7 +136,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>664</width>
+     <width>572</width>
      <height>20</height>
     </rect>
    </property>
@@ -144,98 +144,98 @@
     <property name="title">
      <string>Crear</string>
     </property>
-    <addaction name="actionOwner"/>
-    <addaction name="actionNego"/>
-    <addaction name="actionOficina"/>
-    <addaction name="actionPeticion"/>
-    <addaction name="actionUsuario"/>
+    <addaction name="actionCreOwner"/>
+    <addaction name="actionCreNego"/>
+    <addaction name="actionCreOficina"/>
+    <addaction name="actionCrePeticion"/>
+    <addaction name="actionCreUsuario"/>
    </widget>
    <widget class="QMenu" name="menuBorrar">
     <property name="title">
      <string>Borrar</string>
     </property>
-    <addaction name="actionOwner_2"/>
-    <addaction name="actionNego_2"/>
-    <addaction name="actionOficina_2"/>
-    <addaction name="actionPeticion_2"/>
+    <addaction name="actionBorOwner"/>
+    <addaction name="actionBorNego"/>
+    <addaction name="actionBorOficina"/>
+    <addaction name="actionBorPeticion"/>
    </widget>
    <widget class="QMenu" name="menuModificar">
     <property name="title">
      <string>Modificar</string>
     </property>
-    <addaction name="actionNego_3"/>
-    <addaction name="actionNego_4"/>
-    <addaction name="actionOficina_3"/>
-    <addaction name="actionPeticion_3"/>
+    <addaction name="actionModOwner"/>
+    <addaction name="actionModNego"/>
+    <addaction name="actionModOficina"/>
+    <addaction name="actionModPeticion"/>
    </widget>
    <addaction name="menuCrear"/>
    <addaction name="menuBorrar"/>
    <addaction name="menuModificar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionNego">
-   <property name="text">
-    <string>Crear Nego</string>
-   </property>
-  </action>
-  <action name="actionOficina">
-   <property name="text">
-    <string>Crear Oficina</string>
-   </property>
-  </action>
-  <action name="actionPeticion">
-   <property name="text">
-    <string>Crear Peticion</string>
-   </property>
-  </action>
-  <action name="actionOwner">
-   <property name="text">
-    <string>Crear Owner</string>
-   </property>
-  </action>
-  <action name="actionOwner_2">
-   <property name="text">
-    <string>Owner</string>
-   </property>
-  </action>
-  <action name="actionNego_2">
+  <action name="actionCreNego">
    <property name="text">
     <string>Nego</string>
    </property>
   </action>
-  <action name="actionOficina_2">
+  <action name="actionCreOficina">
    <property name="text">
     <string>Oficina</string>
    </property>
   </action>
-  <action name="actionPeticion_2">
+  <action name="actionCrePeticion">
    <property name="text">
     <string>Peticion</string>
    </property>
   </action>
-  <action name="actionNego_3">
+  <action name="actionCreOwner">
    <property name="text">
     <string>Owner</string>
    </property>
   </action>
-  <action name="actionNego_4">
+  <action name="actionBorOwner">
+   <property name="text">
+    <string>Owner</string>
+   </property>
+  </action>
+  <action name="actionBorNego">
    <property name="text">
     <string>Nego</string>
    </property>
   </action>
-  <action name="actionOficina_3">
+  <action name="actionBorOficina">
    <property name="text">
     <string>Oficina</string>
    </property>
   </action>
-  <action name="actionPeticion_3">
+  <action name="actionBorPeticion">
    <property name="text">
     <string>Peticion</string>
    </property>
   </action>
-  <action name="actionUsuario">
+  <action name="actionModOwner">
    <property name="text">
-    <string>Crear Usuario</string>
+    <string>Owner</string>
+   </property>
+  </action>
+  <action name="actionModNego">
+   <property name="text">
+    <string>Nego</string>
+   </property>
+  </action>
+  <action name="actionModOficina">
+   <property name="text">
+    <string>Oficina</string>
+   </property>
+  </action>
+  <action name="actionModPeticion">
+   <property name="text">
+    <string>Peticion</string>
+   </property>
+  </action>
+  <action name="actionCreUsuario">
+   <property name="text">
+    <string>Usuario</string>
    </property>
   </action>
  </widget>

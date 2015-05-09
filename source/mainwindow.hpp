@@ -16,13 +16,10 @@ class MainWindow : public QMainWindow {
  public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    std::vector<Owner> &getOwners();
 
  private slots:
     void on_pushButton_2_clicked();
-    void on_actionUsuario_triggered();
-    void on_actionOwner_triggered();
-    void on_actionNego_triggered();
+
     void cambiarUsuario(std::string nombre);
 
     void guardarEnArchivo();
@@ -30,6 +27,20 @@ class MainWindow : public QMainWindow {
     void on_listWidget_2_pressed(const QModelIndex &index);
 
     void on_actionPeticion_triggered();
+
+    void on_actionCreNego_triggered();
+
+    void on_actionCreOwner_triggered();
+
+    void on_actionCreUsuario_triggered();
+
+    void on_actionBorOwner_triggered();
+
+    void on_actionModOwner_triggered();
+
+    void on_actionModNego_triggered();
+
+    void on_actionBorNego_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Peticiones</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -61,7 +61,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -129,7 +129,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -155,21 +155,11 @@
     </item>
    </layout>
   </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_5</zorder>
-  <zorder>lineEdit</zorder>
-  <zorder>lineEdit_2</zorder>
-  <zorder>lineEdit_3</zorder>
-  <zorder>dateEdit</zorder>
-  <zorder>lineEdit_3</zorder>
-  <zorder>label_4</zorder>
   <zorder>comboBox</zorder>
   <zorder>comboBox_2</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>pushButton_2</zorder>
  </widget>
  <resources/>
  <connections>

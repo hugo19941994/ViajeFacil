@@ -23,7 +23,7 @@ void Fecha::setMes(size_t mes) {
 }
 
 void Fecha::setAnio(int anio) {
-  this->dia_ = anio;
+  this->anio_ = anio;
 }
 
 size_t Fecha::getDia() {

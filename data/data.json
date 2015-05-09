@@ -4,55 +4,75 @@
             "Nombre": "Iberia",
             "Negos": [
                 {
-                    "Origen": "Palencia",
-                    "Destino": "Roma",
+                    "Origen": "Madrid",
+                    "Destino": "New York",
+                    "Numero_de_Plazas": 50,
+                    "Fecha": {
+                        "Día": 1,
+                        "Mes": 1,
+                        "Año": 2000
+                    }
+                },
+                {
+                    "Origen": "Madrid",
+                    "Destino": "Burundi",
                     "Numero_de_Plazas": 100,
                     "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
+                        "Día": 1024,
+                        "Mes": 512,
                         "Año": 0
                     }
                 },
                 {
-                    "Origen": "madrid",
-                    "Destino": "cadiz",
-                    "Numero_de_Plazas": 3,
+                    "Origen": "Cambodia",
+                    "Destino": "Moscú",
+                    "Numero_de_Plazas": 1000,
                     "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
+                        "Día": 1,
+                        "Mes": 1,
+                        "Año": 2014
+                    }
+                },
+                {
+                    "Origen": "Arabia Saudi",
+                    "Destino": "Vaticano",
+                    "Numero_de_Plazas": 60,
+                    "Fecha": {
+                        "Día": 1,
+                        "Mes": 1,
+                        "Año": 2000
                     }
                 }
             ],
             "Oficinas": []
         },
         {
-            "Nombre": "Halcon",
+            "Nombre": "Halcón",
             "Negos": [
                 {
-                    "Origen": "madrid",
-                    "Destino": "cadiz",
-                    "Numero_de_Plazas": 3,
+                    "Origen": "Madrid",
+                    "Destino": "Buffalo",
+                    "Numero_de_Plazas": 100,
                     "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
+                        "Día": 1,
+                        "Mes": 1,
+                        "Año": 2000
                     }
                 }
             ],
             "Oficinas": []
         },
         {
-            "Nombre": "Marsans",
+            "Nombre": "Marsan",
             "Negos": [
                 {
                     "Origen": "Polonia",
                     "Destino": "Benidrom",
-                    "Numero_de_Plazas": 900,
+                    "Numero_de_Plazas": 800,
                     "Fecha": {
-                        "Día": 0,
-                        "Mes": 0,
-                        "Año": 0
+                        "Día": 1,
+                        "Mes": 1,
+                        "Año": 2000
                     }
                 }
             ],
