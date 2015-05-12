@@ -1,3 +1,6 @@
+//AUTORES: Guillermo Gonzalez
+
+
 #include <assert.h>
 #include <iostream>
 #include <fstream>
@@ -9,22 +12,36 @@
 #include "./mainwindow.hpp"
 
 
+/**
+ * @brief Login::Login
+ * @param parent
+ */
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login) {
       ui->setupUi(this);
 }
 
+/**
+ * @brief Login::~Login
+ */
 Login::~Login() {
     delete ui;
 }
 
+/**
+ * @brief Login::setEstado
+ * @param estado
+ */
 void Login::setEstado(int estado) {
     this->estado_ = estado;
     if (this->estado_ == 0)  // Si vamos a hacer login escondemos el boton "admin"
     this->ui->checkBox->hide();
 }
 
+/**
+ * @brief Login::on_buttonBox_accepted
+ */
 void Login::on_buttonBox_accepted() {
     if (this->estado_ == 1) {  // estado_ 1 para crear usuario
         // Crear Salt aleatorio
