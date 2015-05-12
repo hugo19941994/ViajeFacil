@@ -21,8 +21,6 @@ public:
      void setPe(std::vector<Peticion>& pet);
      void cargar();
 
-private slots:
-     void on_comboBox_currentIndexChanged(int index);
 
 private:
     Ui::DialogPeticiones *ui;

@@ -67,9 +67,10 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     // aqui el codigo de refresco de oficinas
 }
 
-void MainWindow::on_actionPeticion_triggered() {
+void MainWindow::on_actionCrePeticion_triggered() {
     DialogPeticiones peticiones;
     peticiones.setOw(this->listaOw);
+    peticiones.cargar();
     peticiones.setModal(true);
     peticiones.exec();
 

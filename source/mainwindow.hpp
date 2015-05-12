@@ -26,7 +26,7 @@ class MainWindow : public QMainWindow {
 
     void on_listWidget_2_pressed(const QModelIndex &index);
 
-    void on_actionPeticion_triggered();
+    void on_actionCrePeticion_triggered();
 
     void on_actionCreNego_triggered();
 

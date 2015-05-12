@@ -61,22 +61,6 @@
                 }
             ],
             "Oficinas": []
-        },
-        {
-            "Nombre": "Marsan",
-            "Negos": [
-                {
-                    "Origen": "Polonia",
-                    "Destino": "Benidrom",
-                    "Numero_de_Plazas": 800,
-                    "Fecha": {
-                        "Día": 1,
-                        "Mes": 1,
-                        "Año": 2000
-                    }
-                }
-            ],
-            "Oficinas": []
         }
     ]
 }
