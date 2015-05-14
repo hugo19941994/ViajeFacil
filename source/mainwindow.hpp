@@ -77,6 +77,10 @@ class MainWindow : public QMainWindow {
      * @brief on_actionBorNego_triggered
      */
     void on_actionBorNego_triggered();
+    /**
+     * @brief on_actionCreOficina_triggered
+    */
+    void on_actionCreOficina_triggered();
 
 private:
     /**

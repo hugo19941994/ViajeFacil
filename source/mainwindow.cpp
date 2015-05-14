@@ -10,6 +10,7 @@
 #include "./login.hpp"
 #include "./diagowner.hpp"
 #include "./dialognego.hpp"
+#include "./dialogOficinas.hpp"
 #include "./cereal/archives/json.hpp"
 #include "./cereal/types/vector.hpp"
 #include "./dialogpeticiones.hpp"
@@ -99,6 +100,17 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
 
     // TODO: Cuando este oficinas hecho agregar
     // aqui el codigo de refresco de oficinas
+    for (auto it : ow.getOficinas()){
+    QString nomPa = it.getNombre().c_str();  // TODO:Se puede hacer en una linea?
+    nomPa.append(" - ");
+    nomPa.append(it.getPais().c_str());
+    nomPa.append(" - ");
+    nomPa.append(it.getContinente().c_str());
+
+    this->ui->listWidget_3->addItem(nomPa);
+    }
+
+
 }
 
 /**
@@ -260,4 +272,13 @@ void MainWindow::on_actionBorNego_triggered()
      * @brief guardarEnArchivo
      */
     guardarEnArchivo();
+}
+
+void MainWindow::on_actionCreOficina_triggered()
+{
+    DialogOficinas *diagOf = new DialogOficinas;
+    diagOf->setOw(this->listaOw);
+    diagOf->cargar();
+    diagOf->setModal(true);
+    diagOf->exec();
 }
