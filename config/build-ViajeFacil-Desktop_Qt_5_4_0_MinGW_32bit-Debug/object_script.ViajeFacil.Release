@@ -11,9 +11,11 @@ INPUT(
 ./release\diagowner.o
 ./release\dialognego.o
 ./release\dialogpeticiones.o
+./release\dialogOficinas.o
 ./release\moc_login.o
 ./release\moc_mainwindow.o
 ./release\moc_diagowner.o
 ./release\moc_dialognego.o
 ./release\moc_dialogpeticiones.o
+./release\moc_dialogOficinas.o
 );

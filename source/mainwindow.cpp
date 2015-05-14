@@ -281,4 +281,8 @@ void MainWindow::on_actionCreOficina_triggered()
     diagOf->cargar();
     diagOf->setModal(true);
     diagOf->exec();
+
+
+
+
 }
