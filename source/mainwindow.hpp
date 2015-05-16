@@ -82,6 +82,10 @@ class MainWindow : public QMainWindow {
 
     void on_listWidget_3_pressed(const QModelIndex &index);
 
+    void on_actionBorOficina_triggered();
+
+    void on_actionBorPeticion_triggered();
+
 private:
     /**
      * @brief ui

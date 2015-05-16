@@ -169,8 +169,8 @@
     <addaction name="actionModPeticion"/>
    </widget>
    <addaction name="menuCrear"/>
-   <addaction name="menuBorrar"/>
    <addaction name="menuModificar"/>
+   <addaction name="menuBorrar"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreNego">

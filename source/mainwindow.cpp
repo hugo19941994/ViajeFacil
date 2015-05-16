@@ -121,8 +121,7 @@ void MainWindow::on_actionCrePeticion_triggered() {
 /**
  * @brief MainWindow::on_actionCreNego_triggered
  */
-void MainWindow::on_actionCreNego_triggered()
-{
+void MainWindow::on_actionCreNego_triggered() {
     DialogNego *ng = new DialogNego;
     ng->setOw(this->listaOw);
     ng->cargar();
@@ -138,8 +137,7 @@ void MainWindow::on_actionCreNego_triggered()
 /**
  * @brief MainWindow::on_actionCreOwner_triggered
  */
-void MainWindow::on_actionCreOwner_triggered()
-{
+void MainWindow::on_actionCreOwner_triggered() {
     diagOwner ow;
     ow.setOw(this->listaOw);
     ow.setModal(true);
@@ -156,8 +154,7 @@ void MainWindow::on_actionCreOwner_triggered()
 /**
  * @brief MainWindow::on_actionCreUsuario_triggered
  */
-void MainWindow::on_actionCreUsuario_triggered()
-{
+void MainWindow::on_actionCreUsuario_triggered() {
     Login log;
     log.setModal(true);
     log.setEstado(1);
@@ -167,8 +164,7 @@ void MainWindow::on_actionCreUsuario_triggered()
 /**
  * @brief MainWindow::on_actionBorOwner_triggered
  */
-void MainWindow::on_actionBorOwner_triggered()
-{
+void MainWindow::on_actionBorOwner_triggered() {
     // TODO: Preguntar si estas seguro de borrar owner y mostrar datos
 
     // Calcular el indice del owner seleccionado y borrarlo
@@ -187,8 +183,7 @@ void MainWindow::on_actionBorOwner_triggered()
 /**
  * @brief MainWindow::on_actionModOwner_triggered
  */
-void MainWindow::on_actionModOwner_triggered()
-{
+void MainWindow::on_actionModOwner_triggered() {
     QListWidgetItem *selected = this->ui->listWidget_2->selectedItems().first();
 
     diagOwner ow;
@@ -209,8 +204,7 @@ void MainWindow::on_actionModOwner_triggered()
 /**
  * @brief MainWindow::on_actionModNego_triggered
  */
-void MainWindow::on_actionModNego_triggered()
-{
+void MainWindow::on_actionModNego_triggered() {
     /**
     * @brief selectedOwner
     */
@@ -242,8 +236,7 @@ void MainWindow::on_actionModNego_triggered()
 /**
  * @brief MainWindow::on_actionBorNego_triggered
  */
-void MainWindow::on_actionBorNego_triggered()
-{
+void MainWindow::on_actionBorNego_triggered() {
     /**
     * @brief selectedOwner
     */
@@ -263,8 +256,7 @@ void MainWindow::on_actionBorNego_triggered()
     guardarEnArchivo();
 }
 
-void MainWindow::on_actionCreOficina_triggered()
-{
+void MainWindow::on_actionCreOficina_triggered() {
     DialogOficinas *diagOf = new DialogOficinas;
     diagOf->setOw(this->listaOw);
     diagOf->cargar();
@@ -274,8 +266,7 @@ void MainWindow::on_actionCreOficina_triggered()
     guardarEnArchivo();
 }
 
-void MainWindow::on_listWidget_3_pressed(const QModelIndex &index)
-{
+void MainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(ui->listWidget_2->currentIndex().row());
     auto pe = ow.getOficinas().at(index.row()).getPeticiones();
     this->ui->listWidget_4->clear();
@@ -283,4 +274,28 @@ void MainWindow::on_listWidget_3_pressed(const QModelIndex &index)
         QString orDe = std::to_string(it.getPlazasPedidas()).c_str();
         this->ui->listWidget_4->addItem(orDe);
     }
+}
+
+void MainWindow::on_actionBorOficina_triggered() {
+    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+    QListWidgetItem *selectedOficina = this->ui->listWidget_3->selectedItems().first();
+
+    std::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
+    listaOficinas.erase(listaOficinas.begin() + this->ui->listWidget_3->row(selectedOficina));
+
+    this->ui->listWidget_3->clear();
+    guardarEnArchivo();
+}
+
+void MainWindow::on_actionBorPeticion_triggered() {
+    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+    QListWidgetItem *selectedOficinas = this->ui->listWidget_3->selectedItems().first();
+    QListWidgetItem *selectedPeticion = this->ui->listWidget_4->selectedItems().first();
+
+    std::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
+    std::vector<Peticion> &listaPeticiones = listaOficinas.at(this->ui->listWidget_3->row(selectedOficinas)).getPeticiones();
+    listaPeticiones.erase(listaPeticiones.begin() + this->ui->listWidget_4->row(selectedPeticion));
+    // TODO Si borras peticiones habra que devolver las plazas???
+    this->ui->listWidget_4->clear();
+    guardarEnArchivo();
 }

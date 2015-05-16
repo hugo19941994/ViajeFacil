@@ -6,7 +6,7 @@
                 {
                     "Origen": "Madrid",
                     "Destino": "New York",
-                    "Numero_de_Plazas": -600,
+                    "Numero_de_Plazas": -1100,
                     "Fecha": {
                         "Día": 1,
                         "Mes": 1,
@@ -46,9 +46,9 @@
             ],
             "Oficinas": [
                 {
-                    "Nombre": "Ofi2",
-                    "País": "España",
-                    "Continente": "Madrid",
+                    "Nombre": "Oficina 1",
+                    "País": "Esp",
+                    "Continente": "Mad",
                     "Peticiones": [
                         {
                             "Origen": "",
@@ -58,25 +58,9 @@
                                 "Mes": 0,
                                 "Año": 0
                             },
-                            "Plazas Pedidas": 100
-                        },
-                        {
-                            "Origen": "",
-                            "Destino": "",
-                            "Fecha": {
-                                "Día": 0,
-                                "Mes": 0,
-                                "Año": 0
-                            },
-                            "Plazas Pedidas": 0
+                            "Plazas Pedidas": 200
                         }
                     ]
-                },
-                {
-                    "Nombre": "Oficina 3",
-                    "País": "España",
-                    "Continente": "Madrid",
-                    "Peticiones": []
                 }
             ]
         },
