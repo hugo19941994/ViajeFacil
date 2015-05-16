@@ -42,8 +42,15 @@ public:
      /**
       * @brief cargar
       */
+     void setOf(std::vector<Oficina>& of);
+     void setNe(std::vector<Nego>& ne);
      void cargar(); //función cargar, archivo donde se guardan las peticiones
 
+
+private slots:
+     void on_comboBox_currentIndexChanged(int index);
+
+     void on_pushButton_2_clicked();
 
 private:
     /**
@@ -57,7 +64,9 @@ private:
     /**
      * @brief pe
      */
+    std::vector<Oficina> *of; //vector peticiones
     std::vector<Peticion> *pe; //vector peticiones
+    std::vector<Nego> *ne; //vector peticiones
 
 };
 

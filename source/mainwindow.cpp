@@ -23,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
-
     //Cargar ficheros
     // TODO: Comprobar si existe
     std::ifstream myfile; //crea archivo lectura
@@ -98,19 +97,12 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
         this->ui->listWidget->addItem(orDe);
     }
 
-    // TODO: Cuando este oficinas hecho agregar
-    // aqui el codigo de refresco de oficinas
-    for (auto it : ow.getOficinas()){
-    QString nomPa = it.getNombre().c_str();  // TODO:Se puede hacer en una linea?
-    nomPa.append(" - ");
-    nomPa.append(it.getPais().c_str());
-    nomPa.append(" - ");
-    nomPa.append(it.getContinente().c_str());
-
-    this->ui->listWidget_3->addItem(nomPa);
+    this->ui->listWidget_3->clear();
+    for (auto it : ow.getOficinas()) {
+        QString nomPa = it.getNombre().c_str();  // TODO:Se puede hacer en una linea?
+        this->ui->listWidget_3->addItem(nomPa);
     }
-
-
+    ui->listWidget_4->clear();
 }
 
 /**
@@ -123,10 +115,7 @@ void MainWindow::on_actionCrePeticion_triggered() {
     peticiones.setModal(true);
     peticiones.exec();
 
-    this->ui->listWidget_4->clear();
-    for (auto &it : listaOw){
-        this->ui->listWidget_4->addItem(it.getNombre().c_str());
-    }
+    guardarEnArchivo();
 }
 
 /**
@@ -282,7 +271,16 @@ void MainWindow::on_actionCreOficina_triggered()
     diagOf->setModal(true);
     diagOf->exec();
 
+    guardarEnArchivo();
+}
 
-
-
+void MainWindow::on_listWidget_3_pressed(const QModelIndex &index)
+{
+    auto ow = this->listaOw.at(ui->listWidget_2->currentIndex().row());
+    auto pe = ow.getOficinas().at(index.row()).getPeticiones();
+    this->ui->listWidget_4->clear();
+    for (auto it : pe) {
+        QString orDe = std::to_string(it.getPlazasPedidas()).c_str();
+        this->ui->listWidget_4->addItem(orDe);
+    }
 }

@@ -38,7 +38,6 @@ void DialogOficinas::cargar()
 
 void DialogOficinas::on_comboBox_currentIndexChanged(int index)
 {
-
     this->setOf(ow->at(index).getOficinas());
 }
 

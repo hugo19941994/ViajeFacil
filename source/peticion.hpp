@@ -6,6 +6,7 @@
 #define PETICION_H
 
 #include <string>
+#include "nego.hpp"
 #include "./fecha.hpp"
 #include "./cereal/access.hpp"
 
@@ -32,6 +33,7 @@ class Peticion {
   std::size_t plazasPedidas_;
 
  public:
+  Nego* neg; //PONERLO ENPRIVATE
   /**
    * @brief Peticion
    */
@@ -109,7 +111,8 @@ class Peticion {
                  * @brief cereal::make_nvp
                  */
         cereal::make_nvp("Fecha", fecha_),
-        cereal::make_nvp("Plazas Pedidas", plazasPedidas_));
+        cereal::make_nvp("Plazas Pedidas", plazasPedidas_)),
+        cereal::make_nvp("Nego", *neg);
   }
 };
 

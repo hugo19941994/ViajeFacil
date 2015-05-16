@@ -47,3 +47,41 @@ void DialogPeticiones::cargar()
     for(auto &it : *this->ow)
         this->ui->comboBox->addItem(it.getNombre().c_str());
 }
+
+void DialogPeticiones::setOf(std::vector<Oficina>& of) {
+    this->of = &of;
+}
+void DialogPeticiones::setNe(std::vector<Nego>& ne) {
+    this->ne = &ne;
+}
+
+void DialogPeticiones::on_comboBox_currentIndexChanged(int index)
+{
+    //Owner *own = &this->ow->at(index);
+    setOf(ow->at(index).getOficinas());
+    setNe(ow->at(index).getNegos());
+
+    ui->comboBox_2->clear();
+    for(auto &it : *of) {
+        ui->comboBox_2->addItem(it.getNombre().c_str());
+    }
+
+    ui->comboBox_3->clear();
+    for(auto &it : *ne) {
+        QString texto = it.getOrigen().c_str();
+        texto.append(" - ");
+        texto.append(it.getDestino().c_str());
+        ui->comboBox_3->addItem(texto);
+    }
+
+}
+
+void DialogPeticiones::on_pushButton_2_clicked()
+{
+    setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
+    Peticion *pet = new Peticion;
+    pet->neg = &ne->at(ui->comboBox_3->currentIndex());
+    pet->setPlazasPedidas(ui->lineEdit_3->text().toInt());
+    pet->neg->setNumeroPlazas(pet->neg->getNumeroPlazas() - pet->getPlazasPedidas());
+    pe->push_back(*pet);
+}

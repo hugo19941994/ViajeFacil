@@ -80,6 +80,8 @@ class MainWindow : public QMainWindow {
 
     void on_actionCreOficina_triggered();
 
+    void on_listWidget_3_pressed(const QModelIndex &index);
+
 private:
     /**
      * @brief ui

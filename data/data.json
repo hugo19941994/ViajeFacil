@@ -6,7 +6,7 @@
                 {
                     "Origen": "Madrid",
                     "Destino": "New York",
-                    "Numero_de_Plazas": 50,
+                    "Numero_de_Plazas": -600,
                     "Fecha": {
                         "Día": 1,
                         "Mes": 1,
@@ -16,7 +16,7 @@
                 {
                     "Origen": "Madrid",
                     "Destino": "Burundi",
-                    "Numero_de_Plazas": 100,
+                    "Numero_de_Plazas": 0,
                     "Fecha": {
                         "Día": 1024,
                         "Mes": 512,
@@ -44,7 +44,41 @@
                     }
                 }
             ],
-            "Oficinas": []
+            "Oficinas": [
+                {
+                    "Nombre": "Ofi2",
+                    "País": "España",
+                    "Continente": "Madrid",
+                    "Peticiones": [
+                        {
+                            "Origen": "",
+                            "Destino": "",
+                            "Fecha": {
+                                "Día": 0,
+                                "Mes": 0,
+                                "Año": 0
+                            },
+                            "Plazas Pedidas": 100
+                        },
+                        {
+                            "Origen": "",
+                            "Destino": "",
+                            "Fecha": {
+                                "Día": 0,
+                                "Mes": 0,
+                                "Año": 0
+                            },
+                            "Plazas Pedidas": 0
+                        }
+                    ]
+                },
+                {
+                    "Nombre": "Oficina 3",
+                    "País": "España",
+                    "Continente": "Madrid",
+                    "Peticiones": []
+                }
+            ]
         },
         {
             "Nombre": "Halcón",
@@ -60,7 +94,14 @@
                     }
                 }
             ],
-            "Oficinas": []
+            "Oficinas": [
+                {
+                    "Nombre": "OficinaPrincipal",
+                    "País": "Italia",
+                    "Continente": "Roma",
+                    "Peticiones": []
+                }
+            ]
         }
     ]
 }
