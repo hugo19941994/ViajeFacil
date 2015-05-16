@@ -6,7 +6,7 @@
                 {
                     "Origen": "Madrid",
                     "Destino": "New York",
-                    "Numero_de_Plazas": 100,
+                    "Numero_de_Plazas": 0,
                     "Fecha": {
                         "Día": 1,
                         "Mes": 1,
@@ -58,7 +58,17 @@
                                 "Mes": 0,
                                 "Año": 0
                             },
-                            "Plazas Pedidas": 200
+                            "Plazas Pedidas": 50
+                        },
+                        {
+                            "Origen": "",
+                            "Destino": "",
+                            "Fecha": {
+                                "Día": 0,
+                                "Mes": 0,
+                                "Año": 0
+                            },
+                            "Plazas Pedidas": 50
                         }
                     ]
                 }

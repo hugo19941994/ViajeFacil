@@ -4,6 +4,7 @@
 //se tendrá acceso a la cabecera y al cuerpo de dialogpeticiones para usar sus datos
 #include "./dialogpeticiones.hpp"
 #include "./ui_dialogpeticiones.h"
+#include <QMessageBox>
 
 DialogPeticiones::DialogPeticiones(QWidget *parent) : //tipo de ventana peticiones
     QDialog(parent),
@@ -25,8 +26,7 @@ DialogPeticiones::~DialogPeticiones() { //destructor
  * @brief DialogPeticiones::setOw
  * @param own
  */
-void DialogPeticiones::setOw(std::vector<Owner> &own) //introducir owners, se accede al vector owners
-{
+void DialogPeticiones::setOw(std::vector<Owner> &own) { //introducir owners, se accede al vector owners
     this->ow = &own;
 }
 
@@ -34,16 +34,14 @@ void DialogPeticiones::setOw(std::vector<Owner> &own) //introducir owners, se ac
  * @brief DialogPeticiones::setPe
  * @param pet
  */
-void DialogPeticiones::setPe(std::vector<Peticion> &pet)
-{
+void DialogPeticiones::setPe(std::vector<Peticion> &pet) {
     this->pe = &pet;
 }
 
 /**
  * @brief DialogPeticiones::cargar
  */
-void DialogPeticiones::cargar()
-{
+void DialogPeticiones::cargar() {
     for(auto &it : *this->ow)
         this->ui->comboBox->addItem(it.getNombre().c_str());
 }
@@ -55,8 +53,7 @@ void DialogPeticiones::setNe(std::vector<Nego>& ne) {
     this->ne = &ne;
 }
 
-void DialogPeticiones::on_comboBox_currentIndexChanged(int index)
-{
+void DialogPeticiones::on_comboBox_currentIndexChanged(int index) {
     //Owner *own = &this->ow->at(index);
     setOf(ow->at(index).getOficinas());
     setNe(ow->at(index).getNegos());
@@ -76,12 +73,17 @@ void DialogPeticiones::on_comboBox_currentIndexChanged(int index)
 
 }
 
-void DialogPeticiones::on_pushButton_2_clicked()
-{
+void DialogPeticiones::on_pushButton_2_clicked() {
+
     setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
     Peticion *pet = new Peticion;
     pet->neg = &ne->at(ui->comboBox_3->currentIndex());
     pet->setPlazasPedidas(ui->lineEdit_3->text().toInt());
-    pet->neg->setNumeroPlazas(pet->neg->getNumeroPlazas() - pet->getPlazasPedidas());
-    pe->push_back(*pet);
+
+    if(static_cast<int>(pet->neg->getNumeroPlazas() - pet->getPlazasPedidas()) >= 0) {
+        pet->neg->setNumeroPlazas(pet->neg->getNumeroPlazas() - pet->getPlazasPedidas());
+        pe->push_back(*pet);
+    }
+    else
+        QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
 }
