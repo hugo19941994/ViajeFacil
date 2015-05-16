@@ -51,10 +51,6 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
      * @param modRowNego
      */
     void setRows(int modRowOwner, int modRowNego);
-    /**
-     * @brief setMod
-     */
-    void setMod();
 
 
  private slots: //funciones cuando presionas los botones en la ventana de negos
@@ -74,15 +70,11 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
     /**
      * @brief modRowOwner
      */
-    int modRowOwner;
+    int modRowOwner = -1;
     /**
      * @brief modRowNego
      */
-    int modRowNego;
-    /**
-     * @brief mod
-     */
-    bool mod = false;
+    int modRowNego = -1;
     /**
      * @brief ui
      */

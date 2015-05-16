@@ -40,10 +40,6 @@ class diagOwner : public QDialog {
      * @param index
      */
     void setRow(int index);
-    /**
-     * @brief setMod
-     */
-    void setMod();
 
  private slots:
     /**
@@ -56,11 +52,7 @@ class diagOwner : public QDialog {
     /**
      * @brief modRow
      */
-    int modRow;
-    /**
-     * @brief mod
-     */
-    bool mod = false;
+    int modRow = -1;
     /**
      * @brief ui
      */

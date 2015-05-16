@@ -34,7 +34,7 @@ diagOwner::~diagOwner() {  //destructor, se destruirán el o los datos seleccion
  */
 void diagOwner::on_buttonBox_accepted() {
     //datos guardados en linea de texto nombre
-    if(this->mod == true){
+    if(this->modRow != -1){
 
         //definimos el tipo de campo que será NOMBRE
         this->ow->at(modRow).setNombre(this->ui->lineEdit->text().toStdString());
@@ -63,12 +63,5 @@ void diagOwner::setOw(std::vector<Owner> &own) {
 void diagOwner::setRow(int index)
 {   //Refresca los datos en la página principal en la parte de owners y pone los introducidos
     this->modRow = index;
-}
-/**
- * @brief diagOwner::setMod
- */
-void diagOwner::setMod()
-{   //se modifican los datos de owner
-    this->mod = true; //menu desplegable, opcion: modificar
     this->ui->lineEdit->setText(this->ow->at(modRow).getNombre().c_str());
 }

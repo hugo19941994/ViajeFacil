@@ -86,6 +86,10 @@ class MainWindow : public QMainWindow {
 
     void on_actionBorPeticion_triggered();
 
+    void on_actionModOficina_triggered();
+
+    void on_actionModPeticion_triggered();
+
 private:
     /**
      * @brief ui

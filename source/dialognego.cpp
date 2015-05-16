@@ -46,21 +46,9 @@ void DialogNego::setRows(int modRowOwner, int modRowNego)
     this->modRowOwner = modRowOwner; //datos modificados de owner
 
     this->modRowNego = modRowNego; //datos modificados en nego
-}
-
-/**
- * @brief DialogNego::setMod
- */
-void DialogNego::setMod()
-{
-    /**
-     * @brief ow
-     */
     Owner *ow = &this->ow->at(modRowOwner);  //puntero de modificacion de owners en opcion modificar owner
     //si no hay owners, no hay negos
     this->setNe(ow->getNegos()); //los owners van a permitir que se muestren los negos
-
-    this->mod = true; //datos a modificar de nego
 
     //lugar donde se van a modificar los datos
     this->ui->lineDestino->setText(this->ne->at(this->modRowNego).getDestino().c_str());
@@ -73,7 +61,6 @@ void DialogNego::setMod()
     // TODO: Mostrar el nego que corresponda en vez del primero
     //this->ui->comboBox->setItemText(this->ow->at(modRowOwner).getNombre().c_str());
     this->ui->comboBox->setEnabled(false);
-
 }
 
 /**
@@ -108,7 +95,7 @@ void DialogNego::on_comboBox_currentIndexChanged(int index) {
  * @brief DialogNego::on_buttonOkCancel_accepted
  */
 void DialogNego::on_buttonOkCancel_accepted() {
-    if(this->mod == true){ //modifica datos
+    if(this->modRowNego != -1 && this->modRowOwner != -1){ //modifica datos
         ne->at(modRowNego).setOrigen(this->ui->lineOrigen->text().toStdString());
         ne->at(modRowNego).setDestino(this->ui->lineDestino->text().toStdString());
         ne->at(modRowNego).setNumeroPlazas(this->ui->linePlazas->text().toInt());

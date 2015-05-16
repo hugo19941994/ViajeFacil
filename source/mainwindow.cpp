@@ -189,7 +189,6 @@ void MainWindow::on_actionModOwner_triggered() {
     diagOwner ow;
     ow.setOw(this->listaOw);
     ow.setRow(this->ui->listWidget_2->row(selected)); // Le pasamos el indice del owner que queremos modificar
-    ow.setMod();
     ow.setModal(true);
     ow.exec();
 
@@ -221,7 +220,8 @@ void MainWindow::on_actionModNego_triggered() {
     ng->cargar();
     ng->setRows(this->ui->listWidget_2->row(selectedOwner),
                 this->ui->listWidget->row(selectedNego));
-    ng->setMod();
+    // TODO - IDEA en vez que pasarle el numero de fila pasar directamente
+    // un puntero al nego que hay que modificar? alguna desventajas?
     ng->setModal(true);
     ng->exec();
     /**
@@ -298,4 +298,12 @@ void MainWindow::on_actionBorPeticion_triggered() {
     // TODO Si borras peticiones habra que devolver las plazas???
     this->ui->listWidget_4->clear();
     guardarEnArchivo();
+}
+
+void MainWindow::on_actionModOficina_triggered() {
+
+}
+
+void MainWindow::on_actionModPeticion_triggered() {
+
 }
