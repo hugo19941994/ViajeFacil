@@ -70,19 +70,17 @@ void DialogPeticiones::on_comboBox_currentIndexChanged(int index) {
         texto.append(it.getDestino().c_str());
         ui->comboBox_3->addItem(texto);
     }
-
 }
 
 void DialogPeticiones::on_pushButton_2_clicked() {
-
     setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
-    Peticion *pet = new Peticion;
-    pet->neg = &ne->at(ui->comboBox_3->currentIndex());
-    pet->setPlazasPedidas(ui->lineEdit_3->text().toInt());
+    Peticion pet;
+    pet.neg = &ne->at(ui->comboBox_3->currentIndex());
+    pet.setPlazasPedidas(ui->lineEdit_3->text().toInt());
 
-    if(static_cast<int>(pet->neg->getNumeroPlazas() - pet->getPlazasPedidas()) >= 0) {
-        pet->neg->setNumeroPlazas(pet->neg->getNumeroPlazas() - pet->getPlazasPedidas());
-        pe->push_back(*pet);
+    if(static_cast<int>(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas()) >= 0) {
+        pet.neg->setNumeroPlazas(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas());
+        pe->push_back(pet);
     }
     else
         QMessageBox::warning(this, "Warning", "No hay suficientes plazas");

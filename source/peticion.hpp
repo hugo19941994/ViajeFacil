@@ -33,7 +33,7 @@ class Peticion {
   std::size_t plazasPedidas_;
 
  public:
-  Nego* neg; //PONERLO ENPRIVATE
+  Nego* neg; //PONERLO EN PRIVATE
   /**
    * @brief Peticion
    */

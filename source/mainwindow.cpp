@@ -254,6 +254,8 @@ void MainWindow::on_actionBorNego_triggered() {
      * @brief guardarEnArchivo
      */
     guardarEnArchivo();
+    // TODO - SI BORRAMOS NEGO HABRA QUE BORRAR SUS PETICIONES!
+    // O POR LO MENOS AVISAR Y EVITAR QUE SE BORRE EL NEGO
 }
 
 void MainWindow::on_actionCreOficina_triggered() {
@@ -285,6 +287,8 @@ void MainWindow::on_actionBorOficina_triggered() {
 
     this->ui->listWidget_3->clear();
     guardarEnArchivo();
+    // TODO - SI BORRAS OFICINAS SE BORRAN SUS PETICIONES
+    // QUIZAS HAYA QUE AVISAR DE QUE ESA OFICINA TIENE PETICIONES
 }
 
 void MainWindow::on_actionBorPeticion_triggered() {
@@ -294,8 +298,13 @@ void MainWindow::on_actionBorPeticion_triggered() {
 
     std::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
     std::vector<Peticion> &listaPeticiones = listaOficinas.at(this->ui->listWidget_3->row(selectedOficinas)).getPeticiones();
+
+    // Si borras peticion devolvemos las plazas al nego
+    int asientos = listaPeticiones.at(this->ui->listWidget_4->row(selectedPeticion)).getPlazasPedidas();
+    Nego &neg = *listaPeticiones.at(this->ui->listWidget_4->row(selectedPeticion)).neg;
+    neg.setNumeroPlazas(neg.getNumeroPlazas() + asientos);
     listaPeticiones.erase(listaPeticiones.begin() + this->ui->listWidget_4->row(selectedPeticion));
-    // TODO Si borras peticiones habra que devolver las plazas???
+
     this->ui->listWidget_4->clear();
     guardarEnArchivo();
 }
