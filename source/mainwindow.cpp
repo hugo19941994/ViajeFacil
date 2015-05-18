@@ -310,6 +310,19 @@ void MainWindow::on_actionBorPeticion_triggered() {
 }
 
 void MainWindow::on_actionModOficina_triggered() {
+    QListWidgetItem *selectedOw = this->ui->listWidget_2->selectedItems().first();
+    QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
+
+    DialogOficinas *of = new DialogOficinas;
+    of->setOw(this->listaOw);
+    of->cargar();
+    of->setRows(this->ui->listWidget_2->row(selectedOwner),
+                this->ui->listWidget_3->row(selectedOf));
+
+    of->setModal(true);
+    of->exec();
+
+    guardarEnArchivo();
 
 }
 

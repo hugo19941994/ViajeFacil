@@ -24,10 +24,12 @@ public:
     void setOf(std::vector<Oficina>& ofc);
     void setOw(std::vector<Owner>& own);
     void setPe(std::vector<Peticion>& pet);
+    void setRows(int modRowOwner, int modRowOficina);
     void cargar();
 
 private slots:
-
+    int modRowOwner = -1;
+    int modRowOficina = -1;
 
     void on_comboBox_currentIndexChanged(int index);
 

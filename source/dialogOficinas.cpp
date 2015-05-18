@@ -34,6 +34,24 @@ void DialogOficinas::cargar()
        this->ui->comboBox->addItem(it.getNombre().c_str());
 }
 
+void DialogOficinas::setRows(int modRowOwner, int modRowOficina)
+{
+    this->modRowOwner = modRowOwner; //datos modificados de owner
+    this->modRowOficina = modRowOficina; //datos modificados en oficina
+    Owner *ow = &this->ow->at(modRowOwner);  //puntero de modificacion de owners en opcion modificar oficina
+    //si no hay owners, no hay oficinas
+    this->setOf(ow->getOficinas());
+
+    //lugar donde se van a modificar los datos
+    this->ui->lineNombre->setText(this->of->at(this->modRowOficina).getNombre().c_str());
+    this->ui->linePais->setText(this->of->at(this->modRowOficina).getPais().c_str());
+    this->ui->lineCont->setText(this->of->at(this->modRowOficina).getContinente().c_str());
+
+
+    //this->ui->comboBox->setItemText(this->ow->at(modRowOwner).getNombre().c_str());
+    this->ui->comboBox->setEnabled(false);
+}
+
 
 
 void DialogOficinas::on_comboBox_currentIndexChanged(int index)
@@ -47,14 +65,5 @@ void DialogOficinas::on_buttonBox_accepted()
     newOf->setNombre(this->ui->lineNombre->text().toStdString());
     newOf->setPais(this->ui->linePais->text().toStdString());
     newOf->setContinente(this->ui->lineCont->text().toStdString());
-
-   /* newO->setOrigen(this->ui->lineOrigen->text().toStdString());
-    newN->setDestino(this->ui->lineDestino->text().toStdString());
-    newN->setNumeroPlazas(this->ui->linePlazas->text().toInt());
-    Fecha fech;
-    fech.setDia(this->ui->dateEdit->date().day());
-    fech.setMes(this->ui->dateEdit->date().month());
-    fech.setAnio(this->ui->dateEdit->date().year());
-    newN->setFecha(fech);*/
     this->of->push_back(*newOf);
 }
