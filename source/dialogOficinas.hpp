@@ -28,14 +28,14 @@ public:
     void cargar();
 
 private slots:
-    int modRowOwner = -1;
-    int modRowOficina = -1;
 
     void on_comboBox_currentIndexChanged(int index);
 
     void on_buttonBox_accepted();
 
 private:
+    int modRowOwner = -1;
+    int modRowOficina = -1;
     Ui::DialogOficinas *ui;
     std::vector<Owner> *ow;
     std::vector<Oficina> *of;

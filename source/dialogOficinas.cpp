@@ -3,39 +3,32 @@
 
 DialogOficinas::DialogOficinas(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogOficinas)
-{
+    ui(new Ui::DialogOficinas) {
     ui->setupUi(this);
 }
 
-DialogOficinas::~DialogOficinas()
-{
+DialogOficinas::~DialogOficinas() {
     delete ui;
 }
 
-void DialogOficinas::setOw(std::vector<Owner> &own)
-{
+void DialogOficinas::setOw(std::vector<Owner> &own) {
     this->ow = &own;
 }
 
-void DialogOficinas::setOf(std::vector<Oficina> &ofc)
-{
+void DialogOficinas::setOf(std::vector<Oficina> &ofc) {
     this->of = &ofc;
 }
 
-void DialogOficinas::setPe(std::vector<Peticion> &pet)
-{
+void DialogOficinas::setPe(std::vector<Peticion> &pet) {
     this->pe = &pet;
 }
 
-void DialogOficinas::cargar()
-{
+void DialogOficinas::cargar() {
    for(auto &it : *this->ow)
        this->ui->comboBox->addItem(it.getNombre().c_str());
 }
 
-void DialogOficinas::setRows(int modRowOwner, int modRowOficina)
-{
+void DialogOficinas::setRows(int modRowOwner, int modRowOficina) {
     this->modRowOwner = modRowOwner; //datos modificados de owner
     this->modRowOficina = modRowOficina; //datos modificados en oficina
     Owner *ow = &this->ow->at(modRowOwner);  //puntero de modificacion de owners en opcion modificar oficina
@@ -47,23 +40,25 @@ void DialogOficinas::setRows(int modRowOwner, int modRowOficina)
     this->ui->linePais->setText(this->of->at(this->modRowOficina).getPais().c_str());
     this->ui->lineCont->setText(this->of->at(this->modRowOficina).getContinente().c_str());
 
-
     //this->ui->comboBox->setItemText(this->ow->at(modRowOwner).getNombre().c_str());
     this->ui->comboBox->setEnabled(false);
 }
 
-
-
-void DialogOficinas::on_comboBox_currentIndexChanged(int index)
-{
+void DialogOficinas::on_comboBox_currentIndexChanged(int index) {
     this->setOf(ow->at(index).getOficinas());
 }
 
-void DialogOficinas::on_buttonBox_accepted()
-{
-    Oficina *newOf = new Oficina;
-    newOf->setNombre(this->ui->lineNombre->text().toStdString());
-    newOf->setPais(this->ui->linePais->text().toStdString());
-    newOf->setContinente(this->ui->lineCont->text().toStdString());
-    this->of->push_back(*newOf);
+void DialogOficinas::on_buttonBox_accepted() {
+    if(modRowOficina != -1 && modRowOwner != -1){
+        of->at(modRowOficina).setNombre(ui->lineNombre->text().toStdString());
+        of->at(modRowOficina).setPais(ui->linePais->text().toStdString());
+        of->at(modRowOficina).setContinente(ui->lineCont->text().toStdString());
+    }
+    else {
+        Oficina *newOf = new Oficina;
+        newOf->setNombre(this->ui->lineNombre->text().toStdString());
+        newOf->setPais(this->ui->linePais->text().toStdString());
+        newOf->setContinente(this->ui->lineCont->text().toStdString());
+        this->of->push_back(*newOf);
+    }
 }

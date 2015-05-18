@@ -55,7 +55,7 @@ void DialogNego::setRows(int modRowOwner, int modRowNego)
     this->ui->lineOrigen->setText(this->ne->at(this->modRowNego).getOrigen().c_str());
     this->ui->linePlazas->setText(std::to_string(this->ne->at(this->modRowNego).getNumeroPlazas()).c_str());
     Fecha fech = this->ne->at(modRowNego).getFecha();
-    QDate date(fech.getDia(), fech.getMes(), fech.getAnio());
+    QDate date(fech.getAnio(), fech.getMes(), fech.getDia());
     this->ui->dateEdit->setDate(date);  // TODO: No pone la fecha
 
     // TODO: Mostrar el nego que corresponda en vez del primero

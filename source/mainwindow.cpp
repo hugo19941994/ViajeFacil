@@ -316,7 +316,7 @@ void MainWindow::on_actionModOficina_triggered() {
     DialogOficinas *of = new DialogOficinas;
     of->setOw(this->listaOw);
     of->cargar();
-    of->setRows(this->ui->listWidget_2->row(selectedOwner),
+    of->setRows(this->ui->listWidget_2->row(selectedOw),
                 this->ui->listWidget_3->row(selectedOf));
 
     of->setModal(true);
