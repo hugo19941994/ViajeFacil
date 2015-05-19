@@ -1,53 +1,43 @@
 {
     "Owner": [
         {
-            "Nombre": "El Corte Inglés",
+            "Nombre": "Pepe",
             "Negos": [
                 {
-                    "Origen": "Madrid",
-                    "Destino": "New York",
-                    "Numero_de_Plazas": 0,
-                    "Fecha": {
-                        "Día": 1,
-                        "Mes": 1,
-                        "Año": 2003
+                    "ptr_wrapper": {
+                        "id": 2147483649,
+                        "data": {
+                            "Origen": "Madrid",
+                            "Destino": "Roma",
+                            "Numero_de_Plazas": 30,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
                     }
                 },
                 {
-                    "Origen": "Madrid",
-                    "Destino": "Burundi",
-                    "Numero_de_Plazas": 100,
-                    "Fecha": {
-                        "Día": 1,
-                        "Mes": 4,
-                        "Año": 2002
-                    }
-                },
-                {
-                    "Origen": "Cambodia",
-                    "Destino": "Moscú",
-                    "Numero_de_Plazas": 1000,
-                    "Fecha": {
-                        "Día": 1,
-                        "Mes": 1,
-                        "Año": 2000
-                    }
-                },
-                {
-                    "Origen": "Arabia Saudi",
-                    "Destino": "Vaticano",
-                    "Numero_de_Plazas": 60,
-                    "Fecha": {
-                        "Día": 1,
-                        "Mes": 1,
-                        "Año": 2000
+                    "ptr_wrapper": {
+                        "id": 2147483650,
+                        "data": {
+                            "Origen": "Roma",
+                            "Destino": "Trukistan",
+                            "Numero_de_Plazas": 200,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
                     }
                 }
             ],
             "Oficinas": [
                 {
-                    "Nombre": "Oficina",
-                    "País": "Esa",
+                    "Nombre": "Oficina1",
+                    "País": "Esp",
                     "Continente": "Mad",
                     "Peticiones": [
                         {
@@ -58,42 +48,14 @@
                                 "Mes": 0,
                                 "Año": 0
                             },
-                            "Plazas Pedidas": 50
-                        },
-                        {
-                            "Origen": "",
-                            "Destino": "",
-                            "Fecha": {
-                                "Día": 0,
-                                "Mes": 0,
-                                "Año": 0
-                            },
-                            "Plazas Pedidas": 50
+                            "Plazas Pedidas": 70,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "Nombre": "Halcón Viajes",
-            "Negos": [
-                {
-                    "Origen": "Madrid",
-                    "Destino": "Buffalo",
-                    "Numero_de_Plazas": 100,
-                    "Fecha": {
-                        "Día": 1,
-                        "Mes": 1,
-                        "Año": 2000
-                    }
-                }
-            ],
-            "Oficinas": [
-                {
-                    "Nombre": "OficinaPrincipal",
-                    "País": "Italia",
-                    "Continente": "Roma",
-                    "Peticiones": []
                 }
             ]
         }

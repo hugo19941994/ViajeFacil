@@ -51,10 +51,10 @@ void DialogNego::setRows(int modRowOwner, int modRowNego)
     this->setNe(ow->getNegos()); //los owners van a permitir que se muestren los negos
 
     //lugar donde se van a modificar los datos
-    this->ui->lineDestino->setText(this->ne->at(this->modRowNego).getDestino().c_str());
-    this->ui->lineOrigen->setText(this->ne->at(this->modRowNego).getOrigen().c_str());
-    this->ui->linePlazas->setText(std::to_string(this->ne->at(this->modRowNego).getNumeroPlazas()).c_str());
-    Fecha fech = this->ne->at(modRowNego).getFecha();
+    this->ui->lineDestino->setText(this->ne->at(this->modRowNego).get()->getDestino().c_str());
+    this->ui->lineOrigen->setText(this->ne->at(this->modRowNego).get()->getOrigen().c_str());
+    this->ui->linePlazas->setText(std::to_string(this->ne->at(this->modRowNego).get()->getNumeroPlazas()).c_str());
+    Fecha fech = this->ne->at(modRowNego).get()->getFecha();
     QDate date(fech.getAnio(), fech.getMes(), fech.getDia());
     this->ui->dateEdit->setDate(date);  // TODO: No pone la fecha
 
@@ -67,7 +67,7 @@ void DialogNego::setRows(int modRowOwner, int modRowNego)
  * @brief DialogNego::setNe
  * @param neg
  */
-void DialogNego::setNe(std::vector<Nego> &neg) { //accede al vector de negos
+void DialogNego::setNe(std::vector<std::shared_ptr<Nego>> &neg) { //accede al vector de negos
 
     this->ne = &neg; //negos modificados
 }
@@ -96,14 +96,14 @@ void DialogNego::on_comboBox_currentIndexChanged(int index) {
  */
 void DialogNego::on_buttonOkCancel_accepted() {
     if(this->modRowNego != -1 && this->modRowOwner != -1){ //modifica datos
-        ne->at(modRowNego).setOrigen(this->ui->lineOrigen->text().toStdString());
-        ne->at(modRowNego).setDestino(this->ui->lineDestino->text().toStdString());
-        ne->at(modRowNego).setNumeroPlazas(this->ui->linePlazas->text().toInt());
+        ne->at(modRowNego).get()->setOrigen(this->ui->lineOrigen->text().toStdString());
+        ne->at(modRowNego).get()->setDestino(this->ui->lineDestino->text().toStdString());
+        ne->at(modRowNego).get()->setNumeroPlazas(this->ui->linePlazas->text().toInt());
         Fecha fech;
         fech.setDia(this->ui->dateEdit->date().day());
         fech.setMes(this->ui->dateEdit->date().month());
         fech.setAnio(this->ui->dateEdit->date().year());
-        ne->at(modRowNego).setFecha(fech);
+        ne->at(modRowNego).get()->setFecha(fech);
     }
     else{ //se crean los negos con la lista nueva de datos
         Nego *newN = new Nego;
@@ -115,6 +115,7 @@ void DialogNego::on_buttonOkCancel_accepted() {
         fech.setMes(this->ui->dateEdit->date().month());
         fech.setAnio(this->ui->dateEdit->date().year());
         newN->setFecha(fech);
-        this->ne->push_back(*newN); //devuelve la lista
+        std::shared_ptr<Nego> ptr(newN);
+        this->ne->push_back(ptr); //devuelve la lista
     }
 }

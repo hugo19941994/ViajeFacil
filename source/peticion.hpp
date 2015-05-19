@@ -33,7 +33,7 @@ class Peticion {
   std::size_t plazasPedidas_;
 
  public:
-  Nego* neg; //PONERLO EN PRIVATE
+  std::shared_ptr<Nego> neg; //PONERLO EN PRIVATE
   /**
    * @brief Peticion
    */
@@ -111,8 +111,8 @@ class Peticion {
                  * @brief cereal::make_nvp
                  */
         cereal::make_nvp("Fecha", fecha_),
-        cereal::make_nvp("Plazas Pedidas", plazasPedidas_)),
-        cereal::make_nvp("Nego", *neg);
+        cereal::make_nvp("Plazas Pedidas", plazasPedidas_),
+        cereal::make_nvp("Nego", neg));
   }
 };
 

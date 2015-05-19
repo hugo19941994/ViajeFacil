@@ -35,7 +35,7 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
      * @brief setNe
      * @param neg
      */
-    void setNe(std::vector<Nego>& neg);  //imprime vector nego y escribe nego nuevo
+    void setNe(std::vector<std::shared_ptr<Nego>>& neg);  //imprime vector nego y escribe nego nuevo
     /**
      * @brief setOw
      * @param own
@@ -86,7 +86,7 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
     /**
      * @brief ne
      */
-    std::vector<Nego> *ne; //vector nego, se modifican los negos
+    std::vector<std::shared_ptr<Nego>> *ne; //vector nego, se modifican los negos
 
 };
 

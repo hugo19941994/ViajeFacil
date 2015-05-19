@@ -9,9 +9,11 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 #include "./nego.hpp"
 #include "./oficina.hpp"
 #include "./cereal/access.hpp"
+#include "./cereal/types/memory.hpp"
 
 /**
  * @brief The Owner class
@@ -25,7 +27,7 @@ class Owner {
   /**
    * @brief negos_
    */
-  std::vector<Nego> negos_;
+  std::vector<std::shared_ptr<Nego>> negos_;
   /**
    * @brief oficinas_
    */
@@ -56,7 +58,7 @@ class Owner {
    * @brief getNegos
    * @return
    */
-  std::vector<Nego> &getNegos();
+  std::vector<std::shared_ptr<Nego>> &getNegos();
   /**
    * @brief getOficinas
    * @return

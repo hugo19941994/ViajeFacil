@@ -43,7 +43,7 @@ public:
       * @brief cargar
       */
      void setOf(std::vector<Oficina>& of);
-     void setNe(std::vector<Nego>& ne);
+     void setNe(std::vector<std::shared_ptr<Nego>>& ne);
      void cargar(); //función cargar, archivo donde se guardan las peticiones
 
 
@@ -66,7 +66,7 @@ private:
      */
     std::vector<Oficina> *of; //vector peticiones
     std::vector<Peticion> *pe; //vector peticiones
-    std::vector<Nego> *ne; //vector peticiones
+    std::vector<std::shared_ptr<Nego>> *ne; //vector peticiones
 
 };
 

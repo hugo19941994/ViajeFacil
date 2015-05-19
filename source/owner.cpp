@@ -41,4 +41,4 @@ std::vector<Oficina> &Owner::getOficinas() { return this->oficinas_; }
  * @brief Owner::getNegos
  * @return
  */
-std::vector<Nego> &Owner::getNegos() { return this->negos_; }
+std::vector<std::shared_ptr<Nego>> &Owner::getNegos() { return this->negos_; }

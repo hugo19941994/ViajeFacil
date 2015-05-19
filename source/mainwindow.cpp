@@ -13,6 +13,7 @@
 #include "./dialogOficinas.hpp"
 #include "./cereal/archives/json.hpp"
 #include "./cereal/types/vector.hpp"
+#include "./cereal/types/memory.hpp"
 #include "./dialogpeticiones.hpp"
 
 /**
@@ -25,14 +26,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     //Cargar ficheros
     // TODO: Comprobar si existe
-    std::ifstream myfile; //crea archivo lectura
-    myfile.open("../../data/data.json");//abre el archivo
-    cereal::JSONInputArchive ar(myfile);//tipo de archivo, asocia libreria con el archivo
-    ar(this->listaOw);//carga la lista
+    std::ifstream myfile("../../data/data.json"); //crea archivo lectura
+    //myfile.open("../../data/data.json");//abre el archivo
+    if(myfile){
+        cereal::JSONInputArchive ar(myfile);//tipo de archivo, asocia libreria con el archivo
+        ar(this->listaOw);//carga la lista
 
-    this->ui->listWidget_2->clear();//carga la lista en mainwindow y la refresca poniendo lo nuevo introducido
-    for (auto &it : listaOw) {
-        this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
+        this->ui->listWidget_2->clear();//carga la lista en mainwindow y la refresca poniendo lo nuevo introducido
+        for (auto &it : listaOw) {
+            this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
+        }
     }
 }
 
@@ -91,9 +94,9 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
         /**
          * @brief orDe
          */
-        QString orDe = it.getOrigen().c_str();  // TODO:Se puede hacer en una linea?
+        QString orDe = it.get()->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
         orDe.append(" - ");
-        orDe.append(it.getDestino().c_str());
+        orDe.append(it.get()->getDestino().c_str());
         this->ui->listWidget->addItem(orDe);
     }
 
@@ -245,7 +248,7 @@ void MainWindow::on_actionBorNego_triggered() {
     /**
      * @brief listaNegos
      */
-    std::vector<Nego> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
+    std::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
     listaNegos.erase(listaNegos.begin() + this->ui->listWidget->row(selectedNego));
 
     // TODO: Refrescar la lista de negos que toque

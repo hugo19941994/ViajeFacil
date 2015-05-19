@@ -49,7 +49,7 @@ void DialogPeticiones::cargar() {
 void DialogPeticiones::setOf(std::vector<Oficina>& of) {
     this->of = &of;
 }
-void DialogPeticiones::setNe(std::vector<Nego>& ne) {
+void DialogPeticiones::setNe(std::vector<std::shared_ptr<Nego>>& ne) {
     this->ne = &ne;
 }
 
@@ -65,9 +65,9 @@ void DialogPeticiones::on_comboBox_currentIndexChanged(int index) {
 
     ui->comboBox_3->clear();
     for(auto &it : *ne) {
-        QString texto = it.getOrigen().c_str();
+        QString texto = it.get()->getOrigen().c_str();
         texto.append(" - ");
-        texto.append(it.getDestino().c_str());
+        texto.append(it.get()->getDestino().c_str());
         ui->comboBox_3->addItem(texto);
     }
 }
@@ -75,7 +75,7 @@ void DialogPeticiones::on_comboBox_currentIndexChanged(int index) {
 void DialogPeticiones::on_pushButton_2_clicked() {
     setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
     Peticion pet;
-    pet.neg = &ne->at(ui->comboBox_3->currentIndex());
+    pet.neg = std::shared_ptr<Nego>(ne->at(ui->comboBox_3->currentIndex()).get());
     pet.setPlazasPedidas(ui->lineEdit_3->text().toInt());
 
     if(static_cast<int>(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas()) >= 0) {
