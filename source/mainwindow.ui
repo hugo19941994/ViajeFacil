@@ -60,6 +60,13 @@
           <item>
            <widget class="QListWidget" name="listWidget_2"/>
           </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_2">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
@@ -73,6 +80,13 @@
           </item>
           <item>
            <widget class="QListWidget" name="listWidget"/>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_3">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -88,6 +102,13 @@
           <item>
            <widget class="QListWidget" name="listWidget_3"/>
           </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_4">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
@@ -102,28 +123,14 @@
           <item>
            <widget class="QListWidget" name="listWidget_4"/>
           </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_5">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
          </layout>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>Buscar</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>Aceptar</string>
-          </property>
-         </widget>
         </item>
        </layout>
       </item>

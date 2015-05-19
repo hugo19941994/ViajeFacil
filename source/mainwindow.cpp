@@ -332,3 +332,40 @@ void MainWindow::on_actionModOficina_triggered() {
 void MainWindow::on_actionModPeticion_triggered() {
 
 }
+
+void MainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
+    this->ui->listWidget_2->clear();
+    int i=0;
+    for (auto it : listaOw) {
+        QString str = it.getNombre().c_str();
+        if (str.contains(arg1))
+            this->ui->listWidget_2->addItem(str);
+        else {  // Hay que añadir esto porque si no ya no concuerda el numero de linea - explicarlo mejor!!
+            this->ui->listWidget_2->addItem(str);
+            ui->listWidget_2->item(i)->setHidden(true);
+        }
+        i++;
+    }
+}
+
+void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
+    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+    auto ow = this->listaOw.at(this->ui->listWidget_2->row(selectedOwner));
+
+    this->ui->listWidget->clear();
+    int i=0;
+    for (auto it : ow.getNegos()) {
+
+        QString orDe = it.get()->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
+        orDe.append(" - ");
+        orDe.append(it.get()->getDestino().c_str());
+
+        if (orDe.contains(arg1))
+            this->ui->listWidget->addItem(orDe);
+        else {  // Hay que añadir esto porque si no ya no concuerda el numero de linea - explicarlo mejor!!
+            this->ui->listWidget->addItem(orDe);
+            ui->listWidget->item(i)->setHidden(true);
+        }
+        i++;
+    }
+}
