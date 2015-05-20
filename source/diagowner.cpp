@@ -34,7 +34,7 @@ diagOwner::~diagOwner() {  //destructor, se destruirán el o los datos seleccion
  */
 void diagOwner::on_buttonBox_accepted() {
     //datos guardados en linea de texto nombre
-    if(this->modRow != -1){
+    if(this->modRow != -1) {
 
         //definimos el tipo de campo que será NOMBRE
         this->ow->at(modRow).setNombre(this->ui->lineEdit->text().toStdString());

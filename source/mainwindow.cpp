@@ -369,3 +369,23 @@ void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
         i++;
     }
 }
+
+void MainWindow::on_lineEdit_4_textChanged(const QString &arg1) {
+    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+    auto ow = this->listaOw.at(this->ui->listWidget_2->row(selectedOwner));
+
+    this->ui->listWidget_3->clear();
+    int i=0;
+    for (auto it : ow.getOficinas()) {
+
+        QString orDe = it.getNombre().c_str();
+
+        if (orDe.contains(arg1))
+            this->ui->listWidget_3->addItem(orDe);
+        else {  // Hay que añadir esto porque si no ya no concuerda el numero de linea - explicarlo mejor!!
+            this->ui->listWidget_3->addItem(orDe);
+            ui->listWidget_3->item(i)->setHidden(true);
+        }
+        i++;
+    }
+}
