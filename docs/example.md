@@ -1,3 +1,0 @@
-#Ejemplo#
-##Ejemplo!!##
-###ejemplop###
