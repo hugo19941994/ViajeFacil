@@ -18,7 +18,7 @@ Nego::Nego()
  * @param fecha
  */
 Nego::Nego(std::string origen, std::string destino,
-    int numeroPlazas, Fecha fecha)
+    std::size_t numeroPlazas, Fecha fecha)
     : origen_(origen), destino_(destino),
     numeroPlazas_(numeroPlazas), fecha_(fecha) {}
 /**
@@ -34,7 +34,7 @@ Nego::~Nego() {}
  * @param fecha
  */
 void Nego::setNego(std::string origen, std::string destino,
-    int numeroPlazas, Fecha fecha) {
+    std::size_t numeroPlazas, Fecha fecha) {
   this->origen_ = origen;
   this->destino_ = destino;
   this->numeroPlazas_ = numeroPlazas;
@@ -63,7 +63,7 @@ void Nego::setDestino(std::string destino) {
  * @brief Nego::setNumeroPlazas
  * @param numeroPlazas
  */
-void Nego::setNumeroPlazas(int numeroPlazas) {
+void Nego::setNumeroPlazas(std::size_t numeroPlazas) {
   this->numeroPlazas_ = numeroPlazas;
 }
 /**
@@ -94,7 +94,7 @@ std::string Nego::getDestino() {
  * @brief Nego::getNumeroPlazas
  * @return
  */
-int Nego::getNumeroPlazas() {
+std::size_t Nego::getNumeroPlazas() {
   return this->numeroPlazas_;
 }
 

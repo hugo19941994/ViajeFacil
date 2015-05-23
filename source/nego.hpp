@@ -25,7 +25,7 @@ class Nego {
     /**
      * @brief numeroPlazas_
      */
-    int numeroPlazas_;
+    std::size_t numeroPlazas_;
     /**
      * @brief fecha_
      */
@@ -44,7 +44,7 @@ class Nego {
      * @param fecha
      */
     Nego(std::string origen, std::string destino,
-         int numeroPlazas, Fecha fecha);
+         std::size_t numeroPlazas, Fecha fecha);
     ~Nego();
     /**
      * @brief setNego
@@ -54,7 +54,7 @@ class Nego {
      * @param fecha
      */
     void setNego(std::string origen, std::string destino,
-        int numeroPlazas, Fecha fecha);
+        std::size_t numeroPlazas, Fecha fecha);
     /**
      * @brief setOrigen
      * @param origen
@@ -69,7 +69,7 @@ class Nego {
      * @brief setNumeroPlazas
      * @param numeroPlazas
      */
-    void setNumeroPlazas(int numeroPlazas);
+    void setNumeroPlazas(std::size_t numeroPlazas);
     /**
      * @brief setFecha
      * @param fecha
@@ -90,7 +90,7 @@ class Nego {
      * @brief getNumeroPlazas
      * @return
      */
-    int getNumeroPlazas();
+    std::size_t getNumeroPlazas();
     /**
      * @brief getFecha
      * @return
