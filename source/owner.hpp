@@ -27,11 +27,11 @@ class Owner {
   /**
    * @brief negos_
    */
-  std::vector<std::shared_ptr<Nego>> negos_;
+  pel::vector<std::shared_ptr<Nego>> negos_;
   /**
    * @brief oficinas_
    */
-  std::vector<Oficina> oficinas_;
+  pel::vector<Oficina> oficinas_;
 
  public:
   /**
@@ -58,12 +58,12 @@ class Owner {
    * @brief getNegos
    * @return
    */
-  std::vector<std::shared_ptr<Nego>> &getNegos();
+  pel::vector<std::shared_ptr<Nego>> &getNegos();
   /**
    * @brief getOficinas
    * @return
    */
-  std::vector<Oficina> &getOficinas();
+  pel::vector<Oficina> &getOficinas();
 
   template<class Archive>  // Serialize things by passing them to the archive
   /**

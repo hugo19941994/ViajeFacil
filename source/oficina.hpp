@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <string>
+#include "pel_vector.hpp"
 #include "./peticion.hpp" //las oficinas crean peticiones, se necesitará acceso a los datos de las peticiones
 
 //Clase oficina
@@ -32,7 +33,7 @@ class Oficina {
   /**
    * @brief peticiones_
    */
-  std::vector<Peticion> peticiones_;
+  pel::vector<Peticion> peticiones_;
 
  public: //Funciones que realizará esta clase
   /**
@@ -81,7 +82,7 @@ class Oficina {
    * @brief getPeticiones
    * @return
    */
-  std::vector<Peticion> &getPeticiones();
+  pel::vector<Peticion> &getPeticiones();
 
   template<class Archive>  // Serialize things by passing them to the archive
   /**

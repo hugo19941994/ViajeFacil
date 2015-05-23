@@ -248,7 +248,7 @@ void MainWindow::on_actionBorNego_triggered() {
     /**
      * @brief listaNegos
      */
-    std::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
+    pel::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
     listaNegos.erase(listaNegos.begin() + this->ui->listWidget->row(selectedNego));
 
     // TODO: Refrescar la lista de negos que toque
@@ -285,7 +285,7 @@ void MainWindow::on_actionBorOficina_triggered() {
     QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
     QListWidgetItem *selectedOficina = this->ui->listWidget_3->selectedItems().first();
 
-    std::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
+    pel::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
     listaOficinas.erase(listaOficinas.begin() + this->ui->listWidget_3->row(selectedOficina));
 
     this->ui->listWidget_3->clear();
@@ -299,8 +299,8 @@ void MainWindow::on_actionBorPeticion_triggered() {
     QListWidgetItem *selectedOficinas = this->ui->listWidget_3->selectedItems().first();
     QListWidgetItem *selectedPeticion = this->ui->listWidget_4->selectedItems().first();
 
-    std::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
-    std::vector<Peticion> &listaPeticiones = listaOficinas.at(this->ui->listWidget_3->row(selectedOficinas)).getPeticiones();
+    pel::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
+    pel::vector<Peticion> &listaPeticiones = listaOficinas.at(this->ui->listWidget_3->row(selectedOficinas)).getPeticiones();
 
     // Si borras peticion devolvemos las plazas al nego
     int asientos = listaPeticiones.at(this->ui->listWidget_4->row(selectedPeticion)).getPlazasPedidas();

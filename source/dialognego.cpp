@@ -67,7 +67,7 @@ void DialogNego::setRows(int modRowOwner, int modRowNego)
  * @brief DialogNego::setNe
  * @param neg
  */
-void DialogNego::setNe(std::vector<std::shared_ptr<Nego>> &neg) { //accede al vector de negos
+void DialogNego::setNe(pel::vector<std::shared_ptr<Nego>> &neg) { //accede al vector de negos
 
     this->ne = &neg; //negos modificados
 }
@@ -75,7 +75,7 @@ void DialogNego::setNe(std::vector<std::shared_ptr<Nego>> &neg) { //accede al ve
  * @brief DialogNego::setOw
  * @param own
  */
-void DialogNego::setOw(std::vector<Owner> &own) { //vector de owner va a ser usado en ventana de nego
+void DialogNego::setOw(pel::vector<Owner> &own) { //vector de owner va a ser usado en ventana de nego
 
     this->ow = &own; //owners modificados
 }

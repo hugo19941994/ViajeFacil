@@ -10,6 +10,7 @@
 #include <QDialog>
 #include <vector>
 #include "owner.hpp"
+#include "pel_vector.hpp"
 
 namespace Ui {
 /**
@@ -34,7 +35,7 @@ class diagOwner : public QDialog {
      * @brief setOw
      * @param own
      */
-    void setOw(std::vector<Owner>& own);
+    void setOw(pel::vector<Owner>& own);
     /**
      * @brief setRow
      * @param index
@@ -60,7 +61,7 @@ class diagOwner : public QDialog {
     /**
      * @brief ow
      */
-    std::vector<Owner>* ow; //Se muestra la lista de owners en la parte(punter) de owners
+    pel::vector<Owner>* ow; //Se muestra la lista de owners en la parte(punter) de owners
 
 };
 

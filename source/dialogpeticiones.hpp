@@ -7,6 +7,7 @@
 
 #include <QDialog>
 #include <vector>
+#include "pel_vector.hpp"
 #include "./peticion.hpp"  //va a participar la cabecera de peticiones y la de owner
 #include "./owner.hpp"  //encontraremos datos de owners
 
@@ -33,17 +34,17 @@ public:
       * @brief setOw
       * @param own
       */
-     void setOw(std::vector<Owner>& own); //va a pedir como parámetro owners se guardaran en el vector owners y se podrá mostrar modificado
+     void setOw(pel::vector<Owner>& own); //va a pedir como parámetro owners se guardaran en el vector owners y se podrá mostrar modificado
      /**
       * @brief setPe
       * @param pet
       */
-     void setPe(std::vector<Peticion>& pet); //pide parámetro peticiones, devuelve vector peticiones ->lista peticiones
+     void setPe(pel::vector<Peticion>& pet); //pide parámetro peticiones, devuelve vector peticiones ->lista peticiones
      /**
       * @brief cargar
       */
-     void setOf(std::vector<Oficina>& of);
-     void setNe(std::vector<std::shared_ptr<Nego>>& ne);
+     void setOf(pel::vector<Oficina>& of);
+     void setNe(pel::vector<std::shared_ptr<Nego>>& ne);
      void cargar(); //función cargar, archivo donde se guardan las peticiones
 
 
@@ -60,13 +61,13 @@ private:
     /**
      * @brief ow
      */
-    std::vector<Owner> *ow; //lista de owners
+    pel::vector<Owner> *ow; //lista de owners
     /**
      * @brief pe
      */
-    std::vector<Oficina> *of; //vector peticiones
-    std::vector<Peticion> *pe; //vector peticiones
-    std::vector<std::shared_ptr<Nego>> *ne; //vector peticiones
+    pel::vector<Oficina> *of; //vector peticiones
+    pel::vector<Peticion> *pe; //vector peticiones
+    pel::vector<std::shared_ptr<Nego>> *ne; //vector peticiones
 
 };
 

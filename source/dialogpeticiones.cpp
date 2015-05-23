@@ -4,6 +4,7 @@
 //se tendrá acceso a la cabecera y al cuerpo de dialogpeticiones para usar sus datos
 #include "./dialogpeticiones.hpp"
 #include "./ui_dialogpeticiones.h"
+#include "pel_vector.hpp"
 #include <QMessageBox>
 
 DialogPeticiones::DialogPeticiones(QWidget *parent) : //tipo de ventana peticiones
@@ -26,7 +27,7 @@ DialogPeticiones::~DialogPeticiones() { //destructor
  * @brief DialogPeticiones::setOw
  * @param own
  */
-void DialogPeticiones::setOw(std::vector<Owner> &own) { //introducir owners, se accede al vector owners
+void DialogPeticiones::setOw(pel::vector<Owner> &own) { //introducir owners, se accede al vector owners
     this->ow = &own;
 }
 
@@ -34,7 +35,7 @@ void DialogPeticiones::setOw(std::vector<Owner> &own) { //introducir owners, se 
  * @brief DialogPeticiones::setPe
  * @param pet
  */
-void DialogPeticiones::setPe(std::vector<Peticion> &pet) {
+void DialogPeticiones::setPe(pel::vector<Peticion> &pet) {
     this->pe = &pet;
 }
 
@@ -46,10 +47,10 @@ void DialogPeticiones::cargar() {
         this->ui->comboBox->addItem(it.getNombre().c_str());
 }
 
-void DialogPeticiones::setOf(std::vector<Oficina>& of) {
+void DialogPeticiones::setOf(pel::vector<Oficina>& of) {
     this->of = &of;
 }
-void DialogPeticiones::setNe(std::vector<std::shared_ptr<Nego>>& ne) {
+void DialogPeticiones::setNe(pel::vector<std::shared_ptr<Nego>>& ne) {
     this->ne = &ne;
 }
 

@@ -9,6 +9,7 @@
 //Va a tener negos y owners
 #include <QDialog>
 #include <vector>
+#include "pel_vector.hpp"
 #include "./nego.hpp"
 #include "./owner.hpp"
 
@@ -35,12 +36,12 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
      * @brief setNe
      * @param neg
      */
-    void setNe(std::vector<std::shared_ptr<Nego>>& neg);  //imprime vector nego y escribe nego nuevo
+    void setNe(pel::vector<std::shared_ptr<Nego>>& neg);  //imprime vector nego y escribe nego nuevo
     /**
      * @brief setOw
      * @param own
      */
-    void setOw(std::vector<Owner>& own);  // imprime vector owner y escribe nuevo owner
+    void setOw(pel::vector<Owner>& own);  // imprime vector owner y escribe nuevo owner
     /**
      * @brief cargar
      */
@@ -82,11 +83,11 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
     /**
      * @brief ow
      */
-    std::vector<Owner> *ow; //se modifica owner y se introducen owners en el vector
+    pel::vector<Owner> *ow; //se modifica owner y se introducen owners en el vector
     /**
      * @brief ne
      */
-    std::vector<std::shared_ptr<Nego>> *ne; //vector nego, se modifican los negos
+    pel::vector<std::shared_ptr<Nego>> *ne; //vector nego, se modifican los negos
 
 };
 

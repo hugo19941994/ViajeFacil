@@ -51,7 +51,7 @@ void diagOwner::on_buttonBox_accepted() {
  * @brief diagOwner::setOw
  * @param own
  */
-void diagOwner::setOw(std::vector<Owner> &own) {
+void diagOwner::setOw(pel::vector<Owner> &own) {
     //Pide datos en owner y los muestra en lista
     this->ow = &own;
 

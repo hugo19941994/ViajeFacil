@@ -11,15 +11,15 @@ DialogOficinas::~DialogOficinas() {
     delete ui;
 }
 
-void DialogOficinas::setOw(std::vector<Owner> &own) {
+void DialogOficinas::setOw(pel::vector<Owner> &own) {
     this->ow = &own;
 }
 
-void DialogOficinas::setOf(std::vector<Oficina> &ofc) {
+void DialogOficinas::setOf(pel::vector<Oficina> &ofc) {
     this->of = &ofc;
 }
 
-void DialogOficinas::setPe(std::vector<Peticion> &pet) {
+void DialogOficinas::setPe(pel::vector<Peticion> &pet) {
     this->pe = &pet;
 }
 

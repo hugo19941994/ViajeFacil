@@ -4,6 +4,7 @@
 
 #include <QDialog>
 #include <vector>
+#include "pel_vector.hpp"
 #include "./owner.hpp"
 #include "./oficina.hpp"
 #include "./nego.hpp"
@@ -21,9 +22,9 @@ class DialogOficinas : public QDialog
 public:
     explicit DialogOficinas(QWidget *parent = 0);
     ~DialogOficinas();
-    void setOf(std::vector<Oficina>& ofc);
-    void setOw(std::vector<Owner>& own);
-    void setPe(std::vector<Peticion>& pet);
+    void setOf(pel::vector<Oficina>& ofc);
+    void setOw(pel::vector<Owner>& own);
+    void setPe(pel::vector<Peticion>& pet);
     void setRows(int modRowOwner, int modRowOficina);
     void cargar();
 
@@ -37,9 +38,9 @@ private:
     int modRowOwner = -1;
     int modRowOficina = -1;
     Ui::DialogOficinas *ui;
-    std::vector<Owner> *ow;
-    std::vector<Oficina> *of;
-    std::vector<Peticion> *pe;
+    pel::vector<Owner> *ow;
+    pel::vector<Oficina> *of;
+    pel::vector<Peticion> *pe;
 };
 
 #endif // DIALOGOFICINAS_H

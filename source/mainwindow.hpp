@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <string>
 #include <vector>
+#include "pel_vector.hpp"
 #include "./owner.hpp"
 
 namespace Ui {
@@ -104,7 +105,7 @@ private:
     /**
      * @brief listaOw
      */
-    std::vector<Owner> listaOw;
+    pel::vector<Owner> listaOw;
 };
 
 #endif  // MAINWINDOW_H

@@ -39,7 +39,8 @@ HEADERS  += ../../source/fecha.hpp \
     ../../source/dialognego.hpp \
     ../../source/bcrypt.h \
     ../../source/dialogpeticiones.hpp \
-    ../../source/dialogOficinas.hpp
+    ../../source/dialogOficinas.hpp \
+    ../../source/pel_vector.hpp
 
 FORMS    += \
     ../../source/login.ui \

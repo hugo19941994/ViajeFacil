@@ -74,6 +74,6 @@ std::string Oficina::getContinente() {
  * @brief Oficina::getPeticiones
  * @return
  */
-std::vector<Peticion> &Oficina::getPeticiones() {
+pel::vector<Peticion> &Oficina::getPeticiones() {
     return this->peticiones_;
 }

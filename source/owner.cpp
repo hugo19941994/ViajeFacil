@@ -36,9 +36,9 @@ std::string Owner::getNombre() { return this->nombre_; }
  * @brief Owner::getOficinas
  * @return
  */
-std::vector<Oficina> &Owner::getOficinas() { return this->oficinas_; }
+pel::vector<Oficina> &Owner::getOficinas() { return this->oficinas_; }
 /**
  * @brief Owner::getNegos
  * @return
  */
-std::vector<std::shared_ptr<Nego>> &Owner::getNegos() { return this->negos_; }
+pel::vector<std::shared_ptr<Nego>> &Owner::getNegos() { return this->negos_; }
