@@ -46,12 +46,15 @@ public:
      void setOf(pel::vector<Oficina>& of);
      void setNe(pel::vector<std::shared_ptr<Nego>>& ne);
      void cargar(); //función cargar, archivo donde se guardan las peticiones
+     void setRows(int modRowOwner, int modRowOficina, int modRowPeticion);
 
 
 private slots:
      void on_comboBox_currentIndexChanged(int index);
 
-     void on_pushButton_2_clicked();
+     void on_buttonBox_accepted();
+
+     void on_buttonBox_rejected();
 
 private:
     /**
@@ -68,6 +71,9 @@ private:
     pel::vector<Oficina> *of; //vector peticiones
     pel::vector<Peticion> *pe; //vector peticiones
     pel::vector<std::shared_ptr<Nego>> *ne; //vector peticiones
+    int modRowOwner = -1;
+    int modRowOficina = -1;
+    int modRowPeticion = -1;
 
 };
 

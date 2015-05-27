@@ -211,7 +211,8 @@ void MainWindow::on_actionModOwner_triggered() {
  * @brief MainWindow::on_actionModNego_triggered
  */
 void MainWindow::on_actionModNego_triggered() {
-    if(!ui->listWidget->selectedItems().isEmpty()){
+    if(!ui->listWidget->selectedItems().isEmpty()
+            && !ui->listWidget_2->selectedItems().isEmpty()){
         /**
         * @brief selectedOwner
         */
@@ -246,7 +247,8 @@ void MainWindow::on_actionModNego_triggered() {
  * @brief MainWindow::on_actionBorNego_triggered
  */
 void MainWindow::on_actionBorNego_triggered() {
-    if(!ui->listWidget->selectedItems().isEmpty()){
+    if(!ui->listWidget->selectedItems().isEmpty()
+            && !ui->listWidget_2->selectedItems().isEmpty()){
         /**
         * @brief selectedOwner
         */
@@ -290,7 +292,8 @@ void MainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
 }
 
 void MainWindow::on_actionBorOficina_triggered() {
-    if(!ui->listWidget_3->selectedItems().isEmpty()){
+    if(!ui->listWidget_3->selectedItems().isEmpty()
+            && !ui->listWidget_2->selectedItems().isEmpty()){
         QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
         QListWidgetItem *selectedOficina = this->ui->listWidget_3->selectedItems().first();
 
@@ -305,7 +308,9 @@ void MainWindow::on_actionBorOficina_triggered() {
 }
 
 void MainWindow::on_actionBorPeticion_triggered() {
-    if(!ui->listWidget_4->selectedItems().isEmpty()){
+    if(!ui->listWidget_4->selectedItems().isEmpty()
+            && !ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget_3->selectedItems().isEmpty()){
         QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
         QListWidgetItem *selectedOficinas = this->ui->listWidget_3->selectedItems().first();
         QListWidgetItem *selectedPeticion = this->ui->listWidget_4->selectedItems().first();
@@ -325,7 +330,8 @@ void MainWindow::on_actionBorPeticion_triggered() {
 }
 
 void MainWindow::on_actionModOficina_triggered() {
-    if(!ui->listWidget_3->selectedItems().isEmpty()){
+    if(!ui->listWidget_3->selectedItems().isEmpty()
+            && !ui->listWidget_2->selectedItems().isEmpty()){
         QListWidgetItem *selectedOw = this->ui->listWidget_2->selectedItems().first();
         QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
 
@@ -344,7 +350,24 @@ void MainWindow::on_actionModOficina_triggered() {
 }
 
 void MainWindow::on_actionModPeticion_triggered() {
+    if(!ui->listWidget_4->selectedItems().isEmpty()
+            && !ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget_3->selectedItems().isEmpty()){
+        QListWidgetItem *selectedOw = this->ui->listWidget_2->selectedItems().first();
+        QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
+        QListWidgetItem *selectedPe = this->ui->listWidget_4->selectedItems().first();
 
+        DialogPeticiones *pe = new DialogPeticiones;
+        pe->setOw(this->listaOw);
+        pe->cargar();
+        pe->setRows(this->ui->listWidget_2->row(selectedOw),
+                    this->ui->listWidget_3->row(selectedOf),
+                    this->ui->listWidget_4->row(selectedPe));
+        pe->setModal(true);
+        pe->exec();
+
+        guardarEnArchivo();
+    }
 }
 
 void MainWindow::on_lineEdit_2_textChanged(const QString &arg1) {

@@ -14,12 +14,6 @@
 #include <stdexcept>
 #include <utility>
 #include "./cereal/cereal.hpp"
-#include "./cereal/access.hpp"
-#include "./cereal/types/memory.hpp"
-#include "./cereal/details/helpers.hpp"
-#include "./cereal/details/util.hpp"
-#include "./cereal/types/utility.hpp"
-#include "./cereal/archives/binary.hpp"
 
 namespace pel {
 

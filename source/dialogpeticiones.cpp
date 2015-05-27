@@ -73,16 +73,55 @@ void DialogPeticiones::on_comboBox_currentIndexChanged(int index) {
     }
 }
 
-void DialogPeticiones::on_pushButton_2_clicked() {
-    setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
-    Peticion pet;
-    pet.neg = std::shared_ptr<Nego>(ne->at(ui->comboBox_3->currentIndex()).get());
-    pet.setPlazasPedidas(ui->lineEdit_3->text().toInt());
+void DialogPeticiones::setRows(int modRowOwner, int modRowOficina, int modRowPeticion) {
+    this->modRowOwner = modRowOwner; //datos modificados de owner
+    this->modRowOficina = modRowOficina; //datos modificados en oficina
+    this->modRowPeticion = modRowPeticion;
+    Owner *ow = &this->ow->at(modRowOwner);  //puntero de modificacion de owners en opcion modificar oficina
+    //si no hay owners, no hay oficinas
 
-    if(static_cast<int>(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas()) >= 0) {
-        pet.neg->setNumeroPlazas(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas());
-        pe->push_back(pet);
+    this->setOf(ow->getOficinas());
+    Oficina *ofi = &of->at(modRowOficina);
+    this->setPe(ofi->getPeticiones());
+
+    // TODO - Quoizas habria que dejarlos activados y poder cambiar?
+    // Ademas podriamos cargarla entrada que corresponda
+    ui->comboBox->setEnabled(false);
+    ui->comboBox_2->setEnabled(false);
+    ui->comboBox_3->setEnabled(false);
+    ui->lineEdit_3->setText(std::to_string(pe->at(modRowPeticion).getPlazasPedidas()).c_str());
+}
+
+void DialogPeticiones::on_buttonBox_accepted() {
+    if(modRowOficina == -1 && modRowOwner == -1 && modRowPeticion == -1){
+        setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
+        Peticion pet;
+        pet.neg = std::shared_ptr<Nego>(ne->at(ui->comboBox_3->currentIndex()).get());
+        pet.setPlazasPedidas(ui->lineEdit_3->text().toInt());
+
+        if(static_cast<int>(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas()) >= 0) {
+            pet.neg->setNumeroPlazas(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas());
+            pe->push_back(pet);
+        }
+        else
+            QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
     }
-    else
-        QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
+    else {
+        std::size_t plazasActuales = pe->at(modRowPeticion).neg.get()->getNumeroPlazas();
+        std::size_t plazasTotales = plazasActuales + pe->at(modRowPeticion).getPlazasPedidas();
+        int diff = plazasTotales - ui->lineEdit_3->text().toInt();
+        if (diff < 0)
+            QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
+        else{
+            pe->at(modRowPeticion).neg.get()->setNumeroPlazas(diff);
+            pe->at(modRowPeticion).setPlazasPedidas(ui->lineEdit_3->text().toInt());
+        }
+
+    }
+    this->close();
+}
+
+void DialogPeticiones::on_buttonBox_rejected()
+{
+    this->close();
 }
