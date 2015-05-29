@@ -406,3 +406,12 @@ void MainWindow::on_lineEdit_4_textChanged(const QString &arg1) {
             ui->listWidget_3->item(i)->setHidden(true);
     }
 }
+
+void MainWindow::on_lineEdit_5_textChanged(const QString &arg1) {
+    for(int i = 0; i < ui->listWidget_4->count(); ++i) {
+        if(ui->listWidget_4->item(i)->text().contains(arg1))
+            ui->listWidget_4->item(i)->setHidden(false);
+        else
+            ui->listWidget_4->item(i)->setHidden(true);
+    }
+}

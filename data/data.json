@@ -1,19 +1,34 @@
 {
     "Owner": [
         {
-            "Nombre": "e",
+            "Nombre": "El Corte Inglés",
             "Negos": [
                 {
                     "ptr_wrapper": {
                         "id": 2147483649,
                         "data": {
-                            "Origen": "w",
-                            "Destino": "e",
-                            "Numero_de_Plazas": 99,
+                            "Origen": "Madrid",
+                            "Destino": "Roma",
+                            "Numero_de_Plazas": 120,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
-                                "Año": 2000
+                                "Año": 2015
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483650,
+                        "data": {
+                            "Origen": "Roma",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 120,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2015
                             }
                         }
                     }
@@ -21,15 +36,46 @@
             ],
             "Oficinas": [
                 {
-                    "Nombre": "e",
-                    "País": "e",
-                    "Continente": "e",
+                    "Nombre": "Of1",
+                    "País": "Esp",
+                    "Continente": "Mad",
                     "Peticiones": [
                         {
-                            "Plazas Pedidas": 1,
+                            "Plazas Pedidas": 10,
                             "Nego": {
                                 "ptr_wrapper": {
                                     "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 10,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 2
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Nombre": "Of2",
+                    "País": "Esp",
+                    "Continente": "Mad",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 20,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 20,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 2
                                 }
                             }
                         }
@@ -38,14 +84,41 @@
             ]
         },
         {
-            "Nombre": "El Co",
-            "Negos": [],
-            "Oficinas": []
-        },
-        {
-            "Nombre": "ef",
-            "Negos": [],
-            "Oficinas": []
+            "Nombre": "Halcón Viajes",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483651,
+                        "data": {
+                            "Origen": "Madrid",
+                            "Destino": "Barcelona",
+                            "Numero_de_Plazas": 10,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2016
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": [
+                {
+                    "Nombre": "Oficina Central",
+                    "País": "Esp",
+                    "Continente": "Mad",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 90,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 3
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

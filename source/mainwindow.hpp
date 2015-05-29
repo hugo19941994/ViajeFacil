@@ -97,6 +97,8 @@ class MainWindow : public QMainWindow {
 
     void on_lineEdit_4_textChanged(const QString &arg1);
 
+    void on_lineEdit_5_textChanged(const QString &arg1);
+
 private:
     /**
      * @brief ui
