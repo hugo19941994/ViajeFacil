@@ -6,6 +6,7 @@
 #include <string>
 #include <QStringBuilder>
 #include <QMessageBox>
+#include <QListWidgetItem>
 #include "./mainwindow.hpp"
 #include "./ui_mainwindow.h"
 #include "./login.hpp"
@@ -379,64 +380,29 @@ void MainWindow::on_actionModPeticion_triggered() {
 }
 
 void MainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
-    // TODO - en vez que recorrer el vector de nuevo,
-    // hacer hide de los ui->listWidget_2 que no coincidan
-    this->ui->listWidget_2->clear();
-    this->ui->listWidget->clear(); // Para evitar crash
-    this->ui->listWidget_3->clear();
-    int i = 0;
-    for (auto it : listaOw) {
-        QString str = it.getNombre().c_str();
-        if (str.contains(arg1))
-            this->ui->listWidget_2->addItem(str);
-        else {  // Hay que añadir esto porque si no ya no concuerda el numero de linea - explicarlo mejor!!
-            this->ui->listWidget_2->addItem(str);
+    for(int i = 0; i < ui->listWidget_2->count(); ++i) {
+        if(ui->listWidget_2->item(i)->text().contains(arg1))
+            ui->listWidget_2->item(i)->setHidden(false);
+        else
             ui->listWidget_2->item(i)->setHidden(true);
-        }
-        i++;
-        // TODO - seleccionar automaticamente la primera coincidencia?
     }
+    // TODO - seleccionar automaticamente la primera coincidencia?
 }
 
 void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
-    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
-    auto ow = this->listaOw.at(this->ui->listWidget_2->row(selectedOwner));
-
-    this->ui->listWidget->clear();
-    int i=0;
-    for (auto &it : ow.getNegos()) {
-
-        QString orDe = it->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
-        orDe.append(" - ");
-        orDe.append(it->getDestino().c_str());
-
-        if (orDe.contains(arg1))
-            this->ui->listWidget->addItem(orDe);
-        else {  // Hay que añadir esto porque si no ya no concuerda el numero de linea - explicarlo mejor!!
-            this->ui->listWidget->addItem(orDe);
+    for(int i = 0; i < ui->listWidget->count(); ++i) {
+        if(ui->listWidget->item(i)->text().contains(arg1))
+            ui->listWidget->item(i)->setHidden(false);
+        else
             ui->listWidget->item(i)->setHidden(true);
-        }
-        i++;
     }
 }
 
 void MainWindow::on_lineEdit_4_textChanged(const QString &arg1) {
-    QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
-    auto ow = this->listaOw.at(this->ui->listWidget_2->row(selectedOwner));
-
-    this->ui->listWidget_3->clear();
-    this->ui->listWidget_4->clear();
-    int i=0;
-    for (auto it : ow.getOficinas()) {
-
-        QString orDe = it.getNombre().c_str();
-
-        if (orDe.contains(arg1))
-            this->ui->listWidget_3->addItem(orDe);
-        else {  // Hay que añadir esto porque si no ya no concuerda el numero de linea - explicarlo mejor!!
-            this->ui->listWidget_3->addItem(orDe);
+    for(int i = 0; i < ui->listWidget_3->count(); ++i) {
+        if(ui->listWidget_3->item(i)->text().contains(arg1))
+            ui->listWidget_3->item(i)->setHidden(false);
+        else
             ui->listWidget_3->item(i)->setHidden(true);
-        }
-        i++;
     }
 }

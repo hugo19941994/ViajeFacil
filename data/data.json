@@ -2,15 +2,50 @@
     "Owner": [
         {
             "Nombre": "e",
-            "Negos": [],
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483649,
+                        "data": {
+                            "Origen": "w",
+                            "Destino": "e",
+                            "Numero_de_Plazas": 99,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
             "Oficinas": [
                 {
                     "Nombre": "e",
                     "País": "e",
                     "Continente": "e",
-                    "Peticiones": []
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 1,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "Nombre": "El Co",
+            "Negos": [],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "ef",
+            "Negos": [],
+            "Oficinas": []
         }
     ]
 }
