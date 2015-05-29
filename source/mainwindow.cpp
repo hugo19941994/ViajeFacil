@@ -39,6 +39,20 @@ MainWindow::MainWindow(QWidget *parent) :
             this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
         }
     }
+
+    //TODO - comprobar que exista un usuario admin
+    //Si existe desactivar crear usuario
+    ui->listWidget->setEnabled(false);
+    ui->listWidget_2->setEnabled(false);
+    ui->listWidget_3->setEnabled(false);
+    ui->listWidget_4->setEnabled(false);
+    ui->actionCreNego->setEnabled(false);
+    ui->actionCreOficina->setEnabled(false);
+    ui->actionCreOwner->setEnabled(false);
+    ui->actionCrePeticion->setEnabled(false);
+    ui->menuModificar->setEnabled(false);
+    ui->menuConsultas->setEnabled(false);
+    ui->menuBorrar->setEnabled(false);
 }
 
 /**
@@ -82,6 +96,18 @@ void MainWindow::guardarEnArchivo() {
 void MainWindow::cambiarUsuario(std::string nombre) {
     QString QNombre = QString::fromUtf8(nombre.c_str());
     this->ui->label_2->setText(QNombre);
+    //TODO - si el usuario no es admin desactivar ciertas funciones
+    ui->listWidget->setEnabled(true);
+    ui->listWidget_2->setEnabled(true);
+    ui->listWidget_3->setEnabled(true);
+    ui->listWidget_4->setEnabled(true);
+    ui->actionCreNego->setEnabled(true);
+    ui->actionCreOficina->setEnabled(true);
+    ui->actionCreOwner->setEnabled(true);
+    ui->actionCrePeticion->setEnabled(true);
+    ui->menuModificar->setEnabled(true);
+    ui->menuConsultas->setEnabled(true);
+    ui->menuBorrar->setEnabled(true);
 }
 
 //cuando se seleccionen datos en el campo 2 de la ventana principal, owner asociados a negos  y viceversa
