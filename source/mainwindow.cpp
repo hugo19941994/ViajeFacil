@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <QStringBuilder>
+#include <QMessageBox>
 #include "./mainwindow.hpp"
 #include "./ui_mainwindow.h"
 #include "./login.hpp"
@@ -258,7 +259,14 @@ void MainWindow::on_actionBorNego_triggered() {
          * @brief listaNegos
          */
         pel::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
-        listaNegos.erase(listaNegos.begin() + this->ui->listWidget->row(selectedNego));
+
+        // Aprovechamos use_count del shared_ptr. Si devuelve mas de 1, significa que hay
+        // otros shared_ptr (desde peticiones) apuntando a este nego.
+        if(listaNegos.at(this->ui->listWidget->row(selectedNego)).use_count() <= 1) {
+            listaNegos.erase(listaNegos.begin() + this->ui->listWidget->row(selectedNego));
+        }
+        else
+            QMessageBox::warning(this, "Warning", "Hay peticiones de este Nego");
 
         // TODO: Refrescar la lista de negos que toque
         this->ui->listWidget->clear();
