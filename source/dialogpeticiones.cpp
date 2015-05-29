@@ -66,9 +66,9 @@ void DialogPeticiones::on_comboBox_currentIndexChanged(int index) {
 
     ui->comboBox_3->clear();
     for(auto &it : *ne) {
-        QString texto = it.get()->getOrigen().c_str();
+        QString texto = it->getOrigen().c_str();
         texto.append(" - ");
-        texto.append(it.get()->getDestino().c_str());
+        texto.append(it->getDestino().c_str());
         ui->comboBox_3->addItem(texto);
     }
 }
@@ -96,7 +96,7 @@ void DialogPeticiones::on_buttonBox_accepted() {
     if(modRowOficina == -1 && modRowOwner == -1 && modRowPeticion == -1){
         setPe(of->at(ui->comboBox_2->currentIndex()).getPeticiones());
         Peticion pet;
-        pet.neg = std::shared_ptr<Nego>(ne->at(ui->comboBox_3->currentIndex()).get());
+        pet.neg = std::shared_ptr<Nego>(ne->at(ui->comboBox_3->currentIndex()));
         pet.setPlazasPedidas(ui->lineEdit_3->text().toInt());
 
         if(static_cast<int>(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas()) >= 0) {
@@ -107,13 +107,13 @@ void DialogPeticiones::on_buttonBox_accepted() {
             QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
     }
     else {
-        std::size_t plazasActuales = pe->at(modRowPeticion).neg.get()->getNumeroPlazas();
+        std::size_t plazasActuales = pe->at(modRowPeticion).neg->getNumeroPlazas();
         std::size_t plazasTotales = plazasActuales + pe->at(modRowPeticion).getPlazasPedidas();
         int diff = plazasTotales - ui->lineEdit_3->text().toInt();
         if (diff < 0)
             QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
         else{
-            pe->at(modRowPeticion).neg.get()->setNumeroPlazas(diff);
+            pe->at(modRowPeticion).neg->setNumeroPlazas(diff);
             pe->at(modRowPeticion).setPlazasPedidas(ui->lineEdit_3->text().toInt());
         }
 

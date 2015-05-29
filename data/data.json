@@ -1,15 +1,15 @@
 {
     "Owner": [
         {
-            "Nombre": "El Corte Ingés",
+            "Nombre": "e",
             "Negos": [
                 {
                     "ptr_wrapper": {
                         "id": 2147483649,
                         "data": {
-                            "Origen": "Madrid",
-                            "Destino": "Roma",
-                            "Numero_de_Plazas": 0,
+                            "Origen": "e",
+                            "Destino": "e",
+                            "Numero_de_Plazas": 10,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
@@ -21,12 +21,12 @@
             ],
             "Oficinas": [
                 {
-                    "Nombre": "Oficina1",
-                    "País": "Esp",
-                    "Continente": "Mad",
+                    "Nombre": "e",
+                    "País": "e",
+                    "Continente": "e",
                     "Peticiones": [
                         {
-                            "Plazas Pedidas": 100,
+                            "Plazas Pedidas": 90,
                             "Nego": {
                                 "ptr_wrapper": {
                                     "id": 1

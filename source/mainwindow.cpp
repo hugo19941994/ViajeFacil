@@ -90,13 +90,13 @@ void MainWindow::cambiarUsuario(std::string nombre) {
 void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(index.row());
     this->ui->listWidget->clear();
-    for (auto it : ow.getNegos()) {
+    for (auto &it : ow.getNegos()) {
         /**
          * @brief orDe
          */
-        QString orDe = it.get()->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
+        QString orDe = it->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
         orDe.append(" - ");
-        orDe.append(it.get()->getDestino().c_str());
+        orDe.append(it->getDestino().c_str());
         this->ui->listWidget->addItem(orDe);
     }
 
@@ -396,11 +396,11 @@ void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
 
     this->ui->listWidget->clear();
     int i=0;
-    for (auto it : ow.getNegos()) {
+    for (auto &it : ow.getNegos()) {
 
-        QString orDe = it.get()->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
+        QString orDe = it->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
         orDe.append(" - ");
-        orDe.append(it.get()->getDestino().c_str());
+        orDe.append(it->getDestino().c_str());
 
         if (orDe.contains(arg1))
             this->ui->listWidget->addItem(orDe);
