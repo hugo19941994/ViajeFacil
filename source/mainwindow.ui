@@ -175,9 +175,20 @@
     <addaction name="actionModOficina"/>
     <addaction name="actionModPeticion"/>
    </widget>
+   <widget class="QMenu" name="menuConsultas">
+    <property name="title">
+     <string>Consultas</string>
+    </property>
+    <addaction name="actionLog_de_Peticiones"/>
+    <addaction name="actionInforme_Solicitud_por_Oficina"/>
+    <addaction name="actionInforme_Solicitud_por_Pais"/>
+    <addaction name="actionInforme_Solicitud_por_Continente"/>
+    <addaction name="actionInforme_Owners_que_mejor_consumen_Negos"/>
+   </widget>
    <addaction name="menuCrear"/>
    <addaction name="menuModificar"/>
    <addaction name="menuBorrar"/>
+   <addaction name="menuConsultas"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreNego">
@@ -243,6 +254,31 @@
   <action name="actionCreUsuario">
    <property name="text">
     <string>Usuario</string>
+   </property>
+  </action>
+  <action name="actionLog_de_Peticiones">
+   <property name="text">
+    <string>Log de Peticiones</string>
+   </property>
+  </action>
+  <action name="actionInforme_Solicitud_por_Oficina">
+   <property name="text">
+    <string>Informe - Solicitud por Oficina</string>
+   </property>
+  </action>
+  <action name="actionInforme_Solicitud_por_Pais">
+   <property name="text">
+    <string>Informe - Solicitud por Pais</string>
+   </property>
+  </action>
+  <action name="actionInforme_Solicitud_por_Continente">
+   <property name="text">
+    <string>Informe - Solicitud por Continente</string>
+   </property>
+  </action>
+  <action name="actionInforme_Owners_que_mejor_consumen_Negos">
+   <property name="text">
+    <string>Informe - Owners que mejor consumen Negos</string>
    </property>
   </action>
  </widget>

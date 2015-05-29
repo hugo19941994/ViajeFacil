@@ -415,3 +415,17 @@ void MainWindow::on_lineEdit_5_textChanged(const QString &arg1) {
             ui->listWidget_4->item(i)->setHidden(true);
     }
 }
+
+void MainWindow::on_listWidget_4_currentRowChanged(int currentRow) {
+    QColor green("green");
+    QColor white("white");
+    for(int i = 0; i < ui->listWidget_4->count(); ++i) {
+        if(i == currentRow)
+            ui->listWidget_4->item(i)->setBackgroundColor(green);
+        else
+            ui->listWidget_4->item(i)->setBackgroundColor(white);
+    }
+
+    //Nego n = listaOw.at(ui->listWidget_2->row(ui->listWidget_2->selectedItems().first())).getOficinas().at(ui->listWidget_3->row(ui->listWidget_3->selectedItems().first())).getPeticiones().at(ui->listWidget_4->row(ui->listWidget_4->selectedItems().first())).neg;
+
+}

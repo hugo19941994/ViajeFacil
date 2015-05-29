@@ -99,6 +99,8 @@ class MainWindow : public QMainWindow {
 
     void on_lineEdit_5_textChanged(const QString &arg1);
 
+    void on_listWidget_4_currentRowChanged(int currentRow);
+
 private:
     /**
      * @brief ui

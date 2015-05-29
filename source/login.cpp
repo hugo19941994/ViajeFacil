@@ -58,19 +58,18 @@ void Login::on_buttonBox_accepted() {
         std::string cppHash(hash);
         std::ofstream myfile;
         myfile.open("../../data/usuarios.txt", std::ios_base::app);
-        myfile << this->ui->lineEdit_2->text().toStdString() << ":" << cppHash << "\n";
+        myfile << this->ui->lineEdit_2->text().toStdString() << "\n" << cppHash << "\n";
         myfile.close();
-    } else if (this->estado_ == 0) {
+    }
+    else if (this->estado_ == 0) {
          // estado_ 0 para comprobar el login
          char outhash[BCRYPT_HASHSIZE];
 
         // Coger el usuario y pasarlo a char * de C
         std::string usuario = this->ui->lineEdit_2->text().toStdString();
-        std::cout << usuario << "\n";
 
         // Coger la contraseña y pasarla a char * de C
         std::string pass = this->ui->lineEdit->text().toStdString();
-        std::cout << pass << "\n";
         const char * passC = pass.c_str();
 
         // Abrimos el archivo en modo lectura
@@ -79,25 +78,21 @@ void Login::on_buttonBox_accepted() {
 
         // Cogemos el hash que corresponda
         std::string myString;
-        while (!myfile.eof()) {
-          std::getline(myfile, myString, ':');
+        while (std::getline(myfile, myString, '\n')) {
           if (myString == usuario) {
               std::getline(myfile, myString, '\n');
               break;
           }
-         // else
-             // std::getline(myfile, myString, '\n');
+         else
+             std::getline(myfile, myString, '\n');
         }
-        std::cout << myString;
+
         const char * myStringC = myString.c_str();
 
         assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
-        std::cout << outhash << "\n";
         if (strcmp(myStringC, outhash) == 0) {  // Poner en mainWindow el usuario
             printf("The password matches\n");
             emit cambioDeUsuario(usuario);
         }
-        else
-          printf("NOOO\n");
     }
 }
