@@ -34,9 +34,9 @@ MainWindow::MainWindow(QWidget *parent) :
         cereal::JSONInputArchive ar(myfile);//tipo de archivo, asocia libreria con el archivo
         ar(this->listaOw);//carga la lista
 
-        this->ui->listWidget_2->clear();//carga la lista en mainwindow y la refresca poniendo lo nuevo introducido
+        this->ui->listWidget->clear();//carga la lista en mainwindow y la refresca poniendo lo nuevo introducido
         for (auto &it : listaOw) {
-            this->ui->listWidget_2->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
+            this->ui->listWidget->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
         }
     }
 
@@ -112,12 +112,12 @@ void MainWindow::cambiarUsuario(std::string nombre) {
 
 //cuando se seleccionen datos en el campo 2 de la ventana principal, owner asociados a negos  y viceversa
 /**
- * @brief MainWindow::on_listWidget_2_pressed
+ * @brief MainWindow::on_listWidget_pressed
  * @param index
  */
-void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
+void MainWindow::on_listWidget_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(index.row());
-    this->ui->listWidget->clear();
+    this->ui->listWidget_2->clear();
     for (auto &it : ow.getNegos()) {
         /**
          * @brief orDe
@@ -125,7 +125,7 @@ void MainWindow::on_listWidget_2_pressed(const QModelIndex &index) {
         QString orDe = it->getOrigen().c_str();  // TODO:Se puede hacer en una linea?
         orDe.append(" - ");
         orDe.append(it->getDestino().c_str());
-        this->ui->listWidget->addItem(orDe);
+        this->ui->listWidget_2->addItem(orDe);
     }
 
     this->ui->listWidget_3->clear();
@@ -162,7 +162,7 @@ void MainWindow::on_actionCreNego_triggered() {
     guardarEnArchivo();
 
     // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
-    this->ui->listWidget->clear();
+    this->ui->listWidget_2->clear();
 }
 
 /**
@@ -174,9 +174,9 @@ void MainWindow::on_actionCreOwner_triggered() {
     ow.setModal(true);
     ow.exec();
 
-    this->ui->listWidget_2->clear();
+    this->ui->listWidget->clear();
     for (auto &it : listaOw) {
-        this->ui->listWidget_2->addItem(it.getNombre().c_str());
+        this->ui->listWidget->addItem(it.getNombre().c_str());
     }
 
    guardarEnArchivo();
@@ -199,14 +199,14 @@ void MainWindow::on_actionBorOwner_triggered() {
     // TODO: Preguntar si estas seguro de borrar owner y mostrar datos
 
     // Calcular el indice del owner seleccionado y borrarlo
-    if(!ui->listWidget_2->selectedItems().isEmpty()){
-        QListWidgetItem *selected = this->ui->listWidget_2->selectedItems().first();
+    if(!ui->listWidget->selectedItems().isEmpty()){
+        QListWidgetItem *selected = this->ui->listWidget->selectedItems().first();
         if(selected != NULL)  // ARREGLAR - NO FUNCIONA
-            listaOw.erase(listaOw.begin() + this->ui->listWidget_2->row(selected));
+            listaOw.erase(listaOw.begin() + this->ui->listWidget->row(selected));
 
-        this->ui->listWidget_2->clear();
+        this->ui->listWidget->clear();
         for (auto &it : listaOw) {
-            this->ui->listWidget_2->addItem(it.getNombre().c_str());
+            this->ui->listWidget->addItem(it.getNombre().c_str());
         }
 
         guardarEnArchivo();
@@ -217,18 +217,18 @@ void MainWindow::on_actionBorOwner_triggered() {
  * @brief MainWindow::on_actionModOwner_triggered
  */
 void MainWindow::on_actionModOwner_triggered() {
-    if(!ui->listWidget_2->selectedItems().isEmpty()){
-        QListWidgetItem *selected = this->ui->listWidget_2->selectedItems().first();
+    if(!ui->listWidget->selectedItems().isEmpty()){
+        QListWidgetItem *selected = this->ui->listWidget->selectedItems().first();
 
         diagOwner ow;
         ow.setOw(this->listaOw);
-        ow.setRow(this->ui->listWidget_2->row(selected)); // Le pasamos el indice del owner que queremos modificar
+        ow.setRow(this->ui->listWidget->row(selected)); // Le pasamos el indice del owner que queremos modificar
         ow.setModal(true);
         ow.exec();
 
-        this->ui->listWidget_2->clear();
+        this->ui->listWidget->clear();
         for (auto &it : listaOw) {
-            this->ui->listWidget_2->addItem(it.getNombre().c_str());
+            this->ui->listWidget->addItem(it.getNombre().c_str());
         }
 
        guardarEnArchivo();
@@ -239,24 +239,24 @@ void MainWindow::on_actionModOwner_triggered() {
  * @brief MainWindow::on_actionModNego_triggered
  */
 void MainWindow::on_actionModNego_triggered() {
-    if(!ui->listWidget->selectedItems().isEmpty()
-            && !ui->listWidget_2->selectedItems().isEmpty()){
+    if(!ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()){
         /**
         * @brief selectedOwner
         */
-        QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+        QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
         /**
          * @brief selectedNego
          */
-        QListWidgetItem *selectedNego = this->ui->listWidget->selectedItems().first();
+        QListWidgetItem *selectedNego = this->ui->listWidget_2->selectedItems().first();
         /**
          * @brief ng
          */
         DialogNego *ng = new DialogNego;
         ng->setOw(this->listaOw);
         ng->cargar();
-        ng->setRows(this->ui->listWidget_2->row(selectedOwner),
-                    this->ui->listWidget->row(selectedNego));
+        ng->setRows(this->ui->listWidget->row(selectedOwner),
+                    this->ui->listWidget_2->row(selectedNego));
         // TODO - IDEA en vez que pasarle el numero de fila pasar directamente
         // un puntero al nego que hay que modificar? alguna desventajas?
         ng->setModal(true);
@@ -267,7 +267,7 @@ void MainWindow::on_actionModNego_triggered() {
         guardarEnArchivo();
 
         // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
-        this->ui->listWidget->clear();
+        this->ui->listWidget_2->clear();
     }
 }
 
@@ -275,28 +275,28 @@ void MainWindow::on_actionModNego_triggered() {
  * @brief MainWindow::on_actionBorNego_triggered
  */
 void MainWindow::on_actionBorNego_triggered() {
-    if(!ui->listWidget->selectedItems().isEmpty()
-            && !ui->listWidget_2->selectedItems().isEmpty()){
+    if(!ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()){
         /**
         * @brief selectedOwner
         */
-        QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
-        QListWidgetItem *selectedNego = this->ui->listWidget->selectedItems().first();
+        QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
+        QListWidgetItem *selectedNego = this->ui->listWidget_2->selectedItems().first();
         /**
          * @brief listaNegos
          */
-        pel::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getNegos();
+        pel::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget->row(selectedOwner)).getNegos();
 
         // Aprovechamos use_count del shared_ptr. Si devuelve mas de 1, significa que hay
         // otros shared_ptr (desde peticiones) apuntando a este nego.
-        if(listaNegos.at(this->ui->listWidget->row(selectedNego)).use_count() <= 1) {
-            listaNegos.erase(listaNegos.begin() + this->ui->listWidget->row(selectedNego));
+        if(listaNegos.at(this->ui->listWidget_2->row(selectedNego)).use_count() <= 1) {
+            listaNegos.erase(listaNegos.begin() + this->ui->listWidget_2->row(selectedNego));
         }
         else
             QMessageBox::warning(this, "Warning", "Hay peticiones de este Nego");
 
         // TODO: Refrescar la lista de negos que toque
-        this->ui->listWidget->clear();
+        this->ui->listWidget_2->clear();
         /**
          * @brief guardarEnArchivo
          */
@@ -317,7 +317,7 @@ void MainWindow::on_actionCreOficina_triggered() {
 }
 
 void MainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
-    auto ow = this->listaOw.at(ui->listWidget_2->currentIndex().row());
+    auto ow = this->listaOw.at(ui->listWidget->currentIndex().row());
     auto pe = ow.getOficinas().at(index.row()).getPeticiones();
     this->ui->listWidget_4->clear();
     for (auto it : pe) {
@@ -328,11 +328,11 @@ void MainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
 
 void MainWindow::on_actionBorOficina_triggered() {
     if(!ui->listWidget_3->selectedItems().isEmpty()
-            && !ui->listWidget_2->selectedItems().isEmpty()){
-        QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+            && !ui->listWidget->selectedItems().isEmpty()){
+        QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOficina = this->ui->listWidget_3->selectedItems().first();
 
-        pel::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
+        pel::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget->row(selectedOwner)).getOficinas();
         listaOficinas.erase(listaOficinas.begin() + this->ui->listWidget_3->row(selectedOficina));
 
         this->ui->listWidget_3->clear();
@@ -344,13 +344,13 @@ void MainWindow::on_actionBorOficina_triggered() {
 
 void MainWindow::on_actionBorPeticion_triggered() {
     if(!ui->listWidget_4->selectedItems().isEmpty()
-            && !ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_3->selectedItems().isEmpty()){
-        QListWidgetItem *selectedOwner = this->ui->listWidget_2->selectedItems().first();
+        QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOficinas = this->ui->listWidget_3->selectedItems().first();
         QListWidgetItem *selectedPeticion = this->ui->listWidget_4->selectedItems().first();
 
-        pel::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget_2->row(selectedOwner)).getOficinas();
+        pel::vector<Oficina> &listaOficinas = listaOw.at(this->ui->listWidget->row(selectedOwner)).getOficinas();
         pel::vector<Peticion> &listaPeticiones = listaOficinas.at(this->ui->listWidget_3->row(selectedOficinas)).getPeticiones();
 
         // Si borras peticion devolvemos las plazas al nego
@@ -366,14 +366,14 @@ void MainWindow::on_actionBorPeticion_triggered() {
 
 void MainWindow::on_actionModOficina_triggered() {
     if(!ui->listWidget_3->selectedItems().isEmpty()
-            && !ui->listWidget_2->selectedItems().isEmpty()){
-        QListWidgetItem *selectedOw = this->ui->listWidget_2->selectedItems().first();
+            && !ui->listWidget->selectedItems().isEmpty()){
+        QListWidgetItem *selectedOw = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
 
         DialogOficinas *of = new DialogOficinas;
         of->setOw(this->listaOw);
         of->cargar();
-        of->setRows(this->ui->listWidget_2->row(selectedOw),
+        of->setRows(this->ui->listWidget->row(selectedOw),
                     this->ui->listWidget_3->row(selectedOf));
 
         of->setModal(true);
@@ -386,16 +386,16 @@ void MainWindow::on_actionModOficina_triggered() {
 
 void MainWindow::on_actionModPeticion_triggered() {
     if(!ui->listWidget_4->selectedItems().isEmpty()
-            && !ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_3->selectedItems().isEmpty()){
-        QListWidgetItem *selectedOw = this->ui->listWidget_2->selectedItems().first();
+        QListWidgetItem *selectedOw = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
         QListWidgetItem *selectedPe = this->ui->listWidget_4->selectedItems().first();
 
         DialogPeticiones *pe = new DialogPeticiones;
         pe->setOw(this->listaOw);
         pe->cargar();
-        pe->setRows(this->ui->listWidget_2->row(selectedOw),
+        pe->setRows(this->ui->listWidget->row(selectedOw),
                     this->ui->listWidget_3->row(selectedOf),
                     this->ui->listWidget_4->row(selectedPe));
         pe->setModal(true);
@@ -406,21 +406,21 @@ void MainWindow::on_actionModPeticion_triggered() {
 }
 
 void MainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
-    for(int i = 0; i < ui->listWidget_2->count(); ++i) {
-        if(ui->listWidget_2->item(i)->text().contains(arg1))
-            ui->listWidget_2->item(i)->setHidden(false);
-        else
-            ui->listWidget_2->item(i)->setHidden(true);
-    }
-    // TODO - seleccionar automaticamente la primera coincidencia?
-}
-
-void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
     for(int i = 0; i < ui->listWidget->count(); ++i) {
         if(ui->listWidget->item(i)->text().contains(arg1))
             ui->listWidget->item(i)->setHidden(false);
         else
             ui->listWidget->item(i)->setHidden(true);
+    }
+    // TODO - seleccionar automaticamente la primera coincidencia?
+}
+
+void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
+    for(int i = 0; i < ui->listWidget_2->count(); ++i) {
+        if(ui->listWidget_2->item(i)->text().contains(arg1))
+            ui->listWidget_2->item(i)->setHidden(false);
+        else
+            ui->listWidget_2->item(i)->setHidden(true);
     }
 }
 

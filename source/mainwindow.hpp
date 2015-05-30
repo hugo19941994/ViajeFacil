@@ -45,7 +45,7 @@ class MainWindow : public QMainWindow {
      * @brief on_listWidget_2_pressed
      * @param index
      */
-    void on_listWidget_2_pressed(const QModelIndex &index);
+    void on_listWidget_pressed(const QModelIndex &index);
     /**
      * @brief on_actionCrePeticion_triggered
      */
