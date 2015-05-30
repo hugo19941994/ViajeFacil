@@ -17,14 +17,16 @@
  */
 class Owner {
  private:
-    /**
+  /**
    * @brief nombre_
    */
   std::string nombre_;
+
   /**
    * @brief negos_
    */
   pel::vector<std::shared_ptr<Nego>> negos_;
+
   /**
    * @brief oficinas_
    */
@@ -35,27 +37,31 @@ class Owner {
    * @brief Owner
    */
   Owner();
+
   /**
    * @brief Owner
    * @param nombre
    */
   explicit Owner(std::string nombre);  // Entender que hace explicit mejor!
+
   ~Owner();
   /**
    * @brief setNombre
    */
   void setNombre(std::string);
+
   /**
    * @brief getNombre
    * @return
    */
-
   std::string getNombre();
+
   /**
    * @brief getNegos
    * @return
    */
   pel::vector<std::shared_ptr<Nego>> &getNegos();
+
   /**
    * @brief getOficinas
    * @return
@@ -68,16 +74,13 @@ class Owner {
    * @param archive
    */
   void serialize(Archive &archive) {
-      /**
+    /**
      * @brief archive
      */
     archive(cereal::make_nvp("Nombre", nombre_),
-            /**
-                 * @brief cereal::make_nvp
-                 */
         cereal::make_nvp("Negos", negos_),
         cereal::make_nvp("Oficinas", oficinas_));
-  }
+}
 };
 
 #endif  // OWNER_H

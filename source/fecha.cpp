@@ -6,6 +6,7 @@
  * @brief Fecha::Fecha
  */
 Fecha::Fecha() : dia_(0), mes_(0), anio_(0) {}
+
 /**
  * @brief Fecha::Fecha
  * @param dia
@@ -14,6 +15,7 @@ Fecha::Fecha() : dia_(0), mes_(0), anio_(0) {}
  */
 Fecha::Fecha(size_t dia, size_t mes, int anio)
     : dia_(dia), mes_(mes), anio_(anio) {}
+
 /**
  * @brief Fecha::~Fecha
  */
@@ -24,11 +26,12 @@ Fecha::~Fecha() {}
  * @param dia
  * @param mes
  * @param anio
+ * Datos fecha
  */
-void Fecha::setFecha(size_t dia, size_t mes, int anio) {  // Datos fecha
-  this->dia_ = dia;
-  this->mes_ = mes;
-  this->anio_ = anio;
+void Fecha::setFecha(size_t dia, size_t mes, int anio) {
+  dia_ = dia;
+  mes_ = mes;
+  anio_ = anio;
 }
 
 /**
@@ -36,7 +39,7 @@ void Fecha::setFecha(size_t dia, size_t mes, int anio) {  // Datos fecha
  * @param dia
  */
 void Fecha::setDia(size_t dia) {
-  this->dia_ = dia;
+  dia_ = dia;
 }
 
 /**
@@ -44,7 +47,7 @@ void Fecha::setDia(size_t dia) {
  * @param mes
  */
 void Fecha::setMes(size_t mes) {
-  this->mes_ = mes;
+  mes_ = mes;
 }
 
 /**
@@ -52,7 +55,7 @@ void Fecha::setMes(size_t mes) {
  * @param anio
  */
 void Fecha::setAnio(int anio) {
-  this->anio_ = anio;
+  anio_ = anio;
 }
 
 /**
@@ -60,7 +63,7 @@ void Fecha::setAnio(int anio) {
  * @return
  */
 size_t Fecha::getDia() {
-  return this->dia_;
+  return dia_;
 }
 
 /**
@@ -68,7 +71,7 @@ size_t Fecha::getDia() {
  * @return
  */
 size_t Fecha::getMes() {
-  return this->mes_;
+  return mes_;
 }
 
 /**
@@ -76,5 +79,5 @@ size_t Fecha::getMes() {
  * @return
  */
 int Fecha::getAnio() {
-  return this->anio_;
+  return anio_;
 }

@@ -7,6 +7,7 @@
 #ifndef OFICINA_H
 #define OFICINA_H
 
+#include <string>
 #include "./pel_vector.hpp"
 #include "./peticion.hpp"  // las oficinas crean peticiones, se necesitará acceso a los datos de las peticiones
 
@@ -20,14 +21,17 @@ class Oficina {
    * @brief nombre_
    */
   std::string nombre_;
+
   /**
    * @brief pais_
    */
   std::string pais_;
+
   /**
    * @brief continente_
    */
   std::string continente_;
+
   /**
    * @brief peticiones_
    */
@@ -38,6 +42,7 @@ class Oficina {
    * @brief Oficina
    */
   Oficina();  // Constructor
+
   /**
    * @brief Oficina
    * @param nombre
@@ -45,16 +50,20 @@ class Oficina {
    * @param continente
    */
   Oficina(std::string nombre, std::string pais, std::string continente);
+
   ~Oficina();  // destructor
-  // Datos a introducir por el usuario
+
   /**
    * @brief setNombre
+   * Datos a introducir por el usuario
    */
   void setNombre(std::string);
+
   /**
    * @brief setPais
    */
   void setPais(std::string);
+
   /**
    * @brief setContinente
    */
@@ -66,39 +75,33 @@ class Oficina {
    * @return
    */
   std::string getNombre();
+
   /**
    * @brief getPais
    * @return
    */
   std::string getPais();
+
   /**
    * @brief getContinente
    * @return
    */
   std::string getContinente();
+
   /**
    * @brief getPeticiones
    * @return
    */
   pel::vector<Peticion> &getPeticiones();
 
-  template<class Archive>  // Serialize things by passing them to the archive
   /**
      * @brief serialize
      * @param archive
      */
-    void serialize(Archive &archive) {
-        /**
-       * @brief archive
-       */
+  template<class Archive>  // Serialize things by passing them to the archive
+  void serialize(Archive &archive) {
       archive(cereal::make_nvp("Nombre", nombre_),
-              /**
-                 * @brief cereal::make_nvp
-                 */
         cereal::make_nvp("País", pais_),
-              /**
-                 * @brief cereal::make_nvp
-                 */
         cereal::make_nvp("Continente", continente_),
         cereal::make_nvp("Peticiones", peticiones_));
     }

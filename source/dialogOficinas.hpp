@@ -9,7 +9,6 @@
 #include "./nego.hpp"
 #include "./peticion.hpp"
 
-
 namespace Ui {
 class dialogOficinas;
 }
@@ -20,11 +19,11 @@ class dialogOficinas : public QDialog {
  public:
     explicit dialogOficinas(QWidget *parent = 0);
     ~dialogOficinas();
-    void setOf(pel::vector<Oficina>& ofc);
-    void setOw(pel::vector<Owner>& own);
-    void setPe(pel::vector<Peticion>& pet);
-    void setRows(int modRowOwner, int modRowOficina);
+    void setOf(pel::vector<Oficina>* ofc);
+    void setOw(pel::vector<Owner>* own);
+    void setPe(pel::vector<Peticion>* pet);
     void cargar();
+    void setOficinaAEditar(Oficina &ofi);
 
  private slots:
 
@@ -33,8 +32,8 @@ class dialogOficinas : public QDialog {
     void on_buttonBox_accepted();
 
  private:
-    int modRowOwner = -1;
-    int modRowOficina = -1;
+    bool editando = false;
+    Oficina *oficinaAEditar;
     Ui::dialogOficinas *ui;
     pel::vector<Owner> *ow;
     pel::vector<Oficina> *of;

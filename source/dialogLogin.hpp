@@ -10,7 +10,7 @@
 #include <string>
 
 namespace Ui {
-class dialogLogin;
+    class dialogLogin;
 }
 
 /**
@@ -25,11 +25,13 @@ class dialogLogin : public QDialog {
      * @param parent
      */
     explicit dialogLogin(QWidget *parent = 0);
+
     /**
      * @brief setEstado
      * @param estado
      */
     void setEstado(int estado);
+
     ~dialogLogin();
 
  private slots:  // Slot: hacer click en aceptar
@@ -43,10 +45,12 @@ class dialogLogin : public QDialog {
      * @brief ui
      */
     Ui::dialogLogin *ui;
+
     /**
      * @brief estado_
+     * 0 para dialogLogin, 1 para crear usuario
      */
-    int estado_;  // 0 para dialogLogin, 1 para crear usuario
+    int estado_;
 
  signals:  // Se permite cambiar de usuario, varios usuarios pueden acceder, no necesariamente tiene que ser siempre el mismo.
     /**

@@ -1,5 +1,6 @@
-/*DESCRIPCION: las peticiones son elaboradas por todas las partes de este proyecto, es decir, cada
- * acción que se realice va a ser una petición que se quedará guardada en esta clase "peticiones"
+/*DESCRIPCION: las peticiones son elaboradas por todas las partes
+ * de este proyecto, es decir, cada acción que se realice va a ser una petición
+ * que se quedará guardada en esta clase "peticiones"
  * AUTORES: Sergio Candel, ayuda David Jimenez y Hugo Ferrando
  */
 #ifndef dialogPeticiones_H
@@ -7,14 +8,13 @@
 
 #include <QDialog>
 #include "./pel_vector.hpp"
-#include "./peticion.hpp"  // va a participar la cabecera de peticiones y la de owner
-#include "./owner.hpp"  // encontraremos datos de owners
+#include "./peticion.hpp"
+#include "./owner.hpp"
 
-namespace Ui {  // funcion que guardará la petición durante un periodo de tiempo, hasta que finalice el programa
-class dialogPeticiones;  // clase dialogPeticiones
+namespace Ui {
+class dialogPeticiones;
 }
 
-// se define la clase cómo va a ser y su contenido.
 /**
  * @brief The dialogPeticiones class
  */
@@ -27,25 +27,35 @@ class dialogPeticiones : public QDialog {
      * @param parent
      */
     explicit dialogPeticiones(QWidget *parent = 0);
+
     ~dialogPeticiones();  // Destructor
+
     /**
       * @brief setOw
       * @param own
+      * va a pedir como parámetro owners se guardaran
+      * en el vector owners y se podrá mostrar modificado
       */
-     void setOw(pel::vector<Owner>& own);  // va a pedir como parámetro owners se guardaran en el vector owners y se podrá mostrar modificado
+     void setOw(pel::vector<Owner>* own);
+
      /**
       * @brief setPe
       * @param pet
+      * pide parámetro peticiones,
+      * devuelve vector peticiones ->lista peticiones
       */
-     void setPe(pel::vector<Peticion>& pet);  // pide parámetro peticiones, devuelve vector peticiones ->lista peticiones
+     void setPe(pel::vector<Peticion>* pet);
+
      /**
       * @brief cargar
       */
-     void setOf(pel::vector<Oficina>& of);
-     void setNe(pel::vector<std::shared_ptr<Nego>>& ne);
-     void cargar();  // función cargar, archivo donde se guardan las peticiones
-     void setRows(int modRowOwner, int modRowOficina, int modRowPeticion);
+     void setOf(pel::vector<Oficina>* of);
 
+     void setNe(pel::vector<std::shared_ptr<Nego>>* ne);
+
+     void cargar();
+
+     void setPeticionAEditar(Peticion &pet);
 
  private slots:
      void on_comboBox_currentIndexChanged(int index);
@@ -57,21 +67,30 @@ class dialogPeticiones : public QDialog {
  private:
     /**
     * @brief ui
+    * parte gráfica, se modificará y se mostrará el resultado final
     */
-    Ui::dialogPeticiones *ui;  // parte gráfica, se modificará y se mostrará el resultado final
+    Ui::dialogPeticiones *ui;
+
     /**
      * @brief ow
+     * lista de owners
      */
-    pel::vector<Owner> *ow;  // lista de owners
+    pel::vector<Owner> *ow;
+
     /**
      * @brief pe
+     * vector peticiones
      */
-    pel::vector<Oficina> *of;  // vector peticiones
+    pel::vector<Oficina> *of;
+
     pel::vector<Peticion> *pe;  // vector peticiones
+
     pel::vector<std::shared_ptr<Nego>> *ne;  // vector peticiones
-    int modRowOwner = -1;
-    int modRowOficina = -1;
-    int modRowPeticion = -1;
+
+    bool editando = false;
+
+    Peticion *peticionAEditar;
+
 };
 
 #endif  // dialogPeticiones_H

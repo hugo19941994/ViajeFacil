@@ -17,14 +17,17 @@ class Nego {
      * @brief origen_
      */
     std::string origen_;
+
     /**
      * @brief destino_
      */
     std::string destino_;
+
     /**
      * @brief numeroPlazas_
      */
     std::size_t numeroPlazas_;
+
     /**
      * @brief fecha_
      */
@@ -35,6 +38,7 @@ class Nego {
      * @brief Nego
      */
     Nego();
+
     /**
      * @brief Nego
      * @param origen
@@ -44,6 +48,7 @@ class Nego {
      */
     Nego(std::string origen, std::string destino,
          std::size_t numeroPlazas, Fecha fecha);
+
     ~Nego();
     /**
      * @brief setNego
@@ -54,65 +59,62 @@ class Nego {
      */
     void setNego(std::string origen, std::string destino,
         std::size_t numeroPlazas, Fecha fecha);
+
     /**
      * @brief setOrigen
      * @param origen
      */
     void setOrigen(std::string origen);
+
     /**
      * @brief setDestino
      * @param destino
      */
     void setDestino(std::string destino);
+
     /**
      * @brief setNumeroPlazas
      * @param numeroPlazas
      */
     void setNumeroPlazas(std::size_t numeroPlazas);
+
     /**
      * @brief setFecha
      * @param fecha
      */
     void setFecha(Fecha fecha);
+
     /**
      * @brief getOrigen
      * @return
      */
-
     std::string getOrigen();
     /**
      * @brief getDestino
      * @return
      */
     std::string getDestino();
+
     /**
      * @brief getNumeroPlazas
      * @return
      */
     std::size_t getNumeroPlazas();
+
     /**
      * @brief getFecha
      * @return
      */
     Fecha getFecha();
 
-    template<class Archive>  // Serialize things by passing them to the archive
     /**
      * @brief serialize
      * @param archive
      */
+    template<class Archive>  // Serialize things by passing them to the archive
     void serialize(Archive &archive) {
-        /**
-         * @brief archive
-         */
         archive(cereal::make_nvp("Origen", origen_),
-                /**
-                     * @brief cereal::make_nvp
-                     */
             cereal::make_nvp("Destino", destino_),
-                /**
-                     * @brief cereal::make_nvp
-                     */
             cereal::make_nvp("Numero_de_Plazas", numeroPlazas_),
             cereal::make_nvp("Fecha", fecha_));
     }

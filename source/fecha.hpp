@@ -8,7 +8,6 @@
 #include <stddef.h>
 #include "cereal/cereal.hpp"
 
-// Clase fecha
 /**
  * @brief The Fecha class
  */
@@ -18,10 +17,12 @@ class Fecha {
      * @brief dia_
      */
     std::size_t dia_;
+
     /**
      * @brief mes_
      */
     std::size_t mes_;
+
     /**
      * @brief anio_
      */
@@ -49,21 +50,19 @@ class Fecha {
      * @param anio
      */
     void setFecha(std::size_t dia, std::size_t mes, int anio); // en fecha se eligen los valores(dia,mes,año)
-    /**
-     * @brief setDia
-     * @param dia
-     */
 
     /**
      * @brief setDia
      * @param dia
      */
     void setDia(std::size_t dia);
+
     /**
      * @brief setMes
      * @param mes
      */
     void setMes(std::size_t mes);
+
     /**
      * @brief setAnio
      * @param anio
@@ -73,33 +72,29 @@ class Fecha {
     /**
      * @brief getDia
      * @return
+     * Se devuelven los valores elegidos por el usuario(dia, mes, año)
      */
-    // Se devuelven los valores elegidos por el usuario(dia, mes, año)
     std::size_t getDia();
+
     /**
      * @brief getMes
      * @return
      */
     std::size_t getMes();
+
     /**
      * @brief getAnio
      * @return
      */
     int getAnio();
 
-    template<class Archive>  // Serialize things by passing them to the archive
     /**
      * @brief serialize
      * @param archive
      */
-    void serialize(Archive & archive) { // funcion
-        /**
-         * @brief archive
-         */
+    template<class Archive>  // Serialize things by passing them to the archive
+    void serialize(Archive & archive) {
         archive(cereal::make_nvp("Día", dia_),
-                /**
-                 * @brief cereal::make_nvp
-                 */
         cereal::make_nvp("Mes", mes_),
         cereal::make_nvp("Año", anio_));
     }

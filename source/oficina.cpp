@@ -27,7 +27,7 @@ Oficina::~Oficina() {}
  * @param nombre
  */
 void Oficina::setNombre(std::string nombre) {
-  this->nombre_ = nombre;
+  nombre_ = nombre;
 }
 
 /**
@@ -35,7 +35,7 @@ void Oficina::setNombre(std::string nombre) {
  * @param pais
  */
 void Oficina::setPais(std::string pais) {
-  this->pais_ = pais;
+  pais_ = pais;
 }
 
 /**
@@ -43,7 +43,7 @@ void Oficina::setPais(std::string pais) {
  * @param continente
  */
 void Oficina::setContinente(std::string continente) {
-  this->continente_ = continente;
+  continente_ = continente;
 }
 
 /**
@@ -51,7 +51,7 @@ void Oficina::setContinente(std::string continente) {
  * @return
  */
 std::string Oficina::getNombre() {
-  return this->nombre_;
+  return nombre_;
 }
 
 /**
@@ -59,7 +59,7 @@ std::string Oficina::getNombre() {
  * @return
  */
 std::string Oficina::getPais() {
-    return this->pais_;
+    return pais_;
 }
 
 /**
@@ -67,7 +67,7 @@ std::string Oficina::getPais() {
  * @return
  */
 std::string Oficina::getContinente() {
-    return this->continente_;
+    return continente_;
 }
 
 /**
@@ -75,5 +75,5 @@ std::string Oficina::getContinente() {
  * @return
  */
 pel::vector<Peticion> &Oficina::getPeticiones() {
-    return this->peticiones_;
+    return peticiones_;
 }

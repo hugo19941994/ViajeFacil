@@ -5,7 +5,7 @@
 #ifndef PETICION_H
 #define PETICION_H
 
-#include "nego.hpp"
+#include "./nego.hpp"
 #include "./fecha.hpp"
 
 /**
@@ -17,10 +17,12 @@ class Peticion {
 
  public:
     std::shared_ptr<Nego> neg;  // PONERLO EN PRIVATE
+
     /**
     * @brief Peticion
     */
     Peticion();
+
     /**
     * @brief Peticion
     * @param plazasPedidas
@@ -28,6 +30,7 @@ class Peticion {
     Peticion(std::size_t plazasPedidas);
 
     ~Peticion();
+
     /**
     * @brief setPlazasPedidas
     * @param plazasPedidas
@@ -41,6 +44,7 @@ class Peticion {
     std::size_t getPlazasPedidas();
 
     template<class Archive>  // serialize things by passing them to the archive
+
     /**
     * @brief serialize
     * @param archive

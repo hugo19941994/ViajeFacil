@@ -3,17 +3,16 @@
 #include <assert.h>
 #include <fstream>
 #include <string>
-#include "./dialogLogin.hpp"
 #include "./ui_dialogLogin.h"
 #include "./bcrypt.h"
+#include "./dialogLogin.hpp"
 
 /**
  * @brief dialogLogin::dialogLogin
  * @param parent
  */
 dialogLogin::dialogLogin(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::dialogLogin) {
+    QDialog(parent), ui(new Ui::dialogLogin) {
       ui->setupUi(this);
 }
 
@@ -29,17 +28,17 @@ dialogLogin::~dialogLogin() {
  * @param estado
  */
 void dialogLogin::setEstado(int estado) {
-    this->estado_ = estado;
+    estado_ = estado;
     // Si vamos a hacer dialogLogin escondemos el boton "admin"
-    if (this->estado_ == 0)
-        this->ui->checkBox->hide();
+    if (estado_ == 0)
+        ui->checkBox->hide();
 }
 
 /**
  * @brief dialogLogin::on_buttonBox_accepted
  */
 void dialogLogin::on_buttonBox_accepted() {
-    if (this->estado_ == 1) {  // estado_ 1 para crear usuario
+    if (estado_ == 1) {  // estado_ 1 para crear usuario
         // Crear Salt aleatorio
         char salt[BCRYPT_HASHSIZE];
         char hash[BCRYPT_HASHSIZE];
@@ -47,7 +46,7 @@ void dialogLogin::on_buttonBox_accepted() {
         assert(bcrypt_gensalt(12, salt) == 0);
 
         // Convertimos la contrasenia a un buffer de C
-        std::string pass = this->ui->lineEdit->text().toStdString();
+        std::string pass = ui->lineEdit->text().toStdString();
         const char * passC = pass.c_str();
         // Asegurarnos de que se creo correctamente
         assert(bcrypt_hashpw(passC, salt, hash) == 0);
@@ -56,17 +55,17 @@ void dialogLogin::on_buttonBox_accepted() {
         std::string cppHash(hash);
         std::ofstream myfile;
         myfile.open("../../data/usuarios.txt", std::ios_base::app);
-        myfile << this->ui->lineEdit_2->text().toStdString() << "\n" << cppHash << "\n";
+        myfile << ui->lineEdit_2->text().toStdString() << "\n" << cppHash << "\n";
         myfile.close();
-    } else if (this->estado_ == 0) {
+    } else if (estado_ == 0) {
          // estado_ 0 para comprobar el dialogLogin
          char outhash[BCRYPT_HASHSIZE];
 
         // Coger el usuario y pasarlo a char * de C
-        std::string usuario = this->ui->lineEdit_2->text().toStdString();
+        std::string usuario = ui->lineEdit_2->text().toStdString();
 
         // Coger la contraseña y pasarla a char * de C
-        std::string pass = this->ui->lineEdit->text().toStdString();
+        std::string pass = ui->lineEdit->text().toStdString();
         const char * passC = pass.c_str();
 
         // Abrimos el archivo en modo lectura

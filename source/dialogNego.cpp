@@ -1,4 +1,5 @@
-/*DESCRIPCION:Se definen las funciones de la ventana grafica dialogNego, se muestra qué hará cada botón
+/*DESCRIPCION:Se definen las funciones de la ventana grafica dialogNego,
+ * se muestra qué hará cada botón
   o campo que aparezca (en la ventana gráfica).
  * AUTORES: David Jimenez, ayuda Estefania Ortego, Hugo Ferrando añade retoques
  */
@@ -10,61 +11,62 @@
 /**
  * @brief dialogNego::dialogNego
  * @param parent
+ * Contenido de ventana grafica nego
  */
-dialogNego::dialogNego(QWidget *parent) :  // Contenido de ventana grafica nego
-    QDialog(parent),
-    /**
-         * @brief ui
-         */
-    ui(new Ui::dialogNego) {
+dialogNego::dialogNego(QWidget *parent) :
+    QDialog(parent), ui(new Ui::dialogNego) {
     ui->setupUi(this);
 }
+
 /**
  * @brief dialogNego::~dialogNego
+ * Destructor
  */
-dialogNego::~dialogNego() {  // Destructor, desaparecerán los datos cuando el usuario lo decida
+dialogNego::~dialogNego() {
     delete ui;
 }
 
-// Funcion de cargar y tipo de contenido que tendrá dicha funcion
 /**
  * @brief dialogNego::cargar
+ * Funcion de cargar y tipo de contenido que tendrá dicha funcion
  */
 void dialogNego::cargar() {
-    for (auto &it : *this->ow)
-        this->ui->comboBox->addItem(it.getNombre().c_str());
+    for (auto &it : *ow)
+        ui->comboBox->addItem(it.getNombre().c_str());
 }
 
 /**
  * @brief dialogNego::setNe
  * @param neg
+ * Accede al vector de negos
  */
-// Accede al vector de negos
-void dialogNego::setNe(pel::vector<std::shared_ptr<Nego>> &neg) {
-    this->ne = &neg;  // Negos modificados
+void dialogNego::setNe(pel::vector<std::shared_ptr<Nego>> *neg) {
+    ne = neg;  // Negos modificados
 }
+
 /**
  * @brief dialogNego::setOw
  * @param own
+ * vector de owner va a ser usado en ventana de nego
  */
-// vector de owner va a ser usado en ventana de nego
-void dialogNego::setOw(pel::vector<Owner> &own) {
-    this->ow = &own; // Owners modificados
+void dialogNego::setOw(pel::vector<Owner> *own) {
+    ow = own; // Owners modificados
 }
-// ventana principal aparecen los owners asociados a los negos cuando se hace clic sobre un owner
+
 /**
  * @brief dialogNego::on_comboBox_currentIndexChanged
  * @param index
  */
 void dialogNego::on_comboBox_currentIndexChanged(int index) {
     // Repasar!!!
-    Owner *ow = &this->ow->at(index);
-    this->setNe(ow->getNegos());
+    Owner *own = &ow->at(index);
+    setNe(&own->getNegos());
 }
 
-// Al acceder a la ventana nego,presionamos sobre los botones aceptar y cancelar
 /**
  * @brief dialogNego::on_buttonOkCancel_accepted
+ * Al acceder a la ventana nego,presionamos sobre
+ * los botones aceptar y cancelar
  */
 void dialogNego::on_buttonOkCancel_accepted() {
     if (editando) {
@@ -78,20 +80,20 @@ void dialogNego::on_buttonOkCancel_accepted() {
         negoAEditar->setFecha(fech);
     } else {  // se crean los negos con la lista nueva de datos
         Nego *newN = new Nego;
-        newN->setOrigen(this->ui->lineOrigen->text().toStdString());
-        newN->setDestino(this->ui->lineDestino->text().toStdString());
-        newN->setNumeroPlazas(this->ui->linePlazas->text().toInt());
+        newN->setOrigen(ui->lineOrigen->text().toStdString());
+        newN->setDestino(ui->lineDestino->text().toStdString());
+        newN->setNumeroPlazas(ui->linePlazas->text().toInt());
         Fecha fech;
-        fech.setDia(this->ui->dateEdit->date().day());
-        fech.setMes(this->ui->dateEdit->date().month());
-        fech.setAnio(this->ui->dateEdit->date().year());
+        fech.setDia(ui->dateEdit->date().day());
+        fech.setMes(ui->dateEdit->date().month());
+        fech.setAnio(ui->dateEdit->date().year());
         newN->setFecha(fech);
         std::shared_ptr<Nego> ptr(newN);
-        this->ne->push_back(ptr);  // devuelve la lista
+        ne->push_back(ptr);  // devuelve la lista
     }
 }
 
-void dialogNego::setNegoAEditar(Nego &neg){
+void dialogNego::setNegoAEditar(Nego &neg) {
     editando = true;
     negoAEditar = &neg;
     ui->lineDestino->setText(negoAEditar->getDestino().c_str());
@@ -102,6 +104,6 @@ void dialogNego::setNegoAEditar(Nego &neg){
     ui->dateEdit->setDate(date);  // TODO: No pone la fecha
 
     // TODO: Mostrar el nego que corresponda en vez del primero
-    // this->ui->comboBox->setItemText(this->ow->at(modRowOwner).getNombre().c_str());
+    // ui->comboBox->setItemText(ow->at(modRowOwner).getNombre().c_str());
     ui->comboBox->setEnabled(false);
 }

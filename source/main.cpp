@@ -13,7 +13,8 @@ Descripcion:
   Oficinas:  Sucursales de Owners
   Peticiones:  Viajes que piden las oficinas
 TODO:
-  Hay que hacer que cuando se aproxime a la fecha del vuelo, se le quite un 20% de peticiones a las oficinas
+  Hay que hacer que cuando se aproxime a la fecha del vuelo, se
+  le quite un 20% de peticiones a las oficinas
   El log de peticiones
 */
 

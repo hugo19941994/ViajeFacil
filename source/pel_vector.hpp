@@ -211,7 +211,7 @@ class vector {
     ////////////////////////////////////////////////////////////////////////////
     // serialization:
     template<class Archive>
-    void save(Archive & archive) const {
+    void save(Archive& archive) const {
         archive(cereal::make_size_tag(size()));
 
         for (std::size_t i = 0; i < size(); i++)
@@ -219,7 +219,7 @@ class vector {
     }
 
     template<class Archive>
-    void load(Archive & ar) {
+    void load(Archive& ar) {
         cereal::size_type sz;
         ar(cereal::make_size_tag(sz));
 

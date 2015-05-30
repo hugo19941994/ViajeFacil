@@ -8,15 +8,13 @@
 #define DIAGOWNER_H
 
 #include <QDialog>
-#include "./owner.hpp"
 #include "./pel_vector.hpp"
+#include "./owner.hpp"
 
 namespace Ui {
-/**
- *Funcion que llamará a la ventana de owner.cpp
- */
 class dialogOwner;
 }
+
 /**
  * @brief The dialogOwner class
  */
@@ -29,12 +27,14 @@ class dialogOwner : public QDialog {
      * @param parent
      */
     explicit dialogOwner(QWidget *parent = 0);
+
     ~dialogOwner();  // destructor
+
     /**
      * @brief setOw
      * @param own
      */
-    void setOw(pel::vector<Owner>& own);
+    void setOw(pel::vector<Owner>* own);
 
     void setOwnerAEditar(Owner &ow);
 
@@ -47,11 +47,14 @@ class dialogOwner : public QDialog {
 
  private:
     bool editando = false;
+
     Owner *ownerAEditar;
+
     /**
      * @brief ui
      */
     Ui::dialogOwner *ui;
+
     /**
      * @brief ow
      */

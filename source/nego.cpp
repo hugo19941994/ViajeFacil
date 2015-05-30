@@ -1,7 +1,7 @@
 // AUTORES: David Jimenez y Hugo Ferrando, ayuda Estefania ortego
 
-#include "./nego.hpp"
 #include <string>
+#include "./nego.hpp"
 
 /**
  * @brief Nego::Nego
@@ -34,28 +34,28 @@ Nego::~Nego() {}
  */
 void Nego::setNego(std::string origen, std::string destino,
     std::size_t numeroPlazas, Fecha fecha) {
-  this->origen_ = origen;
-  this->destino_ = destino;
-  this->numeroPlazas_ = numeroPlazas;
-  this->fecha_ = fecha;
+  origen_ = origen;
+  destino_ = destino;
+  numeroPlazas_ = numeroPlazas;
+  fecha_ = fecha;
 }
 
-// Funcion introducir origen en nego
 /**
  * @brief Nego::setOrigen
  * @param origen
+ * Funcion introducir origen en nego
  */
 void Nego::setOrigen(std::string origen) {
-  this->origen_ = origen;
+  origen_ = origen;
 }
 
-// Funcion introducir destino en nego
 /**
  * @brief Nego::setDestino
  * @param destino
+ * Funcion introducir destino en nego
  */
 void Nego::setDestino(std::string destino) {
-  this->destino_ = destino;
+  destino_ = destino;
 }
 
 /**
@@ -63,14 +63,15 @@ void Nego::setDestino(std::string destino) {
  * @param numeroPlazas
  */
 void Nego::setNumeroPlazas(std::size_t numeroPlazas) {
-  this->numeroPlazas_ = numeroPlazas;
+  numeroPlazas_ = numeroPlazas;
 }
+
 /**
  * @brief Nego::setFecha
  * @param fecha
  */
 void Nego::setFecha(Fecha fecha) {
-  this->fecha_ = fecha;
+  fecha_ = fecha;
 }
 
 /**
@@ -78,7 +79,7 @@ void Nego::setFecha(Fecha fecha) {
  * @return
  */
 std::string Nego::getOrigen() {
-  return this->origen_;
+  return origen_;
 }
 
 /**
@@ -86,7 +87,7 @@ std::string Nego::getOrigen() {
  * @return
  */
 std::string Nego::getDestino() {
-  return this->destino_;
+  return destino_;
 }
 
 /**
@@ -94,7 +95,7 @@ std::string Nego::getDestino() {
  * @return
  */
 std::size_t Nego::getNumeroPlazas() {
-  return this->numeroPlazas_;
+  return numeroPlazas_;
 }
 
 /**
@@ -102,5 +103,5 @@ std::size_t Nego::getNumeroPlazas() {
  * @return
  */
 Fecha Nego::getFecha() {
-  return this->fecha_;
+  return fecha_;
 }

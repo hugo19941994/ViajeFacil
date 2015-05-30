@@ -15,6 +15,7 @@ Peticion::Peticion()
  */
 Peticion::Peticion(std::size_t plazasPedidas)
     : plazasPedidas_(plazasPedidas) {}
+
 /**
  * @brief Peticion::~Peticion
  */
@@ -25,7 +26,7 @@ Peticion::~Peticion() {}
  * @param plazasPedidas
  */
 void Peticion::setPlazasPedidas(size_t plazasPedidas) {
-  this->plazasPedidas_ = plazasPedidas;
+  plazasPedidas_ = plazasPedidas;
 }
 
 /**
@@ -33,5 +34,5 @@ void Peticion::setPlazasPedidas(size_t plazasPedidas) {
  * @return
  */
 size_t Peticion::getPlazasPedidas() {
-  return this->plazasPedidas_;
+  return plazasPedidas_;
 }
