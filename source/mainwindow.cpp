@@ -1,40 +1,33 @@
-//AUTORES: HUGO FERRANDO
-//Ventana principal, definicion de todas las funciones para que se comuniquen los dialog y las clases
+// AUTORES: HUGO FERRANDO
+// Ventana principal, definicion de todas las funciones para que se comuniquen los dialog y las clases
 
-#include <vector>
 #include <fstream>
-#include <string>
-#include <QStringBuilder>
 #include <QMessageBox>
-#include <QListWidgetItem>
-#include "./mainwindow.hpp"
-#include "./ui_mainwindow.h"
-#include "./login.hpp"
-#include "./diagowner.hpp"
-#include "./dialognego.hpp"
+#include "./ui_mainWindow.h"
+#include "./mainWindow.hpp"
+#include "./dialogLogin.hpp"
+#include "./dialogOwner.hpp"
+#include "./dialogNego.hpp"
 #include "./dialogOficinas.hpp"
+#include "./dialogPeticiones.hpp"
 #include "./cereal/archives/json.hpp"
-#include "./cereal/types/vector.hpp"
-#include "./cereal/types/memory.hpp"
-#include "./dialogpeticiones.hpp"
 
 /**
-* @brief MainWindow::MainWindow
+* @brief mainWindow::mainWindow
 * @param parent
 */
-MainWindow::MainWindow(QWidget *parent) :
+mainWindow::mainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow) {
+    ui(new Ui::mainWindow) {
     ui->setupUi(this);
-    //Cargar ficheros
+    // Cargar ficheros
     // TODO: Comprobar si existe
-    std::ifstream myfile("../../data/data.json"); //crea archivo lectura
-    //myfile.open("../../data/data.json");//abre el archivo
+    std::ifstream myfile("../../data/data.json");  // crea archivo lectura
     if(myfile){
-        cereal::JSONInputArchive ar(myfile);//tipo de archivo, asocia libreria con el archivo
-        ar(this->listaOw);//carga la lista
+        cereal::JSONInputArchive ar(myfile);  // tipo de archivo, asocia libreria con el archivo
+        ar(this->listaOw);  // carga la lista
 
-        this->ui->listWidget->clear();//carga la lista en mainwindow y la refresca poniendo lo nuevo introducido
+        this->ui->listWidget->clear();  // carga la lista en mainWindow y la refresca poniendo lo nuevo introducido
         for (auto &it : listaOw) {
             this->ui->listWidget->addItem(it.getNombre().c_str());  // Convertir con c_string porque convierte implicitamente a QString
         }
@@ -53,50 +46,54 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuModificar->setEnabled(false);
     ui->menuConsultas->setEnabled(false);
     ui->menuBorrar->setEnabled(false);
+    ui->lineEdit_2->setEnabled(false);
+    ui->lineEdit_3->setEnabled(false);
+    ui->lineEdit_4->setEnabled(false);
+    ui->lineEdit_5->setEnabled(false);
 }
 
 /**
- * @brief MainWindow::~MainWindow
+ * @brief mainWindow::~mainWindow
  */
-MainWindow::~MainWindow() {
+mainWindow::~mainWindow() {
     delete ui;
 }
 
 /**
- * @brief MainWindow::on_pushButton_2_clicked
+ * @brief mainWindow::on_pushButton_2_clicked
  */
-void MainWindow::on_pushButton_2_clicked() {
+void mainWindow::on_pushButton_2_clicked() {
     /**
      * @brief log
      */
-    Login log;
+    dialogLogin log;
     log.setEstado(0);
     log.setModal(true);
     // Signal & slot mechanism with new syntax http://wiki.qt.io/New_Signal_Slot_Syntax
-    connect(&log, &Login::cambioDeUsuario, this, &MainWindow::cambiarUsuario);
+    connect(&log, &dialogLogin::cambioDeUsuario, this, &mainWindow::cambiarUsuario);
     log.exec();
 }
 
-//Guardar archivos
+// Guardar archivos
 /**
- * @brief MainWindow::guardarEnArchivo
+ * @brief mainWindow::guardarEnArchivo
  */
-void MainWindow::guardarEnArchivo() {
-    std::ofstream myfile; //Crea el archivo
-    myfile.open("../../data/data.json"); //abre el archivo creado
-    cereal::JSONOutputArchive archive(myfile); //Tipo de archivo creado
-    archive(cereal::make_nvp("Owner", this->listaOw)); //guarda lista de owners en el archivo
+void mainWindow::guardarEnArchivo() {
+    std::ofstream myfile;  // Crea el archivo
+    myfile.open("../../data/data.json");  // abre el archivo creado
+    cereal::JSONOutputArchive archive(myfile);  // Tipo de archivo creado
+    archive(cereal::make_nvp("Owner", this->listaOw));  // guarda lista de owners en el archivo
 }
 
-//Funcion de cambiar usuario para acceder a la aplicacion
+// Funcion de cambiar usuario para acceder a la aplicacion
 /**
- * @brief MainWindow::cambiarUsuario
+ * @brief mainWindow::cambiarUsuario
  * @param nombre
  */
-void MainWindow::cambiarUsuario(std::string nombre) {
+void mainWindow::cambiarUsuario(std::string nombre) {
     QString QNombre = QString::fromUtf8(nombre.c_str());
     this->ui->label_2->setText(QNombre);
-    //TODO - si el usuario no es admin desactivar ciertas funciones
+    // TODO - si el usuario no es admin desactivar ciertas funciones
     ui->listWidget->setEnabled(true);
     ui->listWidget_2->setEnabled(true);
     ui->listWidget_3->setEnabled(true);
@@ -108,14 +105,18 @@ void MainWindow::cambiarUsuario(std::string nombre) {
     ui->menuModificar->setEnabled(true);
     ui->menuConsultas->setEnabled(true);
     ui->menuBorrar->setEnabled(true);
+    ui->lineEdit_2->setEnabled(true);
+    ui->lineEdit_3->setEnabled(true);
+    ui->lineEdit_4->setEnabled(true);
+    ui->lineEdit_5->setEnabled(true);
 }
 
-//cuando se seleccionen datos en el campo 2 de la ventana principal, owner asociados a negos  y viceversa
+// cuando se seleccionen datos en el campo 2 de la ventana principal, owner asociados a negos  y viceversa
 /**
- * @brief MainWindow::on_listWidget_pressed
+ * @brief mainWindow::on_listWidget_pressed
  * @param index
  */
-void MainWindow::on_listWidget_pressed(const QModelIndex &index) {
+void mainWindow::on_listWidget_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(index.row());
     this->ui->listWidget_2->clear();
     for (auto &it : ow.getNegos()) {
@@ -137,10 +138,10 @@ void MainWindow::on_listWidget_pressed(const QModelIndex &index) {
 }
 
 /**
- * @brief MainWindow::on_actionCrePeticion_triggered
+ * @brief mainWindow::on_actionCrePeticion_triggered
  */
-void MainWindow::on_actionCrePeticion_triggered() {
-    DialogPeticiones peticiones;
+void mainWindow::on_actionCrePeticion_triggered() {
+    dialogPeticiones peticiones;
     peticiones.setOw(this->listaOw);
     peticiones.cargar();
     peticiones.setModal(true);
@@ -150,10 +151,10 @@ void MainWindow::on_actionCrePeticion_triggered() {
 }
 
 /**
- * @brief MainWindow::on_actionCreNego_triggered
+ * @brief mainWindow::on_actionCreNego_triggered
  */
-void MainWindow::on_actionCreNego_triggered() {
-    DialogNego *ng = new DialogNego;
+void mainWindow::on_actionCreNego_triggered() {
+    dialogNego *ng = new dialogNego;
     ng->setOw(this->listaOw);
     ng->cargar();
     ng->setModal(true);
@@ -166,10 +167,10 @@ void MainWindow::on_actionCreNego_triggered() {
 }
 
 /**
- * @brief MainWindow::on_actionCreOwner_triggered
+ * @brief mainWindow::on_actionCreOwner_triggered
  */
-void MainWindow::on_actionCreOwner_triggered() {
-    diagOwner ow;
+void mainWindow::on_actionCreOwner_triggered() {
+    dialogOwner ow;
     ow.setOw(this->listaOw);
     ow.setModal(true);
     ow.exec();
@@ -179,29 +180,29 @@ void MainWindow::on_actionCreOwner_triggered() {
         this->ui->listWidget->addItem(it.getNombre().c_str());
     }
 
-   guardarEnArchivo();
+    guardarEnArchivo();
 }
 
 /**
- * @brief MainWindow::on_actionCreUsuario_triggered
+ * @brief mainWindow::on_actionCreUsuario_triggered
  */
-void MainWindow::on_actionCreUsuario_triggered() {
-    Login log;
+void mainWindow::on_actionCreUsuario_triggered() {
+    dialogLogin log;
     log.setModal(true);
     log.setEstado(1);
     log.exec();
 }
 
 /**
- * @brief MainWindow::on_actionBorOwner_triggered
+ * @brief mainWindow::on_actionBorOwner_triggered
  */
-void MainWindow::on_actionBorOwner_triggered() {
+void mainWindow::on_actionBorOwner_triggered() {
     // TODO: Preguntar si estas seguro de borrar owner y mostrar datos
 
     // Calcular el indice del owner seleccionado y borrarlo
-    if(!ui->listWidget->selectedItems().isEmpty()){
+    if (!ui->listWidget->selectedItems().isEmpty()) {
         QListWidgetItem *selected = this->ui->listWidget->selectedItems().first();
-        if(selected != NULL)  // ARREGLAR - NO FUNCIONA
+        if (selected != NULL)  // ARREGLAR - NO FUNCIONA
             listaOw.erase(listaOw.begin() + this->ui->listWidget->row(selected));
 
         this->ui->listWidget->clear();
@@ -214,13 +215,13 @@ void MainWindow::on_actionBorOwner_triggered() {
 }
 
 /**
- * @brief MainWindow::on_actionModOwner_triggered
+ * @brief mainWindow::on_actionModOwner_triggered
  */
-void MainWindow::on_actionModOwner_triggered() {
-    if(!ui->listWidget->selectedItems().isEmpty()){
+void mainWindow::on_actionModOwner_triggered() {
+    if (!ui->listWidget->selectedItems().isEmpty()) {
         QListWidgetItem *selected = this->ui->listWidget->selectedItems().first();
 
-        diagOwner ow;
+        dialogOwner ow;
         ow.setOw(this->listaOw);
         ow.setRow(this->ui->listWidget->row(selected)); // Le pasamos el indice del owner que queremos modificar
         ow.setModal(true);
@@ -236,11 +237,11 @@ void MainWindow::on_actionModOwner_triggered() {
 }
 
 /**
- * @brief MainWindow::on_actionModNego_triggered
+ * @brief mainWindow::on_actionModNego_triggered
  */
-void MainWindow::on_actionModNego_triggered() {
-    if(!ui->listWidget_2->selectedItems().isEmpty()
-            && !ui->listWidget->selectedItems().isEmpty()){
+void mainWindow::on_actionModNego_triggered() {
+    if (!ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()) {
         /**
         * @brief selectedOwner
         */
@@ -252,7 +253,7 @@ void MainWindow::on_actionModNego_triggered() {
         /**
          * @brief ng
          */
-        DialogNego *ng = new DialogNego;
+        dialogNego *ng = new dialogNego;
         ng->setOw(this->listaOw);
         ng->cargar();
         ng->setRows(this->ui->listWidget->row(selectedOwner),
@@ -272,11 +273,11 @@ void MainWindow::on_actionModNego_triggered() {
 }
 
 /**
- * @brief MainWindow::on_actionBorNego_triggered
+ * @brief mainWindow::on_actionBorNego_triggered
  */
-void MainWindow::on_actionBorNego_triggered() {
-    if(!ui->listWidget_2->selectedItems().isEmpty()
-            && !ui->listWidget->selectedItems().isEmpty()){
+void mainWindow::on_actionBorNego_triggered() {
+    if (!ui->listWidget_2->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()) {
         /**
         * @brief selectedOwner
         */
@@ -306,8 +307,8 @@ void MainWindow::on_actionBorNego_triggered() {
     }
 }
 
-void MainWindow::on_actionCreOficina_triggered() {
-    DialogOficinas *diagOf = new DialogOficinas;
+void mainWindow::on_actionCreOficina_triggered() {
+    dialogOficinas *diagOf = new dialogOficinas;
     diagOf->setOw(this->listaOw);
     diagOf->cargar();
     diagOf->setModal(true);
@@ -316,7 +317,7 @@ void MainWindow::on_actionCreOficina_triggered() {
     guardarEnArchivo();
 }
 
-void MainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
+void mainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
     auto ow = this->listaOw.at(ui->listWidget->currentIndex().row());
     auto pe = ow.getOficinas().at(index.row()).getPeticiones();
     this->ui->listWidget_4->clear();
@@ -326,9 +327,9 @@ void MainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
     }
 }
 
-void MainWindow::on_actionBorOficina_triggered() {
-    if(!ui->listWidget_3->selectedItems().isEmpty()
-            && !ui->listWidget->selectedItems().isEmpty()){
+void mainWindow::on_actionBorOficina_triggered() {
+    if (!ui->listWidget_3->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()) {
         QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOficina = this->ui->listWidget_3->selectedItems().first();
 
@@ -342,7 +343,7 @@ void MainWindow::on_actionBorOficina_triggered() {
     }
 }
 
-void MainWindow::on_actionBorPeticion_triggered() {
+void mainWindow::on_actionBorPeticion_triggered() {
     if(!ui->listWidget_4->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_3->selectedItems().isEmpty()){
@@ -364,13 +365,13 @@ void MainWindow::on_actionBorPeticion_triggered() {
     }
 }
 
-void MainWindow::on_actionModOficina_triggered() {
-    if(!ui->listWidget_3->selectedItems().isEmpty()
-            && !ui->listWidget->selectedItems().isEmpty()){
+void mainWindow::on_actionModOficina_triggered() {
+    if (!ui->listWidget_3->selectedItems().isEmpty()
+            && !ui->listWidget->selectedItems().isEmpty()) {
         QListWidgetItem *selectedOw = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
 
-        DialogOficinas *of = new DialogOficinas;
+        dialogOficinas *of = new dialogOficinas;
         of->setOw(this->listaOw);
         of->cargar();
         of->setRows(this->ui->listWidget->row(selectedOw),
@@ -384,15 +385,15 @@ void MainWindow::on_actionModOficina_triggered() {
 
 }
 
-void MainWindow::on_actionModPeticion_triggered() {
-    if(!ui->listWidget_4->selectedItems().isEmpty()
+void mainWindow::on_actionModPeticion_triggered() {
+    if (!ui->listWidget_4->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()
-            && !ui->listWidget_3->selectedItems().isEmpty()){
+            && !ui->listWidget_3->selectedItems().isEmpty()) {
         QListWidgetItem *selectedOw = this->ui->listWidget->selectedItems().first();
         QListWidgetItem *selectedOf = this->ui->listWidget_3->selectedItems().first();
         QListWidgetItem *selectedPe = this->ui->listWidget_4->selectedItems().first();
 
-        DialogPeticiones *pe = new DialogPeticiones;
+        dialogPeticiones *pe = new dialogPeticiones;
         pe->setOw(this->listaOw);
         pe->cargar();
         pe->setRows(this->ui->listWidget->row(selectedOw),
@@ -405,9 +406,9 @@ void MainWindow::on_actionModPeticion_triggered() {
     }
 }
 
-void MainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
-    for(int i = 0; i < ui->listWidget->count(); ++i) {
-        if(ui->listWidget->item(i)->text().contains(arg1))
+void mainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
+    for (int i = 0; i < ui->listWidget->count(); ++i) {
+        if (ui->listWidget->item(i)->text().contains(arg1))
             ui->listWidget->item(i)->setHidden(false);
         else
             ui->listWidget->item(i)->setHidden(true);
@@ -415,43 +416,41 @@ void MainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
     // TODO - seleccionar automaticamente la primera coincidencia?
 }
 
-void MainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
-    for(int i = 0; i < ui->listWidget_2->count(); ++i) {
-        if(ui->listWidget_2->item(i)->text().contains(arg1))
+void mainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
+    for (int i = 0; i < ui->listWidget_2->count(); ++i) {
+        if (ui->listWidget_2->item(i)->text().contains(arg1))
             ui->listWidget_2->item(i)->setHidden(false);
         else
             ui->listWidget_2->item(i)->setHidden(true);
     }
 }
 
-void MainWindow::on_lineEdit_4_textChanged(const QString &arg1) {
-    for(int i = 0; i < ui->listWidget_3->count(); ++i) {
-        if(ui->listWidget_3->item(i)->text().contains(arg1))
+void mainWindow::on_lineEdit_4_textChanged(const QString &arg1) {
+    for (int i = 0; i < ui->listWidget_3->count(); ++i) {
+        if (ui->listWidget_3->item(i)->text().contains(arg1))
             ui->listWidget_3->item(i)->setHidden(false);
         else
             ui->listWidget_3->item(i)->setHidden(true);
     }
 }
 
-void MainWindow::on_lineEdit_5_textChanged(const QString &arg1) {
-    for(int i = 0; i < ui->listWidget_4->count(); ++i) {
-        if(ui->listWidget_4->item(i)->text().contains(arg1))
+void mainWindow::on_lineEdit_5_textChanged(const QString &arg1) {
+    for (int i = 0; i < ui->listWidget_4->count(); ++i) {
+        if (ui->listWidget_4->item(i)->text().contains(arg1))
             ui->listWidget_4->item(i)->setHidden(false);
         else
             ui->listWidget_4->item(i)->setHidden(true);
     }
 }
 
-void MainWindow::on_listWidget_4_currentRowChanged(int currentRow) {
+void mainWindow::on_listWidget_4_currentRowChanged(int currentRow) {
     QColor green("green");
     QColor white("white");
-    for(int i = 0; i < ui->listWidget_4->count(); ++i) {
-        if(i == currentRow)
+    for (int i = 0; i < ui->listWidget_4->count(); ++i) {
+        if (i == currentRow)
             ui->listWidget_4->item(i)->setBackgroundColor(green);
         else
             ui->listWidget_4->item(i)->setBackgroundColor(white);
     }
-
-    //Nego n = listaOw.at(ui->listWidget_2->row(ui->listWidget_2->selectedItems().first())).getOficinas().at(ui->listWidget_3->row(ui->listWidget_3->selectedItems().first())).getPeticiones().at(ui->listWidget_4->row(ui->listWidget_4->selectedItems().first())).neg;
-
+// Nego n = listaOw.at(ui->listWidget_2->row(ui->listWidget_2->selectedItems().first())).getOficinas().at(ui->listWidget_3->row(ui->listWidget_3->selectedItems().first())).getPeticiones().at(ui->listWidget_4->row(ui->listWidget_4->selectedItems().first())).neg;
 }

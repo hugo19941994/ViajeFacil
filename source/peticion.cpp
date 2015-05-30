@@ -1,7 +1,5 @@
 //AUTORES: Sergio Candel, ayuda David Jimenez y Hugo Ferrando
 
-
-#include <string>
 #include "./peticion.hpp"
 #include "./fecha.hpp"
 

@@ -1,9 +1,9 @@
 //AUTORES: Hugo Ferrando
 
-#include <vector>
 #include <string>
 #include "./owner.hpp"
 #include "./nego.hpp"
+#include "./pel_vector.hpp"
 
 /**
  * @brief Owner::Owner

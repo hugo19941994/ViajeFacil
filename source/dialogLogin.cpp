@@ -1,58 +1,56 @@
-//AUTORES: Guillermo Gonzalez
-
+//AUTORES: Hugo Ferrando Seage
 
 #include <assert.h>
-#include <iostream>
 #include <fstream>
-#include <istream>
 #include <string>
-#include "./login.hpp"
-#include "./ui_login.h"
+#include "./dialogLogin.hpp"
+#include "./ui_dialogLogin.h"
 #include "./bcrypt.h"
-#include "./mainwindow.hpp"
-
 
 /**
- * @brief Login::Login
+ * @brief dialogLogin::dialogLogin
  * @param parent
  */
-Login::Login(QWidget *parent) :
+dialogLogin::dialogLogin(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Login) {
+    ui(new Ui::dialogLogin) {
       ui->setupUi(this);
 }
 
 /**
- * @brief Login::~Login
+ * @brief dialogLogin::~dialogLogin
  */
-Login::~Login() {
+dialogLogin::~dialogLogin() {
     delete ui;
 }
 
 /**
- * @brief Login::setEstado
+ * @brief dialogLogin::setEstado
  * @param estado
  */
-void Login::setEstado(int estado) {
+void dialogLogin::setEstado(int estado) {
     this->estado_ = estado;
-    if (this->estado_ == 0)  // Si vamos a hacer login escondemos el boton "admin"
-    this->ui->checkBox->hide();
+    // Si vamos a hacer dialogLogin escondemos el boton "admin"
+    if (this->estado_ == 0)
+        this->ui->checkBox->hide();
 }
 
 /**
- * @brief Login::on_buttonBox_accepted
+ * @brief dialogLogin::on_buttonBox_accepted
  */
-void Login::on_buttonBox_accepted() {
+void dialogLogin::on_buttonBox_accepted() {
     if (this->estado_ == 1) {  // estado_ 1 para crear usuario
         // Crear Salt aleatorio
         char salt[BCRYPT_HASHSIZE];
         char hash[BCRYPT_HASHSIZE];
-        assert(bcrypt_gensalt(12, salt) == 0);  // Asegurarnos de que se creo correctamente
+        // Asegurarnos de que se creo correctamente
+        assert(bcrypt_gensalt(12, salt) == 0);
 
         // Convertimos la contrasenia a un buffer de C
         std::string pass = this->ui->lineEdit->text().toStdString();
         const char * passC = pass.c_str();
-        assert(bcrypt_hashpw(passC, salt, hash) == 0);  // Asegurarnos de que se creo correctamente
+        // Asegurarnos de que se creo correctamente
+        assert(bcrypt_hashpw(passC, salt, hash) == 0);
 
         // Convertir el hash a un string de C++
         std::string cppHash(hash);
@@ -60,9 +58,8 @@ void Login::on_buttonBox_accepted() {
         myfile.open("../../data/usuarios.txt", std::ios_base::app);
         myfile << this->ui->lineEdit_2->text().toStdString() << "\n" << cppHash << "\n";
         myfile.close();
-    }
-    else if (this->estado_ == 0) {
-         // estado_ 0 para comprobar el login
+    } else if (this->estado_ == 0) {
+         // estado_ 0 para comprobar el dialogLogin
          char outhash[BCRYPT_HASHSIZE];
 
         // Coger el usuario y pasarlo a char * de C
@@ -79,18 +76,19 @@ void Login::on_buttonBox_accepted() {
         // Cogemos el hash que corresponda
         std::string myString;
         while (std::getline(myfile, myString, '\n')) {
-          if (myString == usuario) {
-              std::getline(myfile, myString, '\n');
-              break;
-          }
-         else
-             std::getline(myfile, myString, '\n');
+            if (myString == usuario) {
+                std::getline(myfile, myString, '\n');
+                break;
+            } else {
+                std::getline(myfile, myString, '\n');
+            }
         }
 
         const char * myStringC = myString.c_str();
 
         assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
-        if (strcmp(myStringC, outhash) == 0) {  // Poner en mainWindow el usuario
+        // Poner en mainWindow el usuario
+        if (strcmp(myStringC, outhash) == 0) {
             printf("The password matches\n");
             emit cambioDeUsuario(usuario);
         }

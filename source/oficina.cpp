@@ -1,7 +1,7 @@
 //*AUTORES: Estefania Ortego y Guillermo Gonzalez
 
-#include <vector>
 #include "./oficina.hpp"
+#include <string>
 
 /**
  * @brief Oficina::Oficina

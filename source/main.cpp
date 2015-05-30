@@ -18,16 +18,11 @@ TODO:
 */
 
 #include <QApplication>
-#include <vector>
-#include "./mainwindow.hpp"
-#include "./login.hpp"
-#include "./fecha.hpp"
-#include "./owner.hpp"
-#include "./oficina.hpp"
+#include "./mainWindow.hpp"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    MainWindow w;
+    mainWindow w;
     w.show();
 
     return a.exec();

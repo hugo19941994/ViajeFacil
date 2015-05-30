@@ -7,12 +7,9 @@
 #ifndef OWNER_H
 #define OWNER_H
 
-#include <vector>
 #include <string>
-#include <memory>
 #include "./nego.hpp"
 #include "./oficina.hpp"
-#include "./cereal/access.hpp"
 #include "./cereal/types/memory.hpp"
 
 /**

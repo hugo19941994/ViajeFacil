@@ -1,6 +1,5 @@
 // AUTORES: David Jimenez y Hugo Ferrando, ayuda Estefania ortego
 
-
 #include "./nego.hpp"
 #include <string>
 
@@ -41,7 +40,7 @@ void Nego::setNego(std::string origen, std::string destino,
   this->fecha_ = fecha;
 }
 
-//Funcion introducir origen en nego
+// Funcion introducir origen en nego
 /**
  * @brief Nego::setOrigen
  * @param origen
@@ -50,7 +49,7 @@ void Nego::setOrigen(std::string origen) {
   this->origen_ = origen;
 }
 
-//Funcion introducir destino en nego
+// Funcion introducir destino en nego
 /**
  * @brief Nego::setDestino
  * @param destino

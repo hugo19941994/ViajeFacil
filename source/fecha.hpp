@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include "cereal/cereal.hpp"
 
-//Clase fecha
+// Clase fecha
 /**
  * @brief The Fecha class
  */
@@ -40,7 +40,7 @@ class Fecha {
      */
     Fecha(std::size_t dia, std::size_t mes, int anio);
 
-    ~Fecha(); //Destructor, se podrá reiniciar la introduccion de la fecha
+    ~Fecha(); // Destructor, se podrá reiniciar la introduccion de la fecha
 
     /**
      * @brief setFecha
@@ -48,7 +48,7 @@ class Fecha {
      * @param mes
      * @param anio
      */
-    void setFecha(std::size_t dia, std::size_t mes, int anio); //en fecha se eligen los valores(dia,mes,año)
+    void setFecha(std::size_t dia, std::size_t mes, int anio); // en fecha se eligen los valores(dia,mes,año)
     /**
      * @brief setDia
      * @param dia
@@ -74,7 +74,7 @@ class Fecha {
      * @brief getDia
      * @return
      */
-    //Se devuelven los valores elegidos por el usuario(dia, mes, año)
+    // Se devuelven los valores elegidos por el usuario(dia, mes, año)
     std::size_t getDia();
     /**
      * @brief getMes
@@ -92,7 +92,7 @@ class Fecha {
      * @brief serialize
      * @param archive
      */
-    void serialize(Archive & archive) { //funcion
+    void serialize(Archive & archive) { // funcion
         /**
          * @brief archive
          */

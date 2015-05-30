@@ -1,7 +1,5 @@
 //AUTORES: Fernando Saavedra
 
-
-#include <iostream>
 #include "./fecha.hpp"
 
 /**
@@ -27,7 +25,7 @@ Fecha::~Fecha() {}
  * @param mes
  * @param anio
  */
-void Fecha::setFecha(size_t dia, size_t mes, int anio) { //Datos fecha
+void Fecha::setFecha(size_t dia, size_t mes, int anio) {  // Datos fecha
   this->dia_ = dia;
   this->mes_ = mes;
   this->anio_ = anio;

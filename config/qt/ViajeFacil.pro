@@ -19,33 +19,33 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/nego.cpp \
     ../../source/oficina.cpp \
     ../../source/peticion.cpp \
-    ../../source/login.cpp \
     ../../source/owner.cpp \
-    ../../source/mainwindow.cpp \
     ../../source/bcrypt.cpp \
-    ../../source/diagowner.cpp \
-    ../../source/dialognego.cpp \
-    ../../source/dialogpeticiones.cpp \
-    ../../source/dialogOficinas.cpp
+    ../../source/dialogOficinas.cpp \
+    ../../source/dialogNego.cpp \
+    ../../source/dialogOwner.cpp \
+    ../../source/dialogPeticiones.cpp \
+    ../../source/dialogLogin.cpp \
+    ../../source/mainWindow.cpp
 
 HEADERS  += ../../source/fecha.hpp \
     ../../source/nego.hpp \
     ../../source/oficina.hpp \
     ../../source/owner.hpp \
     ../../source/peticion.hpp \
-    ../../source/login.hpp \
-    ../../source/mainwindow.hpp \
-    ../../source/diagowner.hpp \
-    ../../source/dialognego.hpp \
     ../../source/bcrypt.h \
-    ../../source/dialogpeticiones.hpp \
     ../../source/dialogOficinas.hpp \
-    ../../source/pel_vector.hpp
+    ../../source/pel_vector.hpp \
+    ../../source/dialogOwner.hpp \
+    ../../source/dialogNego.hpp \
+    ../../source/dialogPeticiones.hpp \
+    ../../source/dialogLogin.hpp \
+    ../../source/mainWindow.hpp
 
 FORMS    += \
-    ../../source/login.ui \
-    ../../source/mainwindow.ui \
-    ../../source/diagowner.ui \
-    ../../source/dialognego.ui \
-    ../../source/dialogpeticiones.ui \
-    ../../source/dialogOficinas.ui
+    ../../source/dialogOficinas.ui \
+    ../../source/dialogOwner.ui \
+    ../../source/dialogNego.ui \
+    ../../source/dialogPeticiones.ui \
+    ../../source/dialogLogin.ui \
+    ../../source/mainWindow.ui

@@ -3,45 +3,47 @@
  *AUTORES: David Jimenez, ayuda Estefania Ortego, Hugo Ferrando añade retoques
  */
 
-#ifndef DIALOGNEGO_H
-#define DIALOGNEGO_H
+#ifndef dialogNego_H
+#define dialogNego_H
 
-//Va a tener negos y owners
+// Va a tener negos y owners
 #include <QDialog>
-#include <vector>
 #include "pel_vector.hpp"
 #include "./nego.hpp"
 #include "./owner.hpp"
 
 
-namespace Ui { //se llamará a la clase nego.hpp
+namespace Ui {  // se llamará a la clase nego.hpp
 
-class DialogNego;
+class dialogNego;
 }
 /**
- * @brief The DialogNego class
+ * @brief The dialogNego class
  */
-class DialogNego : public QDialog { //define el tipo que va a ser la clase dialognego
-    Q_OBJECT  //tipo objeto
+// define el tipo que va a ser la clase dialogNego
+class dialogNego : public QDialog {
+    Q_OBJECT  // tipo objeto
 
  public:
     /**
-     * @brief DialogNego
+     * @brief dialogNego
      * @param parent
      */
-    explicit DialogNego(QWidget *parent = 0);
+    explicit dialogNego(QWidget *parent = 0);
 
-    ~DialogNego();//Destructor
+    ~dialogNego();  // Destructor
     /**
      * @brief setNe
      * @param neg
      */
-    void setNe(pel::vector<std::shared_ptr<Nego>>& neg);  //imprime vector nego y escribe nego nuevo
+    // Imprime vector nego y escribe nego nuevo
+    void setNe(pel::vector<std::shared_ptr<Nego>>& neg);
     /**
      * @brief setOw
      * @param own
      */
-    void setOw(pel::vector<Owner>& own);  // imprime vector owner y escribe nuevo owner
+    // Imprime vector owner y escribe nuevo owner
+    void setOw(pel::vector<Owner>& own);
     /**
      * @brief cargar
      */
@@ -54,7 +56,7 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
     void setRows(int modRowOwner, int modRowNego);
 
 
- private slots: //funciones cuando presionas los botones en la ventana de negos
+ private slots: // funciones cuando presionas los botones en la ventana de negos
     /**
      * @brief on_comboBox_currentIndexChanged
      * @param index
@@ -64,7 +66,7 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
      * @brief on_buttonOkCancel_accepted
      */
 
-    void on_buttonOkCancel_accepted();  //boton ok-Cancelar
+    void on_buttonOkCancel_accepted();  // boton ok-Cancelar
 
 
  private:
@@ -79,16 +81,18 @@ class DialogNego : public QDialog { //define el tipo que va a ser la clase dialo
     /**
      * @brief ui
      */
-    Ui::DialogNego *ui; //ventana de nego modificada
+    Ui::dialogNego *ui;  // ventana de nego modificada
     /**
      * @brief ow
      */
-    pel::vector<Owner> *ow; //se modifica owner y se introducen owners en el vector
+    // se modifica owner y se introducen owners en el vector
+    pel::vector<Owner> *ow;
     /**
      * @brief ne
      */
-    pel::vector<std::shared_ptr<Nego>> *ne; //vector nego, se modifican los negos
+    // vector nego, se modifican los negos
+    pel::vector<std::shared_ptr<Nego>> *ne;
 
 };
 
-#endif  // DIALOGNEGO_H
+#endif  // dialogNego_H

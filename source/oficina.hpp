@@ -7,17 +7,15 @@
 #ifndef OFICINA_H
 #define OFICINA_H
 
-#include <vector>
-#include <string>
-#include "pel_vector.hpp"
-#include "./peticion.hpp" //las oficinas crean peticiones, se necesitará acceso a los datos de las peticiones
+#include "./pel_vector.hpp"
+#include "./peticion.hpp"  // las oficinas crean peticiones, se necesitará acceso a los datos de las peticiones
 
-//Clase oficina
+// Clase oficina
 /**
  * @brief The Oficina class
  */
 class Oficina {
- private:  //Datos que tendrá la clase oficina
+ private:  // Datos que tendrá la clase oficina
     /**
    * @brief nombre_
    */
@@ -35,11 +33,11 @@ class Oficina {
    */
   pel::vector<Peticion> peticiones_;
 
- public: //Funciones que realizará esta clase
+ public:  // Funciones que realizará esta clase
   /**
    * @brief Oficina
    */
-  Oficina(); //Constructor
+  Oficina();  // Constructor
   /**
    * @brief Oficina
    * @param nombre
@@ -47,8 +45,8 @@ class Oficina {
    * @param continente
    */
   Oficina(std::string nombre, std::string pais, std::string continente);
-  ~Oficina();//destructor
-  //Datos a introducir por el usuario
+  ~Oficina();  // destructor
+  // Datos a introducir por el usuario
   /**
    * @brief setNombre
    */
@@ -62,7 +60,7 @@ class Oficina {
    */
   void setContinente(std::string);
 
-  //El programa devolverá los datos introducidos pertenecientes a oficina
+  // El programa devolverá los datos introducidos pertenecientes a oficina
   /**
    * @brief getNombre
    * @return

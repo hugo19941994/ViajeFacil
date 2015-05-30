@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Login</class>
- <widget class="QDialog" name="Login">
+ <class>dialogLogin</class>
+ <widget class="QDialog" name="dialogLogin">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -84,7 +84,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Login</receiver>
+   <receiver>dialogLogin</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -100,7 +100,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>Login</receiver>
+   <receiver>dialogLogin</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

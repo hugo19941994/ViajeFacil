@@ -8,29 +8,28 @@
 #define DIAGOWNER_H
 
 #include <QDialog>
-#include <vector>
-#include "owner.hpp"
-#include "pel_vector.hpp"
+#include "./owner.hpp"
+#include "./pel_vector.hpp"
 
 namespace Ui {
 /**
  *Funcion que llamará a la ventana de owner.cpp
  */
-class diagOwner;
+class dialogOwner;
 }
 /**
- * @brief The diagOwner class
+ * @brief The dialogOwner class
  */
-class diagOwner : public QDialog {
+class dialogOwner : public QDialog {
     Q_OBJECT
 
  public:
     /**
-     * @brief diagOwner
+     * @brief dialogOwner
      * @param parent
      */
-    explicit diagOwner(QWidget *parent = 0);
-    ~diagOwner(); //destructor
+    explicit dialogOwner(QWidget *parent = 0);
+    ~dialogOwner();  // destructor
     /**
      * @brief setOw
      * @param own
@@ -57,11 +56,11 @@ class diagOwner : public QDialog {
     /**
      * @brief ui
      */
-    Ui::diagOwner *ui;
+    Ui::dialogOwner *ui;
     /**
      * @brief ow
      */
-    pel::vector<Owner>* ow; //Se muestra la lista de owners en la parte(punter) de owners
+    pel::vector<Owner>* ow; //Se muestra la lista de owners en la parte(puntero) de owners
 
 };
 

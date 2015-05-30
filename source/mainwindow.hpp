@@ -1,31 +1,30 @@
 //VENTANA PRINCIPAL
 //AUTORES: Hugo Ferrando
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef mainWindow_H
+#define mainWindow_H
 
 #include <QMainWindow>
 #include <string>
-#include <vector>
-#include "pel_vector.hpp"
+#include "./pel_vector.hpp"
 #include "./owner.hpp"
 
 namespace Ui {
-class MainWindow;
+class mainWindow;
 }
 
 /**
- * @brief The MainWindow class
+ * @brief The mainWindow class
  */
-class MainWindow : public QMainWindow {
+class mainWindow : public QMainWindow {
     Q_OBJECT
 
  public:
      /**
-      * @brief MainWindow
+      * @brief mainWindow
       * @param parent
       */
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    explicit mainWindow(QWidget *parent = 0);
+    ~mainWindow();
 
  private slots:
     /**
@@ -101,15 +100,15 @@ class MainWindow : public QMainWindow {
 
     void on_listWidget_4_currentRowChanged(int currentRow);
 
-private:
+ private:
     /**
      * @brief ui
      */
-    Ui::MainWindow *ui;
+    Ui::mainWindow *ui;
     /**
      * @brief listaOw
      */
     pel::vector<Owner> listaOw;
 };
 
-#endif  // MAINWINDOW_H
+#endif  // mainWindow_H

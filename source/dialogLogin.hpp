@@ -3,55 +3,56 @@
  * AUTORES: Guillermo Gonzalez
  */
 
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef dialogLogin_H
+#define dialogLogin_H
 
 #include <QDialog>
+#include <string>
 
 namespace Ui {
-class Login;
+class dialogLogin;
 }
 
 /**
- * @brief The Login class
+ * @brief The dialogLogin class
  */
-class Login : public QDialog {
+class dialogLogin : public QDialog {
     Q_OBJECT
 
  public:
     /**
-     * @brief Login
+     * @brief dialogLogin
      * @param parent
      */
-    explicit Login(QWidget *parent = 0);
+    explicit dialogLogin(QWidget *parent = 0);
     /**
      * @brief setEstado
      * @param estado
      */
     void setEstado(int estado);
-    ~Login();
+    ~dialogLogin();
 
- private slots: //Slot: hacer click en aceptar
+ private slots:  // Slot: hacer click en aceptar
     /**
      * @brief on_buttonBox_accepted
      */
     void on_buttonBox_accepted();
 
- private: //Se muestra en la ventana gráfica
+ private:  // Se muestra en la ventana gráfica
     /**
      * @brief ui
      */
-    Ui::Login *ui;
+    Ui::dialogLogin *ui;
     /**
      * @brief estado_
      */
-    int estado_;  // 0 para login, 1 para crear usuario
+    int estado_;  // 0 para dialogLogin, 1 para crear usuario
 
- signals: //Se permite cambiar de usuario, varios usuarios pueden acceder, no necesariamente tiene que ser siempre el mismo.
+ signals:  // Se permite cambiar de usuario, varios usuarios pueden acceder, no necesariamente tiene que ser siempre el mismo.
     /**
      * @brief cambioDeUsuario
      */
-    void cambioDeUsuario(std::string); //funcion para cambiar usuario
+    void cambioDeUsuario(std::string);  // Funcion para cambiar usuario
 };
 
-#endif  // LOGIN_H
+#endif  // dialogLogin_H

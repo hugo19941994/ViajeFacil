@@ -12,7 +12,6 @@
  * @brief The Nego class
  */
 class Nego {
-
  private:
     /**
      * @brief origen_
