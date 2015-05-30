@@ -89,7 +89,6 @@ void dialogLogin::on_buttonBox_accepted() {
         assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
         // Poner en mainWindow el usuario
         if (strcmp(myStringC, outhash) == 0) {
-            printf("The password matches\n");
             emit cambioDeUsuario(usuario);
         }
     }

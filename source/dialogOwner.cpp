@@ -33,10 +33,8 @@ dialogOwner::~dialogOwner() {  // destructor, se destruirán el o los datos sele
  */
 void dialogOwner::on_buttonBox_accepted() {
     // datos guardados en linea de texto nombre
-    if (this->modRow != -1) {
-        // definimos el tipo de campo que será NOMBRE
-        this->ow->at(modRow).setNombre(this->ui->lineEdit->text().toStdString());
-
+    if (editando) {
+        ownerAEditar->setNombre(this->ui->lineEdit->text().toStdString());
     } else {
         Owner *newO = new Owner;  // Va bien declararlo sin new? en el stack?
         newO->setNombre(this->ui->lineEdit->text().toStdString());  // Se crea nuevo owner
@@ -51,14 +49,10 @@ void dialogOwner::on_buttonBox_accepted() {
 void dialogOwner::setOw(pel::vector<Owner> &own) {
     // Pide datos en owner y los muestra en lista
     this->ow = &own;
-
 }
-/**
- * @brief dialogOwner::setRow
- * @param index
- */
-// Refresca los datos en la página principal en la parte de owners y pone los introducidos
-void dialogOwner::setRow(int index) {
-    this->modRow = index;
-    this->ui->lineEdit->setText(this->ow->at(modRow).getNombre().c_str());
+
+void dialogOwner::setOwnerAEditar(Owner &ow) {
+    editando = true;
+    ownerAEditar = &ow;
+    ui->lineEdit->setText(ownerAEditar->getNombre().c_str());
 }

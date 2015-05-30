@@ -35,11 +35,8 @@ class dialogOwner : public QDialog {
      * @param own
      */
     void setOw(pel::vector<Owner>& own);
-    /**
-     * @brief setRow
-     * @param index
-     */
-    void setRow(int index);
+
+    void setOwnerAEditar(Owner &ow);
 
  private slots:
     /**
@@ -49,10 +46,8 @@ class dialogOwner : public QDialog {
     void on_buttonBox_accepted();
 
  private:
-    /**
-     * @brief modRow
-     */
-    int modRow = -1;
+    bool editando = false;
+    Owner *ownerAEditar;
     /**
      * @brief ui
      */
@@ -60,7 +55,7 @@ class dialogOwner : public QDialog {
     /**
      * @brief ow
      */
-    pel::vector<Owner>* ow; //Se muestra la lista de owners en la parte(puntero) de owners
+    pel::vector<Owner>* ow; //Se muestra la lista de owners en la parte (puntero) de owners
 
 };
 

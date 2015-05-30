@@ -201,16 +201,15 @@ void mainWindow::on_actionBorOwner_triggered() {
 
     // Calcular el indice del owner seleccionado y borrarlo
     if (!ui->listWidget->selectedItems().isEmpty()) {
-        QListWidgetItem *selected = this->ui->listWidget->selectedItems().first();
-        if (selected != NULL)  // ARREGLAR - NO FUNCIONA
-            listaOw.erase(listaOw.begin() + this->ui->listWidget->row(selected));
+        listaOw.erase(listaOw.begin() + this->ui->listWidget->currentRow());
 
         this->ui->listWidget->clear();
-        for (auto &it : listaOw) {
+        for (auto &it : listaOw)
             this->ui->listWidget->addItem(it.getNombre().c_str());
-        }
 
         guardarEnArchivo();
+    } else {
+        QMessageBox::warning(this, "Warning", "No hay ningun Owner seleccionado");
     }
 }
 
@@ -219,11 +218,10 @@ void mainWindow::on_actionBorOwner_triggered() {
  */
 void mainWindow::on_actionModOwner_triggered() {
     if (!ui->listWidget->selectedItems().isEmpty()) {
-        QListWidgetItem *selected = this->ui->listWidget->selectedItems().first();
+        Owner &own = listaOw.at(ui->listWidget->currentRow());
 
         dialogOwner ow;
-        ow.setOw(this->listaOw);
-        ow.setRow(this->ui->listWidget->row(selected)); // Le pasamos el indice del owner que queremos modificar
+        ow.setOwnerAEditar(own);
         ow.setModal(true);
         ow.exec();
 
@@ -232,7 +230,9 @@ void mainWindow::on_actionModOwner_triggered() {
             this->ui->listWidget->addItem(it.getNombre().c_str());
         }
 
-       guardarEnArchivo();
+        guardarEnArchivo();
+    } else {
+        QMessageBox::warning(this, "Warning", "No hay ningun Owner seleccionado");
     }
 }
 
@@ -242,32 +242,15 @@ void mainWindow::on_actionModOwner_triggered() {
 void mainWindow::on_actionModNego_triggered() {
     if (!ui->listWidget_2->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()) {
-        /**
-        * @brief selectedOwner
-        */
-        QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
-        /**
-         * @brief selectedNego
-         */
-        QListWidgetItem *selectedNego = this->ui->listWidget_2->selectedItems().first();
-        /**
-         * @brief ng
-         */
-        dialogNego *ng = new dialogNego;
-        ng->setOw(this->listaOw);
-        ng->cargar();
-        ng->setRows(this->ui->listWidget->row(selectedOwner),
-                    this->ui->listWidget_2->row(selectedNego));
-        // TODO - IDEA en vez que pasarle el numero de fila pasar directamente
-        // un puntero al nego que hay que modificar? alguna desventajas?
-        ng->setModal(true);
-        ng->exec();
-        /**
-         * @brief guardarEnArchivo
-         */
+
+        Nego &neg = *listaOw.at(ui->listWidget->currentRow()).getNegos().at(ui->listWidget_2->currentRow());
+        dialogNego ng;
+
+        ng.setNegoAEditar(neg);
+        ng.setModal(true);
+        ng.exec();
         guardarEnArchivo();
 
-        // Refrescar la lista que corresponda - por ahora se limpia y hay que volver a hacer click
         this->ui->listWidget_2->clear();
     }
 }
@@ -278,32 +261,24 @@ void mainWindow::on_actionModNego_triggered() {
 void mainWindow::on_actionBorNego_triggered() {
     if (!ui->listWidget_2->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()) {
-        /**
-        * @brief selectedOwner
-        */
-        QListWidgetItem *selectedOwner = this->ui->listWidget->selectedItems().first();
-        QListWidgetItem *selectedNego = this->ui->listWidget_2->selectedItems().first();
-        /**
-         * @brief listaNegos
-         */
-        pel::vector<std::shared_ptr<Nego>> &listaNegos = listaOw.at(this->ui->listWidget->row(selectedOwner)).getNegos();
+
+        pel::vector<std::shared_ptr<Nego>> &listaNegos =
+                listaOw.at(this->ui->listWidget->currentRow()).getNegos();
+        int curRow = ui->listWidget_2->currentRow();
 
         // Aprovechamos use_count del shared_ptr. Si devuelve mas de 1, significa que hay
         // otros shared_ptr (desde peticiones) apuntando a este nego.
-        if(listaNegos.at(this->ui->listWidget_2->row(selectedNego)).use_count() <= 1) {
-            listaNegos.erase(listaNegos.begin() + this->ui->listWidget_2->row(selectedNego));
-        }
-        else
+        if (listaNegos.at(curRow).use_count() <= 1) {
+            listaNegos.erase(listaNegos.begin() + curRow);
+        } else {
             QMessageBox::warning(this, "Warning", "Hay peticiones de este Nego");
+        }
 
         // TODO: Refrescar la lista de negos que toque
         this->ui->listWidget_2->clear();
-        /**
-         * @brief guardarEnArchivo
-         */
         guardarEnArchivo();
-        // TODO - SI BORRAMOS NEGO HABRA QUE BORRAR SUS PETICIONES!
-        // O POR LO MENOS AVISAR Y EVITAR QUE SE BORRE EL NEGO
+    } else {
+        QMessageBox::warning(this, "Warning", "No hay ningun Owner/Nego seleccionado");
     }
 }
 

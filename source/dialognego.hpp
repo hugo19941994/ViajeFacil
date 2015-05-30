@@ -48,13 +48,7 @@ class dialogNego : public QDialog {
      * @brief cargar
      */
     void cargar();
-    /**
-     * @brief setRows
-     * @param modRowOwner
-     * @param modRowNego
-     */
-    void setRows(int modRowOwner, int modRowNego);
-
+    void setNegoAEditar(Nego &neg);
 
  private slots: // funciones cuando presionas los botones en la ventana de negos
     /**
@@ -68,16 +62,9 @@ class dialogNego : public QDialog {
 
     void on_buttonOkCancel_accepted();  // boton ok-Cancelar
 
-
  private:
-    /**
-     * @brief modRowOwner
-     */
-    int modRowOwner = -1;
-    /**
-     * @brief modRowNego
-     */
-    int modRowNego = -1;
+    bool editando = false;
+    Nego *negoAEditar;
     /**
      * @brief ui
      */
