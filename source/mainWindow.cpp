@@ -36,7 +36,7 @@ mainWindow::mainWindow(QWidget *parent) :
         ar(listaOw);
     }
 
-    // TODO - comprobar que exista un usuario admin
+    // TODO(Hugo) - comprobar que exista un usuario admin
     // Si existe un admin desactivar crear usuario
     ui->listWidget->setEnabled(false);
     ui->listWidget_2->setEnabled(false);
@@ -64,7 +64,7 @@ void mainWindow::on_listWidget_pressed(const QModelIndex &index) {
     auto ow = listaOw.at(index.row());
     ui->listWidget_2->clear();
     for (auto &it : ow.getNegos()) {
-        // TODO:Se puede hacer en una linea?
+        // TODO(Hugo) - Se puede hacer en una linea?
         QString orDe = it->getOrigen().c_str();
         orDe.append(" - ");
         orDe.append(it->getDestino().c_str());
@@ -72,7 +72,7 @@ void mainWindow::on_listWidget_pressed(const QModelIndex &index) {
     }
 
     ui->listWidget_3->clear();
-    // TODO:Se puede hacer en una linea?
+    // TODO(Hugo) - Se puede hacer en una linea?
     for (auto it : ow.getOficinas()) {
         QString nomPa = it.getNombre().c_str();
         ui->listWidget_3->addItem(nomPa);
@@ -97,7 +97,6 @@ void mainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
 }
 
 //////////////////////////// CREAR ////////////////////////////////////////////
-
 /**
  * @brief Crear Un Owner nuevo
  * Se abre el dialogo de Owners vacio y al aceptar cogemos el
@@ -231,7 +230,6 @@ void mainWindow::on_actionCreUsuario_triggered() {
 }
 
 //////////////////////////// MODIFICAR ////////////////////////////////////////
-
 /**
  * @brief Modificar un Owner
  * Se selecciona un Owner en el listWidget y se abre una ventana de Owners
@@ -244,7 +242,7 @@ void mainWindow::on_actionModOwner_triggered() {
         Owner &own = listaOw.at(ui->listWidget->currentRow());
 
         dialogOwner ow;
-        ow.setOwnerAEditar(own);
+        ow.setOwnerAEditar(&own);
         ow.setModal(true);
         ow.exec();
 
@@ -275,7 +273,7 @@ void mainWindow::on_actionModNego_triggered() {
                 .getNegos().at(ui->listWidget_2->currentRow());
 
         dialogNego ng;
-        ng.setNegoAEditar(neg);
+        ng.setNegoAEditar(&neg);
         ng.setModal(true);
         ng.exec();
 
@@ -294,7 +292,7 @@ void mainWindow::on_actionModOficina_triggered() {
                 .getOficinas().at(ui->listWidget_3->currentRow());
 
         dialogOficinas of;
-        of.setOficinaAEditar(ofi);
+        of.setOficinaAEditar(&ofi);
         of.setModal(true);
         of.exec();
 
@@ -318,7 +316,7 @@ void mainWindow::on_actionModPeticion_triggered() {
                 .getPeticiones().at(ui->listWidget_4->currentRow());
 
         dialogPeticiones pe;
-        pe.setPeticionAEditar(pet);
+        pe.setPeticionAEditar(&pet);
         pe.setModal(true);
         pe.exec();
 
@@ -341,12 +339,11 @@ void mainWindow::on_actionModPeticion_triggered() {
 }
 
 ///////////////////////////// BORRAR //////////////////////////////////////////
-
 /**
  * @brief mainWindow::on_actionBorOwner_triggered
  */
 void mainWindow::on_actionBorOwner_triggered() {
-    // TODO: Preguntar si estas seguro de borrar owner y mostrar datos
+    // TODO(Hugo) - Preguntar si estas seguro de borrar owner y mostrar datos
 
     // Calcular el indice del owner seleccionado y borrarlo
     if (!ui->listWidget->selectedItems().isEmpty()) {
@@ -369,7 +366,7 @@ void mainWindow::on_actionBorOwner_triggered() {
 void mainWindow::on_actionBorNego_triggered() {
     if (!ui->listWidget_2->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()) {
-        pel::vector<std::shared_ptr<Nego>> &listaNegos =
+        pel::Vector<std::shared_ptr<Nego>> &listaNegos =
                 listaOw.at(ui->listWidget->currentRow()).getNegos();
         int curRow = ui->listWidget_2->currentRow();
 
@@ -397,7 +394,7 @@ void mainWindow::on_actionBorNego_triggered() {
 void mainWindow::on_actionBorOficina_triggered() {
     if (!ui->listWidget_3->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()) {
-        pel::vector<Oficina> &listaOficinas =
+        pel::Vector<Oficina> &listaOficinas =
                 listaOw.at(ui->listWidget->currentRow()).getOficinas();
         int curRow = ui->listWidget_3->currentRow();
 
@@ -418,7 +415,7 @@ void mainWindow::on_actionBorPeticion_triggered() {
     if (!ui->listWidget_4->selectedItems().isEmpty()
             && !ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_3->selectedItems().isEmpty()) {
-        pel::vector<Peticion> &listPet =
+        pel::Vector<Peticion> &listPet =
                 listaOw.at(ui->listWidget->currentRow()).getOficinas()
                 .at(ui->listWidget_3->currentRow()).getPeticiones();
         int curOw = ui->listWidget->currentRow();
@@ -451,7 +448,6 @@ void mainWindow::on_actionBorPeticion_triggered() {
 }
 
 ///////////////////////////// FILTRAR /////////////////////////////////////////
-
 void mainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
     for (int i = 0; i < ui->listWidget->count(); ++i) {
         if (ui->listWidget->item(i)->text().contains(arg1))
@@ -459,7 +455,7 @@ void mainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
         else
             ui->listWidget->item(i)->setHidden(true);
     }
-    // TODO - seleccionar automaticamente la primera coincidencia?
+    // TODO(Hugo) - seleccionar automaticamente la primera coincidencia?
 }
 
 void mainWindow::on_lineEdit_3_textChanged(const QString &arg1) {
@@ -490,7 +486,6 @@ void mainWindow::on_lineEdit_5_textChanged(const QString &arg1) {
 }
 
 /////////////////////////////// OTROS /////////////////////////////////////////
-
 /**
  * @brief Hacer login
  * Indicamos a la ventana de Login que queremos hacer login.
@@ -498,9 +493,6 @@ void mainWindow::on_lineEdit_5_textChanged(const QString &arg1) {
  * usuario y lo mostramos en la ventana.
  */
 void mainWindow::on_pushButton_2_clicked() {
-    /**
-     * @brief log
-     */
     dialogLogin log;
     log.setEstado(0);
     log.setModal(true);
@@ -536,7 +528,7 @@ void mainWindow::guardarEnArchivo() {
 void mainWindow::cambiarUsuario(std::string nombre) {
     QString QNombre = QString::fromUtf8(nombre.c_str());
     ui->label_2->setText(QNombre);
-    // TODO - si el usuario no es admin desactivar ciertas funciones
+    // TODO(Hugo) - si el usuario no es admin desactivar ciertas funciones
     ui->listWidget->setEnabled(true);
     ui->listWidget_2->setEnabled(true);
     ui->listWidget_3->setEnabled(true);
@@ -571,7 +563,7 @@ void mainWindow::on_listWidget_4_currentRowChanged(int currentRow) {
         else
             ui->listWidget_4->item(i)->setBackgroundColor(white);
     }
-    // TODO - cambiar el color del Nego que corresponda
+    // TODO(Hugo) - cambiar el color del Nego que corresponda
 }
 
 void mainWindow::on_actionLog_de_Peticiones_triggered() {

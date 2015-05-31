@@ -14,7 +14,7 @@
 #define DIAGOWNER_H
 
 #include <QDialog>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./owner.hpp"
 
 namespace Ui {
@@ -36,25 +36,22 @@ class dialogOwner : public QDialog {
      * @brief Edita el Owner
      * Edita el Owner que ha sido pasado por referencia
      */
-    void setOwnerAEditar(Owner &ow);
+    void setOwnerAEditar(Owner *ow);
 
     /**
      * @brief Crea un Owner
      * Crea un nuevo Owner y se lo devuelve a mainWindow,
-     * el cual lo mete en su vector
+     * el cual lo mete en su Vector
      */
     Owner crear();
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonBox_accepted();
 
  private:
     bool editando = false;
-
     Owner *ownerAEditar;
-
     Ui::dialogOwner *ui;
-
 };
 
 #endif  // DIAGOWNER_H

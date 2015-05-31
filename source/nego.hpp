@@ -1,25 +1,24 @@
-/*DESCRIPCION:Los negos: una compañía crea negos, son los encargados
-de gestionar los paquetes
-  y billetes aéreos, que le darán a los owners y estos a las oficinas correspondientes.
-  AUTORES: David Jimenez y Hugo Ferrando
-  */
-#ifndef NEGO_H
-#define NEGO_H
-
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
  *  @author David Jimenez
  *  @author Estefania ortego
+ *
+ *  Los negos: una compañía crea negos, son los encargados de gestionar
+ *  los paquetes y billetes aéreos, que le darán a los owners y estos
+ *  a las oficinas correspondientes.
  */
+
+#ifndef NEGO_H
+#define NEGO_H
 
 #include <string>
 #include "./fecha.hpp"
 
 /**
- * @brief Clase Nego
- * Un Nego es un vuelo concreto. Contiente Origen y Destino, unas Plazas
- * , una Fecha concreta y pertenece a un único Owner.
+ *  @brief Clase Nego
+ *  Un Nego es un vuelo concreto. Contiente Origen y Destino, unas Plazas,
+ *  una Fecha concreta y pertenece a un único Owner.
  */
 class Nego {
  private:
@@ -59,7 +58,7 @@ class Nego {
      */
     #ifdef CEREAL_CEREAL_HPP_
     template<class Archive>
-    void serialize(Archive &archive) {
+    void serialize(Archive& archive) {
         archive(cereal::make_nvp("Origen", origen_),
             cereal::make_nvp("Destino", destino_),
             cereal::make_nvp("Numero_de_Plazas", numeroPlazas_),

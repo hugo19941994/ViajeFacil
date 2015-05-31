@@ -13,7 +13,7 @@
 #define dialogPeticiones_H
 
 #include <QDialog>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./peticion.hpp"
 #include "./owner.hpp"
 
@@ -36,9 +36,9 @@ class dialogPeticiones : public QDialog {
 
     ~dialogPeticiones();  // Destructor
 
-     void cargar(pel::vector<Owner>* own);
+     void cargar(pel::Vector<Owner>* own);
 
-     void setPeticionAEditar(Peticion &pet);
+     void setPeticionAEditar(Peticion *pet);
 
      Peticion crear();
 
@@ -46,7 +46,7 @@ class dialogPeticiones : public QDialog {
      int nivelOf();
      int nivelNe();
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
      void on_comboBox_currentIndexChanged(int index);
 
      void on_buttonBox_accepted();
@@ -60,10 +60,9 @@ class dialogPeticiones : public QDialog {
 
     bool editando = false;
 
-    pel::vector<Owner> *ow;
+    pel::Vector<Owner> *ow;
 
     Peticion *peticionAEditar;
-
 };
 
 #endif  // dialogPeticiones_H

@@ -1,13 +1,14 @@
-/*
-   pel_vector.hpp
-   -----------------------------------
-   PEL - UEM - 2014/2015 Academic Year
-   -----------------------------------
-   v4.0 - May 19, 2015
-*/
+/**
+ *  Copyright 2015 ViajeFacil
+ *  pelVector.hpp
+ *  -----------------------------------
+ *  PEL - UEM - 2014/2015 Academic Year
+ *  -----------------------------------
+ *  v4.0 - May 19, 2015
+ */
 
-#ifndef PEL_vector_HPP_INCLUDED
-#define PEL_vector_HPP_INCLUDED
+#ifndef PEL_Vector_HPP_INCLUDED
+#define PEL_Vector_HPP_INCLUDED
 
 #include <cstddef>
 #include <initializer_list>
@@ -19,7 +20,7 @@
 namespace pel {
 
 template<typename T>  // T must be a type
-class vector {
+class Vector {
     T* v_,     // start of allocation
     * space_,  // end of sequence, start of expansion
     * last_;   // end of allocated memory space
@@ -30,13 +31,13 @@ class vector {
     }
 
  public:
-    ////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
     // construction/copy/destruction:
 
-    vector()  // create empty vector
+    Vector()  // create empty Vector
         : v_{new T[0]}, space_{v_}, last_{v_} { }
 
-    vector(std::size_t size, T const& val)
+    Vector(std::size_t size, T const& val)
       : v_{new T[size]}, space_{v_ + size}, last_{space_}
     {
         try {
@@ -49,7 +50,7 @@ class vector {
         }
     }
 
-    vector(std::initializer_list<T> const& list)
+    Vector(std::initializer_list<T> const& list)
         : v_{new T[list.size()]}, space_{v_ + list.size()}, last_{space_}
     {
         try {
@@ -63,7 +64,7 @@ class vector {
         }
     }
 
-    vector(vector<T> const& vec)  // copy constructor
+    Vector(Vector<T> const& vec)  // copy constructor
       : v_{new T[vec.size()]}, space_{v_ + vec.size()}, last_{space_}
     {
         try {
@@ -76,16 +77,16 @@ class vector {
         }
     }
 
-    vector<T>& operator=(vector<T> const& vec) {  // copy assignment operator
+    Vector<T>& operator=(Vector<T> const& vec) {  // copy assignment operator
         // copy-and-swap idiom (strong exception safety guarantee):
-        vector<T> tmp{vec};
+        Vector<T> tmp{vec};
         std::swap(v_, tmp.v_);
         std::swap(space_, tmp.space_);
         std::swap(last_, tmp.last_);
         return *this;
-    }  // local tmp vector is destroyed at this point
+    }  // local tmp Vector is destroyed at this point
 
-    ~vector() { delete[] v_; }   // destructor
+    ~Vector() { delete[] v_; }   // destructor
 
     ////////////////////////////////////////////////////////////////////////////
     // modifiers:
@@ -93,7 +94,8 @@ class vector {
     void push_back(T const& val) {  // strong exception safety guarantee
         if (space_ == last_) {  // capacity exhaustion
             auto const sz = size(),  // original size
-                cp = (sz)? static_cast<std::size_t>(1.5*sz) : 2;  // new capacity
+                // new capacity
+                cp = (sz)? static_cast<std::size_t>(1.5*sz) : 2;
             T* newBlock = new T[cp];
             try {
                 for (std::size_t i = 0; i < sz; ++i)
@@ -232,4 +234,4 @@ class vector {
 
 }  // namespace pel
 
-#endif  // PEL_vector_HPP_INCLUDED
+#endif  // PEL_Vector_HPP_INCLUDED

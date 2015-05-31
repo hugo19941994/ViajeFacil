@@ -6,7 +6,7 @@
  */
 
 #include <string>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./oficina.hpp"
 
 Oficina::Oficina() : nombre_(""), pais_(""), continente_("") {}
@@ -25,4 +25,4 @@ void Oficina::setContinente(std::string continente) {
 std::string Oficina::getNombre() { return nombre_; }
 std::string Oficina::getPais() { return pais_; }
 std::string Oficina::getContinente() { return continente_; }
-pel::vector<Peticion> &Oficina::getPeticiones() { return peticiones_; }
+pel::Vector<Peticion> &Oficina::getPeticiones() { return peticiones_; }

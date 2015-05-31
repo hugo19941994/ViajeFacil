@@ -14,7 +14,7 @@
 #define OFICINA_H
 
 #include <string>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./peticion.hpp"
 
 class Oficina {
@@ -22,7 +22,7 @@ class Oficina {
   std::string nombre_;
   std::string pais_;
   std::string continente_;
-  pel::vector<Peticion> peticiones_;
+  pel::Vector<Peticion> peticiones_;
 
  public:
   Oficina();
@@ -36,7 +36,7 @@ class Oficina {
   std::string getNombre();
   std::string getPais();
   std::string getContinente();
-  pel::vector<Peticion> &getPeticiones();
+  pel::Vector<Peticion> &getPeticiones();
 
   #ifdef CEREAL_CEREAL_HPP_
   template<class Archive>

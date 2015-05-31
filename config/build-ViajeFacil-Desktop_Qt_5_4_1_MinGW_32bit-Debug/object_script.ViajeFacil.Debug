@@ -5,7 +5,6 @@ INPUT(
 ./debug/oficina.o
 ./debug/peticion.o
 ./debug/owner.o
-./debug/bcrypt.o
 ./debug/dialogOficinas.o
 ./debug/dialogNego.o
 ./debug/dialogOwner.o

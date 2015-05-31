@@ -36,7 +36,7 @@ class dialogLogin : public QDialog {
 
     ~dialogLogin();
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonBox_accepted();
 
  private:

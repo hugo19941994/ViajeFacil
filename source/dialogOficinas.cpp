@@ -4,7 +4,7 @@
  */
 
 #include "./ui_dialogOficinas.h"
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./dialogOficinas.hpp"
 
 dialogOficinas::dialogOficinas(QWidget *parent) :
@@ -14,18 +14,18 @@ dialogOficinas::dialogOficinas(QWidget *parent) :
 
 dialogOficinas::~dialogOficinas() { delete ui; }
 
-void dialogOficinas::cargar(pel::vector<Owner>* own) {
-   for(auto &it : *own)
-       ui->comboBox->addItem(it.getNombre().c_str());
+void dialogOficinas::cargar(pel::Vector<Owner>* own) {
+    for (auto &it : *own)
+        ui->comboBox->addItem(it.getNombre().c_str());
 }
 
-void dialogOficinas::setOficinaAEditar(Oficina &ofi) {
+void dialogOficinas::setOficinaAEditar(Oficina *ofi) {
     editando = true;
-    oficinaAEditar = &ofi;
+    oficinaAEditar = ofi;
 
-    ui->lineNombre->setText(ofi.getNombre().c_str());
-    ui->linePais->setText(ofi.getPais().c_str());
-    ui->lineCont->setText(ofi.getContinente().c_str());
+    ui->lineNombre->setText(ofi->getNombre().c_str());
+    ui->linePais->setText(ofi->getPais().c_str());
+    ui->lineCont->setText(ofi->getContinente().c_str());
 
     // ui->comboBox->setItemText(ow->at(modRowOwner).getNombre().c_str());
     ui->comboBox->setEnabled(false);

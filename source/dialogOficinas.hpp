@@ -7,7 +7,7 @@
 #define dialogOficinas_H
 
 #include <QDialog>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./owner.hpp"
 #include "./oficina.hpp"
 #include "./nego.hpp"
@@ -29,15 +29,15 @@ class dialogOficinas : public QDialog {
 
     /**
      * @brief Carga los comboBox
-     * Recorre el vector de Owners y rellena el comboBox
+     * Recorre el Vector de Owners y rellena el comboBox
      */
-    void cargar(pel::vector<Owner>* own);
+    void cargar(pel::Vector<Owner>* own);
 
     /**
      * @brief Edita la Oficina
      * Edita la Oficina que ha sido pasado por referencia
      */
-    void setOficinaAEditar(Oficina &ofi);
+    void setOficinaAEditar(Oficina *ofi);
 
     /**
      * @brief Owner seleccionado
@@ -50,11 +50,11 @@ class dialogOficinas : public QDialog {
     /**
      * @brief Crea una Oficina
      * Crea una nuevo Oficina y se lo devuelve a mainWindow,
-     * el cual lo mete en su vector correspondiente
+     * el cual lo mete en su Vector correspondiente
      */
     Oficina crear();
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonBox_accepted();
 
  private:

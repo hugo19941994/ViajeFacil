@@ -6,7 +6,7 @@
 #include <string>
 #include "./owner.hpp"
 #include "./nego.hpp"
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 
 Owner::Owner() : nombre_("") {}
 Owner::Owner(std::string nombre) : nombre_(nombre) {}
@@ -15,5 +15,5 @@ Owner::~Owner() {}
 void Owner::setNombre(std::string nombre) { nombre_ = nombre; }
 
 std::string Owner::getNombre() { return nombre_; }
-pel::vector<Oficina> &Owner::getOficinas() { return oficinas_; }
-pel::vector<std::shared_ptr<Nego>> &Owner::getNegos() { return negos_; }
+pel::Vector<Oficina> &Owner::getOficinas() { return oficinas_; }
+pel::Vector<std::shared_ptr<Nego>> &Owner::getNegos() { return negos_; }

@@ -11,7 +11,7 @@
 
 #include <QMainWindow>
 #include <string>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./owner.hpp"
 #include "./entradaHistorial.hpp"
 
@@ -30,7 +30,7 @@ class mainWindow : public QMainWindow {
 
     ~mainWindow();
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_actionCreOwner_triggered();
     void on_actionCreOficina_triggered();
     void on_actionCreNego_triggered();
@@ -69,14 +69,14 @@ class mainWindow : public QMainWindow {
      * En este Vector residen los Owners (que a su vez
      * incluyen Negos, oficinas y Peticiones)
      */
-    pel::vector<Owner> listaOw;
+    pel::Vector<Owner> listaOw;
     /**
      * @brief Historial de Peticiones
      * En este Vector se guardan entradas de acciones de Peticiones.
      * Cualquier acción (crear, modificar o borrar) de alguna peticion
-     * se guarda en este vector
+     * se guarda en este Vector
      */
-    pel::vector<entradaHistorial> log;
+    pel::Vector<entradaHistorial> log;
 };
 
 #endif  // mainWindow_H

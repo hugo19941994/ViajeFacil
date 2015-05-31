@@ -19,9 +19,9 @@ void dialogOwner::on_buttonBox_accepted() {
         ownerAEditar->setNombre(ui->lineEdit->text().toStdString());
 }
 
-void dialogOwner::setOwnerAEditar(Owner &ow) {
+void dialogOwner::setOwnerAEditar(Owner *ow) {
     editando = true;
-    ownerAEditar = &ow;
+    ownerAEditar = ow;
     ui->lineEdit->setText(ownerAEditar->getNombre().c_str());
 }
 

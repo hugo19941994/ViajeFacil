@@ -8,7 +8,7 @@
 
 #include <QDialog>
 #include <string>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./owner.hpp"
 #include "./entradaHistorial.hpp"
 
@@ -28,20 +28,20 @@ class dialogInforme : public QDialog {
     explicit dialogInforme(QWidget *parent = 0);
     ~dialogInforme();
 
-    void cargar(pel::vector<Owner>* own);
-    void cargarH(pel::vector<entradaHistorial>* his);
+    void cargar(pel::Vector<Owner>* own);
+    void cargarH(pel::Vector<entradaHistorial>* his);
     void quickSort(rank arr[], int left, int right);
     std::string crearString(entradaHistorial h);
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_radioButton_5_clicked();
 
     void on_radioButton_clicked();
 
  private:
     Ui::dialogInforme *ui;
-    pel::vector<Owner> *ow;
-    pel::vector<entradaHistorial> *hi;
+    pel::Vector<Owner> *ow;
+    pel::Vector<entradaHistorial> *hi;
 };
 
-#endif // DIALOGINFORME_H
+#endif  // DIALOGINFORME_H

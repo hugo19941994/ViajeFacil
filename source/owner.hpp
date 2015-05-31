@@ -13,7 +13,7 @@
 #define OWNER_H
 
 #include <string>
-#include "pel_vector.hpp"
+#include "pelVector.hpp"
 #include "./nego.hpp"
 #include "./oficina.hpp"
 #include "./cereal/types/memory.hpp"
@@ -24,8 +24,8 @@
 class Owner {
  private:
     std::string nombre_;
-    pel::vector<std::shared_ptr<Nego>> negos_;
-    pel::vector<Oficina> oficinas_;
+    pel::Vector<std::shared_ptr<Nego>> negos_;
+    pel::Vector<Oficina> oficinas_;
 
  public:
     Owner();
@@ -35,8 +35,8 @@ class Owner {
     void setNombre(std::string);
     std::string getNombre();
 
-    pel::vector<std::shared_ptr<Nego>> &getNegos();
-    pel::vector<Oficina> &getOficinas();
+    pel::Vector<std::shared_ptr<Nego>> &getNegos();
+    pel::Vector<Oficina> &getOficinas();
 
     /**
     * @brief Serializa con Cereal

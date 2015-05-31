@@ -9,7 +9,7 @@
 
 #include "./ui_dialogNego.h"
 #include "./dialogNego.hpp"
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 
 dialogNego::dialogNego(QWidget *parent) :
     QDialog(parent), ui(new Ui::dialogNego) {
@@ -22,7 +22,7 @@ dialogNego::~dialogNego() { delete ui; }
  * @brief dialogNego::cargar
  * Carga el comboBox con los Owners
  */
-void dialogNego::cargar(pel::vector<Owner>* own) {
+void dialogNego::cargar(pel::Vector<Owner>* own) {
     for (auto &it : *own)
         ui->comboBox->addItem(it.getNombre().c_str());
 }
@@ -51,17 +51,18 @@ void dialogNego::on_buttonOkCancel_accepted() {
  * Rellenamos los campos con la referencia del Owner pasada, y activamos
  * el flag de editar.
  */
-void dialogNego::setNegoAEditar(Nego &neg) {
+void dialogNego::setNegoAEditar(Nego *neg) {
     editando = true;
-    negoAEditar = &neg;
+    negoAEditar = neg;
     ui->lineDestino->setText(negoAEditar->getDestino().c_str());
     ui->lineOrigen->setText(negoAEditar->getOrigen().c_str());
-    ui->linePlazas->setText(std::to_string(negoAEditar->getNumeroPlazas()).c_str());
+    ui->linePlazas->
+            setText(std::to_string(negoAEditar->getNumeroPlazas()).c_str());
     Fecha fech = negoAEditar->getFecha();
     QDate date(fech.getAnio(), fech.getMes(), fech.getDia());
-    ui->dateEdit->setDate(date);  // TODO: No pone la fecha
+    ui->dateEdit->setDate(date);
 
-    // TODO: Mostrar el nego que corresponda en vez del primero
+    // TODO(Hugo) - Mostrar el nego que corresponda en vez del primero
     // ui->comboBox->setItemText(ow->at(modRowOwner).getNombre().c_str());
     ui->comboBox->setEnabled(false);
 }

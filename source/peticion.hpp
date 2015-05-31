@@ -24,11 +24,10 @@ class Peticion {
  public:
     std::shared_ptr<Nego> neg;  // PONERLO EN PRIVATE
     Peticion();
-    Peticion(std::size_t plazasPedidas);
+    explicit Peticion(std::size_t plazasPedidas);
     ~Peticion();
     void setPlazasPedidas(std::size_t plazasPedidas);
     std::size_t getPlazasPedidas();
-
 
     /**
     * @brief Serializa con Cereal

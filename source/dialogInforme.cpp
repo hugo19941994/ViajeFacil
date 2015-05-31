@@ -6,7 +6,7 @@
 #include <string>
 #include "./dialogInforme.hpp"
 #include "./ui_dialogInforme.h"
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./owner.hpp"
 
 dialogInforme::dialogInforme(QWidget *parent) :
@@ -21,11 +21,11 @@ dialogInforme::~dialogInforme() {
     delete ui;
 }
 
-void dialogInforme::cargar(pel::vector<Owner>* own) {
+void dialogInforme::cargar(pel::Vector<Owner>* own) {
     ow = own;
 }
 
-void dialogInforme::cargarH(pel::vector<entradaHistorial> *his) {
+void dialogInforme::cargarH(pel::Vector<entradaHistorial> *his) {
     hi = his;
 }
 
@@ -45,7 +45,6 @@ std::string dialogInforme::crearString(entradaHistorial h) {
     str.append(" | Destino: " + h.getDestino());
     str.append(" | Asientos: " + std::to_string(h.getAsientos()));
     return str;
-
 }
 
 void dialogInforme::on_radioButton_5_clicked() {
@@ -53,7 +52,7 @@ void dialogInforme::on_radioButton_5_clicked() {
     for (std::size_t i = 0; i < ow->size(); ++i) {
         ranks[i].name = ow->at(i).getNombre();
         for (std::size_t j = 0; j < ow->at(i).getOficinas().size(); ++j) {
-            for (std::size_t k = 0; k < ow->at(i).getOficinas().at(j).getPeticiones().size(); ++k){
+            for (std::size_t k = 0; k < ow->at(i).getOficinas().at(j).getPeticiones().size(); ++k) {
                 ranks[i].num += ow->at(i).getOficinas().at(j).getPeticiones().at(k).getPlazasPedidas();
             }
         }

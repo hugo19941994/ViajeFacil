@@ -13,7 +13,7 @@
 #define dialogNego_H
 
 #include <QDialog>
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./nego.hpp"
 #include "./owner.hpp"
 
@@ -35,20 +35,20 @@ class dialogNego : public QDialog {
 
     /**
      * @brief Carga los comboBox
-     * Recorre el vector de Owners y rellena el comboBox
+     * Recorre el Vector de Owners y rellena el comboBox
      */
-    void cargar(pel::vector<Owner>* own);
+    void cargar(pel::Vector<Owner>* own);
 
     /**
      * @brief Edita el Nego
      * Edita el Nego que ha sido pasado por referencia
      */
-    void setNegoAEditar(Nego &neg);
+    void setNegoAEditar(Nego *neg);
 
     /**
      * @brief Crea un Nego
      * Crea un nuevo Nego y se lo devuelve a mainWindow,
-     * el cual lo mete en su vector correspondiente
+     * el cual lo mete en su Vector correspondiente
      */
     Nego crear();
 
@@ -60,7 +60,7 @@ class dialogNego : public QDialog {
      */
     int nivel();
 
- private slots:
+ private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonOkCancel_accepted();
 
  private:

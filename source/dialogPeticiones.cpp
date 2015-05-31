@@ -9,7 +9,7 @@
 
 #include <QMessageBox>
 #include "./ui_dialogPeticiones.h"
-#include "./pel_vector.hpp"
+#include "./pelVector.hpp"
 #include "./dialogPeticiones.hpp"
 
 dialogPeticiones::dialogPeticiones(QWidget *parent) :
@@ -22,17 +22,17 @@ dialogPeticiones::~dialogPeticiones() { delete ui; }
 /**
  * @brief dialogPeticiones::cargar
  */
-void dialogPeticiones::cargar(pel::vector<Owner>* own) {
+void dialogPeticiones::cargar(pel::Vector<Owner>* own) {
     ow = own;
     for (auto &it : *own)
         ui->comboBox->addItem(it.getNombre().c_str());
 }
 
-void dialogPeticiones::setPeticionAEditar(Peticion &pet) {
+void dialogPeticiones::setPeticionAEditar(Peticion *pet) {
     editando = true;
-    peticionAEditar = &pet;
+    peticionAEditar = pet;
 
-    ui->lineEdit_3->setText(std::to_string(pet.getPlazasPedidas()).c_str());
+    ui->lineEdit_3->setText(std::to_string(pet->getPlazasPedidas()).c_str());
     ui->comboBox->setEnabled(false);
     ui->comboBox_2->setEnabled(false);
     ui->comboBox_3->setEnabled(false);

@@ -7,29 +7,23 @@
 #include <fstream>
 #include <string>
 #include "./ui_dialogLogin.h"
-#include "./bcrypt.h"
+#include "./bcrypt/bcrypt.h"
+#include "./include/bcrypt/bcrypt.cpp"  // TODO(Hugo) - quitar
 #include "./dialogLogin.hpp"
 
 /**
- * @brief dialogLogin::dialogLogin
- * @param parent
+ * @brief Dialogo de Login
+ * Crea y loguea a usuarios
  */
 dialogLogin::dialogLogin(QWidget *parent) :
     QDialog(parent), ui(new Ui::dialogLogin) {
       ui->setupUi(this);
 }
 
-/**
- * @brief dialogLogin::~dialogLogin
- */
 dialogLogin::~dialogLogin() {
     delete ui;
 }
 
-/**
- * @brief dialogLogin::setEstado
- * @param estado
- */
 void dialogLogin::setEstado(int estado) {
     estado_ = estado;
     // Si vamos a hacer dialogLogin escondemos el boton "admin"
@@ -37,9 +31,6 @@ void dialogLogin::setEstado(int estado) {
         ui->checkBox->hide();
 }
 
-/**
- * @brief dialogLogin::on_buttonBox_accepted
- */
 void dialogLogin::on_buttonBox_accepted() {
     if (estado_ == 1) {  // estado_ 1 para crear usuario
         // Crear Salt aleatorio

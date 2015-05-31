@@ -9,7 +9,7 @@
                         "data": {
                             "Origen": "Madrid",
                             "Destino": "Roma",
-                            "Numero_de_Plazas": 387,
+                            "Numero_de_Plazas": 290,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
@@ -39,7 +39,16 @@
                     "Nombre": "Oficina 1",
                     "País": "Esp",
                     "Continente": "UE",
-                    "Peticiones": []
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 10,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    ]
                 }
             ]
         },
