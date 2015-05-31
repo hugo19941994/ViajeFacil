@@ -55,9 +55,8 @@ void dialogPeticiones::on_comboBox_currentIndexChanged(int index) {
 
         ui->comboBox_3->clear();
         for (auto &it : ow->at(index).getNegos()) {
-            QString texto = it->getOrigen().c_str();
-            texto.append(" - ");
-            texto.append(it->getDestino().c_str());
+            QString texto = QString("%1 - %2").
+                    arg(it->getOrigen().c_str(), it->getDestino().c_str());
             ui->comboBox_3->addItem(texto);
         }
 }

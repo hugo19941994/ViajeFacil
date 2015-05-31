@@ -64,11 +64,9 @@ void mainWindow::on_listWidget_pressed(const QModelIndex &index) {
     auto ow = listaOw.at(index.row());
     ui->listWidget_2->clear();
     for (auto &it : ow.getNegos()) {
-        // TODO(Hugo) - Se puede hacer en una linea?
-        QString orDe = it->getOrigen().c_str();
-        orDe.append(" - ");
-        orDe.append(it->getDestino().c_str());
-        ui->listWidget_2->addItem(orDe);
+        QString str = QString("%1 - %2")
+                .arg(it->getOrigen().c_str(), it->getDestino().c_str());
+        ui->listWidget_2->addItem(str);
     }
 
     ui->listWidget_3->clear();
@@ -86,13 +84,11 @@ void mainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
     auto pe = ow.getOficinas().at(index.row()).getPeticiones();
     ui->listWidget_4->clear();
     for (auto it : pe) {
-        QString orDe = std::to_string(it.getPlazasPedidas()).c_str();
-        orDe.append(" (");
-        orDe.append(it.neg->getOrigen().c_str());
-        orDe.append(" - ");
-        orDe.append(it.neg->getDestino().c_str());
-        orDe.append(")");
-        ui->listWidget_4->addItem(orDe);
+        QString str = QString("%1 (%2 - %3)")
+                .arg(std::to_string(it.getPlazasPedidas()).c_str(),
+                     it.neg->getOrigen().c_str(),
+                     it.neg->getDestino().c_str());
+        ui->listWidget_4->addItem(str);
     }
 }
 
