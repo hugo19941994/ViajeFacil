@@ -2,43 +2,48 @@
 \label{classOficina}\index{Oficina@{Oficina}}
 
 
-The \hyperlink{classOficina}{Oficina} class.  
-
-
-
-
 {\ttfamily \#include $<$oficina.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classOficina_adfc639739930fedda32e7790583f2342}{Oficina} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{classOficina}{Oficina}. \end{DoxyCompactList}\item 
-\hyperlink{classOficina_a98663f13af9d8679a234e3c68c4ceb36}{Oficina} (std\+::string nombre, std\+::string pais, std\+::string continente)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classOficina}{Oficina}. \end{DoxyCompactList}\item 
-\hypertarget{classOficina_a34125758ffc92b87f19e21d24cb92c60}{}\hyperlink{classOficina_a34125758ffc92b87f19e21d24cb92c60}{$\sim$\+Oficina} ()\label{classOficina_a34125758ffc92b87f19e21d24cb92c60}
+\item 
+\hypertarget{classOficina_a98663f13af9d8679a234e3c68c4ceb36}{}{\bfseries Oficina} (std\+::string nombre, std\+::string pais, std\+::string continente)\label{classOficina_a98663f13af9d8679a234e3c68c4ceb36}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{classOficina_a34125758ffc92b87f19e21d24cb92c60}{Oficina\+::$\sim$\+Oficina}. \end{DoxyCompactList}\item 
-void \hyperlink{classOficina_ae016add6b9338df63c58a850b3503d45}{set\+Nombre} (std\+::string)
-\begin{DoxyCompactList}\small\item\em set\+Nombre \end{DoxyCompactList}\item 
-void \hyperlink{classOficina_a69be721387f2b3b97b0c6a6326d046e5}{set\+Pais} (std\+::string)
-\begin{DoxyCompactList}\small\item\em set\+Pais \end{DoxyCompactList}\item 
-void \hyperlink{classOficina_a0b715231faa1dc769fd6006f8136626f}{set\+Continente} (std\+::string)
-\begin{DoxyCompactList}\small\item\em set\+Continente \end{DoxyCompactList}\item 
-std\+::string \hyperlink{classOficina_ad9ef736810c608638d70fd003db62661}{get\+Nombre} ()
-\begin{DoxyCompactList}\small\item\em get\+Nombre \end{DoxyCompactList}\item 
-std\+::string \hyperlink{classOficina_aef61125dc2cbbe125b4c027196e9cbb3}{get\+Pais} ()
-\begin{DoxyCompactList}\small\item\em get\+Pais \end{DoxyCompactList}\item 
-std\+::string \hyperlink{classOficina_a937105d318a0554fe2ce00cd59f35160}{get\+Continente} ()
-\begin{DoxyCompactList}\small\item\em get\+Continente \end{DoxyCompactList}\item 
-std\+::vector$<$ \hyperlink{classPeticion}{Peticion} $>$ \& \hyperlink{classOficina_ab496b537dfe209239796f7f0832dd1b8}{get\+Peticiones} ()
-\begin{DoxyCompactList}\small\item\em get\+Peticiones \end{DoxyCompactList}\item 
-{\footnotesize template$<$class Archive $>$ }\\void \hyperlink{classOficina_af600ad5dff1f832387e48f2d88bd2b72}{serialize} (Archive \&archive)
-\begin{DoxyCompactList}\small\item\em serialize \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+\hypertarget{classOficina_ae016add6b9338df63c58a850b3503d45}{}void {\bfseries set\+Nombre} (std\+::string)\label{classOficina_ae016add6b9338df63c58a850b3503d45}
+
+\item 
+\hypertarget{classOficina_a69be721387f2b3b97b0c6a6326d046e5}{}void {\bfseries set\+Pais} (std\+::string)\label{classOficina_a69be721387f2b3b97b0c6a6326d046e5}
+
+\item 
+\hypertarget{classOficina_a0b715231faa1dc769fd6006f8136626f}{}void {\bfseries set\+Continente} (std\+::string)\label{classOficina_a0b715231faa1dc769fd6006f8136626f}
+
+\item 
+\hypertarget{classOficina_ad9ef736810c608638d70fd003db62661}{}std\+::string {\bfseries get\+Nombre} ()\label{classOficina_ad9ef736810c608638d70fd003db62661}
+
+\item 
+\hypertarget{classOficina_aef61125dc2cbbe125b4c027196e9cbb3}{}std\+::string {\bfseries get\+Pais} ()\label{classOficina_aef61125dc2cbbe125b4c027196e9cbb3}
+
+\item 
+\hypertarget{classOficina_a937105d318a0554fe2ce00cd59f35160}{}std\+::string {\bfseries get\+Continente} ()\label{classOficina_a937105d318a0554fe2ce00cd59f35160}
+
+\item 
+\hypertarget{classOficina_ae2f47f59037d3c8bec6bb3992c7484ca}{}\hyperlink{classpel_1_1Vector}{pel\+::\+Vector}$<$ \hyperlink{classPeticion}{Peticion} $>$ \& {\bfseries get\+Peticiones} ()\label{classOficina_ae2f47f59037d3c8bec6bb3992c7484ca}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{classOficina}{Oficina} class. 
+Copyright 2015 Viaje\+Facil \begin{DoxyAuthor}{Author}
+Estefania Ortego 
+
+Guillermo Gonzalez 
+
+Hugo Ferrando Seage
+\end{DoxyAuthor}
+Las oficinas\+: se encargan de intermediar con los clientes, recaudar dinero, hacer ofertas para que los clientes compren en esa compañía. Estos, le solicitan billetes a los owners, y los owners a los negos, enviandole (los owners) como respuesta si es aceptada la petición o rechazada. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classOficina_adfc639739930fedda32e7790583f2342}{}\index{Oficina@{Oficina}!Oficina@{Oficina}}
@@ -48,175 +53,13 @@ The \hyperlink{classOficina}{Oficina} class.
 {}
 \end{DoxyParamCaption}
 )}\label{classOficina_adfc639739930fedda32e7790583f2342}
+Copyright 2015 Viaje\+Facil \begin{DoxyAuthor}{Author}
+Estefania Ortego 
 
+Guillermo Gonzalez 
 
-\hyperlink{classOficina}{Oficina}. 
-
-\hyperlink{classOficina_adfc639739930fedda32e7790583f2342}{Oficina\+::\+Oficina}. \hypertarget{classOficina_a98663f13af9d8679a234e3c68c4ceb36}{}\index{Oficina@{Oficina}!Oficina@{Oficina}}
-\index{Oficina@{Oficina}!Oficina@{Oficina}}
-\subsubsection[{Oficina}]{\setlength{\rightskip}{0pt plus 5cm}Oficina\+::\+Oficina (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{nombre, }
-\item[{std\+::string}]{pais, }
-\item[{std\+::string}]{continente}
-\end{DoxyParamCaption}
-)}\label{classOficina_a98663f13af9d8679a234e3c68c4ceb36}
-
-
-\hyperlink{classOficina}{Oficina}. 
-
-\hyperlink{classOficina_adfc639739930fedda32e7790583f2342}{Oficina\+::\+Oficina}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em nombre} & \\
-\hline
-{\em pais} & \\
-\hline
-{\em continente} & \\
-\hline
-\end{DoxyParams}
-
-
-\subsection{Member Function Documentation}
-\hypertarget{classOficina_a937105d318a0554fe2ce00cd59f35160}{}\index{Oficina@{Oficina}!get\+Continente@{get\+Continente}}
-\index{get\+Continente@{get\+Continente}!Oficina@{Oficina}}
-\subsubsection[{get\+Continente}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Oficina\+::get\+Continente (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classOficina_a937105d318a0554fe2ce00cd59f35160}
-
-
-get\+Continente 
-
-\hyperlink{classOficina_a937105d318a0554fe2ce00cd59f35160}{Oficina\+::get\+Continente}.
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\hypertarget{classOficina_ad9ef736810c608638d70fd003db62661}{}\index{Oficina@{Oficina}!get\+Nombre@{get\+Nombre}}
-\index{get\+Nombre@{get\+Nombre}!Oficina@{Oficina}}
-\subsubsection[{get\+Nombre}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Oficina\+::get\+Nombre (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classOficina_ad9ef736810c608638d70fd003db62661}
-
-
-get\+Nombre 
-
-\hyperlink{classOficina_ad9ef736810c608638d70fd003db62661}{Oficina\+::get\+Nombre}.
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\hypertarget{classOficina_aef61125dc2cbbe125b4c027196e9cbb3}{}\index{Oficina@{Oficina}!get\+Pais@{get\+Pais}}
-\index{get\+Pais@{get\+Pais}!Oficina@{Oficina}}
-\subsubsection[{get\+Pais}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Oficina\+::get\+Pais (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classOficina_aef61125dc2cbbe125b4c027196e9cbb3}
-
-
-get\+Pais 
-
-\hyperlink{classOficina_aef61125dc2cbbe125b4c027196e9cbb3}{Oficina\+::get\+Pais}.
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\hypertarget{classOficina_ab496b537dfe209239796f7f0832dd1b8}{}\index{Oficina@{Oficina}!get\+Peticiones@{get\+Peticiones}}
-\index{get\+Peticiones@{get\+Peticiones}!Oficina@{Oficina}}
-\subsubsection[{get\+Peticiones}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Peticion} $>$ \& Oficina\+::get\+Peticiones (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\label{classOficina_ab496b537dfe209239796f7f0832dd1b8}
-
-
-get\+Peticiones 
-
-\hyperlink{classOficina_ab496b537dfe209239796f7f0832dd1b8}{Oficina\+::get\+Peticiones}.
-
-\begin{DoxyReturn}{Returns}
-
-\end{DoxyReturn}
-\hypertarget{classOficina_af600ad5dff1f832387e48f2d88bd2b72}{}\index{Oficina@{Oficina}!serialize@{serialize}}
-\index{serialize@{serialize}!Oficina@{Oficina}}
-\subsubsection[{serialize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Archive $>$ void Oficina\+::serialize (
-\begin{DoxyParamCaption}
-\item[{Archive \&}]{archive}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classOficina_af600ad5dff1f832387e48f2d88bd2b72}
-
-
-serialize 
-
-
-\begin{DoxyParams}{Parameters}
-{\em archive} & \\
-\hline
-\end{DoxyParams}
-archive
-
-cereal\+::make\+\_\+nvp
-
-cereal\+::make\+\_\+nvp\hypertarget{classOficina_a0b715231faa1dc769fd6006f8136626f}{}\index{Oficina@{Oficina}!set\+Continente@{set\+Continente}}
-\index{set\+Continente@{set\+Continente}!Oficina@{Oficina}}
-\subsubsection[{set\+Continente}]{\setlength{\rightskip}{0pt plus 5cm}void Oficina\+::set\+Continente (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{continente}
-\end{DoxyParamCaption}
-)}\label{classOficina_a0b715231faa1dc769fd6006f8136626f}
-
-
-set\+Continente 
-
-\hyperlink{classOficina_a0b715231faa1dc769fd6006f8136626f}{Oficina\+::set\+Continente}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em continente} & \\
-\hline
-\end{DoxyParams}
-\hypertarget{classOficina_ae016add6b9338df63c58a850b3503d45}{}\index{Oficina@{Oficina}!set\+Nombre@{set\+Nombre}}
-\index{set\+Nombre@{set\+Nombre}!Oficina@{Oficina}}
-\subsubsection[{set\+Nombre}]{\setlength{\rightskip}{0pt plus 5cm}void Oficina\+::set\+Nombre (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{nombre}
-\end{DoxyParamCaption}
-)}\label{classOficina_ae016add6b9338df63c58a850b3503d45}
-
-
-set\+Nombre 
-
-\hyperlink{classOficina_ae016add6b9338df63c58a850b3503d45}{Oficina\+::set\+Nombre}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em nombre} & \\
-\hline
-\end{DoxyParams}
-\hypertarget{classOficina_a69be721387f2b3b97b0c6a6326d046e5}{}\index{Oficina@{Oficina}!set\+Pais@{set\+Pais}}
-\index{set\+Pais@{set\+Pais}!Oficina@{Oficina}}
-\subsubsection[{set\+Pais}]{\setlength{\rightskip}{0pt plus 5cm}void Oficina\+::set\+Pais (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{pais}
-\end{DoxyParamCaption}
-)}\label{classOficina_a69be721387f2b3b97b0c6a6326d046e5}
-
-
-set\+Pais 
-
-\hyperlink{classOficina_a69be721387f2b3b97b0c6a6326d046e5}{Oficina\+::set\+Pais}.
-
-
-\begin{DoxyParams}{Parameters}
-{\em pais} & \\
-\hline
-\end{DoxyParams}
+Hugo Ferrando Seage 
+\end{DoxyAuthor}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

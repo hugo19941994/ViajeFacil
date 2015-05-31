@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nego',['Nego',['../classNego.html#af997efc08cdc4e0fc654e6294ac4b08b',1,'Nego::Nego()'],['../classNego.html#a612bceb68453277f47491aa2cdaf0963',1,'Nego::Nego(std::string origen, std::string destino, int numeroPlazas, Fecha fecha)']]]
+  ['oficina',['Oficina',['../classOficina.html#adfc639739930fedda32e7790583f2342',1,'Oficina']]],
+  ['owner',['Owner',['../classOwner.html#ab9186e9839a04fe48baad103cc1d0ddb',1,'Owner']]]
 ];

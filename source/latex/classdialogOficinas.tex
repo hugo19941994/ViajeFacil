@@ -2,6 +2,15 @@
 \label{classdialogOficinas}\index{dialog\+Oficinas@{dialog\+Oficinas}}
 
 
+Dialogo de Oficinas.  
+
+
+
+
+{\ttfamily \#include $<$dialog\+Oficinas.\+hpp$>$}
+
+
+
 Inheritance diagram for dialog\+Oficinas\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,24 +32,36 @@ Collaboration diagram for dialog\+Oficinas\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classdialogOficinas_a38eadc87eb5381d6447af6b54d73bf53}{}{\bfseries dialog\+Oficinas} (Q\+Widget $\ast$parent=0)\label{classdialogOficinas_a38eadc87eb5381d6447af6b54d73bf53}
-
+\hyperlink{classdialogOficinas_a38eadc87eb5381d6447af6b54d73bf53}{dialog\+Oficinas} (Q\+Widget $\ast$parent=0)
 \item 
-\hypertarget{classdialogOficinas_abe9f02cd44d4238b7b68ebd5b029a507}{}void {\bfseries set\+Of} (\hyperlink{classpel_1_1vector}{pel\+::vector}$<$ \hyperlink{classOficina}{Oficina} $>$ $\ast$ofc)\label{classdialogOficinas_abe9f02cd44d4238b7b68ebd5b029a507}
+\hypertarget{classdialogOficinas_a0c288a8d061c6166813655108f58201f}{}void \hyperlink{classdialogOficinas_a0c288a8d061c6166813655108f58201f}{cargar} (\hyperlink{classpel_1_1Vector}{pel\+::\+Vector}$<$ \hyperlink{classOwner}{Owner} $>$ $\ast$own)\label{classdialogOficinas_a0c288a8d061c6166813655108f58201f}
 
-\item 
-\hypertarget{classdialogOficinas_a7b129b6519609a19d98dba1353eb4356}{}void {\bfseries set\+Ow} (\hyperlink{classpel_1_1vector}{pel\+::vector}$<$ \hyperlink{classOwner}{Owner} $>$ $\ast$own)\label{classdialogOficinas_a7b129b6519609a19d98dba1353eb4356}
+\begin{DoxyCompactList}\small\item\em Carga los combo\+Box Recorre el Vector de Owners y rellena el combo\+Box. \end{DoxyCompactList}\item 
+\hypertarget{classdialogOficinas_acc1a0e8268c26201cb9370cd5d6fcbf7}{}void \hyperlink{classdialogOficinas_acc1a0e8268c26201cb9370cd5d6fcbf7}{set\+Oficina\+A\+Editar} (\hyperlink{classOficina}{Oficina} $\ast$ofi)\label{classdialogOficinas_acc1a0e8268c26201cb9370cd5d6fcbf7}
 
-\item 
-\hypertarget{classdialogOficinas_af8d8a489575cb71d83c36c6667471aa7}{}void {\bfseries set\+Pe} (\hyperlink{classpel_1_1vector}{pel\+::vector}$<$ \hyperlink{classPeticion}{Peticion} $>$ $\ast$pet)\label{classdialogOficinas_af8d8a489575cb71d83c36c6667471aa7}
+\begin{DoxyCompactList}\small\item\em Edita la \hyperlink{classOficina}{Oficina} Edita la \hyperlink{classOficina}{Oficina} que ha sido pasado por referencia. \end{DoxyCompactList}\item 
+\hypertarget{classdialogOficinas_a46996aad61f5441f20c94012a864d277}{}int \hyperlink{classdialogOficinas_a46996aad61f5441f20c94012a864d277}{nivel} ()\label{classdialogOficinas_a46996aad61f5441f20c94012a864d277}
 
-\item 
-\hypertarget{classdialogOficinas_ad22074f104581639754c4eb1703e1da4}{}void {\bfseries cargar} ()\label{classdialogOficinas_ad22074f104581639754c4eb1703e1da4}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classOwner}{Owner} seleccionado Devuelve el nivel del combo\+Box. Este nivel indica que \hyperlink{classOwner}{Owner} ha sido seleccionado. Se pasa al \hyperlink{classmainWindow}{main\+Window} para que sepa en que \hyperlink{classOwner}{Owner} tiene que insertar la \hyperlink{classOficina}{Oficina}. \end{DoxyCompactList}\item 
+\hypertarget{classdialogOficinas_af32d29c6889afddbcd1a89543fccf666}{}\hyperlink{classOficina}{Oficina} \hyperlink{classdialogOficinas_af32d29c6889afddbcd1a89543fccf666}{crear} ()\label{classdialogOficinas_af32d29c6889afddbcd1a89543fccf666}
 
-\item 
-\hypertarget{classdialogOficinas_a616cff0912d89a0c0f5a54078353c8eb}{}void {\bfseries set\+Oficina\+A\+Editar} (\hyperlink{classOficina}{Oficina} \&ofi)\label{classdialogOficinas_a616cff0912d89a0c0f5a54078353c8eb}
+\begin{DoxyCompactList}\small\item\em Crea una \hyperlink{classOficina}{Oficina} Crea una nuevo \hyperlink{classOficina}{Oficina} y se lo devuelve a \hyperlink{classmainWindow}{main\+Window}, el cual lo mete en su Vector correspondiente. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
+
+\subsection{Detailed Description}
+Dialogo de Oficinas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdialogOficinas_a38eadc87eb5381d6447af6b54d73bf53}{}\index{dialog\+Oficinas@{dialog\+Oficinas}!dialog\+Oficinas@{dialog\+Oficinas}}
+\index{dialog\+Oficinas@{dialog\+Oficinas}!dialog\+Oficinas@{dialog\+Oficinas}}
+\subsubsection[{dialog\+Oficinas}]{\setlength{\rightskip}{0pt plus 5cm}dialog\+Oficinas\+::dialog\+Oficinas (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classdialogOficinas_a38eadc87eb5381d6447af6b54d73bf53}
+Copyright 2015 Viaje\+Facil \begin{DoxyAuthor}{Author}
+Hugo Ferrando Seage 
+\end{DoxyAuthor}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

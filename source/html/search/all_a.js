@@ -1,23 +1,4 @@
 var searchData=
 [
-  ['serialize',['serialize',['../classFecha.html#a8e2b7a6977d7d6354647af025808f750',1,'Fecha::serialize()'],['../classNego.html#af2aa46474903fc02942fa44d4576fcad',1,'Nego::serialize()'],['../classOficina.html#af600ad5dff1f832387e48f2d88bd2b72',1,'Oficina::serialize()'],['../classOwner.html#a411a7ce0f140930cec5c45b46319894c',1,'Owner::serialize()'],['../classPeticion.html#a5b7cd0f006e3bb6d6361d065a1bc1c56',1,'Peticion::serialize()']]],
-  ['setanio',['setAnio',['../classFecha.html#a3cfbea8834e7a23023f11c3d069838f0',1,'Fecha']]],
-  ['setcontinente',['setContinente',['../classOficina.html#a0b715231faa1dc769fd6006f8136626f',1,'Oficina']]],
-  ['setdestino',['setDestino',['../classNego.html#a037842afd947e4f33de78ecb4ce0485c',1,'Nego']]],
-  ['setdia',['setDia',['../classFecha.html#a19af0818e81aa8d74b60fdfca7aabb04',1,'Fecha']]],
-  ['setestado',['setEstado',['../classLogin.html#a0d877d8c08f419c62e5eaecabe6fa3de',1,'Login']]],
-  ['setfecha',['setFecha',['../classFecha.html#a3040cb959b0b779c262805460d9786bb',1,'Fecha::setFecha()'],['../classNego.html#a8fd1c05283f046daab60ed330bac1795',1,'Nego::setFecha()']]],
-  ['setmes',['setMes',['../classFecha.html#a0167b058fedd612cd2c29c3d932d0741',1,'Fecha']]],
-  ['setne',['setNe',['../classDialogNego.html#a559476945fd30cbe286824404eb76c89',1,'DialogNego']]],
-  ['setnego',['setNego',['../classNego.html#a886d652e1dd9f66c387978dbbcbf6aec',1,'Nego']]],
-  ['setnombre',['setNombre',['../classOficina.html#ae016add6b9338df63c58a850b3503d45',1,'Oficina::setNombre()'],['../classOwner.html#a6b7345e565bfcfde59b1871147765535',1,'Owner::setNombre()']]],
-  ['setnumeroplazas',['setNumeroPlazas',['../classNego.html#ad3b026b1faf221046acb58ee10906ec8',1,'Nego']]],
-  ['setof',['setOf',['../classDialogPeticiones.html#a537bb011119f744329fd347588c5ce02',1,'DialogPeticiones']]],
-  ['setorigen',['setOrigen',['../classNego.html#ab9a55ac4fb4834dbede2806dbbcb62bb',1,'Nego']]],
-  ['setow',['setOw',['../classdiagOwner.html#a959bea0fcf0af99211559fa8eac779c6',1,'diagOwner::setOw()'],['../classDialogNego.html#ab395a294d1be0e12b3ecf2a38742f713',1,'DialogNego::setOw()'],['../classDialogPeticiones.html#a7084e851f919b8fdb9e91110cda77c7f',1,'DialogPeticiones::setOw()']]],
-  ['setpais',['setPais',['../classOficina.html#a69be721387f2b3b97b0c6a6326d046e5',1,'Oficina']]],
-  ['setpe',['setPe',['../classDialogPeticiones.html#a5c7ea55482f49534c0ee5ed671253f24',1,'DialogPeticiones']]],
-  ['setplazaspedidas',['setPlazasPedidas',['../classPeticion.html#a75bbeae7cedba0b5c32993f1f3f9c7e1',1,'Peticion']]],
-  ['setrow',['setRow',['../classdiagOwner.html#aafa9885bca20002ea2a6ad44f1ebb1be',1,'diagOwner']]],
-  ['setrows',['setRows',['../classDialogNego.html#ad98c2abab579325665c3b2f615aeb08c',1,'DialogNego']]]
+  ['ui',['Ui',['../namespaceUi.html',1,'']]]
 ];

@@ -2,7 +2,7 @@
 \label{classdialogNego}\index{dialog\+Nego@{dialog\+Nego}}
 
 
-The \hyperlink{classdialogNego}{dialog\+Nego} class define el tipo que va a ser la clase \hyperlink{classdialogNego}{dialog\+Nego}.  
+Dialogo de Negos.  
 
 
 
@@ -33,23 +33,19 @@ Collaboration diagram for dialog\+Nego\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classdialogNego_ab093ca8a15c030021d87c540bc5d4da1}{dialog\+Nego} (Q\+Widget $\ast$parent=0)
-\begin{DoxyCompactList}\small\item\em \hyperlink{classdialogNego}{dialog\+Nego} \end{DoxyCompactList}\item 
-\hypertarget{classdialogNego_a265a261b0955aa364d86237337196ece}{}\hyperlink{classdialogNego_a265a261b0955aa364d86237337196ece}{$\sim$dialog\+Nego} ()\label{classdialogNego_a265a261b0955aa364d86237337196ece}
-
-\begin{DoxyCompactList}\small\item\em \hyperlink{classdialogNego_a265a261b0955aa364d86237337196ece}{dialog\+Nego\+::$\sim$dialog\+Nego} Destructor \end{DoxyCompactList}\item 
-void \hyperlink{classdialogNego_a0cbc10fc159e2ec9f3c3c6be5dfbaafe}{set\+Ne} (\hyperlink{classpel_1_1vector}{pel\+::vector}$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classNego}{Nego} $>$$>$ $\ast$neg)
-\begin{DoxyCompactList}\small\item\em set\+Ne \end{DoxyCompactList}\item 
-void \hyperlink{classdialogNego_af265229e308fce176de8fd15a28f7b21}{set\+Ow} (\hyperlink{classpel_1_1vector}{pel\+::vector}$<$ \hyperlink{classOwner}{Owner} $>$ $\ast$own)
-\begin{DoxyCompactList}\small\item\em set\+Ow \end{DoxyCompactList}\item 
-void \hyperlink{classdialogNego_af1374fbe14187ccd7022b1b0d2ec34be}{cargar} ()
-\begin{DoxyCompactList}\small\item\em cargar \end{DoxyCompactList}\item 
-\hypertarget{classdialogNego_a4c9eaaf8f8e98d27cdadb7a27d6b4392}{}void {\bfseries set\+Nego\+A\+Editar} (\hyperlink{classNego}{Nego} \&neg)\label{classdialogNego_a4c9eaaf8f8e98d27cdadb7a27d6b4392}
-
-\end{DoxyCompactItemize}
+\item 
+void \hyperlink{classdialogNego_a6d97c6b5dcaa5ce2dc283ef4c1514257}{cargar} (\hyperlink{classpel_1_1Vector}{pel\+::\+Vector}$<$ \hyperlink{classOwner}{Owner} $>$ $\ast$own)
+\begin{DoxyCompactList}\small\item\em Carga los combo\+Box Recorre el Vector de Owners y rellena el combo\+Box. \end{DoxyCompactList}\item 
+void \hyperlink{classdialogNego_a658d77039ffbb8874e8d25af7b00f489}{set\+Nego\+A\+Editar} (\hyperlink{classNego}{Nego} $\ast$neg)
+\begin{DoxyCompactList}\small\item\em Edita el \hyperlink{classNego}{Nego} Edita el \hyperlink{classNego}{Nego} que ha sido pasado por referencia. \end{DoxyCompactList}\item 
+\hyperlink{classNego}{Nego} \hyperlink{classdialogNego_a525e03d9c16ab7fd99c0bb2476a89b85}{crear} ()
+\begin{DoxyCompactList}\small\item\em Crea un \hyperlink{classNego}{Nego} Crea un nuevo \hyperlink{classNego}{Nego} y se lo devuelve a \hyperlink{classmainWindow}{main\+Window}, el cual lo mete en su Vector correspondiente. \end{DoxyCompactList}\item 
+int \hyperlink{classdialogNego_a3286fa0d71e65d2b7863d9c32a4787f3}{nivel} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classOwner}{Owner} seleccionado Devuelve el nivel del combo\+Box. Este nivel indica que \hyperlink{classOwner}{Owner} ha sido seleccionado. Se pasa al \hyperlink{classmainWindow}{main\+Window} para que sepa en que \hyperlink{classOwner}{Owner} tiene que insertar el \hyperlink{classNego}{Nego}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{classdialogNego}{dialog\+Nego} class define el tipo que va a ser la clase \hyperlink{classdialogNego}{dialog\+Nego}. 
+Dialogo de Negos. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classdialogNego_ab093ca8a15c030021d87c540bc5d4da1}{}\index{dialog\+Nego@{dialog\+Nego}!dialog\+Nego@{dialog\+Nego}}
@@ -59,74 +55,61 @@ The \hyperlink{classdialogNego}{dialog\+Nego} class define el tipo que va a ser 
 \item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [explicit]}}\label{classdialogNego_ab093ca8a15c030021d87c540bc5d4da1}
+Copyright 2015 Viaje\+Facil \begin{DoxyAuthor}{Author}
+Hugo Ferrando Seage 
 
+David Jimenez 
 
-\hyperlink{classdialogNego}{dialog\+Nego} 
-
-\hyperlink{classdialogNego_ab093ca8a15c030021d87c540bc5d4da1}{dialog\+Nego\+::dialog\+Nego}
-
-
-\begin{DoxyParams}{Parameters}
-{\em parent} & \\
-\hline
-{\em parent} & Contenido de ventana grafica nego \\
-\hline
-\end{DoxyParams}
+Estefania Ortego Se definen las funciones de la ventana grafica \hyperlink{classdialogNego}{dialog\+Nego}, se muestra qué hará cada botón o campo que aparezca (en la ventana gráfica). 
+\end{DoxyAuthor}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classdialogNego_af1374fbe14187ccd7022b1b0d2ec34be}{}\index{dialog\+Nego@{dialog\+Nego}!cargar@{cargar}}
+\hypertarget{classdialogNego_a6d97c6b5dcaa5ce2dc283ef4c1514257}{}\index{dialog\+Nego@{dialog\+Nego}!cargar@{cargar}}
 \index{cargar@{cargar}!dialog\+Nego@{dialog\+Nego}}
 \subsubsection[{cargar}]{\setlength{\rightskip}{0pt plus 5cm}void dialog\+Nego\+::cargar (
 \begin{DoxyParamCaption}
+\item[{{\bf pel\+::\+Vector}$<$ {\bf Owner} $>$ $\ast$}]{own}
+\end{DoxyParamCaption}
+)}\label{classdialogNego_a6d97c6b5dcaa5ce2dc283ef4c1514257}
+
+
+Carga los combo\+Box Recorre el Vector de Owners y rellena el combo\+Box. 
+
+\hyperlink{classdialogNego_a6d97c6b5dcaa5ce2dc283ef4c1514257}{dialog\+Nego\+::cargar} Carga el combo\+Box con los Owners \hypertarget{classdialogNego_a525e03d9c16ab7fd99c0bb2476a89b85}{}\index{dialog\+Nego@{dialog\+Nego}!crear@{crear}}
+\index{crear@{crear}!dialog\+Nego@{dialog\+Nego}}
+\subsubsection[{crear}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nego} dialog\+Nego\+::crear (
+\begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\label{classdialogNego_af1374fbe14187ccd7022b1b0d2ec34be}
+)}\label{classdialogNego_a525e03d9c16ab7fd99c0bb2476a89b85}
 
 
-cargar 
+Crea un \hyperlink{classNego}{Nego} Crea un nuevo \hyperlink{classNego}{Nego} y se lo devuelve a \hyperlink{classmainWindow}{main\+Window}, el cual lo mete en su Vector correspondiente. 
 
-\hyperlink{classdialogNego_af1374fbe14187ccd7022b1b0d2ec34be}{dialog\+Nego\+::cargar} Funcion de cargar y tipo de contenido que tendrá dicha funcion \hypertarget{classdialogNego_a0cbc10fc159e2ec9f3c3c6be5dfbaafe}{}\index{dialog\+Nego@{dialog\+Nego}!set\+Ne@{set\+Ne}}
-\index{set\+Ne@{set\+Ne}!dialog\+Nego@{dialog\+Nego}}
-\subsubsection[{set\+Ne}]{\setlength{\rightskip}{0pt plus 5cm}void dialog\+Nego\+::set\+Ne (
+Crear un nuevo \hyperlink{classNego}{Nego} Creamos un \hyperlink{classNego}{Nego} con los campos que ha rellenado el usuario. El \hyperlink{classmainWindow}{main\+Window} se encargará de meterlo en el Vector. \hypertarget{classdialogNego_a3286fa0d71e65d2b7863d9c32a4787f3}{}\index{dialog\+Nego@{dialog\+Nego}!nivel@{nivel}}
+\index{nivel@{nivel}!dialog\+Nego@{dialog\+Nego}}
+\subsubsection[{nivel}]{\setlength{\rightskip}{0pt plus 5cm}int dialog\+Nego\+::nivel (
 \begin{DoxyParamCaption}
-\item[{{\bf pel\+::vector}$<$ std\+::shared\+\_\+ptr$<$ {\bf Nego} $>$$>$ $\ast$}]{neg}
+{}
 \end{DoxyParamCaption}
-)}\label{classdialogNego_a0cbc10fc159e2ec9f3c3c6be5dfbaafe}
+)}\label{classdialogNego_a3286fa0d71e65d2b7863d9c32a4787f3}
 
 
-set\+Ne 
+\hyperlink{classOwner}{Owner} seleccionado Devuelve el nivel del combo\+Box. Este nivel indica que \hyperlink{classOwner}{Owner} ha sido seleccionado. Se pasa al \hyperlink{classmainWindow}{main\+Window} para que sepa en que \hyperlink{classOwner}{Owner} tiene que insertar el \hyperlink{classNego}{Nego}. 
 
-\hyperlink{classdialogNego_a0cbc10fc159e2ec9f3c3c6be5dfbaafe}{dialog\+Nego\+::set\+Ne}
-
-
-\begin{DoxyParams}{Parameters}
-{\em neg} & Imprime vector nego y escribe nego nuevo\\
-\hline
-{\em neg} & Accede al vector de negos \\
-\hline
-\end{DoxyParams}
-\hypertarget{classdialogNego_af265229e308fce176de8fd15a28f7b21}{}\index{dialog\+Nego@{dialog\+Nego}!set\+Ow@{set\+Ow}}
-\index{set\+Ow@{set\+Ow}!dialog\+Nego@{dialog\+Nego}}
-\subsubsection[{set\+Ow}]{\setlength{\rightskip}{0pt plus 5cm}void dialog\+Nego\+::set\+Ow (
+Devolver el \hyperlink{classOwner}{Owner} seleccionado Devolvemos el índice del \hyperlink{classOwner}{Owner} seleccionado para que el \hyperlink{classmainWindow}{main\+Window} sepa en que Vector de Owners debe meter el nuevo \hyperlink{classNego}{Nego}. \hypertarget{classdialogNego_a658d77039ffbb8874e8d25af7b00f489}{}\index{dialog\+Nego@{dialog\+Nego}!set\+Nego\+A\+Editar@{set\+Nego\+A\+Editar}}
+\index{set\+Nego\+A\+Editar@{set\+Nego\+A\+Editar}!dialog\+Nego@{dialog\+Nego}}
+\subsubsection[{set\+Nego\+A\+Editar}]{\setlength{\rightskip}{0pt plus 5cm}void dialog\+Nego\+::set\+Nego\+A\+Editar (
 \begin{DoxyParamCaption}
-\item[{{\bf pel\+::vector}$<$ {\bf Owner} $>$ $\ast$}]{own}
+\item[{{\bf Nego} $\ast$}]{neg}
 \end{DoxyParamCaption}
-)}\label{classdialogNego_af265229e308fce176de8fd15a28f7b21}
+)}\label{classdialogNego_a658d77039ffbb8874e8d25af7b00f489}
 
 
-set\+Ow 
+Edita el \hyperlink{classNego}{Nego} Edita el \hyperlink{classNego}{Nego} que ha sido pasado por referencia. 
 
-\hyperlink{classdialogNego_af265229e308fce176de8fd15a28f7b21}{dialog\+Nego\+::set\+Ow}
-
-
-\begin{DoxyParams}{Parameters}
-{\em own} & Imprime vector owner y escribe nuevo owner\\
-\hline
-{\em own} & vector de owner va a ser usado en ventana de nego \\
-\hline
-\end{DoxyParams}
-
+Preparar la ventana para editar Rellenamos los campos con la referencia del \hyperlink{classOwner}{Owner} pasada, y activamos el flag de editar. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

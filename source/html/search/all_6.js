@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mainwindow',['MainWindow',['../classMainWindow.html',1,'MainWindow'],['../classMainWindow.html#a8b244be8b7b7db1b08de2a2acb9409db',1,'MainWindow::MainWindow()']]]
+  ['oficina',['Oficina',['../classOficina.html',1,'Oficina'],['../classOficina.html#adfc639739930fedda32e7790583f2342',1,'Oficina::Oficina()']]],
+  ['owner',['Owner',['../classOwner.html',1,'Owner'],['../classOwner.html#ab9186e9839a04fe48baad103cc1d0ddb',1,'Owner::Owner()']]]
 ];
