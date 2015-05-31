@@ -32,7 +32,8 @@
 
 /*
  * Modified 2011/9/4 by Brendan Younger
- * removed unneeded code, changed test for endianness, added wrappers for _crypt_blowfish_rn worker function
+ * removed unneeded code, changed test for endianness,
+ * added wrappers for _crypt_blowfish_rn worker function
  */
 
 #include <errno.h>
@@ -342,7 +343,8 @@ static BF_ctx BF_init_state = {
   }
 };
 
-static unsigned char BF_itoa64[64 + 1] = "./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+static unsigned char BF_itoa64[64 + 1] = "./ABCDEFGHIJKLMNOPQRSTUVWXYZabc"
+                                         "defghijklmnopqrstuvwxyz0123456789";
 
 static unsigned char BF_atoi64[0x60] = {
   64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64,  0,  1,
@@ -520,7 +522,8 @@ static void BF_set_key(const char *key, BF_key expanded, BF_key initial) {
   }
 }
 
-static char *_crypt_blowfish_rn(const char *key, const char *setting, char *output, int size) {
+static char *_crypt_blowfish_rn(const char *key, const char *setting,
+                                char *output, int size) {
   struct {
     BF_ctx ctx;
     BF_key expanded_key;
@@ -651,7 +654,8 @@ static char *_crypt_blowfish_rn(const char *key, const char *setting, char *outp
   }
 
   memcpy(output, setting, 7 + 22 - 1);
-  output[7 + 22 - 1] = BF_itoa64[(int)BF_atoi64[(int)setting[7 + 22 - 1] - 0x20] & 0x30];
+  output[7 + 22 - 1] =
+          BF_itoa64[(int)BF_atoi64[(int)setting[7 + 22 - 1] - 0x20] & 0x30];
 
 /* This has to be bug-compatible with the original implementation, so
  * only encode 23 of the 24 bytes. :-) */
@@ -667,7 +671,9 @@ static char *_crypt_blowfish_rn(const char *key, const char *setting, char *outp
   return output;
 }
 
-static char *_crypt_gensalt_blowfish_rn(unsigned long count, const char *input, int size, char *output, int output_size) {
+static char *_crypt_gensalt_blowfish_rn(unsigned long count,
+                                        const char *input, int size,
+                                        char *output, int output_size) {
   if (size < 16 || output_size < 7 + 22 + 1 ||
       (count && (count < 4 || count > 31))) {
     if (output_size > 0) output[0] = '\0';
@@ -698,16 +704,19 @@ int bcrypt_gensalt(int factor, char salt[BCRYPT_HASHSIZE]) {
   int workf;
   char *aux;
 
-  // arc4random_buf(input, RANDBYTES); NO PORTABLE... SUSTITUIR POR RAND???(MALA IDEA)
-        sprintf(input, "%d", rand()%RANDBYTES);
-        // input = rand % RANDBYTES;
+  // arc4random_buf(input, RANDBYTES); NO PORTABLE...
+  // SUSTITUIR POR RAND???(MALA IDEA)
+  sprintf(input, "%d", rand()%RANDBYTES);
+  // input = rand % RANDBYTES;
   workf = (factor < 4 || factor > 31) ? 12 : factor;
-  aux = _crypt_gensalt_blowfish_rn(workf, input, RANDBYTES, salt, BCRYPT_HASHSIZE);
+  aux = _crypt_gensalt_blowfish_rn(workf, input,
+                                   RANDBYTES, salt, BCRYPT_HASHSIZE);
 
   return (aux == NULL) ? 1 : 0;
 }
 
-int bcrypt_hashpw(const char *passwd, const char salt[BCRYPT_HASHSIZE], char hash[BCRYPT_HASHSIZE]) {
+int bcrypt_hashpw(const char *passwd, const char salt[BCRYPT_HASHSIZE],
+                  char hash[BCRYPT_HASHSIZE]) {
   char *aux;
 
   aux = _crypt_blowfish_rn(passwd, salt, hash, BCRYPT_HASHSIZE);

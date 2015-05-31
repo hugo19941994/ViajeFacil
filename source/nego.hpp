@@ -1,123 +1,71 @@
-/*DESCRIPCION:Los negos: una compañía crea negos, son los encargados de gestionar los paquetes
+/*DESCRIPCION:Los negos: una compañía crea negos, son los encargados
+de gestionar los paquetes
   y billetes aéreos, que le darán a los owners y estos a las oficinas correspondientes.
   AUTORES: David Jimenez y Hugo Ferrando
   */
 #ifndef NEGO_H
 #define NEGO_H
 
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *  @author David Jimenez
+ *  @author Estefania ortego
+ */
+
 #include <string>
 #include "./fecha.hpp"
 
 /**
- * @brief The Nego class
+ * @brief Clase Nego
+ * Un Nego es un vuelo concreto. Contiente Origen y Destino, unas Plazas
+ * , una Fecha concreta y pertenece a un único Owner.
  */
 class Nego {
  private:
-    /**
-     * @brief origen_
-     */
     std::string origen_;
-
-    /**
-     * @brief destino_
-     */
     std::string destino_;
-
-    /**
-     * @brief numeroPlazas_
-     */
     std::size_t numeroPlazas_;
-
-    /**
-     * @brief fecha_
-     */
     Fecha fecha_;
 
  public:
-    /**
-     * @brief Nego
-     */
     Nego();
-
-    /**
-     * @brief Nego
-     * @param origen
-     * @param destino
-     * @param numeroPlazas
-     * @param fecha
-     */
     Nego(std::string origen, std::string destino,
          std::size_t numeroPlazas, Fecha fecha);
-
     ~Nego();
-    /**
-     * @brief setNego
-     * @param origen
-     * @param destino
-     * @param numeroPlazas
-     * @param fecha
-     */
+
     void setNego(std::string origen, std::string destino,
         std::size_t numeroPlazas, Fecha fecha);
-
-    /**
-     * @brief setOrigen
-     * @param origen
-     */
     void setOrigen(std::string origen);
-
-    /**
-     * @brief setDestino
-     * @param destino
-     */
     void setDestino(std::string destino);
-
-    /**
-     * @brief setNumeroPlazas
-     * @param numeroPlazas
-     */
     void setNumeroPlazas(std::size_t numeroPlazas);
-
-    /**
-     * @brief setFecha
-     * @param fecha
-     */
     void setFecha(Fecha fecha);
 
-    /**
-     * @brief getOrigen
-     * @return
-     */
     std::string getOrigen();
-    /**
-     * @brief getDestino
-     * @return
-     */
     std::string getDestino();
-
-    /**
-     * @brief getNumeroPlazas
-     * @return
-     */
     std::size_t getNumeroPlazas();
-
-    /**
-     * @brief getFecha
-     * @return
-     */
     Fecha getFecha();
 
     /**
-     * @brief serialize
-     * @param archive
+     * @brief devolverPlazas
+     * Al borrar una peticion (o una oficina con peticiones), es necesario
+     * devolver esas plazas que fueron asignadas al Nego que corresponda.
      */
-    template<class Archive>  // Serialize things by passing them to the archive
+    void devolverPlazas(std::size_t asientos);
+
+    /**
+     * @brief Serializa con Cereal
+     * Funcion para poder serializar Nego con Cereal
+     */
+    #ifdef CEREAL_CEREAL_HPP_
+    template<class Archive>
     void serialize(Archive &archive) {
         archive(cereal::make_nvp("Origen", origen_),
             cereal::make_nvp("Destino", destino_),
             cereal::make_nvp("Numero_de_Plazas", numeroPlazas_),
             cereal::make_nvp("Fecha", fecha_));
     }
+    #endif
 };
 
 #endif  // NEGO_H

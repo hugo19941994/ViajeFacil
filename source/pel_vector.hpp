@@ -132,9 +132,9 @@ class vector {
         } else if (space_ != last_) {  // basic guarantee; more efficient
             *space_ = *(space_ - 1);
             ++space_;
-            // copy the elements in [position,space_-2) to range ending at space_-1
-            // The elements are copied in reverse order (the last element is copied
-            // first), but their relative order is preserved
+            // copy the elements in [position,space_-2) to range ending at
+            // space_-1. The elements are copied in reverse order (the last
+            // element is copied first), but their relative order is preserved
             auto it1 = space_ - 1,
                 it2 = space_ - 2;
             while (position != it2)

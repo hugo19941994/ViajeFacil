@@ -1,7 +1,13 @@
-/*DESCRIPCION: las peticiones son elaboradas por todas las partes de este proyecto, es decir, cada
- * acción que se realice va a ser una petición que se quedará guardada en esta clase "peticiones"
- * AUTORES: Sergio Candel, ayuda David Jimenez y Hugo Ferrando
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *  @author David Jimenez
+ *  @author Serigo Cander
+ *  las peticiones son elaboradas por todas las partes de este proyecto,
+ *  es decir, cada acción que se realice va a ser una petición que
+ *  se quedará guardada en esta clase "peticiones"
  */
+
 #ifndef PETICION_H
 #define PETICION_H
 
@@ -17,45 +23,24 @@ class Peticion {
 
  public:
     std::shared_ptr<Nego> neg;  // PONERLO EN PRIVATE
-
-    /**
-    * @brief Peticion
-    */
     Peticion();
-
-    /**
-    * @brief Peticion
-    * @param plazasPedidas
-    */
     Peticion(std::size_t plazasPedidas);
-
     ~Peticion();
-
-    /**
-    * @brief setPlazasPedidas
-    * @param plazasPedidas
-    */
     void setPlazasPedidas(std::size_t plazasPedidas);
-
-    /**
-    * @brief getPlazasPedidas
-    * @return
-    */
     std::size_t getPlazasPedidas();
 
-    template<class Archive>  // serialize things by passing them to the archive
 
     /**
-    * @brief serialize
-    * @param archive
+    * @brief Serializa con Cereal
+    * Funcion para poder serializar Owner con Cereal
     */
+    #ifdef CEREAL_CEREAL_HPP_
+    template<class Archive>  // serialize things by passing them to the archive
     void serialize(Archive &archive) {
-        /**
-        * @brief archive
-        */
         archive(cereal::make_nvp("Plazas Pedidas", plazasPedidas_),
         cereal::make_nvp("Nego", neg));
     }
+    #endif
 };
 
 #endif  // PETICION_H

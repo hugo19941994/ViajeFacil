@@ -12,10 +12,13 @@ INPUT(
 ./debug/dialogPeticiones.o
 ./debug/dialogLogin.o
 ./debug/mainWindow.o
+./debug/dialogInforme.o
+./debug/entradaHistorial.o
 ./debug/moc_dialogOficinas.o
 ./debug/moc_dialogOwner.o
 ./debug/moc_dialogNego.o
 ./debug/moc_dialogPeticiones.o
 ./debug/moc_dialogLogin.o
 ./debug/moc_mainWindow.o
+./debug/moc_dialogInforme.o
 );

@@ -25,7 +25,8 @@ int bcrypt_gensalt(int workfactor, char salt[BCRYPT_HASHSIZE]);
  * The return value is zero if the password could be hashed and nonzero
  * otherwise.
  */
-int bcrypt_hashpw(const char *passwd, const char salt[BCRYPT_HASHSIZE], char hash[BCRYPT_HASHSIZE]);
+int bcrypt_hashpw(const char *passwd, const char salt[BCRYPT_HASHSIZE],
+                  char hash[BCRYPT_HASHSIZE]);
 
 /*
  * Brief Example

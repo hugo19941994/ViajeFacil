@@ -1,9 +1,15 @@
-/*DESCRIPCION: Los owners: van a tener oficinas y negos (creado por la compañía).
- Son los que tienen oficinas que sirven de intermediario con los clientes, y gestionan
- las peticiones, les solicitan una serie de pasajes a los negos, los negos le dan unos
- billetes de avión o paquetes que los owners se encargan de responder esa petición a las oficinas.
- * AUTORES:Hugo Ferrando
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *
+ *  Los owners: van a tener oficinas y negos (creado por la compañía).
+ *  Son los que tienen oficinas que sirven de intermediario con los
+ *  clientes, y gestionan las peticiones, les solicitan una serie de
+ *  pasajes a los negos, los negos le dan unos billetes de avión
+ *  o paquetes que los owners se encargan de responder esa petición
+ *  a las oficinas.
  */
+
 #ifndef DIAGOWNER_H
 #define DIAGOWNER_H
 
@@ -16,33 +22,30 @@ class dialogOwner;
 }
 
 /**
- * @brief The dialogOwner class
+ * @brief Dialogo de Owners
  */
 class dialogOwner : public QDialog {
     Q_OBJECT
 
  public:
-    /**
-     * @brief dialogOwner
-     * @param parent
-     */
     explicit dialogOwner(QWidget *parent = 0);
 
-    ~dialogOwner();  // destructor
+    ~dialogOwner();
 
     /**
-     * @brief setOw
-     * @param own
+     * @brief Edita el Owner
+     * Edita el Owner que ha sido pasado por referencia
      */
-    void setOw(pel::vector<Owner>* own);
-
     void setOwnerAEditar(Owner &ow);
 
- private slots:
     /**
-     * @brief on_buttonBox_accepted
-     * Presionar el boton aceptar para acceder a la ventana de diagowner.cpp
+     * @brief Crea un Owner
+     * Crea un nuevo Owner y se lo devuelve a mainWindow,
+     * el cual lo mete en su vector
      */
+    Owner crear();
+
+ private slots:
     void on_buttonBox_accepted();
 
  private:
@@ -50,15 +53,7 @@ class dialogOwner : public QDialog {
 
     Owner *ownerAEditar;
 
-    /**
-     * @brief ui
-     */
     Ui::dialogOwner *ui;
-
-    /**
-     * @brief ow
-     */
-    pel::vector<Owner>* ow; //Se muestra la lista de owners en la parte (puntero) de owners
 
 };
 

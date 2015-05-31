@@ -1,72 +1,37 @@
-/*DESCRIPCION:Se definen las funciones de la ventana grafica dialogNego,
- * se muestra qué hará cada botón
-  o campo que aparezca (en la ventana gráfica).
- * AUTORES: David Jimenez, ayuda Estefania Ortego, Hugo Ferrando añade retoques
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *  @author David Jimenez
+ *  @author Estefania Ortego
+ *  Se definen las funciones de la ventana grafica dialogNego,
+ *  se muestra qué hará cada botón o campo que aparezca (en la ventana gráfica).
  */
 
-#include "./ui_dialogNego.h"  // Se guardan los datos en la ventana gráfica de dialogNego
-#include "./dialogNego.hpp"   // van a estar los datos de la cabecera de nego
+#include "./ui_dialogNego.h"
+#include "./dialogNego.hpp"
 #include "./pel_vector.hpp"
 
-/**
- * @brief dialogNego::dialogNego
- * @param parent
- * Contenido de ventana grafica nego
- */
 dialogNego::dialogNego(QWidget *parent) :
     QDialog(parent), ui(new Ui::dialogNego) {
     ui->setupUi(this);
 }
 
-/**
- * @brief dialogNego::~dialogNego
- * Destructor
- */
-dialogNego::~dialogNego() {
-    delete ui;
-}
+dialogNego::~dialogNego() { delete ui; }
 
 /**
  * @brief dialogNego::cargar
- * Funcion de cargar y tipo de contenido que tendrá dicha funcion
+ * Carga el comboBox con los Owners
  */
-void dialogNego::cargar() {
-    for (auto &it : *ow)
+void dialogNego::cargar(pel::vector<Owner>* own) {
+    for (auto &it : *own)
         ui->comboBox->addItem(it.getNombre().c_str());
 }
 
 /**
- * @brief dialogNego::setNe
- * @param neg
- * Accede al vector de negos
- */
-void dialogNego::setNe(pel::vector<std::shared_ptr<Nego>> *neg) {
-    ne = neg;  // Negos modificados
-}
-
-/**
- * @brief dialogNego::setOw
- * @param own
- * vector de owner va a ser usado en ventana de nego
- */
-void dialogNego::setOw(pel::vector<Owner> *own) {
-    ow = own; // Owners modificados
-}
-
-/**
- * @brief dialogNego::on_comboBox_currentIndexChanged
- * @param index
- */
-void dialogNego::on_comboBox_currentIndexChanged(int index) {
-    // Repasar!!!
-    Owner *own = &ow->at(index);
-    setNe(&own->getNegos());
-}
-
-/**
- * @brief dialogNego::on_buttonOkCancel_accepted
- * Al acceder a la ventana nego,presionamos sobre
- * los botones aceptar y cancelar
+ * @brief Hacer click en aceptar
+ * Si estamos editando un Nego lo modificamos. Si no significia
+ * que estamos creando un Nego nuevo, pero solo señalamos que
+ * hemos aceptado y el MainWindow se encarga de crearlo.
  */
 void dialogNego::on_buttonOkCancel_accepted() {
     if (editando) {
@@ -78,21 +43,14 @@ void dialogNego::on_buttonOkCancel_accepted() {
         fech.setMes(ui->dateEdit->date().month());
         fech.setAnio(ui->dateEdit->date().year());
         negoAEditar->setFecha(fech);
-    } else {  // se crean los negos con la lista nueva de datos
-        Nego *newN = new Nego;
-        newN->setOrigen(ui->lineOrigen->text().toStdString());
-        newN->setDestino(ui->lineDestino->text().toStdString());
-        newN->setNumeroPlazas(ui->linePlazas->text().toInt());
-        Fecha fech;
-        fech.setDia(ui->dateEdit->date().day());
-        fech.setMes(ui->dateEdit->date().month());
-        fech.setAnio(ui->dateEdit->date().year());
-        newN->setFecha(fech);
-        std::shared_ptr<Nego> ptr(newN);
-        ne->push_back(ptr);  // devuelve la lista
     }
 }
 
+/**
+ * @brief Preparar la ventana para editar
+ * Rellenamos los campos con la referencia del Owner pasada, y activamos
+ * el flag de editar.
+ */
 void dialogNego::setNegoAEditar(Nego &neg) {
     editando = true;
     negoAEditar = &neg;
@@ -107,3 +65,25 @@ void dialogNego::setNegoAEditar(Nego &neg) {
     // ui->comboBox->setItemText(ow->at(modRowOwner).getNombre().c_str());
     ui->comboBox->setEnabled(false);
 }
+
+/**
+ * @brief Crear un nuevo Nego
+ * Creamos un Nego con los campos que ha rellenado el usuario.
+ * El mainWindow se encargará de meterlo en el Vector.
+ */
+Nego dialogNego::crear() {
+    Fecha f{ui->dateEdit->date().day(),
+            ui->dateEdit->date().month(),
+            ui->dateEdit->date().year()};
+    Nego neg {ui->lineDestino->text().toStdString(),
+             ui->lineOrigen->text().toStdString(),
+             ui->linePlazas->text().toUInt(), f};
+    return neg;
+}
+
+/**
+ * @brief Devolver el Owner seleccionado
+ * Devolvemos el índice del Owner seleccionado para que el mainWindow
+ * sepa en que Vector de Owners debe meter el nuevo Nego.
+ */
+int dialogNego::nivel() { return ui->comboBox->currentIndex(); }

@@ -1,8 +1,11 @@
-/*AUTORES:  Sergio Candel, ayuda David Jimenez y Hugo Ferrando
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *  @author Sergio Candel
+ *  @author David Jimenez
+ *  se tendrá acceso a la cabecera y al cuerpo de
+ *  dialogPeticiones para usar sus datos
  */
-
-// se tendrá acceso a la cabecera y al cuerpo de
-//dialogPeticiones para usar sus datos
 
 #include <QMessageBox>
 #include "./ui_dialogPeticiones.h"
@@ -14,63 +17,15 @@ dialogPeticiones::dialogPeticiones(QWidget *parent) :
     ui->setupUi(this);
 }
 
-/**
- * @brief dialogPeticiones::~dialogPeticiones
- */
-dialogPeticiones::~dialogPeticiones() {  // destructor
-    delete ui;
-}
-
-/**
- * @brief dialogPeticiones::setOw
- * @param own
- * introducir owners, se accede al vector owners
- */
-void dialogPeticiones::setOw(pel::vector<Owner> *own) {
-    ow = own;
-}
-
-/**
- * @brief dialogPeticiones::setPe
- * @param pet
- */
-void dialogPeticiones::setPe(pel::vector<Peticion> *pet) {
-    pe = pet;
-}
+dialogPeticiones::~dialogPeticiones() { delete ui; }
 
 /**
  * @brief dialogPeticiones::cargar
  */
-void dialogPeticiones::cargar() {
-    for (auto &it : *ow)
+void dialogPeticiones::cargar(pel::vector<Owner>* own) {
+    ow = own;
+    for (auto &it : *own)
         ui->comboBox->addItem(it.getNombre().c_str());
-}
-
-void dialogPeticiones::setOf(pel::vector<Oficina>* ofi) {
-    of = ofi;
-}
-
-void dialogPeticiones::setNe(pel::vector<std::shared_ptr<Nego>>* neg) {
-    ne = neg;
-}
-
-void dialogPeticiones::on_comboBox_currentIndexChanged(int index) {
-    // Owner *own = &ow->at(index);
-    setOf(&ow->at(index).getOficinas());
-    setNe(&ow->at(index).getNegos());
-
-    ui->comboBox_2->clear();
-    for (auto &it : *of) {
-        ui->comboBox_2->addItem(it.getNombre().c_str());
-    }
-
-    ui->comboBox_3->clear();
-    for (auto &it : *ne) {
-        QString texto = it->getOrigen().c_str();
-        texto.append(" - ");
-        texto.append(it->getDestino().c_str());
-        ui->comboBox_3->addItem(texto);
-    }
 }
 
 void dialogPeticiones::setPeticionAEditar(Peticion &pet) {
@@ -81,6 +36,30 @@ void dialogPeticiones::setPeticionAEditar(Peticion &pet) {
     ui->comboBox->setEnabled(false);
     ui->comboBox_2->setEnabled(false);
     ui->comboBox_3->setEnabled(false);
+}
+
+Peticion dialogPeticiones::crear() {
+    Peticion pet {ui->lineEdit_3->text().toUInt()};
+    return pet;
+}
+
+int dialogPeticiones::nivelOw() { return ui->comboBox->currentIndex(); }
+int dialogPeticiones::nivelOf() { return ui->comboBox_2->currentIndex(); }
+int dialogPeticiones::nivelNe() { return ui->comboBox_3->currentIndex(); }
+
+void dialogPeticiones::on_comboBox_currentIndexChanged(int index) {
+        ui->comboBox_2->clear();
+        for (auto &it : ow->at(index).getOficinas()) {
+            ui->comboBox_2->addItem(it.getNombre().c_str());
+        }
+
+        ui->comboBox_3->clear();
+        for (auto &it : ow->at(index).getNegos()) {
+            QString texto = it->getOrigen().c_str();
+            texto.append(" - ");
+            texto.append(it->getDestino().c_str());
+            ui->comboBox_3->addItem(texto);
+        }
 }
 
 void dialogPeticiones::on_buttonBox_accepted() {
@@ -96,23 +75,5 @@ void dialogPeticiones::on_buttonBox_accepted() {
             peticionAEditar->neg->setNumeroPlazas(diff);
             peticionAEditar->setPlazasPedidas(ui->lineEdit_3->text().toInt());
         }
-    } else {
-        setPe(&of->at(ui->comboBox_2->currentIndex()).getPeticiones());
-        Peticion pet;
-        pet.neg = std::shared_ptr<Nego>(ne->at(ui->comboBox_3->currentIndex()));
-        pet.setPlazasPedidas(ui->lineEdit_3->text().toInt());
-
-        if (static_cast<int>(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas()) >= 0) {
-            pet.neg->setNumeroPlazas(pet.neg->getNumeroPlazas() - pet.getPlazasPedidas());
-            pe->push_back(pet);
-        } else {
-            QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
-        }
     }
-
-    this->close();
-}
-
-void dialogPeticiones::on_buttonBox_rejected() {
-    this->close();
 }

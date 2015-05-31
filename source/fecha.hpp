@@ -1,7 +1,9 @@
-/*DESCRIPCION: se crea una clase fecha que se utilizará en gran parte del programa, para mostrar fechas
- * de los pasajes disponibles.
- * AUTORES: Fernando Saavedra
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *  @author Fernando Saavedra
  */
+
 #ifndef FECHA_H
 #define FECHA_H
 
@@ -9,95 +11,40 @@
 #include "cereal/cereal.hpp"
 
 /**
- * @brief The Fecha class
+ * @brief Clase Fecha
  */
 class Fecha {
  private:
-    /**
-     * @brief dia_
-     */
-    std::size_t dia_;
-
-    /**
-     * @brief mes_
-     */
-    std::size_t mes_;
-
-    /**
-     * @brief anio_
-     */
-    int anio_;  // Anio puede ser negativo??
+    int dia_;
+    int mes_;
+    int anio_;
 
  public:
-    /**
-     * @brief Fecha
-     */
     Fecha();
-    /**
-     * @brief Fecha
-     * @param dia
-     * @param mes
-     * @param anio
-     */
-    Fecha(std::size_t dia, std::size_t mes, int anio);
+    Fecha(int dia, int mes, int anio);
+    ~Fecha();
 
-    ~Fecha(); // Destructor, se podrá reiniciar la introduccion de la fecha
-
-    /**
-     * @brief setFecha
-     * @param dia
-     * @param mes
-     * @param anio
-     */
-    void setFecha(std::size_t dia, std::size_t mes, int anio); // en fecha se eligen los valores(dia,mes,año)
-
-    /**
-     * @brief setDia
-     * @param dia
-     */
-    void setDia(std::size_t dia);
-
-    /**
-     * @brief setMes
-     * @param mes
-     */
-    void setMes(std::size_t mes);
-
-    /**
-     * @brief setAnio
-     * @param anio
-     */
+    void setFecha(int dia, int mes, int anio);
+    void setDia(int dia);
+    void setMes(int mes);
     void setAnio(int anio);
 
-    /**
-     * @brief getDia
-     * @return
-     * Se devuelven los valores elegidos por el usuario(dia, mes, año)
-     */
-    std::size_t getDia();
-
-    /**
-     * @brief getMes
-     * @return
-     */
-    std::size_t getMes();
-
-    /**
-     * @brief getAnio
-     * @return
-     */
+    int getDia();
+    int getMes();
     int getAnio();
 
     /**
-     * @brief serialize
-     * @param archive
+     * @brief Serializa con Cereal
+     * Funcion para poder serializar Fecha con Cereal
      */
-    template<class Archive>  // Serialize things by passing them to the archive
+    #ifdef CEREAL_CEREAL_HPP_
+    template<class Archive>
     void serialize(Archive & archive) {
         archive(cereal::make_nvp("Día", dia_),
         cereal::make_nvp("Mes", mes_),
         cereal::make_nvp("Año", anio_));
     }
+    #endif
 };
 
 #endif  // FECHA_H

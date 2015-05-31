@@ -1,86 +1,55 @@
-/*DESCRIPCION:  Los owners: van a tener oficinas y negos (creado por la compañía).
- Son los que tienen oficinas que sirven de intermediario con los clientes, y gestionan
- las peticiones, les solicitan una serie de pasajes a los negos, los negos le dan unos
- billetes de avión o paquetes que los owners se encargan de responder esa petición a las oficinas.
- *AUTORES: Hugo Ferrando
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *
+ *  Los owners: van a tener oficinas y negos (creado por la compañía).
+ *  Son los que tienen oficinas que sirven de intermediario con los
+ *  clientes, y gestionan las peticiones, les solicitan una serie de
+ *  pasajes a los negos, los negos le dan unos billetes de avión o paquetes
+ *  que los owners se encargan de responder esa petición a las oficinas.
  */
+
 #ifndef OWNER_H
 #define OWNER_H
 
 #include <string>
+#include "pel_vector.hpp"
 #include "./nego.hpp"
 #include "./oficina.hpp"
 #include "./cereal/types/memory.hpp"
 
 /**
- * @brief The Owner class
+ * @brief Clase Owner
  */
 class Owner {
  private:
-  /**
-   * @brief nombre_
-   */
-  std::string nombre_;
-
-  /**
-   * @brief negos_
-   */
-  pel::vector<std::shared_ptr<Nego>> negos_;
-
-  /**
-   * @brief oficinas_
-   */
-  pel::vector<Oficina> oficinas_;
+    std::string nombre_;
+    pel::vector<std::shared_ptr<Nego>> negos_;
+    pel::vector<Oficina> oficinas_;
 
  public:
-  /**
-   * @brief Owner
-   */
-  Owner();
+    Owner();
+    explicit Owner(std::string nombre);  // Entender que hace explicit mejor!
+    ~Owner();
 
-  /**
-   * @brief Owner
-   * @param nombre
-   */
-  explicit Owner(std::string nombre);  // Entender que hace explicit mejor!
+    void setNombre(std::string);
+    std::string getNombre();
 
-  ~Owner();
-  /**
-   * @brief setNombre
-   */
-  void setNombre(std::string);
+    pel::vector<std::shared_ptr<Nego>> &getNegos();
+    pel::vector<Oficina> &getOficinas();
 
-  /**
-   * @brief getNombre
-   * @return
-   */
-  std::string getNombre();
-
-  /**
-   * @brief getNegos
-   * @return
-   */
-  pel::vector<std::shared_ptr<Nego>> &getNegos();
-
-  /**
-   * @brief getOficinas
-   * @return
-   */
-  pel::vector<Oficina> &getOficinas();
-
-  template<class Archive>  // Serialize things by passing them to the archive
-  /**
-   * @brief serialize
-   * @param archive
-   */
-  void serialize(Archive &archive) {
     /**
-     * @brief archive
-     */
+    * @brief Serializa con Cereal
+    * Funcion para poder serializar Owner con Cereal
+    */
+    #ifdef CEREAL_CEREAL_HPP_
+    template<class Archive>
+    void serialize(Archive &archive) {
     archive(cereal::make_nvp("Nombre", nombre_),
         cereal::make_nvp("Negos", negos_),
         cereal::make_nvp("Oficinas", oficinas_));
-}
+    }
+    #endif
 };
 
 #endif  // OWNER_H

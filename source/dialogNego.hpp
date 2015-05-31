@@ -1,6 +1,12 @@
-/*DESCRIPCION: Los negos: una compañía crea negos, son los encargados de gestionar los paquetes
-  y billetes aéreos, que le darán a los owners y estos a las oficinas correspondientes.
- *AUTORES: David Jimenez, ayuda Estefania Ortego, Hugo Ferrando añade retoques
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ *  @author David Jimenez
+ *  @author Estefania Ortego
+ *
+ *  Los negos: una compañía crea negos, son los encargados de gestionar
+ *  los paquetes y billetes aéreos, que le darán a los owners y estos
+ *  a las oficinas correspondientes.
  */
 
 #ifndef dialogNego_H
@@ -17,78 +23,50 @@ class dialogNego;
 }
 
 /**
- * @brief The dialogNego class
- * define el tipo que va a ser la clase dialogNego
+ * @brief Dialogo de Negos
  */
 class dialogNego : public QDialog {
-    Q_OBJECT  // tipo objeto
+    Q_OBJECT
 
  public:
-    /**
-     * @brief dialogNego
-     * @param parent
-     */
     explicit dialogNego(QWidget *parent = 0);
 
-    ~dialogNego();  // Destructor
+    ~dialogNego();
 
     /**
-     * @brief setNe
-     * @param neg
-     * Imprime vector nego y escribe nego nuevo
+     * @brief Carga los comboBox
+     * Recorre el vector de Owners y rellena el comboBox
      */
-    void setNe(pel::vector<std::shared_ptr<Nego>>* neg);
+    void cargar(pel::vector<Owner>* own);
 
     /**
-     * @brief setOw
-     * @param own
-     * Imprime vector owner y escribe nuevo owner
+     * @brief Edita el Nego
+     * Edita el Nego que ha sido pasado por referencia
      */
-    void setOw(pel::vector<Owner>* own);
-
-    /**
-     * @brief cargar
-     */
-    void cargar();
-
     void setNegoAEditar(Nego &neg);
 
- private slots: // funciones cuando presionas los botones en la ventana de negos
     /**
-     * @brief on_comboBox_currentIndexChanged
-     * @param index
+     * @brief Crea un Nego
+     * Crea un nuevo Nego y se lo devuelve a mainWindow,
+     * el cual lo mete en su vector correspondiente
      */
-    void on_comboBox_currentIndexChanged(int index);
+    Nego crear();
 
     /**
-     * @brief on_buttonOkCancel_accepted
+     * @brief Owner seleccionado
+     * Devuelve el nivel del comboBox. Este nivel indica que Owner
+     * ha sido seleccionado. Se pasa al mainWindow para que sepa
+     * en que Owner tiene que insertar el Nego
      */
+    int nivel();
 
-    void on_buttonOkCancel_accepted();  // boton ok-Cancelar
+ private slots:
+    void on_buttonOkCancel_accepted();
 
  private:
     bool editando = false;
-
     Nego *negoAEditar;
-
-    /**
-     * @brief ui
-     * ventana de nego modificada
-     */
     Ui::dialogNego *ui;
-
-    /**
-     * @brief ow
-     * se modifica owner y se introducen owners en el vector
-     */
-    pel::vector<Owner> *ow;
-
-    /**
-     * @brief ne
-     * vector nego, se modifican los negos
-     */
-    pel::vector<std::shared_ptr<Nego>> *ne;
-
 };
 
 #endif  // dialogNego_H

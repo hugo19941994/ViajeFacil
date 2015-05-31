@@ -1,4 +1,7 @@
-//AUTORES: Hugo Ferrando Seage
+/**
+ *  Copyright 2015 ViajeFacil
+ *  @author Hugo Ferrando Seage
+ */
 
 #include <assert.h>
 #include <fstream>
@@ -55,8 +58,11 @@ void dialogLogin::on_buttonBox_accepted() {
         std::string cppHash(hash);
         std::ofstream myfile;
         myfile.open("../../data/usuarios.txt", std::ios_base::app);
-        myfile << ui->lineEdit_2->text().toStdString() << "\n" << cppHash << "\n";
+        myfile << ui->lineEdit_2->text().toStdString() << "\n" <<
+                  cppHash << "\n" <<
+                  (ui->checkBox->isChecked() ? "1" : "0") << '\n';
         myfile.close();
+
     } else if (estado_ == 0) {
          // estado_ 0 para comprobar el dialogLogin
          char outhash[BCRYPT_HASHSIZE];
@@ -74,11 +80,14 @@ void dialogLogin::on_buttonBox_accepted() {
 
         // Cogemos el hash que corresponda
         std::string myString;
+        std::string admin;
         while (std::getline(myfile, myString, '\n')) {
             if (myString == usuario) {
                 std::getline(myfile, myString, '\n');
+                std::getline(myfile, admin, '\n');
                 break;
             } else {
+                std::getline(myfile, myString, '\n');
                 std::getline(myfile, myString, '\n');
             }
         }

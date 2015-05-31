@@ -26,7 +26,9 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/dialogOwner.cpp \
     ../../source/dialogPeticiones.cpp \
     ../../source/dialogLogin.cpp \
-    ../../source/mainWindow.cpp
+    ../../source/mainWindow.cpp \
+    ../../source/dialogInforme.cpp \
+    ../../source/entradaHistorial.cpp
 
 HEADERS  += ../../source/fecha.hpp \
     ../../source/nego.hpp \
@@ -40,7 +42,9 @@ HEADERS  += ../../source/fecha.hpp \
     ../../source/dialogNego.hpp \
     ../../source/dialogPeticiones.hpp \
     ../../source/dialogLogin.hpp \
-    ../../source/mainWindow.hpp
+    ../../source/mainWindow.hpp \
+    ../../source/dialogInforme.hpp \
+    ../../source/entradaHistorial.hpp
 
 FORMS    += \
     ../../source/dialogOficinas.ui \
@@ -48,4 +52,5 @@ FORMS    += \
     ../../source/dialogNego.ui \
     ../../source/dialogPeticiones.ui \
     ../../source/dialogLogin.ui \
-    ../../source/mainWindow.ui
+    ../../source/mainWindow.ui \
+    ../../source/dialogInforme.ui
