@@ -1,6 +1,6 @@
 <testsuites>
-  <testsuite name="all tests" errors="0" failures="0" tests="4" hostname="tbd" time="7e-005" timestamp="tbd">
-    <testcase classname="global" name="Factorials are computed" time="0.000036"/>
+  <testsuite name="all tests" errors="0" failures="0" tests="4" hostname="tbd" time="8.8e-005" timestamp="tbd">
+    <testcase classname="global" name="Factorials are computed" time="0.000048"/>
     <system-out/>
     <system-err/>
   </testsuite>
