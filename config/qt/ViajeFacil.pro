@@ -27,7 +27,8 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/dialogLogin.cpp \
     ../../source/mainWindow.cpp \
     ../../source/dialogInforme.cpp \
-    ../../source/entradaHistorial.cpp
+    ../../source/entradaHistorial.cpp \
+    ../../source/test.cpp
 
 HEADERS  += ../../source/fecha.hpp \
     ../../source/nego.hpp \

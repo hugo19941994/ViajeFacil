@@ -13,6 +13,7 @@ INPUT(
 ./release/mainWindow.o
 ./release/dialogInforme.o
 ./release/entradaHistorial.o
+./release/test.o
 ./release/moc_dialogOficinas.o
 ./release/moc_dialogOwner.o
 ./release/moc_dialogNego.o
