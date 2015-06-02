@@ -1,6 +1,8 @@
 <testsuites>
-  <testsuite name="all tests" errors="0" failures="0" tests="4" hostname="tbd" time="0.00829" timestamp="tbd">
-    <testcase classname="global" name="Factorials are computed" time="0.008205"/>
+  <testsuite name="all tests" errors="0" failures="0" tests="9" hostname="tbd" time="0.000273" timestamp="tbd">
+    <testcase classname="global" name="Pushing ints to pelVector" time="0.000107"/>
+    <testcase classname="global" name="Pushing Owners to pelVector" time="0.000057"/>
+    <testcase classname="global" name="Crear Owner completo" time="0.000044"/>
     <system-out/>
     <system-err/>
   </testsuite>

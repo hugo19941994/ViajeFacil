@@ -13,6 +13,7 @@ INPUT(
 ./debug/mainWindow.o
 ./debug/dialogInforme.o
 ./debug/entradaHistorial.o
+./debug/test.o
 ./debug/moc_dialogOficinas.o
 ./debug/moc_dialogOwner.o
 ./debug/moc_dialogNego.o
