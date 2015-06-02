@@ -1,8 +1,8 @@
 <testsuites>
-  <testsuite name="all tests" errors="0" failures="0" tests="9" hostname="tbd" time="0.001001" timestamp="tbd">
-    <testcase classname="global" name="Pushing ints to pelVector" time="0.000845"/>
-    <testcase classname="global" name="Pushing Owners to pelVector" time="0.000054"/>
-    <testcase classname="global" name="Crear Owner completo" time="0.000042"/>
+  <testsuite name="all tests" errors="0" failures="0" tests="9" hostname="tbd" time="0.000385" timestamp="tbd">
+    <testcase classname="global" name="Pushing ints to pelVector" time="0.000144"/>
+    <testcase classname="global" name="Pushing Owners to pelVector" time="0.000046"/>
+    <testcase classname="global" name="Crear Owner completo" time="0.000128"/>
     <system-out/>
     <system-err/>
   </testsuite>
