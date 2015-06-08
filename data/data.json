@@ -9,7 +9,7 @@
                         "data": {
                             "Origen": "Madrid",
                             "Destino": "Roma",
-                            "Numero_de_Plazas": 290,
+                            "Numero_de_Plazas": 284,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
@@ -42,6 +42,54 @@
                     "Peticiones": [
                         {
                             "Plazas Pedidas": 10,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 1,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 1,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 1,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 1,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 1,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 1,
                             "Nego": {
                                 "ptr_wrapper": {
                                     "id": 1

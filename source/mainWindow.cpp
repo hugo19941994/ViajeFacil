@@ -36,6 +36,10 @@ mainWindow::mainWindow(QWidget *parent) :
         ar(listaOw);
     }
 
+    std::ifstream myPeticiones("../../data/logPeticiones.txt");
+    if(myPeticiones)
+        log.readFromFile("../../data/logPeticiones.txt");
+
     // TODO(Hugo) - comprobar que exista un usuario admin
     // Si existe un admin desactivar crear usuario
     ui->listWidget->setEnabled(false);
@@ -211,6 +215,7 @@ void mainWindow::on_actionCrePeticion_triggered() {
     }
 
     guardarEnArchivo();
+    log.writeToFile("../../data/logPeticiones.txt");
     ui->listWidget_4->clear();
 }
 
@@ -326,6 +331,7 @@ void mainWindow::on_actionModPeticion_triggered() {
                     listaOw.at(n1).getOficinas().at(n2).getPais(),
                     listaOw.at(n1).getOficinas().at(n2).getContinente()};
         log.push_back(h);
+        log.writeToFile("../../data/logPeticiones.txt");
 
     } else {
         QMessageBox::warning(this, "Warning",
@@ -368,7 +374,7 @@ void mainWindow::on_actionBorNego_triggered() {
 
         /**
          * Aprovechamos use_count del shared_ptr. Si devuelve mas de 1,
-         * significa que hay otros shared_ptr (desde peticiones)
+zxchbsdc         * significa que hay otros shared_ptr (desde peticiones)
          * apuntando a este nego.
          */
 
@@ -435,7 +441,7 @@ void mainWindow::on_actionBorPeticion_triggered() {
 
         ui->listWidget_4->clear();
         guardarEnArchivo();
-
+        log.writeToFile("../../data/logPeticiones.txt");
     } else {
         QMessageBox::warning(this, "Warning",
                              "No hay ningun Owner/Oficina/Peticion"

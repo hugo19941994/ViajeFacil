@@ -100,4 +100,5 @@ void dialogInforme::on_radioButton_clicked() {
         std::string str = crearString(hi->at(i));
         ui->textBrowser->append(str.c_str());
     }
+    std::string pepe = "../../data/logPeticiones.txt";
 }
