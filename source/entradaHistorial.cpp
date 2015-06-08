@@ -4,6 +4,8 @@
  */
 
 #include <string>
+#include <iostream>
+#include <sstream>
 #include "entradaHistorial.hpp"
 
 entradaHistorial::entradaHistorial() {}
@@ -51,4 +53,29 @@ entradaHistorial::entradaHistorial(bool c, bool mo, bool bo, std::size_t as,
     oficina = of;
     paisOficina = paOf;
     continenteOficina = coOf;
+}
+
+void entradaHistorial::writeToFile(std::ostream &f) {
+    f << creado << "\n" << modificado << "\n" << borrado << "\n"
+      << asientos << "\n" << origen << "\n" << destino << "\n"
+      << owner << "\n" << oficina << "\n" << paisOficina << "\n"
+      << continenteOficina << "\n";
+}
+
+void entradaHistorial::readFromFile(std::istream &f) {
+    std::string buffer;
+    std::getline(f, buffer);
+    creado = (buffer == "1");
+    std::getline(f, buffer);
+    modificado = (buffer == "1");
+    std::getline(f, buffer);
+    borrado = (buffer == "1");
+    std::getline(f, buffer);
+    std::istringstream(buffer) >> asientos;
+    std::getline(f, origen);
+    std::getline(f, destino);
+    std::getline(f, owner);
+    std::getline(f, oficina);
+    std::getline(f, paisOficina);
+    std::getline(f, continenteOficina);
 }

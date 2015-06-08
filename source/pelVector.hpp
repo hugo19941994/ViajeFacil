@@ -15,6 +15,10 @@
 #include <stdexcept>
 #include <utility>
 #include <algorithm>
+#include <fstream>
+#include <istream>
+#include <iostream>
+#include <sstream>
 #include "./cereal/cereal.hpp"
 
 namespace pel {
@@ -229,6 +233,32 @@ class Vector {
 
         for (std::size_t i = 0; i < sz; i++)
             ar(v_[i]);
+    }
+
+    void writeToFile(std::string fileName) {
+        std::fstream f;
+        f.open(fileName.c_str(), std::ios::out);
+
+        f << std::to_string(size()) << "\n";
+        for (std::size_t i = 0; i < size(); i++) {
+            v_[i].writeToFile(f);
+        }
+    }
+
+    void readFromFile(std::string fileName) {
+        std::fstream f;
+        f.open(fileName.c_str(), std::ios::in);
+
+        std::string buffer;
+        int cuantos;
+        std::getline(f, buffer);
+        std::istringstream (buffer) >> cuantos;
+
+        resize(cuantos);
+
+        for (std::size_t i = 0; i < size(); i++) {
+            v_[i].readFromFile(f);
+        }
     }
 };
 
