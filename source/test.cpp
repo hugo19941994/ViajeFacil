@@ -7,6 +7,7 @@
 #include "./pelVector.hpp"
 #include "./owner.hpp"
 #include "./nego.hpp"
+#include "./entradaHistorial.hpp"
 
 TEST_CASE("Pushing ints to pelVector", "[pelVector]") {
     pel::Vector<int> v;
@@ -52,4 +53,17 @@ TEST_CASE("Crear Owner completo", "[Owner]") {
                                  p1.getPlazasPedidas());
 
     REQUIRE(o1.getNegos().at(0)->getNumeroPlazas() == 10);
+}
+
+TEST_CASE("Leer/Escribir en archivo el historial", "[entradaHistorial]"){
+    entradaHistorial h1{};
+    entradaHistorial h2{};
+    h2.setOwner("pepe");
+    pel::Vector<entradaHistorial> v = {h1, h2};
+    v.writeToFile("testHistorial.txt");
+    pel::Vector<entradaHistorial> v2;
+
+    v2.readFromFile("testHistorial.txt");
+
+    REQUIRE(v2.at(1).getOwner() == "pepe");
 }
