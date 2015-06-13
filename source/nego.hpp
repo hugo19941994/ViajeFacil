@@ -56,7 +56,6 @@ class Nego {
      * @brief Serializa con Cereal
      * Funcion para poder serializar Nego con Cereal
      */
-    #ifdef CEREAL_CEREAL_HPP_
     template<class Archive>
     void serialize(Archive& archive) {
         archive(cereal::make_nvp("Origen", origen_),
@@ -64,7 +63,6 @@ class Nego {
             cereal::make_nvp("Numero_de_Plazas", numeroPlazas_),
             cereal::make_nvp("Fecha", fecha_));
     }
-    #endif
 };
 
 #endif  // NEGO_H

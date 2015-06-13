@@ -90,8 +90,8 @@ void mainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
     for (auto it : pe) {
         QString str = QString("%1 (%2 - %3)")
                 .arg(std::to_string(it.getPlazasPedidas()).c_str(),
-                     it.neg->getOrigen().c_str(),
-                     it.neg->getDestino().c_str());
+                     it.getNeg()->getOrigen().c_str(),
+                     it.getNeg()->getDestino().c_str());
         ui->listWidget_4->addItem(str);
     }
 }
@@ -192,11 +192,11 @@ void mainWindow::on_actionCrePeticion_triggered() {
         nvOw = peticiones.nivelOw();
         nvOf = peticiones.nivelOf();
         int nvNe = peticiones.nivelNe();
-        pet.neg = std::shared_ptr<Nego>(listaOw.at(nvOw).getNegos().at(nvNe));
+        pet.setNeg(std::shared_ptr<Nego>(listaOw.at(nvOw).getNegos().at(nvNe)));
 
-        if (static_cast<int>(pet.neg->getNumeroPlazas() -
+        if (static_cast<int>(pet.getNeg()->getNumeroPlazas() -
                              pet.getPlazasPedidas()) >= 0) {
-            pet.neg->setNumeroPlazas(pet.neg->getNumeroPlazas() -
+            pet.getNeg()->setNumeroPlazas(pet.getNeg()->getNumeroPlazas() -
                                      pet.getPlazasPedidas());
             listaOw.at(nvOw).getOficinas().at(nvOf)
                     .getPeticiones().push_back(pet);
@@ -206,7 +206,7 @@ void mainWindow::on_actionCrePeticion_triggered() {
         }
 
         entradaHistorial h {true, false, false, pet.getPlazasPedidas(),
-                          pet.neg->getOrigen(), pet.neg->getDestino(),
+                          pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
                           listaOw.at(nvOw).getNombre(),
                     listaOw.at(nvOw).getOficinas().at(nvOf).getNombre(),
                     listaOw.at(nvOw).getOficinas().at(nvOf).getPais(),
@@ -325,7 +325,7 @@ void mainWindow::on_actionModPeticion_triggered() {
         guardarEnArchivo();
 
         entradaHistorial h {false, true, false, pet.getPlazasPedidas(),
-                          pet.neg->getOrigen(), pet.neg->getDestino(),
+                          pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
                           listaOw.at(n1).getNombre(),
                     listaOw.at(n1).getOficinas().at(n2).getNombre(),
                     listaOw.at(n1).getOficinas().at(n2).getPais(),
@@ -401,7 +401,7 @@ void mainWindow::on_actionBorOficina_triggered() {
         int curRow = ui->listWidget_3->currentRow();
 
         for (auto &it : listaOficinas.at(curRow).getPeticiones())
-            it.neg->devolverPlazas(it.getPlazasPedidas());
+            it.getNeg()->devolverPlazas(it.getPlazasPedidas());
 
         listaOficinas.erase(listaOficinas.begin() + curRow);
 
@@ -427,7 +427,7 @@ void mainWindow::on_actionBorPeticion_triggered() {
         Peticion pet = listPet.at(curRow);
 
         entradaHistorial h {false, false, true, pet.getPlazasPedidas(),
-                          pet.neg->getOrigen(), pet.neg->getDestino(),
+                          pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
                           listaOw.at(curOw).getNombre(),
                     listaOw.at(curOw).getOficinas().at(curOf).getNombre(),
                     listaOw.at(curOw).getOficinas().at(curOf).getPais(),
@@ -435,7 +435,7 @@ void mainWindow::on_actionBorPeticion_triggered() {
         log.push_back(h);
 
         // Si borras peticion devolvemos las plazas al nego
-        pet.neg->devolverPlazas(pet.getPlazasPedidas());
+        pet.getNeg()->devolverPlazas(pet.getPlazasPedidas());
 
         listPet.erase(listPet.begin() + curRow);
 
@@ -556,22 +556,20 @@ void mainWindow::cambiarUsuario(std::string nombre) {
     }
 }
 
-void mainWindow::on_listWidget_4_currentRowChanged(int currentRow) {
-    QColor green("green");
-    QColor white("white");
-    for (int i = 0; i < ui->listWidget_4->count(); ++i) {
-        if (i == currentRow)
-            ui->listWidget_4->item(i)->setBackgroundColor(green);
-        else
-            ui->listWidget_4->item(i)->setBackgroundColor(white);
-    }
-    // TODO(Hugo) - cambiar el color del Nego que corresponda
-}
-
 void mainWindow::on_actionLog_de_Peticiones_triggered() {
     dialogInforme di;
     di.setModal(true);
     di.cargar(&listaOw);
     di.cargarH(&log);
+    di.setRadio(0);
+    di.exec();
+}
+
+void mainWindow::on_actionInforme_Owners_que_mejor_consumen_Negos_triggered() {
+    dialogInforme di;
+    di.setModal(true);
+    di.cargar(&listaOw);
+    di.cargarH(&log);
+    di.setRadio(1);
     di.exec();
 }

@@ -54,14 +54,15 @@ class mainWindow : public QMainWindow {
 
     void on_listWidget_pressed(const QModelIndex &index);
     void on_listWidget_3_pressed(const QModelIndex &index);
-    void on_listWidget_4_currentRowChanged(int currentRow);
 
     void on_pushButton_2_clicked();
     void cambiarUsuario(std::string nombre);
     void guardarEnArchivo();
     void on_actionLog_de_Peticiones_triggered();
 
- private:
+    void on_actionInforme_Owners_que_mejor_consumen_Negos_triggered();
+
+private:
     Ui::mainWindow *ui;
 
     /**

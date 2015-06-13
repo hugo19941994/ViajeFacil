@@ -38,7 +38,6 @@ class Oficina {
   std::string getContinente();
   pel::Vector<Peticion> &getPeticiones();
 
-  #ifdef CEREAL_CEREAL_HPP_
   template<class Archive>
   void serialize(Archive &archive) {
       archive(cereal::make_nvp("Nombre", nombre_),
@@ -46,7 +45,6 @@ class Oficina {
         cereal::make_nvp("Continente", continente_),
         cereal::make_nvp("Peticiones", peticiones_));
     }
-    #endif
 };
 
 #endif  // OFICINA_H

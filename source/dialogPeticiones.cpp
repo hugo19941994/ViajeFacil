@@ -64,14 +64,14 @@ void dialogPeticiones::on_comboBox_currentIndexChanged(int index) {
 void dialogPeticiones::on_buttonBox_accepted() {
     if (editando) {
         std::size_t plazasActuales =
-                peticionAEditar->neg->getNumeroPlazas();
+                peticionAEditar->getNeg()->getNumeroPlazas();
         std::size_t plazasTotales =
                 plazasActuales + peticionAEditar->getPlazasPedidas();
         int diff = plazasTotales - ui->lineEdit_3->text().toInt();
         if (diff < 0) {
             QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
         } else {
-            peticionAEditar->neg->setNumeroPlazas(diff);
+            peticionAEditar->getNeg()->setNumeroPlazas(diff);
             peticionAEditar->setPlazasPedidas(ui->lineEdit_3->text().toInt());
         }
     }

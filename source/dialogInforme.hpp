@@ -33,7 +33,8 @@ class dialogInforme : public QDialog {
     void quickSort(rank arr[], int left, int right);
     std::string crearString(entradaHistorial h);
 
- private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
+    void setRadio(int opcion);
+private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_radioButton_5_clicked();
 
     void on_radioButton_clicked();

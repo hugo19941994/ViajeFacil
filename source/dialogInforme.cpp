@@ -102,3 +102,14 @@ void dialogInforme::on_radioButton_clicked() {
     }
     std::string pepe = "../../data/logPeticiones.txt";
 }
+
+void dialogInforme::setRadio(int opcion) {
+    if (opcion == 0){
+        ui->radioButton->setChecked(true);
+        on_radioButton_clicked();
+    }
+    else {
+        ui->radioButton_5->setChecked(true);
+        on_radioButton_5_clicked();
+    }
+}

@@ -180,9 +180,6 @@
      <string>Consultas</string>
     </property>
     <addaction name="actionLog_de_Peticiones"/>
-    <addaction name="actionInforme_Solicitud_por_Oficina"/>
-    <addaction name="actionInforme_Solicitud_por_Pais"/>
-    <addaction name="actionInforme_Solicitud_por_Continente"/>
     <addaction name="actionInforme_Owners_que_mejor_consumen_Negos"/>
    </widget>
    <addaction name="menuCrear"/>

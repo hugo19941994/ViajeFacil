@@ -8,6 +8,16 @@
 #include "./peticion.hpp"
 #include "./fecha.hpp"
 
+
+std::shared_ptr<Nego> Peticion::getNeg() const
+{
+    return neg;
+}
+
+void Peticion::setNeg(const std::shared_ptr<Nego> &value)
+{
+    neg = value;
+}
 Peticion::Peticion()
     : plazasPedidas_(0) {}
 

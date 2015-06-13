@@ -42,14 +42,12 @@ class Owner {
     * @brief Serializa con Cereal
     * Funcion para poder serializar Owner con Cereal
     */
-    #ifdef CEREAL_CEREAL_HPP_
     template<class Archive>
     void serialize(Archive &archive) {
     archive(cereal::make_nvp("Nombre", nombre_),
         cereal::make_nvp("Negos", negos_),
         cereal::make_nvp("Oficinas", oficinas_));
     }
-    #endif
 };
 
 #endif  // OWNER_H

@@ -19,10 +19,10 @@
  */
 class Peticion {
  private:
-  std::size_t plazasPedidas_;
+    std::size_t plazasPedidas_;
+    std::shared_ptr<Nego> neg;
 
  public:
-    std::shared_ptr<Nego> neg;  // PONERLO EN PRIVATE
     Peticion();
     explicit Peticion(std::size_t plazasPedidas);
     ~Peticion();
@@ -33,13 +33,13 @@ class Peticion {
     * @brief Serializa con Cereal
     * Funcion para poder serializar Owner con Cereal
     */
-    #ifdef CEREAL_CEREAL_HPP_
     template<class Archive>  // serialize things by passing them to the archive
     void serialize(Archive &archive) {
         archive(cereal::make_nvp("Plazas Pedidas", plazasPedidas_),
         cereal::make_nvp("Nego", neg));
     }
-    #endif
+    std::shared_ptr<Nego> getNeg() const;
+    void setNeg(const std::shared_ptr<Nego> &value);
 };
 
 #endif  // PETICION_H
