@@ -1,0 +1,10 @@
+<testsuites>
+  <testsuite name="all tests" errors="0" failures="0" tests="10" hostname="tbd" time="0.000728" timestamp="tbd">
+    <testcase classname="global" name="Pushing ints to pelVector" time="0.000036"/>
+    <testcase classname="global" name="Pushing Owners to pelVector" time="0.000034"/>
+    <testcase classname="global" name="Crear Owner completo" time="0.000017"/>
+    <testcase classname="global" name="Leer/Escribir en archivo el historial" time="0.000565"/>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+</testsuites>

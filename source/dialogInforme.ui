@@ -26,14 +26,14 @@
          <item>
           <widget class="QRadioButton" name="radioButton">
            <property name="text">
-            <string>Log de Peticiones</string>
+            <string>&amp;Log de Peticiones</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QRadioButton" name="radioButton_5">
            <property name="text">
-            <string>Informe de Owners que mejor consumen Negos</string>
+            <string>&amp;Informe de Owners que mejor consumen Negos</string>
            </property>
           </widget>
          </item>
