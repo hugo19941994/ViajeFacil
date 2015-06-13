@@ -29,6 +29,7 @@ class Peticion {
     void setPlazasPedidas(std::size_t plazasPedidas);
     std::size_t getPlazasPedidas();
 
+    #ifdef CEREAL_CEREAL_HPP_
     /**
     * @brief Serializa con Cereal
     * Funcion para poder serializar Owner con Cereal
@@ -38,6 +39,7 @@ class Peticion {
         archive(cereal::make_nvp("Plazas Pedidas", plazasPedidas_),
         cereal::make_nvp("Nego", neg));
     }
+    #endif
     std::shared_ptr<Nego> getNeg() const;
     void setNeg(const std::shared_ptr<Nego> &value);
 };

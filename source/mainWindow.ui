@@ -155,6 +155,7 @@
     <addaction name="actionCreNego"/>
     <addaction name="actionCreOficina"/>
     <addaction name="actionCrePeticion"/>
+    <addaction name="separator"/>
     <addaction name="actionCreUsuario"/>
    </widget>
    <widget class="QMenu" name="menuBorrar">
@@ -256,21 +257,6 @@
   <action name="actionLog_de_Peticiones">
    <property name="text">
     <string>Log de Peticiones</string>
-   </property>
-  </action>
-  <action name="actionInforme_Solicitud_por_Oficina">
-   <property name="text">
-    <string>Informe - Solicitud por Oficina</string>
-   </property>
-  </action>
-  <action name="actionInforme_Solicitud_por_Pais">
-   <property name="text">
-    <string>Informe - Solicitud por Pais</string>
-   </property>
-  </action>
-  <action name="actionInforme_Solicitud_por_Continente">
-   <property name="text">
-    <string>Informe - Solicitud por Continente</string>
    </property>
   </action>
   <action name="actionInforme_Owners_que_mejor_consumen_Negos">

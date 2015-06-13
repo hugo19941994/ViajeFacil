@@ -62,7 +62,7 @@ class mainWindow : public QMainWindow {
 
     void on_actionInforme_Owners_que_mejor_consumen_Negos_triggered();
 
-private:
+ private:
     Ui::mainWindow *ui;
 
     /**

@@ -11,6 +11,7 @@
 #define PEL_Vector_HPP_INCLUDED
 
 #include <cstddef>
+#include <string>
 #include <initializer_list>
 #include <stdexcept>
 #include <utility>
@@ -241,7 +242,7 @@ class Vector {
 
         f << std::to_string(size()) << "\n";
         for (std::size_t i = 0; i < size(); i++) {
-            v_[i].writeToFile(f);
+            v_[i].writeToFile(&f);
         }
     }
 
@@ -252,12 +253,12 @@ class Vector {
         std::string buffer;
         int cuantos;
         std::getline(f, buffer);
-        std::istringstream (buffer) >> cuantos;
+        std::istringstream(buffer) >> cuantos;
 
         resize(cuantos);
 
         for (std::size_t i = 0; i < size(); i++) {
-            v_[i].readFromFile(f);
+            v_[i].readFromFile(&f);
         }
     }
 };

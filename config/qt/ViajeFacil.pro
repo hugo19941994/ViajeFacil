@@ -28,7 +28,8 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/mainWindow.cpp \
     ../../source/dialogInforme.cpp \
     ../../source/entradaHistorial.cpp \
-    ../../source/test.cpp
+    ../../source/test.cpp \
+    ../../source/bcrypt.cpp
 
 HEADERS  += ../../source/fecha.hpp \
     ../../source/nego.hpp \
@@ -43,7 +44,8 @@ HEADERS  += ../../source/fecha.hpp \
     ../../source/mainWindow.hpp \
     ../../source/dialogInforme.hpp \
     ../../source/entradaHistorial.hpp \
-    ../../source/pelVector.hpp
+    ../../source/pelVector.hpp \
+    ../../source/bcrypt.h
 
 FORMS    += ../../source/dialogOficinas.ui \
     ../../source/dialogOwner.ui \

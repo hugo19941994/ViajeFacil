@@ -52,6 +52,7 @@ class Nego {
      */
     void devolverPlazas(std::size_t asientos);
 
+    #ifdef CEREAL_CEREAL_HPP_
     /**
      * @brief Serializa con Cereal
      * Funcion para poder serializar Nego con Cereal
@@ -63,6 +64,7 @@ class Nego {
             cereal::make_nvp("Numero_de_Plazas", numeroPlazas_),
             cereal::make_nvp("Fecha", fecha_));
     }
+    #endif
 };
 
 #endif  // NEGO_H

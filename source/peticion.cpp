@@ -9,13 +9,11 @@
 #include "./fecha.hpp"
 
 
-std::shared_ptr<Nego> Peticion::getNeg() const
-{
+std::shared_ptr<Nego> Peticion::getNeg() const {
     return neg;
 }
 
-void Peticion::setNeg(const std::shared_ptr<Nego> &value)
-{
+void Peticion::setNeg(const std::shared_ptr<Nego> &value) {
     neg = value;
 }
 Peticion::Peticion()

@@ -43,19 +43,19 @@ TEST_CASE("Crear Owner completo", "[Owner]") {
     Oficina of1 {};
     o1.getOficinas().push_back(of1);
     Peticion p1{};
-    p1.neg = std::shared_ptr<Nego>(o1.getNegos().at(0));
+    p1.setNeg(std::shared_ptr<Nego>(o1.getNegos().at(0)));
     p1.setPlazasPedidas(10);
     o1.getOficinas().at(0).getPeticiones().push_back(p1);
 
-    if (static_cast<int>(p1.neg->getNumeroPlazas() -
+    if (static_cast<int>(p1.getNeg()->getNumeroPlazas() -
                          p1.getPlazasPedidas()) >= 0)
-        p1.neg->setNumeroPlazas(p1.neg->getNumeroPlazas() -
+        p1.getNeg()->setNumeroPlazas(p1.getNeg()->getNumeroPlazas() -
                                  p1.getPlazasPedidas());
 
     REQUIRE(o1.getNegos().at(0)->getNumeroPlazas() == 10);
 }
 
-TEST_CASE("Leer/Escribir en archivo el historial", "[entradaHistorial]"){
+TEST_CASE("Leer/Escribir en archivo el historial", "[entradaHistorial]") {
     entradaHistorial h1{};
     entradaHistorial h2{};
     h2.setOwner("pepe");

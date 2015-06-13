@@ -38,6 +38,7 @@ class Owner {
     pel::Vector<std::shared_ptr<Nego>> &getNegos();
     pel::Vector<Oficina> &getOficinas();
 
+    #ifdef CEREAL_CEREAL_HPP_
     /**
     * @brief Serializa con Cereal
     * Funcion para poder serializar Owner con Cereal
@@ -48,6 +49,7 @@ class Owner {
         cereal::make_nvp("Negos", negos_),
         cereal::make_nvp("Oficinas", oficinas_));
     }
+    #endif
 };
 
 #endif  // OWNER_H

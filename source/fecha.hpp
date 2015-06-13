@@ -33,11 +33,11 @@ class Fecha {
     int getMes();
     int getAnio();
 
+    #ifdef CEREAL_CEREAL_HPP_
     /**
      * @brief Serializa con Cereal
      * Funcion para poder serializar Fecha con Cereal
      */
-    #ifdef CEREAL_CEREAL_HPP_
     template<class Archive>
     void serialize(Archive & archive) {
         archive(cereal::make_nvp("Día", dia_),

@@ -37,7 +37,7 @@ mainWindow::mainWindow(QWidget *parent) :
     }
 
     std::ifstream myPeticiones("../../data/logPeticiones.txt");
-    if(myPeticiones)
+    if (myPeticiones)
         log.readFromFile("../../data/logPeticiones.txt");
 
     // TODO(Hugo) - comprobar que exista un usuario admin
