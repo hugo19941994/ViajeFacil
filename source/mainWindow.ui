@@ -201,7 +201,7 @@
   </action>
   <action name="actionCrePeticion">
    <property name="text">
-    <string>&amp;Peticion</string>
+    <string>&amp;Petición</string>
    </property>
   </action>
   <action name="actionCreOwner">
@@ -226,7 +226,7 @@
   </action>
   <action name="actionBorPeticion">
    <property name="text">
-    <string>&amp;Peticion</string>
+    <string>&amp;Petición</string>
    </property>
   </action>
   <action name="actionModOwner">
@@ -246,7 +246,7 @@
   </action>
   <action name="actionModPeticion">
    <property name="text">
-    <string>&amp;Peticion</string>
+    <string>&amp;Petición</string>
    </property>
   </action>
   <action name="actionCreUsuario">
