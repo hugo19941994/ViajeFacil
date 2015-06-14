@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ui',['Ui',['../namespaceUi.html',1,'']]]
+  ['rank',['rank',['../structrank.html',1,'']]]
 ];

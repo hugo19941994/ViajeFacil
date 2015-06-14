@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['peticion',['Peticion',['../classPeticion.html',1,'']]]
+  ['oficina',['Oficina',['../classOficina.html',1,'']]],
+  ['owner',['Owner',['../classOwner.html',1,'']]]
 ];

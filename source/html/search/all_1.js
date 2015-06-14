@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['devolverplazas',['devolverPlazas',['../classNego.html#a71fa32b835311709d11e0969bef4ee35',1,'Nego']]],
-  ['dialoginforme',['dialogInforme',['../classdialogInforme.html',1,'dialogInforme'],['../classdialogInforme.html#a8e040dbe734fc208c6ed0d1dc3c60eab',1,'dialogInforme::dialogInforme()']]],
-  ['dialoglogin',['dialogLogin',['../classdialogLogin.html',1,'dialogLogin'],['../classdialogLogin.html#ac2042e079622fb065430200ddba838f1',1,'dialogLogin::dialogLogin()']]],
-  ['dialognego',['dialogNego',['../classdialogNego.html',1,'dialogNego'],['../classdialogNego.html#ab093ca8a15c030021d87c540bc5d4da1',1,'dialogNego::dialogNego()']]],
-  ['dialogoficinas',['dialogOficinas',['../classdialogOficinas.html',1,'dialogOficinas'],['../classdialogOficinas.html#a38eadc87eb5381d6447af6b54d73bf53',1,'dialogOficinas::dialogOficinas()']]],
-  ['dialogowner',['dialogOwner',['../classdialogOwner.html',1,'dialogOwner'],['../classdialogOwner.html#a6d4b17329380be5d0a7aa71452e4e0a0',1,'dialogOwner::dialogOwner()']]],
-  ['dialogpeticiones',['dialogPeticiones',['../classdialogPeticiones.html',1,'dialogPeticiones'],['../classdialogPeticiones.html#a98d94817a71b0f17a67e4d50e26b0703',1,'dialogPeticiones::dialogPeticiones()']]]
+  ['cambiodeusuario',['cambioDeUsuario',['../classdialogLogin.html#a051d47d5652799fb46105756e30d60a4',1,'dialogLogin']]],
+  ['cargar',['cargar',['../classdialogNego.html#a6d97c6b5dcaa5ce2dc283ef4c1514257',1,'dialogNego::cargar()'],['../classdialogOficinas.html#a0c288a8d061c6166813655108f58201f',1,'dialogOficinas::cargar()'],['../classdialogPeticiones.html#a463f39b52633828f8b8d7047f2770add',1,'dialogPeticiones::cargar()']]],
+  ['crear',['crear',['../classdialogNego.html#a525e03d9c16ab7fd99c0bb2476a89b85',1,'dialogNego::crear()'],['../classdialogOficinas.html#af32d29c6889afddbcd1a89543fccf666',1,'dialogOficinas::crear()'],['../classdialogOwner.html#a1f9fbf03fba92f6133f7e419c34ad23f',1,'dialogOwner::crear()']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['nego',['Nego',['../classNego.html#af997efc08cdc4e0fc654e6294ac4b08b',1,'Nego']]],
-  ['nivel',['nivel',['../classdialogNego.html#a3286fa0d71e65d2b7863d9c32a4787f3',1,'dialogNego::nivel()'],['../classdialogOficinas.html#a46996aad61f5441f20c94012a864d277',1,'dialogOficinas::nivel()']]]
+  ['mainwindow',['mainWindow',['../classmainWindow.html#a2c09a8baf94af0cc5109fcf2ef97b12a',1,'mainWindow']]]
 ];

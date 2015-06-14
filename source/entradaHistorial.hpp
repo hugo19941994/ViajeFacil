@@ -48,8 +48,8 @@ class entradaHistorial {
     std::string getOwner() const;
     void setOwner(const std::string &value);
 
-    void writeToFile(std::ostream &f);
-    void readFromFile(std::istream &f);
+    void writeToFile(std::ostream *f);
+    void readFromFile(std::istream *f);
 };
 
 #endif  // ENTRADAHISTORIAL_H

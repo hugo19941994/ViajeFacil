@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow',['mainWindow',['../classmainWindow.html#a2c09a8baf94af0cc5109fcf2ef97b12a',1,'mainWindow']]]
+  ['getneg',['getNeg',['../classPeticion.html#a09a935e534f00ff9d3fb11cfd810e189',1,'Peticion']]]
 ];

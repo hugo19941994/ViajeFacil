@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rank',['rank',['../structrank.html',1,'']]]
+  ['peticion',['Peticion',['../classPeticion.html',1,'']]]
 ];

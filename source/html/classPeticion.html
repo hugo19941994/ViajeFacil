@@ -85,7 +85,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classPeticion-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Peticion Class Reference</div>  </div>
@@ -99,8 +98,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a04b4090032ff49bcbf965bdd2af9ae90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeticion.html#a04b4090032ff49bcbf965bdd2af9ae90">Peticion</a> ()</td></tr>
-<tr class="separator:a04b4090032ff49bcbf965bdd2af9ae90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adca26c8f1c41bc14c69cad5ac7713e3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adca26c8f1c41bc14c69cad5ac7713e3c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Peticion</b> (std::size_t plazasPedidas)</td></tr>
 <tr class="separator:adca26c8f1c41bc14c69cad5ac7713e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,38 +107,37 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setPlazasPedidas</b> 
 <tr class="memitem:a58a129027db952f86676a721c7acc6c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58a129027db952f86676a721c7acc6c4"></a>
 std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPlazasPedidas</b> ()</td></tr>
 <tr class="separator:a58a129027db952f86676a721c7acc6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ac38e3db0706f2889ccd473a7af22d4ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac38e3db0706f2889ccd473a7af22d4ec"></a>
-std::shared_ptr&lt; <a class="el" href="classNego.html">Nego</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>neg</b></td></tr>
-<tr class="separator:ac38e3db0706f2889ccd473a7af22d4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a935e534f00ff9d3fb11cfd810e189"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classNego.html">Nego</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeticion.html#a09a935e534f00ff9d3fb11cfd810e189">getNeg</a> () const </td></tr>
+<tr class="separator:a09a935e534f00ff9d3fb11cfd810e189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58b976cd1ce63f7c9602b5940872c4b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58b976cd1ce63f7c9602b5940872c4b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNeg</b> (const std::shared_ptr&lt; <a class="el" href="classNego.html">Nego</a> &gt; &amp;value)</td></tr>
+<tr class="separator:a58b976cd1ce63f7c9602b5940872c4b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classPeticion.html" title="The Peticion class. ">Peticion</a> class. </p>
 <p>Copyright 2015 ViajeFacil </p><dl class="section author"><dt>Author</dt><dd>Hugo Ferrando Seage </dd>
 <dd>
-David Jimenez </dd>
+David Jimenez Cuevas </dd>
 <dd>
-Serigo Cander las peticiones son elaboradas por todas las partes de este proyecto, es decir, cada acción que se realice va a ser una petición que se quedará guardada en esta clase "peticiones" </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a04b4090032ff49bcbf965bdd2af9ae90"></a>
+Serigo Candel las peticiones son elaboradas por todas las partes de este proyecto, es decir, cada acción que se realice va a ser una petición que se quedará guardada en esta clase "peticiones" </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a09a935e534f00ff9d3fb11cfd810e189"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Peticion::Peticion </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classNego.html">Nego</a> &gt; Peticion::getNeg </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Copyright 2015 ViajeFacil </p><dl class="section author"><dt>Author</dt><dd>Hugo Ferrando Seage </dd>
 <dd>
-David Jimenez </dd>
+David Jimenez Cuevas </dd>
 <dd>
-Serigo Cander </dd></dl>
+Serigo Candel </dd></dl>
 
 </div>
 </div>
@@ -152,7 +148,7 @@ Serigo Cander </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 9 2015 03:45:37 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 14 2015 02:17:51 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

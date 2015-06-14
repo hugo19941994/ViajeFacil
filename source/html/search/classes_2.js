@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fecha',['Fecha',['../classFecha.html',1,'']]]
+  ['entradahistorial',['entradaHistorial',['../classentradaHistorial.html',1,'']]]
 ];

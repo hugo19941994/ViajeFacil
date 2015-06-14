@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Estefania Ortego
- *  @author Guillermo Gonzalez
+ *  @author Guillermo González Moreno
  *  @author Hugo Ferrando Seage
  *
  *  Las oficinas: se encargan de intermediar con los clientes, recaudar dinero,
@@ -46,7 +46,7 @@ class Oficina {
         cereal::make_nvp("Continente", continente_),
         cereal::make_nvp("Peticiones", peticiones_));
     }
-    #endif
+  #endif
 };
 
 #endif  // OFICINA_H

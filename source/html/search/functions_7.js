@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['peticion',['Peticion',['../classPeticion.html#a04b4090032ff49bcbf965bdd2af9ae90',1,'Peticion']]]
+  ['oficina',['Oficina',['../classOficina.html#adfc639739930fedda32e7790583f2342',1,'Oficina']]],
+  ['owner',['Owner',['../classOwner.html#ab9186e9839a04fe48baad103cc1d0ddb',1,'Owner']]]
 ];

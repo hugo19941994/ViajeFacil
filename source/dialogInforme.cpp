@@ -52,8 +52,10 @@ void dialogInforme::on_radioButton_5_clicked() {
     for (std::size_t i = 0; i < ow->size(); ++i) {
         ranks[i].name = ow->at(i).getNombre();
         for (std::size_t j = 0; j < ow->at(i).getOficinas().size(); ++j) {
-            for (std::size_t k = 0; k < ow->at(i).getOficinas().at(j).getPeticiones().size(); ++k) {
-                ranks[i].num += ow->at(i).getOficinas().at(j).getPeticiones().at(k).getPlazasPedidas();
+            for (std::size_t k = 0; k < ow->at(i)
+            .getOficinas().at(j).getPeticiones().size(); ++k) {
+                ranks[i].num += ow->at(i)
+                .getOficinas().at(j).getPeticiones().at(k).getPlazasPedidas();
             }
         }
     }
@@ -101,4 +103,14 @@ void dialogInforme::on_radioButton_clicked() {
         ui->textBrowser->append(str.c_str());
     }
     std::string pepe = "../../data/logPeticiones.txt";
+}
+
+void dialogInforme::setRadio(int opcion) {
+    if (opcion == 0) {
+        ui->radioButton->setChecked(true);
+        on_radioButton_clicked();
+    } else {
+        ui->radioButton_5->setChecked(true);
+        on_radioButton_5_clicked();
+    }
 }

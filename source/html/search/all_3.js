@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fecha',['Fecha',['../classFecha.html',1,'Fecha'],['../classFecha.html#a5fbc6564d9c48e73cf8d27568a2a7fc5',1,'Fecha::Fecha()']]]
+  ['entradahistorial',['entradaHistorial',['../classentradaHistorial.html',1,'entradaHistorial'],['../classentradaHistorial.html#a899faea9865c1a89fe24306ce634c646',1,'entradaHistorial::entradaHistorial()']]]
 ];

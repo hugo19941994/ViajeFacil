@@ -3,12 +3,12 @@
  *  @author Hugo Ferrando Seage
  */
 
+#include <QMessageBox>
 #include <assert.h>
 #include <fstream>
 #include <string>
 #include "./ui_dialogLogin.h"
-#include "./bcrypt/bcrypt.h"
-#include "./include/bcrypt/bcrypt.cpp"  // TODO(Hugo) - quitar
+#include "./bcrypt.h"
 #include "./dialogLogin.hpp"
 
 /**
@@ -18,6 +18,7 @@
 dialogLogin::dialogLogin(QWidget *parent) :
     QDialog(parent), ui(new Ui::dialogLogin) {
       ui->setupUi(this);
+      ui->checkBox->hide();  // Funcionalidad de administrador no finalizada
 }
 
 dialogLogin::~dialogLogin() {
@@ -89,6 +90,9 @@ void dialogLogin::on_buttonBox_accepted() {
         // Poner en mainWindow el usuario
         if (strcmp(myStringC, outhash) == 0) {
             emit cambioDeUsuario(usuario);
+        } else {
+            QMessageBox::warning(this, "Warning",
+                                 "Usuario no encontrado");
         }
     }
 }

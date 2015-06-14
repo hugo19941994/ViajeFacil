@@ -1,8 +1,8 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
- *  @author Estefania ortego
+ *  @author David Jimenez Cuevas
+ *  @author Estefanía Ortego García
  *
  *  Los negos: una compañía crea negos, son los encargados de gestionar
  *  los paquetes y billetes aéreos, que le darán a los owners y estos
@@ -52,11 +52,11 @@ class Nego {
      */
     void devolverPlazas(std::size_t asientos);
 
+    #ifdef CEREAL_CEREAL_HPP_
     /**
      * @brief Serializa con Cereal
      * Funcion para poder serializar Nego con Cereal
      */
-    #ifdef CEREAL_CEREAL_HPP_
     template<class Archive>
     void serialize(Archive& archive) {
         archive(cereal::make_nvp("Origen", origen_),

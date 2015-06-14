@@ -17,19 +17,6 @@
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QComboBox" name="comboBox"/>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBox_2"/>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBox_3"/>
-       </item>
-      </layout>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QTextBrowser" name="textBrowser"/>
@@ -39,35 +26,14 @@
          <item>
           <widget class="QRadioButton" name="radioButton">
            <property name="text">
-            <string>Log de Peticiones</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_2">
-           <property name="text">
-            <string>Informe Por Oficina</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_3">
-           <property name="text">
-            <string>Informe Por Pais</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="radioButton_4">
-           <property name="text">
-            <string>Informe Por Continente</string>
+            <string>&amp;Log de Peticiones</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QRadioButton" name="radioButton_5">
            <property name="text">
-            <string>Informe de Owners que mejor consumen Negos</string>
+            <string>&amp;Informe de Owners que mejor consumen Negos</string>
            </property>
           </widget>
          </item>
