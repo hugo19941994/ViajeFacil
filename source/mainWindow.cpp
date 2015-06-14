@@ -168,13 +168,10 @@ void mainWindow::on_actionCrePeticion_triggered() {
     peticiones.setModal(true);
 
     if (peticiones.exec() == QDialog::Accepted) {
-        int nvOw = 0;
-        int nvOf = 0;
-
         Peticion pet = peticiones.crear();
 
-        nvOw = peticiones.nivelOw();
-        nvOf = peticiones.nivelOf();
+        int nvOw = peticiones.nivelOw();
+        int nvOf = peticiones.nivelOf();
         int nvNe = peticiones.nivelNe();
         pet.setNeg(std::shared_ptr<Nego>(listaOw.at(nvOw).getNegos().at(nvNe)));
 
@@ -202,16 +199,14 @@ void mainWindow::on_actionCrePeticion_triggered() {
             ui->listWidget->setCurrentRow(nvOw);
             ui->listWidget->itemPressed(ui->listWidget->item(nvOw));
 
-            ui->listWidget_3->setCurrentRow(
-                listaOw.at(nvOw).getOficinas().size()-1);
-            ui->listWidget_3->itemPressed(
-                ui->listWidget->item(listaOw.at(nvOw).getOficinas().size()-1));
+            ui->listWidget_3->setCurrentRow(nvOf);
+            ui->listWidget_3->itemPressed(ui->listWidget_3->item(nvOf));
 
             ui->listWidget_4->setCurrentRow(
                 listaOw.at(nvOw).getOficinas().at(
                     nvOf).getPeticiones().size()-1);
             ui->listWidget_4->itemPressed(
-                ui->listWidget->item(listaOw.at(nvOw).getOficinas().at(
+                ui->listWidget_4->item(listaOw.at(nvOw).getOficinas().at(
                     nvOf).getPeticiones().size()-1));
         } else {
             QMessageBox::warning(this, "Warning",
@@ -271,7 +266,7 @@ void mainWindow::on_actionModNego_triggered() {
         ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
 
         ui->listWidget_2->setCurrentRow(posicionNeg);
-        ui->listWidget_2->itemPressed(ui->listWidget->item(posicionNeg));
+        ui->listWidget_2->itemPressed(ui->listWidget_2->item(posicionNeg));
 
         guardarEnArchivo();
     } else {
@@ -297,7 +292,7 @@ void mainWindow::on_actionModOficina_triggered() {
         ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
 
         ui->listWidget_3->setCurrentRow(posicionOf);
-        ui->listWidget_3->itemPressed(ui->listWidget->item(posicionOf));
+        ui->listWidget_3->itemPressed(ui->listWidget_3->item(posicionOf));
 
         guardarEnArchivo();
     } else {
@@ -327,10 +322,10 @@ void mainWindow::on_actionModPeticion_triggered() {
         ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
 
         ui->listWidget_3->setCurrentRow(posicionOf);
-        ui->listWidget_3->itemPressed(ui->listWidget->item(posicionOf));
+        ui->listWidget_3->itemPressed(ui->listWidget_3->item(posicionOf));
 
         ui->listWidget_4->setCurrentRow(posicionPe);
-        ui->listWidget_4->itemPressed(ui->listWidget->item(posicionPe));
+        ui->listWidget_4->itemPressed(ui->listWidget_4->item(posicionPe));
         guardarEnArchivo();
 
         entradaHistorial h {false, true, false, pet.getPlazasPedidas(),
