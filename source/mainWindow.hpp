@@ -10,6 +10,7 @@
 #define mainWindow_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 #include <string>
 #include "./pelVector.hpp"
 #include "./owner.hpp"
