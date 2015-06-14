@@ -1,7 +1,7 @@
 {
     "Owner": [
         {
-            "Nombre": "El Corte Inglés",
+            "Nombre": "El Corte Inglé",
             "Negos": [
                 {
                     "ptr_wrapper": {
@@ -70,6 +70,12 @@
                     "País": "2",
                     "Continente": "2",
                     "Peticiones": []
+                },
+                {
+                    "Nombre": "1",
+                    "País": "1",
+                    "Continente": "1",
+                    "Peticiones": []
                 }
             ]
         },
@@ -84,6 +90,11 @@
                     "Peticiones": []
                 }
             ]
+        },
+        {
+            "Nombre": "1",
+            "Negos": [],
+            "Oficinas": []
         }
     ]
 }
