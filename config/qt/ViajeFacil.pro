@@ -11,8 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ViajeFacil
 TEMPLATE = app
 CONFIG += c++11
-QMAKE_CXXFLAGS += -Wall
+QMAKE_CXXFLAGS += -Wall -DEXEC_TEST
 INCLUDEPATH += ../../source/include/
+RC_FILE = ../../source/myapp.rc
 
 SOURCES += ../../source/fecha.cpp \
     ../../source/main.cpp \

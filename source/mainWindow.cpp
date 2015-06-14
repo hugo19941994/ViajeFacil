@@ -62,7 +62,7 @@ mainWindow::~mainWindow() {
 
 //////////////////// LISTWIDGET PRESSED ///////////////////////////////////////
 void mainWindow::on_listWidget_itemPressed(QListWidgetItem *item) {
-    auto ow = listaOw.at(ui->listWidget->currentRow());
+    auto ow = listaOw.at(ui->listWidget->row(item));
     ui->listWidget_2->clear();
     for (auto &it : ow.getNegos()) {
         QString str = QString("%1 - %2")
@@ -71,10 +71,8 @@ void mainWindow::on_listWidget_itemPressed(QListWidgetItem *item) {
     }
 
     ui->listWidget_3->clear();
-    // TODO(Hugo) - Se puede hacer en una linea?
     for (auto it : ow.getOficinas()) {
-        QString nomPa = it.getNombre().c_str();
-        ui->listWidget_3->addItem(nomPa);
+        ui->listWidget_3->addItem(it.getNombre().c_str());
     }
     ui->listWidget_4->clear();
 }
@@ -83,7 +81,7 @@ void mainWindow::on_listWidget_itemPressed(QListWidgetItem *item) {
 void mainWindow::on_listWidget_3_itemPressed(QListWidgetItem *item) {
     auto ow = listaOw.at(ui->listWidget->currentIndex().row());
     auto pe = ow.getOficinas().at(
-        ui->listWidget_3->currentRow()).getPeticiones();
+        ui->listWidget_3->row(item)).getPeticiones();
 
     ui->listWidget_4->clear();
     for (auto it : pe) {
@@ -354,8 +352,6 @@ void mainWindow::on_actionModPeticion_triggered() {
 
 ///////////////////////////// BORRAR //////////////////////////////////////////
 void mainWindow::on_actionBorOwner_triggered() {
-    // TODO(Hugo) - Preguntar si estas seguro de borrar owner y mostrar datos
-
     // Calcular el indice del owner seleccionado y borrarlo
     if (!ui->listWidget->selectedItems().isEmpty()) {
         listaOw.erase(listaOw.begin() + ui->listWidget->currentRow());
@@ -483,7 +479,6 @@ void mainWindow::on_lineEdit_2_textChanged(const QString &arg1) {
         else
             ui->listWidget->item(i)->setHidden(true);
     }
-    // TODO(Hugo) - seleccionar automaticamente la primera coincidencia?
 }
 
 void mainWindow::on_lineEdit_3_textChanged(const QString &arg1) {

@@ -86,7 +86,8 @@ void dialogLogin::on_buttonBox_accepted() {
 
         const char * myStringC = myString.c_str();
 
-        assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
+        //assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
+        bcrypt_hashpw(passC, myStringC, outhash);
         // Poner en mainWindow el usuario
         if (strcmp(myStringC, outhash) == 0) {
             emit cambioDeUsuario(usuario);
