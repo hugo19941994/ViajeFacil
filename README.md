@@ -6,4 +6,15 @@
 
 Software para gestionar agencias de vuelos.
 
-Proyecto de la [UEM](http://madrid.universidadeuropea.es/) con [Unisys](http://www.unisys.es/) - 2015
+Proyecto integrador de 1º de la [Universidad Europea de Madrid (UEM)](http://madrid.universidadeuropea.es/) con [Unisys](http://www.unisys.es/) - 2015
+
+---
+
+Los integrantes del equipo son:
+* [Hugo Ferrando Seage](https://www.hugofs.com)
+* [David Jimenez Cuevas](https://github.com/jimecu12")
+* [Estefanía Ortego García](https://github.com/Estefania1007)
+* [Guillermo González Moreno](https://github.com/guilleglezmo)
+* [Fernando Saavedra Hernández](https://github.com/FeR12J)
+* [Sergio Candel](https://github.com/SergioCandel)
+
