@@ -8,6 +8,8 @@ Software para gestionar agencias de vuelos.
 
 Proyecto integrador de 1º de la [Universidad Europea de Madrid (UEM)](http://madrid.universidadeuropea.es/) con [Unisys](http://www.unisys.es/) - 2015
 
+![Foto Ejemplo](config/Foto1.png "Logo Title Text 1")
+
 ---
 
 Los integrantes del equipo son:
@@ -17,4 +19,3 @@ Los integrantes del equipo son:
 * [Guillermo González Moreno](https://github.com/guilleglezmo)
 * [Fernando Saavedra Hernández](https://github.com/FeR12J)
 * [Sergio Candel](https://github.com/SergioCandel)
-
