@@ -79,17 +79,19 @@ void mainWindow::on_listWidget_itemPressed(QListWidgetItem *item) {
 
 
 void mainWindow::on_listWidget_3_itemPressed(QListWidgetItem *item) {
-    auto ow = listaOw.at(ui->listWidget->currentIndex().row());
-    auto pe = ow.getOficinas().at(
-        ui->listWidget_3->row(item)).getPeticiones();
+    if (!ui->listWidget->selectedItems().isEmpty()) {
+        auto ow = listaOw.at(ui->listWidget->currentIndex().row());
+        auto pe = ow.getOficinas().at(
+            ui->listWidget_3->row(item)).getPeticiones();
 
-    ui->listWidget_4->clear();
-    for (auto it : pe) {
-        QString str = QString("%1 (%2 - %3)")
-                .arg(std::to_string(it.getPlazasPedidas()).c_str(),
-                     it.getNeg()->getOrigen().c_str(),
-                     it.getNeg()->getDestino().c_str());
-        ui->listWidget_4->addItem(str);
+        ui->listWidget_4->clear();
+        for (auto it : pe) {
+            QString str = QString("%1 (%2 - %3)")
+                    .arg(std::to_string(it.getPlazasPedidas()).c_str(),
+                         it.getNeg()->getOrigen().c_str(),
+                         it.getNeg()->getDestino().c_str());
+            ui->listWidget_4->addItem(str);
+        }
     }
 }
 
@@ -153,7 +155,7 @@ void mainWindow::on_actionCreOficina_triggered() {
 
         ui->listWidget_3->setCurrentRow(listaOw.at(nv).getOficinas().size()-1);
         ui->listWidget_3->itemPressed(
-            ui->listWidget->item(listaOw.at(nv).getOficinas().size()-1));
+            ui->listWidget_3->item(listaOw.at(nv).getOficinas().size()-1));
 
         guardarEnArchivo();
     }

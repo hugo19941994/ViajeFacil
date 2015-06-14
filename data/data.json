@@ -1,0 +1,100 @@
+{
+    "Owner": [
+        {
+            "Nombre": "El Corte Inglé",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483649,
+                        "data": {
+                            "Origen": "Madrid",
+                            "Destino": "Roma",
+                            "Numero_de_Plazas": 177,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483650,
+                        "data": {
+                            "Origen": "Roma",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 200,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483651,
+                        "data": {
+                            "Origen": "Barcelona",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 1000,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": [
+                {
+                    "Nombre": "Oficina",
+                    "País": "Esp",
+                    "Continente": "UE",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 123,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Nombre": "1",
+                    "País": "2",
+                    "Continente": "2",
+                    "Peticiones": []
+                },
+                {
+                    "Nombre": "1",
+                    "País": "1",
+                    "Continente": "1",
+                    "Peticiones": []
+                }
+            ]
+        },
+        {
+            "Nombre": "Halcón Viajes",
+            "Negos": [],
+            "Oficinas": [
+                {
+                    "Nombre": "12",
+                    "País": "12",
+                    "Continente": "12",
+                    "Peticiones": []
+                }
+            ]
+        },
+        {
+            "Nombre": "1",
+            "Negos": [],
+            "Oficinas": []
+        }
+    ]
+}
