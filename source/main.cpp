@@ -16,7 +16,9 @@
 #include "./catch/catch.hpp"
 
 int main(int argc, char *argv[]) {
+    #ifdef EXEC_TEST
     Catch::Session().run(argc, argv);
+    #endif
 
     QApplication a(argc, argv);
     mainWindow w;
@@ -24,4 +26,3 @@ int main(int argc, char *argv[]) {
 
     return a.exec();
 }
-
