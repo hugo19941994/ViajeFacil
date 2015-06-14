@@ -1,8 +1,8 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
- *  @author Estefania Ortego
+ *  @author David Jimenez Cuevas
+ *  @author Estefanía Ortego García
  *
  *  Los negos: una compañía crea negos, son los encargados de gestionar
  *  los paquetes y billetes aéreos, que le darán a los owners y estos

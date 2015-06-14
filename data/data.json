@@ -9,7 +9,7 @@
                         "data": {
                             "Origen": "Madrid",
                             "Destino": "Roma",
-                            "Numero_de_Plazas": 290,
+                            "Numero_de_Plazas": 177,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
@@ -32,36 +32,14 @@
                             }
                         }
                     }
-                }
-            ],
-            "Oficinas": [
-                {
-                    "Nombre": "Oficina 1",
-                    "País": "Esp",
-                    "Continente": "UE",
-                    "Peticiones": [
-                        {
-                            "Plazas Pedidas": 10,
-                            "Nego": {
-                                "ptr_wrapper": {
-                                    "id": 1
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "Nombre": "Halcón Viajes",
-            "Negos": [
+                },
                 {
                     "ptr_wrapper": {
                         "id": 2147483651,
                         "data": {
-                            "Origen": "Madrid",
-                            "Destino": "Barcelona",
-                            "Numero_de_Plazas": 300,
+                            "Origen": "Barcelona",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 1000,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
@@ -71,7 +49,41 @@
                     }
                 }
             ],
-            "Oficinas": []
+            "Oficinas": [
+                {
+                    "Nombre": "Oficina",
+                    "País": "Esp",
+                    "Continente": "UE",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 123,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Nombre": "1",
+                    "País": "2",
+                    "Continente": "2",
+                    "Peticiones": []
+                }
+            ]
+        },
+        {
+            "Nombre": "Halcón Viajes",
+            "Negos": [],
+            "Oficinas": [
+                {
+                    "Nombre": "12",
+                    "País": "12",
+                    "Continente": "12",
+                    "Peticiones": []
+                }
+            ]
         }
     ]
 }

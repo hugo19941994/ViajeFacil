@@ -246,7 +246,7 @@
   </action>
   <action name="actionModPeticion">
    <property name="text">
-    <string>7Peticion</string>
+    <string>&amp;Peticion</string>
    </property>
   </action>
   <action name="actionCreUsuario">

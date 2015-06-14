@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Estefania Ortego
- *  @author Guillermo Gonzalez
+ *  @author Guillermo González Moreno
  *  @author Hugo Ferrando Seage
  *
  *  Las oficinas: se encargan de intermediar con los clientes, recaudar dinero,

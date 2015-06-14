@@ -2,7 +2,7 @@
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
  *  @author Sergio Candel
- *  @author David Jimenez
+ *  @author David Jimenez Cuevas
  *  se tendrá acceso a la cabecera y al cuerpo de
  *  dialogPeticiones para usar sus datos
  */

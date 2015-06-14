@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
- *  @author Estefania Ortego
- *  @author Guillermo Gonzalez
+ *  @author Estefanía Ortego García
+ *  @author Guillermo González Moreno
  *  @author Hugo Ferrando Seage
  */
 

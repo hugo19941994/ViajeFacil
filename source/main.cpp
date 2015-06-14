@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
+ *  @author David Jimenez Cuevas
  *  @author Estefanía Ortego García
  *  @author Guillermo González Moreno
  *  @author Fernando Saavedra Hernández

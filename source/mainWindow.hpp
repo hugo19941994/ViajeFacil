@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
+ *  @author David Jimenez Cuevas
  *  Ventana principal, definicion de todas las funciones para que
  *  se comuniquen los dialog y las clases
  */
@@ -10,6 +10,7 @@
 #define mainWindow_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 #include <string>
 #include "./pelVector.hpp"
 #include "./owner.hpp"
@@ -52,17 +53,17 @@ class mainWindow : public QMainWindow {
     void on_lineEdit_4_textChanged(const QString &arg1);
     void on_lineEdit_5_textChanged(const QString &arg1);
 
-    void on_listWidget_pressed(const QModelIndex &index);
-    void on_listWidget_3_pressed(const QModelIndex &index);
-
     void on_pushButton_2_clicked();
     void cambiarUsuario(std::string nombre);
     void guardarEnArchivo();
-    void on_actionLog_de_Peticiones_triggered();
 
+    void on_actionLog_de_Peticiones_triggered();
     void on_actionInforme_Owners_que_mejor_consumen_Negos_triggered();
 
- private:
+    void on_listWidget_itemPressed(QListWidgetItem *item);
+    void on_listWidget_3_itemPressed(QListWidgetItem *item);
+
+private:
     Ui::mainWindow *ui;
 
     /**

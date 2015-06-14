@@ -1,8 +1,8 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
- *  @author Estefania ortego
+ *  @author David Jimenez Cuevas
+ *  @author Estefanía Ortego García
  */
 
 #include <string>

@@ -1,8 +1,8 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
- *  @author Serigo Cander
+ *  @author David Jimenez Cuevas
+ *  @author Serigo Candel
  */
 
 #include "./peticion.hpp"

@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez
+ *  @author David Jimenez Cuevas
  *  Ventana principal, definicion de todas las funciones para que
  *  se comuniquen los dialog y las clases
  */
@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <fstream>
 #include <string>
+
 #include "./ui_mainWindow.h"
 #include "./mainWindow.hpp"
 #include "./dialogLogin.hpp"
@@ -64,8 +65,8 @@ mainWindow::~mainWindow() {
 }
 
 //////////////////// LISTWIDGET PRESSED ///////////////////////////////////////
-void mainWindow::on_listWidget_pressed(const QModelIndex &index) {
-    auto ow = listaOw.at(index.row());
+void mainWindow::on_listWidget_itemPressed(QListWidgetItem *item) {
+    auto ow = listaOw.at(ui->listWidget->currentRow());
     ui->listWidget_2->clear();
     for (auto &it : ow.getNegos()) {
         QString str = QString("%1 - %2")
@@ -83,9 +84,9 @@ void mainWindow::on_listWidget_pressed(const QModelIndex &index) {
 }
 
 
-void mainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
+void mainWindow::on_listWidget_3_itemPressed(QListWidgetItem *item) {
     auto ow = listaOw.at(ui->listWidget->currentIndex().row());
-    auto pe = ow.getOficinas().at(index.row()).getPeticiones();
+    auto pe = ow.getOficinas().at(ui->listWidget_3->currentRow()).getPeticiones();
     ui->listWidget_4->clear();
     for (auto it : pe) {
         QString str = QString("%1 (%2 - %3)")
@@ -95,6 +96,7 @@ void mainWindow::on_listWidget_3_pressed(const QModelIndex &index) {
         ui->listWidget_4->addItem(str);
     }
 }
+
 
 //////////////////////////// CREAR ////////////////////////////////////////////
 /**
@@ -115,6 +117,9 @@ void mainWindow::on_actionCreOwner_triggered() {
         ui->listWidget->addItem(it.getNombre().c_str());
     }
 
+    int s = listaOw.size() - 1;
+    ui->listWidget->setCurrentRow(s);
+    ui->listWidget->itemPressed(ui->listWidget->item(s));
     guardarEnArchivo();
 }
 
@@ -129,17 +134,22 @@ void mainWindow::on_actionCreNego_triggered() {
     dialogNego ng;
     ng.cargar(&listaOw);
     ng.setModal(true);
-    int nv = ui->listWidget->currentRow();  // PONER DENTRO DEL FOR??
+
     if (ng.exec() == QDialog::Accepted) {
+        int nv = 0;
+
         Nego neg = ng.crear();
         nv = ng.nivel();
         listaOw.at(nv).getNegos().push_back(std::make_shared<Nego>(neg));
+
+        ui->listWidget->setCurrentRow(nv);
+        ui->listWidget->itemPressed(ui->listWidget->item(nv));
+
+        ui->listWidget_2->setCurrentRow(listaOw.at(nv).getNegos().size()-1);
+        ui->listWidget_2->itemPressed(ui->listWidget->item(listaOw.at(nv).getNegos().size()-1));
+
+        guardarEnArchivo();
     }
-
-    guardarEnArchivo();
-
-    // Refrescar la lista que corresponda
-    ui->listWidget_2->clear();
 }
 
 /**
@@ -150,18 +160,26 @@ void mainWindow::on_actionCreNego_triggered() {
  * nos devuelve el Owner que el usuario ha escogido.
  */
 void mainWindow::on_actionCreOficina_triggered() {
-    int nv = ui->listWidget->currentRow();
     dialogOficinas diagOf;
     diagOf.cargar(&listaOw);
     diagOf.setModal(true);
     if (diagOf.exec() == QDialog::Accepted) {
+        int nv = 0;
+
         Oficina ofi = diagOf.crear();
         nv = diagOf.nivel();
         listaOw.at(nv).getOficinas().push_back(ofi);
+
+        ui->listWidget->setCurrentRow(nv);
+        ui->listWidget->itemPressed(ui->listWidget->item(nv));
+
+        ui->listWidget_3->setCurrentRow(listaOw.at(nv).getOficinas().size()-1);
+        ui->listWidget_3->itemPressed(ui->listWidget->item(listaOw.at(nv).getOficinas().size()-1));
+
+        guardarEnArchivo();
     }
 
-    guardarEnArchivo();
-    ui->listWidget_3->clear();
+
 }
 
 /**
@@ -180,13 +198,13 @@ void mainWindow::on_actionCreOficina_triggered() {
 void mainWindow::on_actionCrePeticion_triggered() {
     dialogPeticiones peticiones;
 
-    int nvOw = 0;
-    int nvOf = 0;
-
     peticiones.cargar(&listaOw);
     peticiones.setModal(true);
 
     if (peticiones.exec() == QDialog::Accepted) {
+        int nvOw = 0;
+        int nvOf = 0;
+
         Peticion pet = peticiones.crear();
 
         nvOw = peticiones.nivelOw();
@@ -200,23 +218,31 @@ void mainWindow::on_actionCrePeticion_triggered() {
                                      pet.getPlazasPedidas());
             listaOw.at(nvOw).getOficinas().at(nvOf)
                     .getPeticiones().push_back(pet);
+
+            entradaHistorial h {true, false, false, pet.getPlazasPedidas(),
+                              pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
+                              listaOw.at(nvOw).getNombre(),
+                        listaOw.at(nvOw).getOficinas().at(nvOf).getNombre(),
+                        listaOw.at(nvOw).getOficinas().at(nvOf).getPais(),
+                        listaOw.at(nvOw).getOficinas().at(nvOf).getContinente()};
+            log.push_back(h);
+
+            guardarEnArchivo();
+            log.writeToFile("../../data/logPeticiones.txt");
+
+            ui->listWidget->setCurrentRow(nvOw);
+            ui->listWidget->itemPressed(ui->listWidget->item(nvOw));
+
+            ui->listWidget_3->setCurrentRow(listaOw.at(nvOw).getOficinas().size()-1);
+            ui->listWidget_3->itemPressed(ui->listWidget->item(listaOw.at(nvOw).getOficinas().size()-1));
+
+            ui->listWidget_4->setCurrentRow(listaOw.at(nvOw).getOficinas().at(nvOf).getPeticiones().size()-1);
+            ui->listWidget_4->itemPressed(ui->listWidget->item(listaOw.at(nvOw).getOficinas().at(nvOf).getPeticiones().size()-1));
         } else {
             QMessageBox::warning(this, "Warning",
                                  "No hay suficientes plazas");
         }
-
-        entradaHistorial h {true, false, false, pet.getPlazasPedidas(),
-                          pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
-                          listaOw.at(nvOw).getNombre(),
-                    listaOw.at(nvOw).getOficinas().at(nvOf).getNombre(),
-                    listaOw.at(nvOw).getOficinas().at(nvOf).getPais(),
-                    listaOw.at(nvOw).getOficinas().at(nvOf).getContinente()};
-        log.push_back(h);
     }
-
-    guardarEnArchivo();
-    log.writeToFile("../../data/logPeticiones.txt");
-    ui->listWidget_4->clear();
 }
 
 /**
@@ -240,7 +266,8 @@ void mainWindow::on_actionCreUsuario_triggered() {
  */
 void mainWindow::on_actionModOwner_triggered() {
     if (!ui->listWidget->selectedItems().isEmpty()) {
-        Owner &own = listaOw.at(ui->listWidget->currentRow());
+        int posicion = ui->listWidget->currentRow();
+        Owner &own = listaOw.at(posicion);
 
         dialogOwner ow;
         ow.setOwnerAEditar(&own);
@@ -251,6 +278,10 @@ void mainWindow::on_actionModOwner_triggered() {
         for (auto &it : listaOw) {
             ui->listWidget->addItem(it.getNombre().c_str());
         }
+
+
+        ui->listWidget->setCurrentRow(posicion);
+        ui->listWidget->itemPressed(ui->listWidget->item(posicion));
 
         guardarEnArchivo();
     } else {
@@ -270,16 +301,23 @@ void mainWindow::on_actionModOwner_triggered() {
 void mainWindow::on_actionModNego_triggered() {
     if (!ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_2->selectedItems().isEmpty()) {
-        Nego &neg = *listaOw.at(ui->listWidget->currentRow())
-                .getNegos().at(ui->listWidget_2->currentRow());
+        int posicionOw = ui->listWidget->currentRow();
+        int posicionNeg = ui->listWidget_2->currentRow();
+        Nego &neg = *listaOw.at(posicionOw)
+                .getNegos().at(posicionNeg);
 
         dialogNego ng;
         ng.setNegoAEditar(&neg);
         ng.setModal(true);
         ng.exec();
 
+        ui->listWidget->setCurrentRow(posicionOw);
+        ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
+
+        ui->listWidget_2->setCurrentRow(posicionNeg);
+        ui->listWidget_2->itemPressed(ui->listWidget->item(posicionNeg));
+
         guardarEnArchivo();
-        ui->listWidget_2->clear();
     } else {
         QMessageBox::warning(this, "Warning",
                              "No hay ningun Owner/Nego seleccionado");
@@ -289,16 +327,23 @@ void mainWindow::on_actionModNego_triggered() {
 void mainWindow::on_actionModOficina_triggered() {
     if (!ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_3->selectedItems().isEmpty()) {
-        Oficina &ofi = listaOw.at(ui->listWidget->currentRow())
-                .getOficinas().at(ui->listWidget_3->currentRow());
+        int posicionOw = ui->listWidget->currentRow();
+        int posicionOf = ui->listWidget_3->currentRow();
+        Oficina &ofi = listaOw.at(posicionOw)
+                .getOficinas().at(posicionOf);
 
         dialogOficinas of;
         of.setOficinaAEditar(&ofi);
         of.setModal(true);
         of.exec();
 
+        ui->listWidget->setCurrentRow(posicionOw);
+        ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
+
+        ui->listWidget_3->setCurrentRow(posicionOf);
+        ui->listWidget_3->itemPressed(ui->listWidget->item(posicionOf));
+
         guardarEnArchivo();
-        ui->listWidget_3->clear();
     } else {
         QMessageBox::warning(this, "Warning",
                              "No hay ningun Owner/Oficina seleccionado");
@@ -309,27 +354,36 @@ void mainWindow::on_actionModPeticion_triggered() {
     if (!ui->listWidget->selectedItems().isEmpty()
             && !ui->listWidget_3->selectedItems().isEmpty()
             && !ui->listWidget_4->selectedItems().isEmpty()) {
-        int n1 = ui->listWidget->currentRow();
-        int n2 = ui->listWidget_3->currentRow();
 
-        Peticion &pet = listaOw.at(ui->listWidget->currentRow())
-                .getOficinas().at(ui->listWidget_3->currentRow())
-                .getPeticiones().at(ui->listWidget_4->currentRow());
+        int posicionOw = ui->listWidget->currentRow();
+        int posicionOf = ui->listWidget_3->currentRow();
+        int posicionPe = ui->listWidget_4->currentRow();
+
+        Peticion &pet = listaOw.at(posicionOw)
+                .getOficinas().at(posicionOf)
+                .getPeticiones().at(posicionPe);
 
         dialogPeticiones pe;
         pe.setPeticionAEditar(&pet);
         pe.setModal(true);
         pe.exec();
 
-        ui->listWidget_4->clear();
+        ui->listWidget->setCurrentRow(posicionOw);
+        ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
+
+        ui->listWidget_3->setCurrentRow(posicionOf);
+        ui->listWidget_3->itemPressed(ui->listWidget->item(posicionOf));
+
+        ui->listWidget_4->setCurrentRow(posicionPe);
+        ui->listWidget_4->itemPressed(ui->listWidget->item(posicionPe));
         guardarEnArchivo();
 
         entradaHistorial h {false, true, false, pet.getPlazasPedidas(),
                           pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
-                          listaOw.at(n1).getNombre(),
-                    listaOw.at(n1).getOficinas().at(n2).getNombre(),
-                    listaOw.at(n1).getOficinas().at(n2).getPais(),
-                    listaOw.at(n1).getOficinas().at(n2).getContinente()};
+                          listaOw.at(posicionOw).getNombre(),
+                    listaOw.at(posicionOw).getOficinas().at(posicionOf).getNombre(),
+                    listaOw.at(posicionOw).getOficinas().at(posicionOf).getPais(),
+                    listaOw.at(posicionOw).getOficinas().at(posicionOf).getContinente()};
         log.push_back(h);
         log.writeToFile("../../data/logPeticiones.txt");
 
@@ -350,10 +404,12 @@ void mainWindow::on_actionBorOwner_triggered() {
     // Calcular el indice del owner seleccionado y borrarlo
     if (!ui->listWidget->selectedItems().isEmpty()) {
         listaOw.erase(listaOw.begin() + ui->listWidget->currentRow());
+        int posicion = ui->listWidget->currentRow();
 
-        ui->listWidget->clear();
-        for (auto &it : listaOw)
-            ui->listWidget->addItem(it.getNombre().c_str());
+        ui->listWidget->takeItem(posicion);
+        if (ui->listWidget->count() > 0) {
+            ui->listWidget->itemPressed(ui->listWidget->item(ui->listWidget->currentRow()));
+        }
 
         guardarEnArchivo();
     } else {
@@ -374,19 +430,26 @@ void mainWindow::on_actionBorNego_triggered() {
 
         /**
          * Aprovechamos use_count del shared_ptr. Si devuelve mas de 1,
-zxchbsdc         * significa que hay otros shared_ptr (desde peticiones)
+         * significa que hay otros shared_ptr (desde peticiones)
          * apuntando a este nego.
          */
 
         if (listaNegos.at(curRow).use_count() <= 1) {
             listaNegos.erase(listaNegos.begin() + curRow);
+
+            ui->listWidget_2->takeItem(curRow);
+            if (ui->listWidget_2->count() > 0) {
+                ui->listWidget_2->itemPressed(ui->listWidget_2->item(ui->listWidget_2->currentRow()));
+            }
+            guardarEnArchivo();
+
+
         } else {
             QMessageBox::warning(this, "Warning",
                                  "Hay peticiones de este Nego");
         }
 
-        guardarEnArchivo();
-        ui->listWidget_2->clear();
+
     } else {
         QMessageBox::warning(this, "Warning",
                              "No hay ningun Owner/Nego seleccionado");
@@ -405,7 +468,10 @@ void mainWindow::on_actionBorOficina_triggered() {
 
         listaOficinas.erase(listaOficinas.begin() + curRow);
 
-        ui->listWidget_3->clear();
+        ui->listWidget_3->takeItem(curRow);
+        if (ui->listWidget_3->count() > 0) {
+            ui->listWidget_3->itemPressed(ui->listWidget_3->item(ui->listWidget_3->currentRow()));
+        }
         guardarEnArchivo();
     } else {
         QMessageBox::warning(this, "Warning",
@@ -439,7 +505,11 @@ void mainWindow::on_actionBorPeticion_triggered() {
 
         listPet.erase(listPet.begin() + curRow);
 
-        ui->listWidget_4->clear();
+        ui->listWidget_4->takeItem(curRow);
+        if (ui->listWidget_4->count() > 0) {
+            ui->listWidget_4->itemPressed(ui->listWidget_4->item(ui->listWidget_4->currentRow()));
+        }
+
         guardarEnArchivo();
         log.writeToFile("../../data/logPeticiones.txt");
     } else {
