@@ -8,7 +8,7 @@ Software para gestionar agencias de vuelos.
 
 Proyecto integrador de 1º de la [Universidad Europea de Madrid (UEM)](http://madrid.universidadeuropea.es/) con [Unisys](http://www.unisys.es/) - 2015
 
-![Foto Ejemplo](config/Foto1.png)
+![Foto Ejemplo](config/Foto1.png "Logo Title Text 1")
 
 ---
 
