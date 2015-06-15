@@ -32,14 +32,14 @@ void dialogPeticiones::setPeticionAEditar(Peticion *pet) {
     editando = true;
     peticionAEditar = pet;
 
-    ui->lineEdit_3->setText(std::to_string(pet->getPlazasPedidas()).c_str());
+    ui->spinBox->setValue(pet->getPlazasPedidas());
     ui->comboBox->setEnabled(false);
     ui->comboBox_2->setEnabled(false);
     ui->comboBox_3->setEnabled(false);
 }
 
 Peticion dialogPeticiones::crear() {
-    Peticion pet {ui->lineEdit_3->text().toUInt()};
+    Peticion pet {ui->spinBox->text().toUInt()};
     return pet;
 }
 
@@ -67,12 +67,12 @@ void dialogPeticiones::on_buttonBox_accepted() {
                 peticionAEditar->getNeg()->getNumeroPlazas();
         std::size_t plazasTotales =
                 plazasActuales + peticionAEditar->getPlazasPedidas();
-        int diff = plazasTotales - ui->lineEdit_3->text().toInt();
+        int diff = plazasTotales - ui->spinBox->value();
         if (diff < 0) {
             QMessageBox::warning(this, "Warning", "No hay suficientes plazas");
         } else {
             peticionAEditar->getNeg()->setNumeroPlazas(diff);
-            peticionAEditar->setPlazasPedidas(ui->lineEdit_3->text().toInt());
+            peticionAEditar->setPlazasPedidas(ui->spinBox->value());
         }
     }
 }

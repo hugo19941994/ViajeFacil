@@ -37,7 +37,7 @@ void dialogNego::on_buttonOkCancel_accepted() {
     if (editando) {
         negoAEditar->setOrigen(ui->lineOrigen->text().toStdString());
         negoAEditar->setDestino(ui->lineDestino->text().toStdString());
-        negoAEditar->setNumeroPlazas(ui->linePlazas->text().toInt());
+        negoAEditar->setNumeroPlazas(ui->spinBox->value());
         Fecha fech;
         fech.setDia(ui->dateEdit->date().day());
         fech.setMes(ui->dateEdit->date().month());
@@ -56,8 +56,8 @@ void dialogNego::setNegoAEditar(Nego *neg) {
     negoAEditar = neg;
     ui->lineDestino->setText(negoAEditar->getDestino().c_str());
     ui->lineOrigen->setText(negoAEditar->getOrigen().c_str());
-    ui->linePlazas->
-            setText(std::to_string(negoAEditar->getNumeroPlazas()).c_str());
+    ui->spinBox->
+            setValue(negoAEditar->getNumeroPlazas());
     Fecha fech = negoAEditar->getFecha();
     QDate date(fech.getAnio(), fech.getMes(), fech.getDia());
     ui->dateEdit->setDate(date);
@@ -78,7 +78,7 @@ Nego dialogNego::crear() {
             ui->dateEdit->date().year()};
     Nego neg {ui->lineDestino->text().toStdString(),
              ui->lineOrigen->text().toStdString(),
-             ui->linePlazas->text().toUInt(), f};
+             ui->spinBox->text().toUInt(), f};
     return neg;
 }
 
