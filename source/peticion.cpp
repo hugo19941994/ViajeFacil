@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez Cuevas
+ *  @author David Jiménez Cuevas
  *  @author Serigo Candel
  */
 
