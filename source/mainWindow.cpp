@@ -117,101 +117,121 @@ void mainWindow::on_actionCreOwner_triggered() {
 }
 
 void mainWindow::on_actionCreNego_triggered() {
-    dialogNego ng;
-    ng.cargar(&listaOw);
-    ng.setModal(true);
+    if (!listaOw.empty()){
+        dialogNego ng;
+        ng.cargar(&listaOw);
+        ng.setModal(true);
 
-    if (ng.exec() == QDialog::Accepted) {
-        int nv = 0;
+        if (ng.exec() == QDialog::Accepted) {
+            int nv = 0;
 
-        Nego neg = ng.crear();
-        nv = ng.nivel();
-        listaOw.at(nv).getNegos().push_back(std::make_shared<Nego>(neg));
+            Nego neg = ng.crear();
+            nv = ng.nivel();
+            listaOw.at(nv).getNegos().push_back(std::make_shared<Nego>(neg));
 
-        ui->listWidget->setCurrentRow(nv);
-        ui->listWidget->itemPressed(ui->listWidget->item(nv));
+            ui->listWidget->setCurrentRow(nv);
+            ui->listWidget->itemPressed(ui->listWidget->item(nv));
 
-        ui->listWidget_2->setCurrentRow(listaOw.at(nv).getNegos().size()-1);
-        ui->listWidget_2->itemPressed(
-            ui->listWidget->item(listaOw.at(nv).getNegos().size()-1));
+            ui->listWidget_2->setCurrentRow(listaOw.at(nv).getNegos().size()-1);
+            ui->listWidget_2->itemPressed(
+                ui->listWidget->item(listaOw.at(nv).getNegos().size()-1));
 
-        guardarEnArchivo();
+            guardarEnArchivo();
+        }
+    } else {
+        QMessageBox::warning(this, "Warning",
+                             "No existe ningún Owner");
     }
 }
 
 void mainWindow::on_actionCreOficina_triggered() {
-    dialogOficinas diagOf;
-    diagOf.cargar(&listaOw);
-    diagOf.setModal(true);
-    if (diagOf.exec() == QDialog::Accepted) {
-        int nv = 0;
+    if (!listaOw.empty()) {
+        dialogOficinas diagOf;
+        diagOf.cargar(&listaOw);
+        diagOf.setModal(true);
+        if (diagOf.exec() == QDialog::Accepted) {
+            int nv = 0;
 
-        Oficina ofi = diagOf.crear();
-        nv = diagOf.nivel();
-        listaOw.at(nv).getOficinas().push_back(ofi);
+            Oficina ofi = diagOf.crear();
+            nv = diagOf.nivel();
+            listaOw.at(nv).getOficinas().push_back(ofi);
 
-        ui->listWidget->setCurrentRow(nv);
-        ui->listWidget->itemPressed(ui->listWidget->item(nv));
+            ui->listWidget->setCurrentRow(nv);
+            ui->listWidget->itemPressed(ui->listWidget->item(nv));
 
-        ui->listWidget_3->setCurrentRow(listaOw.at(nv).getOficinas().size()-1);
-        ui->listWidget_3->itemPressed(
-            ui->listWidget_3->item(listaOw.at(nv).getOficinas().size()-1));
+            ui->listWidget_3->setCurrentRow(listaOw.at(nv).getOficinas().size()-1);
+            ui->listWidget_3->itemPressed(
+                ui->listWidget_3->item(listaOw.at(nv).getOficinas().size()-1));
 
-        guardarEnArchivo();
+            guardarEnArchivo();
+        }
+    } else {
+        QMessageBox::warning(this, "Warning",
+                             "No existe ningún Owner");
     }
 }
 
 void mainWindow::on_actionCrePeticion_triggered() {
-    dialogPeticiones peticiones;
+    if (!listaOw.empty()) {
+        dialogPeticiones peticiones;
 
-    peticiones.cargar(&listaOw);
-    peticiones.setModal(true);
+        peticiones.cargar(&listaOw);
+        peticiones.setModal(true);
 
-    if (peticiones.exec() == QDialog::Accepted) {
-        Peticion pet = peticiones.crear();
+        if (peticiones.exec() == QDialog::Accepted) {
+            Peticion pet = peticiones.crear();
 
-        int nvOw = peticiones.nivelOw();
-        int nvOf = peticiones.nivelOf();
-        int nvNe = peticiones.nivelNe();
-        pet.setNeg(std::shared_ptr<Nego>(listaOw.at(nvOw).getNegos().at(nvNe)));
+            int nvOw = peticiones.nivelOw();
+            int nvOf = peticiones.nivelOf();
+            int nvNe = peticiones.nivelNe();
+            if((nvOf == -1 )|| (nvNe == -1)){
+                QMessageBox::warning(this, "Warning",
+                                     "No existen Oficinas/Negos");
+                return;
+            }
+            pet.setNeg(std::shared_ptr<Nego>(listaOw.at(nvOw).getNegos().at(nvNe)));
 
-        if (static_cast<int>(pet.getNeg()->getNumeroPlazas() -
-                             pet.getPlazasPedidas()) >= 0) {
-            pet.getNeg()->setNumeroPlazas(pet.getNeg()->getNumeroPlazas() -
-                                     pet.getPlazasPedidas());
-            listaOw.at(nvOw).getOficinas().at(nvOf)
-                    .getPeticiones().push_back(pet);
+            if (static_cast<int>(pet.getNeg()->getNumeroPlazas() -
+                                 pet.getPlazasPedidas()) >= 0) {
+                pet.getNeg()->setNumeroPlazas(pet.getNeg()->getNumeroPlazas() -
+                                         pet.getPlazasPedidas());
+                listaOw.at(nvOw).getOficinas().at(nvOf)
+                        .getPeticiones().push_back(pet);
 
-            entradaHistorial h {true, false, false, pet.getPlazasPedidas(),
-                              pet.getNeg()->getOrigen(),
-                              pet.getNeg()->getDestino(),
-                              listaOw.at(nvOw).getNombre(),
-                              listaOw.at(nvOw).getOficinas().at(
-                                  nvOf).getNombre(),
-                              listaOw.at(nvOw).getOficinas().at(nvOf).getPais(),
-                              listaOw.at(nvOw).getOficinas().at(
-                                  nvOf).getContinente()};
-            log.push_back(h);
+                entradaHistorial h {true, false, false, pet.getPlazasPedidas(),
+                                  pet.getNeg()->getOrigen(),
+                                  pet.getNeg()->getDestino(),
+                                  listaOw.at(nvOw).getNombre(),
+                                  listaOw.at(nvOw).getOficinas().at(
+                                      nvOf).getNombre(),
+                                  listaOw.at(nvOw).getOficinas().at(nvOf).getPais(),
+                                  listaOw.at(nvOw).getOficinas().at(
+                                      nvOf).getContinente()};
+                log.push_back(h);
 
-            guardarEnArchivo();
-            log.writeToFile("../../data/logPeticiones.txt");
+                guardarEnArchivo();
+                log.writeToFile("../../data/logPeticiones.txt");
 
-            ui->listWidget->setCurrentRow(nvOw);
-            ui->listWidget->itemPressed(ui->listWidget->item(nvOw));
+                ui->listWidget->setCurrentRow(nvOw);
+                ui->listWidget->itemPressed(ui->listWidget->item(nvOw));
 
-            ui->listWidget_3->setCurrentRow(nvOf);
-            ui->listWidget_3->itemPressed(ui->listWidget_3->item(nvOf));
+                ui->listWidget_3->setCurrentRow(nvOf);
+                ui->listWidget_3->itemPressed(ui->listWidget_3->item(nvOf));
 
-            ui->listWidget_4->setCurrentRow(
-                listaOw.at(nvOw).getOficinas().at(
-                    nvOf).getPeticiones().size()-1);
-            ui->listWidget_4->itemPressed(
-                ui->listWidget_4->item(listaOw.at(nvOw).getOficinas().at(
-                    nvOf).getPeticiones().size()-1));
-        } else {
-            QMessageBox::warning(this, "Warning",
-                                 "No hay suficientes plazas");
+                ui->listWidget_4->setCurrentRow(
+                    listaOw.at(nvOw).getOficinas().at(
+                        nvOf).getPeticiones().size()-1);
+                ui->listWidget_4->itemPressed(
+                    ui->listWidget_4->item(listaOw.at(nvOw).getOficinas().at(
+                        nvOf).getPeticiones().size()-1));
+            } else {
+                QMessageBox::warning(this, "Warning",
+                                     "No hay suficientes plazas");
+            }
         }
+    }  else {
+        QMessageBox::warning(this, "Warning",
+                             "No existe ningún Owner");
     }
 }
 
