@@ -44,8 +44,18 @@ Peticion dialogPeticiones::crear() {
 }
 
 int dialogPeticiones::nivelOw() { return ui->comboBox->currentIndex(); }
-int dialogPeticiones::nivelOf() { return ui->comboBox_2->currentIndex(); }
-int dialogPeticiones::nivelNe() { return ui->comboBox_3->currentIndex(); }
+int dialogPeticiones::nivelOf() {
+    if (ui->comboBox_2->count() == 0)
+        return -1;
+    else
+        return ui->comboBox_2->currentIndex();
+}
+int dialogPeticiones::nivelNe() {
+    if (ui->comboBox_2->count() == 0)
+        return -1;
+    else
+        return ui->comboBox_3->currentIndex();
+}
 
 void dialogPeticiones::on_comboBox_currentIndexChanged(int index) {
         ui->comboBox_2->clear();
