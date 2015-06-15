@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez Cuevas
+ *  @author David Jiménez Cuevas
  *  @author Estefanía Ortego García
  *  Se definen las funciones de la ventana grafica dialogNego,
  *  se muestra qué hará cada botón o campo que aparezca (en la ventana gráfica).

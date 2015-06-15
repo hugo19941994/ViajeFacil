@@ -1,7 +1,7 @@
 /**
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
- *  @author David Jimenez Cuevas
+ *  @author David Jiménez Cuevas
  *  Ventana principal, definicion de todas las funciones para que
  *  se comuniquen los dialog y las clases
  */

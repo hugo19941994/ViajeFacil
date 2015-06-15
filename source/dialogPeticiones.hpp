@@ -2,7 +2,7 @@
  *  Copyright 2015 ViajeFacil
  *  @author Hugo Ferrando Seage
  *  @author Sergio Candel
- *  @author David Jimenez Cuevas
+ *  @author David Jiménez Cuevas
  *
  *  las peticiones son elaboradas por todas las partes de este proyecto,
  *  es decir, cada acción que se realice va a ser una petición que
