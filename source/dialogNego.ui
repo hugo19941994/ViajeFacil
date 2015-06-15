@@ -63,7 +63,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="linePlazas"/>
+          <widget class="QSpinBox" name="spinBox"/>
          </item>
         </layout>
        </item>
