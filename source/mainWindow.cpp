@@ -103,17 +103,17 @@ void mainWindow::on_actionCreOwner_triggered() {
     if (ow.exec() == QDialog::Accepted) {
         Owner own = ow.crear();
         listaOw.push_back(own);
-    }
 
-    ui->listWidget->clear();
-    for (auto &it : listaOw) {
-        ui->listWidget->addItem(it.getNombre().c_str());
-    }
+        ui->listWidget->clear();
+        for (auto &it : listaOw) {
+            ui->listWidget->addItem(it.getNombre().c_str());
+        }
 
-    int s = listaOw.size() - 1;
-    ui->listWidget->setCurrentRow(s);
-    ui->listWidget->itemPressed(ui->listWidget->item(s));
-    guardarEnArchivo();
+        int s = listaOw.size() - 1;
+        ui->listWidget->setCurrentRow(s);
+        ui->listWidget->itemPressed(ui->listWidget->item(s));
+        guardarEnArchivo();
+    }
 }
 
 void mainWindow::on_actionCreNego_triggered() {
