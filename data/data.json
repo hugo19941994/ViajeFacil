@@ -1,0 +1,25 @@
+{
+    "Owner": [
+        {
+            "Nombre": "pollas",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483649,
+                        "data": {
+                            "Origen": "holanda",
+                            "Destino": "cadiz",
+                            "Numero_de_Plazas": 50,
+                            "Fecha": {
+                                "Día": 19,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": []
+        }
+    ]
+}
