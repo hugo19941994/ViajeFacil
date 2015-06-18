@@ -102,8 +102,14 @@ void mainWindow::on_actionCreOwner_triggered() {
     ow.setModal(true);
     if (ow.exec() == QDialog::Accepted) {
         Owner own = ow.crear();
-        listaOw.push_back(own);
+        for(auto & it : listaOw) {
+             if(own.getNombre() == it.getNombre()) {
+                 QMessageBox::information(this, "",QString ("Ya hay un owner con este nombre"));
+                 return;
+             }
+       }
 
+        listaOw.push_back(own);
         ui->listWidget->clear();
         for (auto &it : listaOw) {
             ui->listWidget->addItem(it.getNombre().c_str());
