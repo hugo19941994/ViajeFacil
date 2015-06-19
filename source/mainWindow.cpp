@@ -139,6 +139,12 @@ void mainWindow::on_actionCreNego_triggered() {
                     return;
 
             }
+
+            if(neg.getOrigen() == "" || neg.getDestino() == ""){
+                QMessageBox::warning(this, "Warning",
+                                     "Rellena los campos obligatorios");
+                return;
+            }
             nv = ng.nivel();
             listaOw.at(nv).getNegos().push_back(std::make_shared<Nego>(neg));
 
@@ -174,6 +180,14 @@ void mainWindow::on_actionCreOficina_triggered() {
                         return;
                     }
             }
+
+            if(ofi.getNombre() == "" || ofi.getPais() == ""){
+                QMessageBox::warning(this, "Warning",
+                                     "Obligatorio nombre y pais");
+                return;
+            }
+
+
             listaOw.at(nv).getOficinas().push_back(ofi);
 
             ui->listWidget->setCurrentRow(nv);
@@ -278,6 +292,17 @@ void mainWindow::on_actionModOwner_triggered() {
         ow.setModal(true);
         ow.exec();
 
+        for(auto & it : listaOw) {
+             if(own.getNombre() == it.getNombre()) {
+                 QMessageBox::information(this, "",QString ("Ya hay un owner con este nombre"));
+                 return;
+             }
+       }
+        if(own.getNombre() == ""){
+            QMessageBox::information(this, "",QString ("Obligatorio nombre"));
+            return;
+        }
+
         ui->listWidget->clear();
         for (auto &it : listaOw) {
             ui->listWidget->addItem(it.getNombre().c_str());
@@ -302,10 +327,25 @@ void mainWindow::on_actionModNego_triggered() {
         Nego &neg = *listaOw.at(posicionOw)
                 .getNegos().at(posicionNeg);
 
+
+
         dialogNego ng;
         ng.setNegoAEditar(&neg);
         ng.setModal(true);
         ng.exec();
+
+        if(neg.getNumeroPlazas() <=0){
+                QMessageBox::warning(this, "Warning",
+                                     "No puedes crear negos con 0 plazas");
+                return;
+
+        }
+
+        if(neg.getOrigen() == "" || neg.getDestino() == ""){
+            QMessageBox::warning(this, "Warning",
+                                 "Rellena los campos obligatorios");
+            return;
+        }
 
         ui->listWidget->setCurrentRow(posicionOw);
         ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
@@ -332,6 +372,20 @@ void mainWindow::on_actionModOficina_triggered() {
         of.setOficinaAEditar(&ofi);
         of.setModal(true);
         of.exec();
+
+        for(auto &iter : listaOw.at(posicionOw).getOficinas()){
+            if(ofi.getNombre() == iter.getNombre()){
+                    QMessageBox::warning(this, "Warning",
+                                         "Nombre ya existente");
+                    return;
+                }
+        }
+
+        if(ofi.getNombre() == "" || ofi.getPais() == ""){
+            QMessageBox::warning(this, "Warning",
+                                 "Obligatorio nombre y pais");
+            return;
+        }
 
         ui->listWidget->setCurrentRow(posicionOw);
         ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
@@ -362,6 +416,12 @@ void mainWindow::on_actionModPeticion_triggered() {
         pe.setPeticionAEditar(&pet);
         pe.setModal(true);
         pe.exec();
+
+        if(pet.getPlazasPedidas() <= 0){
+            QMessageBox::warning(this, "Warning",
+                                 "No puedes pedir 0 plazas");
+            return;
+        }
 
         ui->listWidget->setCurrentRow(posicionOw);
         ui->listWidget->itemPressed(ui->listWidget->item(posicionOw));
