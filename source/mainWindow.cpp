@@ -101,6 +101,7 @@ void mainWindow::on_actionCreOwner_triggered() {
     dialogOwner ow;
     ow.setModal(true);
     if (ow.exec() == QDialog::Accepted) {
+        //QDialog::Rejected
         Owner own = ow.crear();
         for(auto & it : listaOw) {
              if(own.getNombre() == it.getNombre()) {
@@ -186,11 +187,16 @@ void mainWindow::on_actionCrePeticion_triggered() {
 
         if (peticiones.exec() == QDialog::Accepted) {
             Peticion pet = peticiones.crear();
+            if(pet.getPlazasPedidas() <= 0){
+                QMessageBox::warning(this, "Warning",
+                                     "No puedes pedir 0 plazas");
+                return;
+            }
 
             int nvOw = peticiones.nivelOw();
             int nvOf = peticiones.nivelOf();
             int nvNe = peticiones.nivelNe();
-            if((nvOf == -1 )|| (nvNe == -1)){
+            if((nvOf == -1 )|| (nvNe == -1)) {
                 QMessageBox::warning(this, "Warning",
                                      "No existen Oficinas/Negos");
                 return;
@@ -384,6 +390,11 @@ void mainWindow::on_actionBorOwner_triggered() {
         if (ui->listWidget->count() > 0) {
             ui->listWidget->itemPressed(
                 ui->listWidget->item(ui->listWidget->currentRow()));
+        }
+        else {
+            ui->listWidget_2->clear();
+            ui->listWidget_3->clear();
+            ui->listWidget_4->clear();
         }
 
         guardarEnArchivo();

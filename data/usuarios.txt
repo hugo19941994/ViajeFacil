@@ -1,3 +1,6 @@
 david
 $2a$12$Le..............Xe..XePPM5Z0hYI3fEgYdvr61rNWhIHxBnrii
 0
+
+$2a$12$Le..............Au..Aun8M3IHTHYHJhLmKRoQKY0O7Nqe5IxTm
+0
