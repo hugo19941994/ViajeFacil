@@ -1,9 +1,236 @@
 {
     "Owner": [
         {
-            "Nombre": "sddsa",
+            "Nombre": "o",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483649,
+                        "data": {
+                            "Origen": "o",
+                            "Destino": "o",
+                            "Numero_de_Plazas": 0,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483650,
+                        "data": {
+                            "Origen": "o",
+                            "Destino": "o",
+                            "Numero_de_Plazas": 10,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483651,
+                        "data": {
+                            "Origen": "o",
+                            "Destino": "o",
+                            "Numero_de_Plazas": 1,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483652,
+                        "data": {
+                            "Origen": "",
+                            "Destino": "",
+                            "Numero_de_Plazas": 1,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483653,
+                        "data": {
+                            "Origen": "",
+                            "Destino": "",
+                            "Numero_de_Plazas": 2,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": [
+                {
+                    "Nombre": "o",
+                    "País": "o",
+                    "Continente": "o",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 5,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 5,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Nombre": "p",
+                    "País": "p",
+                    "Continente": "p",
+                    "Peticiones": []
+                },
+                {
+                    "Nombre": "",
+                    "País": "",
+                    "Continente": "",
+                    "Peticiones": []
+                },
+                {
+                    "Nombre": "u",
+                    "País": "",
+                    "Continente": "",
+                    "Peticiones": []
+                },
+                {
+                    "Nombre": "webr htdfhxf hxf hx ",
+                    "País": "brewte",
+                    "Continente": "n tr dtr d",
+                    "Peticiones": []
+                }
+            ]
+        },
+        {
+            "Nombre": "o1",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483654,
+                        "data": {
+                            "Origen": "o",
+                            "Destino": "o",
+                            "Numero_de_Plazas": 1,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483655,
+                        "data": {
+                            "Origen": "o",
+                            "Destino": "o",
+                            "Numero_de_Plazas": 1,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             "Negos": [],
             "Oficinas": []
+        },
+        {
+            "Nombre": "¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483656,
+                        "data": {
+                            "Origen": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+                            "Destino": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+                            "Numero_de_Plazas": 1,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": [
+                {
+                    "Nombre": "",
+                    "País": "",
+                    "Continente": "",
+                    "Peticiones": []
+                }
+            ]
+        },
+        {
+            "Nombre": "",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483657,
+                        "data": {
+                            "Origen": "",
+                            "Destino": "",
+                            "Numero_de_Plazas": 1,
+                            "Fecha": {
+                                "Día": 1,
+                                "Mes": 1,
+                                "Año": 2000
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": [
+                {
+                    "Nombre": "",
+                    "País": "",
+                    "Continente": "",
+                    "Peticiones": []
+                },
+                {
+                    "Nombre": "yuh ",
+                    "País": " ",
+                    "Continente": " ",
+                    "Peticiones": []
+                }
+            ]
         }
     ]
 }

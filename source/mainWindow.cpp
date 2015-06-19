@@ -167,6 +167,13 @@ void mainWindow::on_actionCreOficina_triggered() {
 
             Oficina ofi = diagOf.crear();
             nv = diagOf.nivel();
+            for(auto &iter : listaOw.at(nv).getOficinas()){
+                if(ofi.getNombre() == iter.getNombre()){
+                        QMessageBox::warning(this, "Warning",
+                                             "Nombre ya existente");
+                        return;
+                    }
+            }
             listaOw.at(nv).getOficinas().push_back(ofi);
 
             ui->listWidget->setCurrentRow(nv);
