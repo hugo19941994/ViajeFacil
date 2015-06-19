@@ -133,6 +133,12 @@ void mainWindow::on_actionCreNego_triggered() {
             int nv = 0;
 
             Nego neg = ng.crear();
+            if(neg.getNumeroPlazas() <=0){
+                    QMessageBox::warning(this, "Warning",
+                                         "No puedes crear negos con 0 plazas");
+                    return;
+
+            }
             nv = ng.nivel();
             listaOw.at(nv).getNegos().push_back(std::make_shared<Nego>(neg));
 
