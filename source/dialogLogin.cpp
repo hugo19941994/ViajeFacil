@@ -61,9 +61,19 @@ void dialogLogin::on_buttonBox_accepted() {
 
         // Coger el usuario y pasarlo a char * de C
         std::string usuario = ui->lineEdit_2->text().toStdString();
+        if(usuario == ""){
+                QMessageBox::warning(this, "Warning",
+                                     "Obligatorio nombre");
+                return;
+            }
 
         // Coger la contraseña y pasarla a char * de C
         std::string pass = ui->lineEdit->text().toStdString();
+        if(pass == ""){
+            QMessageBox::warning(this, "Warning",
+                                 "Olvidó la contraseña");
+            return;
+        }
         const char * passC = pass.c_str();
 
         // Abrimos el archivo en modo lectura

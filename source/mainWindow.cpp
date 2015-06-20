@@ -279,6 +279,7 @@ void mainWindow::on_actionCreUsuario_triggered() {
     log.setModal(true);
     log.setEstado(1);
     log.exec();
+
 }
 
 //////////////////////////// MODIFICAR ////////////////////////////////////////
