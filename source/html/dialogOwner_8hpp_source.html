@@ -108,26 +108,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classOwner.html">Owner</a> <a class="code" href="classdialogOwner.html#a1f9fbf03fba92f6133f7e419c34ad23f">crear</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">private</span> slots:  <span class="comment">// NOLINT - https://github.com/google/styleguide/issues/30</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> editando = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classOwner.html">Owner</a> *ownerAEditar;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Ui::dialogOwner *ui;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif  // DIAGOWNER_H</span></div>
-<div class="ttc" id="classdialogOwner_html_a1f9fbf03fba92f6133f7e419c34ad23f"><div class="ttname"><a href="classdialogOwner.html#a1f9fbf03fba92f6133f7e419c34ad23f">dialogOwner::crear</a></div><div class="ttdeci">Owner crear()</div><div class="ttdoc">Crea un Owner Crea un nuevo Owner y se lo devuelve a mainWindow, el cual lo mete en su Vector...</div><div class="ttdef"><b>Definition:</b> dialogOwner.cpp:28</div></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setListaOwners(<a class="code" href="classpel_1_1Vector.html">pel::Vector&lt;Owner&gt;</a> <span class="keyword">const</span> *lista){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        listaOw = lista;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> accept();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span> slots:  <span class="comment">// NOLINT - https://github.com/google/styleguide/issues/30</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> maybeSave = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classpel_1_1Vector.html">pel::Vector&lt;Owner&gt;</a> <span class="keyword">const</span> *listaOw;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> editando = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classOwner.html">Owner</a> *ownerAEditar;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    Ui::dialogOwner *ui;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif  // DIAGOWNER_H</span></div>
+<div class="ttc" id="classdialogOwner_html_a1f9fbf03fba92f6133f7e419c34ad23f"><div class="ttname"><a href="classdialogOwner.html#a1f9fbf03fba92f6133f7e419c34ad23f">dialogOwner::crear</a></div><div class="ttdeci">Owner crear()</div><div class="ttdoc">Crea un Owner Crea un nuevo Owner y se lo devuelve a mainWindow, el cual lo mete en su Vector...</div><div class="ttdef"><b>Definition:</b> dialogOwner.cpp:58</div></div>
 <div class="ttc" id="namespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> dialogInforme.hpp:15</div></div>
 <div class="ttc" id="classdialogOwner_html"><div class="ttname"><a href="classdialogOwner.html">dialogOwner</a></div><div class="ttdoc">Dialogo de Owners. </div><div class="ttdef"><b>Definition:</b> dialogOwner.hpp:27</div></div>
-<div class="ttc" id="classdialogOwner_html_a9404c326bef5b7e5dfa545c614145274"><div class="ttname"><a href="classdialogOwner.html#a9404c326bef5b7e5dfa545c614145274">dialogOwner::setOwnerAEditar</a></div><div class="ttdeci">void setOwnerAEditar(Owner *ow)</div><div class="ttdoc">Edita el Owner Edita el Owner que ha sido pasado por referencia. </div><div class="ttdef"><b>Definition:</b> dialogOwner.cpp:22</div></div>
-<div class="ttc" id="classdialogOwner_html_a6d4b17329380be5d0a7aa71452e4e0a0"><div class="ttname"><a href="classdialogOwner.html#a6d4b17329380be5d0a7aa71452e4e0a0">dialogOwner::dialogOwner</a></div><div class="ttdeci">dialogOwner(QWidget *parent=0)</div><div class="ttdef"><b>Definition:</b> dialogOwner.cpp:10</div></div>
+<div class="ttc" id="classdialogOwner_html_a9404c326bef5b7e5dfa545c614145274"><div class="ttname"><a href="classdialogOwner.html#a9404c326bef5b7e5dfa545c614145274">dialogOwner::setOwnerAEditar</a></div><div class="ttdeci">void setOwnerAEditar(Owner *ow)</div><div class="ttdoc">Edita el Owner Edita el Owner que ha sido pasado por referencia. </div><div class="ttdef"><b>Definition:</b> dialogOwner.cpp:52</div></div>
+<div class="ttc" id="classdialogOwner_html_a6d4b17329380be5d0a7aa71452e4e0a0"><div class="ttname"><a href="classdialogOwner.html#a6d4b17329380be5d0a7aa71452e4e0a0">dialogOwner::dialogOwner</a></div><div class="ttdeci">dialogOwner(QWidget *parent=0)</div><div class="ttdef"><b>Definition:</b> dialogOwner.cpp:11</div></div>
 <div class="ttc" id="classOwner_html"><div class="ttname"><a href="classOwner.html">Owner</a></div><div class="ttdoc">Clase Owner. </div><div class="ttdef"><b>Definition:</b> owner.hpp:24</div></div>
+<div class="ttc" id="classpel_1_1Vector_html"><div class="ttname"><a href="classpel_1_1Vector.html">pel::Vector&lt; Owner &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 19 2015 20:09:07 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 22 2015 12:46:49 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -45,10 +45,17 @@ class dialogOwner : public QDialog {
      */
     Owner crear();
 
- private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
+    void setListaOwners(pel::Vector<Owner> const *lista){
+        listaOw = lista;
+    }
+
+    void accept();
+private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonBox_accepted();
 
  private:
+    bool maybeSave = false;
+    pel::Vector<Owner> const *listaOw;
     bool editando = false;
     Owner *ownerAEditar;
     Ui::dialogOwner *ui;

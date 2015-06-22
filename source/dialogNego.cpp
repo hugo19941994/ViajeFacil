@@ -25,7 +25,6 @@ dialogNego::~dialogNego() { delete ui; }
 void dialogNego::cargar(pel::Vector<Owner>* own) {
     for (auto &it : *own)
         ui->comboBox->addItem(it.getNombre().c_str());
-
 }
 
 /**

@@ -104,29 +104,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdialogLogin.html#ae72837025d8ae73a921ea498d7dceb3b">setEstado</a>(<span class="keywordtype">int</span> estado);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~<a class="code" href="classdialogLogin.html">dialogLogin</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">private</span> slots:  <span class="comment">// NOLINT - https://github.com/google/styleguide/issues/30</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> accept();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span> slots:  <span class="comment">// NOLINT - https://github.com/google/styleguide/issues/30</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    Ui::dialogLogin *ui;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> estado_;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; signals:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdialogLogin.html#a051d47d5652799fb46105756e30d60a4">cambioDeUsuario</a>(std::string);  <span class="comment">// Funcion para cambiar usuario</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif  // dialogLogin_H</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> maybeSave = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    Ui::dialogLogin *ui;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> estado_;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; signals:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdialogLogin.html#a051d47d5652799fb46105756e30d60a4">cambioDeUsuario</a>(std::string);  <span class="comment">// Funcion para cambiar usuario</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  // dialogLogin_H</span></div>
 <div class="ttc" id="namespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> dialogInforme.hpp:15</div></div>
-<div class="ttc" id="classdialogLogin_html_ac2042e079622fb065430200ddba838f1"><div class="ttname"><a href="classdialogLogin.html#ac2042e079622fb065430200ddba838f1">dialogLogin::dialogLogin</a></div><div class="ttdeci">dialogLogin(QWidget *parent=0)</div><div class="ttdoc">Dialogo de Login Crea y loguea a usuarios. </div><div class="ttdef"><b>Definition:</b> dialogLogin.cpp:18</div></div>
+<div class="ttc" id="classdialogLogin_html_ac2042e079622fb065430200ddba838f1"><div class="ttname"><a href="classdialogLogin.html#ac2042e079622fb065430200ddba838f1">dialogLogin::dialogLogin</a></div><div class="ttdeci">dialogLogin(QWidget *parent=0)</div><div class="ttdoc">Dialogo de Login Crea y loguea a usuarios. </div><div class="ttdef"><b>Definition:</b> dialogLogin.cpp:19</div></div>
 <div class="ttc" id="classdialogLogin_html"><div class="ttname"><a href="classdialogLogin.html">dialogLogin</a></div><div class="ttdoc">Dialogo de Usuarios. </div><div class="ttdef"><b>Definition:</b> dialogLogin.hpp:23</div></div>
-<div class="ttc" id="classdialogLogin_html_ae72837025d8ae73a921ea498d7dceb3b"><div class="ttname"><a href="classdialogLogin.html#ae72837025d8ae73a921ea498d7dceb3b">dialogLogin::setEstado</a></div><div class="ttdeci">void setEstado(int estado)</div><div class="ttdoc">setEstado </div><div class="ttdef"><b>Definition:</b> dialogLogin.cpp:28</div></div>
+<div class="ttc" id="classdialogLogin_html_ae72837025d8ae73a921ea498d7dceb3b"><div class="ttname"><a href="classdialogLogin.html#ae72837025d8ae73a921ea498d7dceb3b">dialogLogin::setEstado</a></div><div class="ttdeci">void setEstado(int estado)</div><div class="ttdoc">setEstado </div><div class="ttdef"><b>Definition:</b> dialogLogin.cpp:29</div></div>
 <div class="ttc" id="classdialogLogin_html_a051d47d5652799fb46105756e30d60a4"><div class="ttname"><a href="classdialogLogin.html#a051d47d5652799fb46105756e30d60a4">dialogLogin::cambioDeUsuario</a></div><div class="ttdeci">void cambioDeUsuario(std::string)</div><div class="ttdoc">cambioDeUsuario Emite una señal con el nombre del usuario que acaba de hacer login para mostrarse en ...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 19 2015 20:09:07 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 22 2015 12:46:49 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -35,11 +35,12 @@ class dialogLogin : public QDialog {
     void setEstado(int estado);
 
     ~dialogLogin();
-
- private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
+    void accept();
+private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonBox_accepted();
 
  private:
+    bool maybeSave = false;
     Ui::dialogLogin *ui;
 
     /**

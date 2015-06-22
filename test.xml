@@ -1,9 +1,9 @@
 <testsuites>
-  <testsuite name="all tests" errors="0" failures="0" tests="10" hostname="tbd" time="0.005175" timestamp="tbd">
-    <testcase classname="global" name="Pushing ints to pelVector" time="0.000135"/>
-    <testcase classname="global" name="Pushing Owners to pelVector" time="0.000095"/>
-    <testcase classname="global" name="Crear Owner completo" time="0.000038"/>
-    <testcase classname="global" name="Leer/Escribir en archivo el historial" time="0.003787"/>
+  <testsuite name="all tests" errors="0" failures="0" tests="10" hostname="tbd" time="0.000863" timestamp="tbd">
+    <testcase classname="global" name="Pushing ints to pelVector" time="0.000109"/>
+    <testcase classname="global" name="Pushing Owners to pelVector" time="0.00007"/>
+    <testcase classname="global" name="Crear Owner completo" time="0.000028"/>
+    <testcase classname="global" name="Leer/Escribir en archivo el historial" time="0.000574"/>
     <system-out/>
     <system-err/>
   </testsuite>

@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <fstream>
 #include <string>
+#include <QCloseEvent>
 #include "./ui_dialogLogin.h"
 #include "./bcrypt.h"
 #include "./dialogLogin.hpp"
@@ -32,78 +33,100 @@ void dialogLogin::setEstado(int estado) {
         ui->checkBox->hide();
 }
 
+void dialogLogin::accept(){
+    if(maybeSave){
+        QDialog::accepted();
+        QDialog::close();
+    }
+}
+
 void dialogLogin::on_buttonBox_accepted() {
     if (estado_ == 1) {  // estado_ 1 para crear usuario
-        // Crear Salt aleatorio
-        char salt[BCRYPT_HASHSIZE];
-        char hash[BCRYPT_HASHSIZE];
-        // Asegurarnos de que se creo correctamente
-        assert(bcrypt_gensalt(12, salt) == 0);
+        if (ui->lineEdit->text().isEmpty()
+                || ui->lineEdit_2->text().isEmpty()){
+            QMessageBox::warning(this, "Warning",
+                                 "Falta Nombre/Contraseña");
+        }
+        else {
+            // Crear Salt aleatorio
+            char salt[BCRYPT_HASHSIZE];
+            char hash[BCRYPT_HASHSIZE];
+            // Asegurarnos de que se creo correctamente
+            assert(bcrypt_gensalt(12, salt) == 0);
 
-        // Convertimos la contrasenia a un buffer de C
-        std::string pass = ui->lineEdit->text().toStdString();
-        const char * passC = pass.c_str();
-        // Asegurarnos de que se creo correctamente
-        assert(bcrypt_hashpw(passC, salt, hash) == 0);
+            // Convertimos la contrasenia a un buffer de C
+            std::string pass = ui->lineEdit->text().toStdString();
+            const char * passC = pass.c_str();
+            // Asegurarnos de que se creo correctamente
+            assert(bcrypt_hashpw(passC, salt, hash) == 0);
 
-        // Convertir el hash a un string de C++
-        std::string cppHash(hash);
-        std::ofstream myfile;
-        myfile.open("../../data/usuarios.txt", std::ios_base::app);
-        myfile << ui->lineEdit_2->text().toStdString() << "\n" <<
-                  cppHash << "\n" <<
-                  (ui->checkBox->isChecked() ? "1" : "0") << '\n';
-        myfile.close();
+            // Convertir el hash a un string de C++
+            std::string cppHash(hash);
+            std::ofstream myfile;
+            myfile.open("../../data/usuarios.txt", std::ios_base::app);
+            myfile << ui->lineEdit_2->text().toStdString() << "\n" <<
+                      cppHash << "\n" <<
+                      (ui->checkBox->isChecked() ? "1" : "0") << '\n';
+            myfile.close();
+            maybeSave = true;
+            QDialog::accept();
+        }
 
     } else if (estado_ == 0) {
-         // estado_ 0 para comprobar el dialogLogin
-         char outhash[BCRYPT_HASHSIZE];
+        if (ui->lineEdit->text().isEmpty()
+                || ui->lineEdit_2->text().isEmpty()){
+            QMessageBox::warning(this, "Warning",
+                                 "Falta Nombre/Contraseña");
+        }
+        else {
+             // estado_ 0 para comprobar el dialogLogin
+             char outhash[BCRYPT_HASHSIZE];
 
-        // Coger el usuario y pasarlo a char * de C
-        std::string usuario = ui->lineEdit_2->text().toStdString();
-        if(usuario == ""){
+            // Coger el usuario y pasarlo a char * de C
+            std::string usuario = ui->lineEdit_2->text().toStdString();
+
+            // Coger la contraseña y pasarla a char * de C
+            std::string pass = ui->lineEdit->text().toStdString();
+            if(pass == ""){
                 QMessageBox::warning(this, "Warning",
-                                     "Obligatorio nombre");
+                                     "Olvidó la contraseña");
                 return;
             }
 
-        // Coger la contraseña y pasarla a char * de C
-        std::string pass = ui->lineEdit->text().toStdString();
-        if(pass == ""){
-            QMessageBox::warning(this, "Warning",
-                                 "Olvidó la contraseña");
-            return;
-        }
-        const char * passC = pass.c_str();
+            const char * passC = pass.c_str();
 
-        // Abrimos el archivo en modo lectura
-        std::ifstream myfile;
-        myfile.open("../../data/usuarios.txt");
+            // Abrimos el archivo en modo lectura
+            std::ifstream myfile;
+            myfile.open("../../data/usuarios.txt");
 
-        // Cogemos el hash que corresponda
-        std::string myString;
-        std::string admin;
-        while (std::getline(myfile, myString, '\n')) {
-            if (myString == usuario) {
-                std::getline(myfile, myString, '\n');
-                std::getline(myfile, admin, '\n');
-                break;
-            } else {
-                std::getline(myfile, myString, '\n');
-                std::getline(myfile, myString, '\n');
+            // Cogemos el hash que corresponda
+            std::string myString;
+            std::string admin;
+            while (std::getline(myfile, myString, '\n')) {
+                if (myString == usuario) {
+                    std::getline(myfile, myString, '\n');
+                    std::getline(myfile, admin, '\n');
+                    break;
+                } else {
+                    std::getline(myfile, myString, '\n');
+                    std::getline(myfile, myString, '\n');
+                }
             }
-        }
 
-        const char * myStringC = myString.c_str();
+            const char * myStringC = myString.c_str();
 
-        // assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
-        bcrypt_hashpw(passC, myStringC, outhash);
-        // Poner en mainWindow el usuario
-        if (strcmp(myStringC, outhash) == 0) {
-            emit cambioDeUsuario(usuario);
-        } else {
-            QMessageBox::warning(this, "Warning",
-                                 "Usuario no encontrado");
+            // assert(bcrypt_hashpw(passC, myStringC, outhash) == 0);
+            bcrypt_hashpw(passC, myStringC, outhash);
+            // Poner en mainWindow el usuario
+            if (strcmp(myStringC, outhash) == 0) {
+                maybeSave = true;
+                emit cambioDeUsuario(usuario);
+                QDialog::accept();
+            } else {
+                QMessageBox::warning(this, "Warning",
+                                     "Usuario no encontrado");
+                maybeSave = false;
+            }
         }
     }
 }
