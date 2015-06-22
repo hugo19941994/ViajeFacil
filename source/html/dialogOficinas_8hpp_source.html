@@ -114,29 +114,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classOficina.html">Oficina</a> <a class="code" href="classdialogOficinas.html#af32d29c6889afddbcd1a89543fccf666">crear</a>();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">private</span> slots:  <span class="comment">// NOLINT - https://github.com/google/styleguide/issues/30</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> editando = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classOficina.html">Oficina</a> *oficinaAEditar;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Ui::dialogOficinas *ui;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif  // dialogOficinas_H</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> accept();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="keyword">private</span> slots:  <span class="comment">// NOLINT - https://github.com/google/styleguide/issues/30</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> editando = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> maybeSave = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classpel_1_1Vector.html">pel::Vector&lt;Owner&gt;</a> <span class="keyword">const</span> *listaOw;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classOficina.html">Oficina</a> *oficinaAEditar;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    Ui::dialogOficinas *ui;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif  // dialogOficinas_H</span></div>
 <div class="ttc" id="classOficina_html"><div class="ttname"><a href="classOficina.html">Oficina</a></div><div class="ttdef"><b>Definition:</b> oficina.hpp:20</div></div>
 <div class="ttc" id="namespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition:</b> dialogInforme.hpp:15</div></div>
 <div class="ttc" id="classdialogOficinas_html"><div class="ttname"><a href="classdialogOficinas.html">dialogOficinas</a></div><div class="ttdoc">Dialogo de Oficinas. </div><div class="ttdef"><b>Definition:</b> dialogOficinas.hpp:23</div></div>
-<div class="ttc" id="classdialogOficinas_html_acc1a0e8268c26201cb9370cd5d6fcbf7"><div class="ttname"><a href="classdialogOficinas.html#acc1a0e8268c26201cb9370cd5d6fcbf7">dialogOficinas::setOficinaAEditar</a></div><div class="ttdeci">void setOficinaAEditar(Oficina *ofi)</div><div class="ttdoc">Edita la Oficina Edita la Oficina que ha sido pasado por referencia. </div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:22</div></div>
+<div class="ttc" id="classdialogOficinas_html_acc1a0e8268c26201cb9370cd5d6fcbf7"><div class="ttname"><a href="classdialogOficinas.html#acc1a0e8268c26201cb9370cd5d6fcbf7">dialogOficinas::setOficinaAEditar</a></div><div class="ttdeci">void setOficinaAEditar(Oficina *ofi)</div><div class="ttdoc">Edita la Oficina Edita la Oficina que ha sido pasado por referencia. </div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:23</div></div>
 <div class="ttc" id="classpel_1_1Vector_html"><div class="ttname"><a href="classpel_1_1Vector.html">pel::Vector&lt; Owner &gt;</a></div></div>
-<div class="ttc" id="classdialogOficinas_html_a46996aad61f5441f20c94012a864d277"><div class="ttname"><a href="classdialogOficinas.html#a46996aad61f5441f20c94012a864d277">dialogOficinas::nivel</a></div><div class="ttdeci">int nivel()</div><div class="ttdoc">Owner seleccionado Devuelve el nivel del comboBox. Este nivel indica que Owner ha sido seleccionado...</div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:34</div></div>
-<div class="ttc" id="classdialogOficinas_html_a0c288a8d061c6166813655108f58201f"><div class="ttname"><a href="classdialogOficinas.html#a0c288a8d061c6166813655108f58201f">dialogOficinas::cargar</a></div><div class="ttdeci">void cargar(pel::Vector&lt; Owner &gt; *own)</div><div class="ttdoc">Carga los comboBox Recorre el Vector de Owners y rellena el comboBox. </div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:17</div></div>
-<div class="ttc" id="classdialogOficinas_html_af32d29c6889afddbcd1a89543fccf666"><div class="ttname"><a href="classdialogOficinas.html#af32d29c6889afddbcd1a89543fccf666">dialogOficinas::crear</a></div><div class="ttdeci">Oficina crear()</div><div class="ttdoc">Crea una Oficina Crea una nuevo Oficina y se lo devuelve a mainWindow, el cual lo mete en su Vector c...</div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:36</div></div>
-<div class="ttc" id="classdialogOficinas_html_a38eadc87eb5381d6447af6b54d73bf53"><div class="ttname"><a href="classdialogOficinas.html#a38eadc87eb5381d6447af6b54d73bf53">dialogOficinas::dialogOficinas</a></div><div class="ttdeci">dialogOficinas(QWidget *parent=0)</div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:10</div></div>
+<div class="ttc" id="classdialogOficinas_html_a46996aad61f5441f20c94012a864d277"><div class="ttname"><a href="classdialogOficinas.html#a46996aad61f5441f20c94012a864d277">dialogOficinas::nivel</a></div><div class="ttdeci">int nivel()</div><div class="ttdoc">Owner seleccionado Devuelve el nivel del comboBox. Este nivel indica que Owner ha sido seleccionado...</div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:35</div></div>
+<div class="ttc" id="classdialogOficinas_html_a0c288a8d061c6166813655108f58201f"><div class="ttname"><a href="classdialogOficinas.html#a0c288a8d061c6166813655108f58201f">dialogOficinas::cargar</a></div><div class="ttdeci">void cargar(pel::Vector&lt; Owner &gt; *own)</div><div class="ttdoc">Carga los comboBox Recorre el Vector de Owners y rellena el comboBox. </div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:18</div></div>
+<div class="ttc" id="classdialogOficinas_html_af32d29c6889afddbcd1a89543fccf666"><div class="ttname"><a href="classdialogOficinas.html#af32d29c6889afddbcd1a89543fccf666">dialogOficinas::crear</a></div><div class="ttdeci">Oficina crear()</div><div class="ttdoc">Crea una Oficina Crea una nuevo Oficina y se lo devuelve a mainWindow, el cual lo mete en su Vector c...</div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:37</div></div>
+<div class="ttc" id="classdialogOficinas_html_a38eadc87eb5381d6447af6b54d73bf53"><div class="ttname"><a href="classdialogOficinas.html#a38eadc87eb5381d6447af6b54d73bf53">dialogOficinas::dialogOficinas</a></div><div class="ttdeci">dialogOficinas(QWidget *parent=0)</div><div class="ttdef"><b>Definition:</b> dialogOficinas.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 22 2015 12:46:49 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 22 2015 14:27:25 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
