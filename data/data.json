@@ -1,15 +1,15 @@
 {
     "Owner": [
         {
-            "Nombre": "r",
+            "Nombre": "aa",
             "Negos": [
                 {
                     "ptr_wrapper": {
                         "id": 2147483649,
                         "data": {
-                            "Origen": "rj",
-                            "Destino": "r",
-                            "Numero_de_Plazas": 0,
+                            "Origen": "david",
+                            "Destino": "david",
+                            "Numero_de_Plazas": 1,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
@@ -21,21 +21,23 @@
             ],
             "Oficinas": [
                 {
-                    "Nombre": "pj",
-                    "País": "p",
-                    "Continente": "p",
-                    "Peticiones": [
-                        {
-                            "Plazas Pedidas": 1,
-                            "Nego": {
-                                "ptr_wrapper": {
-                                    "id": 1
-                                }
-                            }
-                        }
-                    ]
+                    "Nombre": "laylolay",
+                    "País": "spain",
+                    "Continente": "",
+                    "Peticiones": []
+                },
+                {
+                    "Nombre": "lalalala",
+                    "País": "ffffff",
+                    "Continente": "",
+                    "Peticiones": []
                 }
             ]
+        },
+        {
+            "Nombre": "aaa",
+            "Negos": [],
+            "Oficinas": []
         }
     ]
 }

@@ -54,11 +54,15 @@ class dialogOficinas : public QDialog {
      */
     Oficina crear();
 
+    void accept();
+
  private slots:  // NOLINT - https://github.com/google/styleguide/issues/30
     void on_buttonBox_accepted();
 
  private:
     bool editando = false;
+    bool maybeSave = false;
+    pel::Vector<Owner> const *listaOw;
     Oficina *oficinaAEditar;
     Ui::dialogOficinas *ui;
 };
