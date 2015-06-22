@@ -101,11 +101,10 @@ void mainWindow::on_actionCreOwner_triggered() {
     dialogOwner ow;
     ow.setModal(true);
     if (ow.exec() == QDialog::Accepted) {
-        //QDialog::Rejected
         Owner own = ow.crear();
         for(auto & it : listaOw) {
              if(own.getNombre() == it.getNombre()) {
-                 QMessageBox::information(this, "",QString ("Ya hay un owner con este nombre"));
+                 QMessageBox::warning(this, "Warning", "Ya hay un owner con este nombre");
                  return;
              }
        }
@@ -290,25 +289,14 @@ void mainWindow::on_actionModOwner_triggered() {
 
         dialogOwner ow;
         ow.setOwnerAEditar(&own);
+        ow.setListaOwners(&listaOw);
         ow.setModal(true);
         ow.exec();
-
-        for(auto & it : listaOw) {
-             if(own.getNombre() == it.getNombre()) {
-                 QMessageBox::information(this, "",QString ("Ya hay un owner con este nombre"));
-                 return;
-             }
-       }
-        if(own.getNombre() == ""){
-            QMessageBox::information(this, "",QString ("Obligatorio nombre"));
-            return;
-        }
 
         ui->listWidget->clear();
         for (auto &it : listaOw) {
             ui->listWidget->addItem(it.getNombre().c_str());
         }
-
 
         ui->listWidget->setCurrentRow(posicion);
         ui->listWidget->itemPressed(ui->listWidget->item(posicion));
@@ -335,14 +323,16 @@ void mainWindow::on_actionModNego_triggered() {
         ng.setModal(true);
         ng.exec();
 
-        if(neg.getNumeroPlazas() <=0){
-                QMessageBox::warning(this, "Warning",
-                                     "No puedes crear negos con 0 plazas");
-                return;
+        // TODO (David) - Si se modifica un Nego que antes si
+        // tenia plazas, pero ahora tiene 0, no te deja cambiar
+        // los campos
+//        if(neg.getNumeroPlazas() <=0){
+//                QMessageBox::warning(this, "Warning",
+//                                     "No puedes crear negos con 0 plazas");
+//                return;
+//        }
 
-        }
-
-        if(neg.getOrigen() == "" || neg.getDestino() == ""){
+        if (neg.getOrigen() == "" || neg.getDestino() == "") {
             QMessageBox::warning(this, "Warning",
                                  "Rellena los campos obligatorios");
             return;
@@ -374,13 +364,15 @@ void mainWindow::on_actionModOficina_triggered() {
         of.setModal(true);
         of.exec();
 
-        for(auto &iter : listaOw.at(posicionOw).getOficinas()){
-            if(ofi.getNombre() == iter.getNombre()){
-                    QMessageBox::warning(this, "Warning",
-                                         "Nombre ya existente");
-                    return;
-                }
-        }
+        // TODO (David) - No funciona. Siempre te dice que
+        // el nombre ya existe
+//        for(auto &iter : listaOw.at(posicionOw).getOficinas()){
+//            if(ofi.getNombre() == iter.getNombre()){
+//                    QMessageBox::warning(this, "Warning",
+//                                         "Nombre ya existente");
+//                    return;
+//                }
+//        }
 
         if(ofi.getNombre() == "" || ofi.getPais() == ""){
             QMessageBox::warning(this, "Warning",
