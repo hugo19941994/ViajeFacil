@@ -4,6 +4,7 @@
  */
 
 #include <string>
+#include <fstream>
 #include "./dialogInforme.hpp"
 #include "./ui_dialogInforme.h"
 #include "./pelVector.hpp"
@@ -98,11 +99,13 @@ void dialogInforme::quickSort(rank arr[], int left, int right) {
 
 void dialogInforme::on_radioButton_clicked() {
     ui->textBrowser->clear();
-    for (std::size_t i = 0; i < hi->size(); i++) {
-        std::string str = crearString(hi->at(i));
+    std::fstream f("../../data/logPeticiones.txt", std::ios::in);
+    while (!f.eof()) {
+        std::string str;
+        std::getline(f, str);
         ui->textBrowser->append(str.c_str());
+        ui->textBrowser->append("\n");
     }
-    std::string pepe = "../../data/logPeticiones.txt";
 }
 
 void dialogInforme::setRadio(int opcion) {

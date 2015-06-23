@@ -173,6 +173,8 @@ class mainWindow : public QMainWindow {
     void on_listWidget_itemPressed(QListWidgetItem *item);
     void on_listWidget_3_itemPressed(QListWidgetItem *item);
 
+    void on_actionSobre_ViajeFacil_triggered();
+
  private:
     Ui::mainWindow *ui;
 

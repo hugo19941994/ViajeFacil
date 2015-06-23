@@ -7,6 +7,7 @@
  */
 
 #include <QMessageBox>
+#include <QDate>
 #include <fstream>
 #include <string>
 #include "./ui_mainWindow.h"
@@ -75,8 +76,12 @@ void mainWindow::on_listWidget_itemPressed(QListWidgetItem *item) {
         ui->listWidget_3->addItem(it.getNombre().c_str());
     }
     ui->listWidget_4->clear();
-}
 
+    ui->lineEdit_2->clear();
+    ui->lineEdit_3->clear();
+    ui->lineEdit_4->clear();
+    ui->lineEdit_5->clear();
+}
 
 void mainWindow::on_listWidget_3_itemPressed(QListWidgetItem *item) {
     if (!ui->listWidget->selectedItems().isEmpty()) {
@@ -102,9 +107,10 @@ void mainWindow::on_actionCreOwner_triggered() {
     ow.setModal(true);
     if (ow.exec() == QDialog::Accepted) {
         Owner own = ow.crear();
-        for(auto & it : listaOw) {
-             if(own.getNombre() == it.getNombre()) {
-                 QMessageBox::warning(this, "Warning", "Ya hay un owner con este nombre");
+        for (auto & it : listaOw) {
+             if (own.getNombre() == it.getNombre()) {
+                 QMessageBox::warning(this, "Warning",
+                                      "Ya hay un owner con este nombre");
                  return;
              }
        }
@@ -123,7 +129,7 @@ void mainWindow::on_actionCreOwner_triggered() {
 }
 
 void mainWindow::on_actionCreNego_triggered() {
-    if (!listaOw.empty()){
+    if (!listaOw.empty()) {
         dialogNego ng;
         ng.cargar(&listaOw);
         ng.setModal(true);
@@ -132,14 +138,13 @@ void mainWindow::on_actionCreNego_triggered() {
             int nv = 0;
 
             Nego neg = ng.crear();
-            if(neg.getNumeroPlazas() <=0){
+            if (neg.getNumeroPlazas() <=0) {
                     QMessageBox::warning(this, "Warning",
                                          "No puedes crear negos con 0 plazas");
                     return;
-
             }
 
-            if(neg.getOrigen() == "" || neg.getDestino() == ""){
+            if (neg.getOrigen() == "" || neg.getDestino() == "") {
                 QMessageBox::warning(this, "Warning",
                                      "Rellena los campos obligatorios");
                 return;
@@ -172,27 +177,27 @@ void mainWindow::on_actionCreOficina_triggered() {
 
             Oficina ofi = diagOf.crear();
             nv = diagOf.nivel();
-            for(auto &iter : listaOw.at(nv).getOficinas()){
-                if(ofi.getNombre() == iter.getNombre()){
+            for (auto &iter : listaOw.at(nv).getOficinas()) {
+                if (ofi.getNombre() == iter.getNombre()) {
                         QMessageBox::warning(this, "Warning",
                                              "Nombre ya existente");
                         return;
                     }
             }
 
-            if(ofi.getNombre() == "" || ofi.getPais() == ""){
+            if (ofi.getNombre() == "" || ofi.getPais() == "") {
                 QMessageBox::warning(this, "Warning",
                                      "Obligatorio nombre y pais");
                 return;
             }
-
 
             listaOw.at(nv).getOficinas().push_back(ofi);
 
             ui->listWidget->setCurrentRow(nv);
             ui->listWidget->itemPressed(ui->listWidget->item(nv));
 
-            ui->listWidget_3->setCurrentRow(listaOw.at(nv).getOficinas().size()-1);
+            ui->listWidget_3->
+                    setCurrentRow(listaOw.at(nv).getOficinas().size()-1);
             ui->listWidget_3->itemPressed(
                 ui->listWidget_3->item(listaOw.at(nv).getOficinas().size()-1));
 
@@ -213,7 +218,7 @@ void mainWindow::on_actionCrePeticion_triggered() {
 
         if (peticiones.exec() == QDialog::Accepted) {
             Peticion pet = peticiones.crear();
-            if(pet.getPlazasPedidas() <= 0){
+            if (pet.getPlazasPedidas() <= 0) {
                 QMessageBox::warning(this, "Warning",
                                      "No puedes pedir 0 plazas");
                 return;
@@ -222,12 +227,13 @@ void mainWindow::on_actionCrePeticion_triggered() {
             int nvOw = peticiones.nivelOw();
             int nvOf = peticiones.nivelOf();
             int nvNe = peticiones.nivelNe();
-            if((nvOf == -1 )|| (nvNe == -1)) {
+            if ((nvOf == -1) || (nvNe == -1)) {
                 QMessageBox::warning(this, "Warning",
                                      "No existen Oficinas/Negos");
                 return;
             }
-            pet.setNeg(std::shared_ptr<Nego>(listaOw.at(nvOw).getNegos().at(nvNe)));
+            pet.setNeg(std::shared_ptr<Nego>
+                       (listaOw.at(nvOw).getNegos().at(nvNe)));
 
             if (static_cast<int>(pet.getNeg()->getNumeroPlazas() -
                                  pet.getPlazasPedidas()) >= 0) {
@@ -236,19 +242,29 @@ void mainWindow::on_actionCrePeticion_triggered() {
                 listaOw.at(nvOw).getOficinas().at(nvOf)
                         .getPeticiones().push_back(pet);
 
-                entradaHistorial h {true, false, false, pet.getPlazasPedidas(),
-                                  pet.getNeg()->getOrigen(),
-                                  pet.getNeg()->getDestino(),
-                                  listaOw.at(nvOw).getNombre(),
-                                  listaOw.at(nvOw).getOficinas().at(
-                                      nvOf).getNombre(),
-                                  listaOw.at(nvOw).getOficinas().at(nvOf).getPais(),
-                                  listaOw.at(nvOw).getOficinas().at(
-                                      nvOf).getContinente()};
-                log.push_back(h);
+                std::fstream f("../../data/logPeticiones.txt",
+                               std::ios::out | std::ios::app);
+                std::string str;
+                str.append(QDate::currentDate().toString().toStdString());
+                str.append(" ");
+                str.append(QTime::currentTime().toString().toStdString());
+                str.append(" Petición Creada - Origen: ");
+                str.append(pet.getNeg()->getOrigen());
+                str.append(" Destino: ");
+                str.append(pet.getNeg()->getDestino());
+                str.append(" Owner: ");
+                str.append(listaOw.at(nvOw).getNombre());
+                str.append(" Oficina: ");
+                str.append(listaOw.at(nvOw).getOficinas().at(nvOf).getNombre());
+                str.append(" País: ");
+                str.append(listaOw.at(nvOw).getOficinas().at(nvOf).getPais());
+                str.append(" Continente: ");
+                str.append(listaOw.at(nvOw).getOficinas().at(nvOf)
+                           .getContinente());
+                str.append("\n");
+                f << str;
 
                 guardarEnArchivo();
-                log.writeToFile("../../data/logPeticiones.txt");
 
                 ui->listWidget->setCurrentRow(nvOw);
                 ui->listWidget->itemPressed(ui->listWidget->item(nvOw));
@@ -278,7 +294,6 @@ void mainWindow::on_actionCreUsuario_triggered() {
     log.setModal(true);
     log.setEstado(1);
     log.exec();
-
 }
 
 //////////////////////////// MODIFICAR ////////////////////////////////////////
@@ -323,7 +338,7 @@ void mainWindow::on_actionModNego_triggered() {
         ng.setModal(true);
         ng.exec();
 
-        // TODO (David) - Si se modifica un Nego que antes si
+        // TODO(David) - Si se modifica un Nego que antes si
         // tenia plazas, pero ahora tiene 0, no te deja cambiar
         // los campos
 //        if(neg.getNumeroPlazas() <=0){
@@ -364,7 +379,7 @@ void mainWindow::on_actionModOficina_triggered() {
         of.setModal(true);
         of.exec();
 
-        // TODO (David) - No funciona. Siempre te dice que
+        // TODO(David) - No funciona. Siempre te dice que
         // el nombre ya existe
 //        for(auto &iter : listaOw.at(posicionOw).getOficinas()){
 //            if(ofi.getNombre() == iter.getNombre()){
@@ -374,7 +389,7 @@ void mainWindow::on_actionModOficina_triggered() {
 //                }
 //        }
 
-        if(ofi.getNombre() == "" || ofi.getPais() == ""){
+        if (ofi.getNombre() == "" || ofi.getPais() == "") {
             QMessageBox::warning(this, "Warning",
                                  "Obligatorio nombre y pais");
             return;
@@ -410,7 +425,7 @@ void mainWindow::on_actionModPeticion_triggered() {
         pe.setModal(true);
         pe.exec();
 
-        if(pet.getPlazasPedidas() <= 0){
+        if (pet.getPlazasPedidas() <= 0) {
             QMessageBox::warning(this, "Warning",
                                  "No puedes pedir 0 plazas");
             return;
@@ -426,17 +441,29 @@ void mainWindow::on_actionModPeticion_triggered() {
         ui->listWidget_4->itemPressed(ui->listWidget_4->item(posicionPe));
         guardarEnArchivo();
 
-        entradaHistorial h {false, true, false, pet.getPlazasPedidas(),
-                          pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
-                          listaOw.at(posicionOw).getNombre(),
-                    listaOw.at(posicionOw).getOficinas().at(
-                        posicionOf).getNombre(),
-                    listaOw.at(posicionOw).getOficinas().at(
-                        posicionOf).getPais(),
-                    listaOw.at(posicionOw).getOficinas().at(
-                        posicionOf).getContinente()};
-        log.push_back(h);
-        log.writeToFile("../../data/logPeticiones.txt");
+        std::fstream f("../../data/logPeticiones.txt",
+                       std::ios::out | std::ios::app);
+        std::string str;
+        str.append(QDate::currentDate().toString().toStdString());
+        str.append(" ");
+        str.append(QTime::currentTime().toString().toStdString());
+        str.append(" Petición Modificada - Origen: ");
+        str.append(pet.getNeg()->getOrigen());
+        str.append(" Destino: ");
+        str.append(pet.getNeg()->getDestino());
+        str.append(" Owner: ");
+        str.append(listaOw.at(posicionOw).getNombre());
+        str.append(" Oficina: ");
+        str.append(listaOw.at(posicionOw).getOficinas().at(posicionOf)
+                   .getNombre());
+        str.append(" País: ");
+        str.append(listaOw.at(posicionOw).getOficinas().at(posicionOf)
+                   .getPais());
+        str.append(" Continente: ");
+        str.append(listaOw.at(posicionOw).getOficinas().at(posicionOf)
+                   .getContinente());
+        str.append("\n");
+        f << str;
 
     } else {
         QMessageBox::warning(this, "Warning",
@@ -456,8 +483,7 @@ void mainWindow::on_actionBorOwner_triggered() {
         if (ui->listWidget->count() > 0) {
             ui->listWidget->itemPressed(
                 ui->listWidget->item(ui->listWidget->currentRow()));
-        }
-        else {
+        } else {
             ui->listWidget_2->clear();
             ui->listWidget_3->clear();
             ui->listWidget_4->clear();
@@ -543,14 +569,6 @@ void mainWindow::on_actionBorPeticion_triggered() {
 
         Peticion pet = listPet.at(curRow);
 
-        entradaHistorial h {false, false, true, pet.getPlazasPedidas(),
-                          pet.getNeg()->getOrigen(), pet.getNeg()->getDestino(),
-                          listaOw.at(curOw).getNombre(),
-                    listaOw.at(curOw).getOficinas().at(curOf).getNombre(),
-                    listaOw.at(curOw).getOficinas().at(curOf).getPais(),
-                    listaOw.at(curOw).getOficinas().at(curOf).getContinente()};
-        log.push_back(h);
-
         // Si borras peticion devolvemos las plazas al nego
         pet.getNeg()->devolverPlazas(pet.getPlazasPedidas());
 
@@ -563,7 +581,28 @@ void mainWindow::on_actionBorPeticion_triggered() {
         }
 
         guardarEnArchivo();
-        log.writeToFile("../../data/logPeticiones.txt");
+
+        std::fstream f("../../data/logPeticiones.txt",
+                       std::ios::out | std::ios::app);
+        std::string str;
+        str.append(QDate::currentDate().toString().toStdString());
+        str.append(" ");
+        str.append(QTime::currentTime().toString().toStdString());
+        str.append(" Petición Borrada - Origen: ");
+        str.append(pet.getNeg()->getOrigen());
+        str.append(" Destino: ");
+        str.append(pet.getNeg()->getDestino());
+        str.append(" Owner: ");
+        str.append(listaOw.at(curOw).getNombre());
+        str.append(" Oficina: ");
+        str.append(listaOw.at(curOw).getOficinas().at(curOf).getNombre());
+        str.append(" País: ");
+        str.append(listaOw.at(curOw).getOficinas().at(curOf).getPais());
+        str.append(" Continente: ");
+        str.append(listaOw.at(curOw).getOficinas().at(curOf)
+                   .getContinente());
+        str.append("\n");
+        f << str;
     } else {
         QMessageBox::warning(this, "Warning",
                              "No hay ningun Owner/Oficina/Peticion"
