@@ -45,7 +45,7 @@ class dialogOwner : public QDialog {
      */
     Owner crear();
 
-    void setListaOwners(pel::Vector<Owner> const *lista){
+    void setListaOwners(pel::Vector<Owner> const *lista) {
         listaOw = lista;
     }
 

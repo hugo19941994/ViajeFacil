@@ -62,7 +62,7 @@ class dialogOficinas : public QDialog {
  private:
     bool editando = false;
     bool maybeSave = false;
-    pel::Vector<Owner> const *listaOw;
+    pel::Vector<Owner> *listaOw;
     Oficina *oficinaAEditar;
     Ui::dialogOficinas *ui;
 };

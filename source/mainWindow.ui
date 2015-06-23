@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ViajeFacil - Nego Space</string>
+   <string>ViajeFácil - Nego Space</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -183,10 +183,17 @@
     <addaction name="actionLog_de_Peticiones"/>
     <addaction name="actionInforme_Owners_que_mejor_consumen_Negos"/>
    </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionSobre_ViajeFacil"/>
+   </widget>
    <addaction name="menuCrear"/>
    <addaction name="menuModificar"/>
    <addaction name="menuBorrar"/>
    <addaction name="menuConsultas"/>
+   <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreNego">
@@ -262,6 +269,11 @@
   <action name="actionInforme_Owners_que_mejor_consumen_Negos">
    <property name="text">
     <string>&amp;Informe - Owners que mejor consumen Negos</string>
+   </property>
+  </action>
+  <action name="actionSobre_ViajeFacil">
+   <property name="text">
+    <string>Sobre ViajeFácil</string>
    </property>
   </action>
  </widget>

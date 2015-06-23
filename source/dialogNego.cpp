@@ -14,6 +14,7 @@
 dialogNego::dialogNego(QWidget *parent) :
     QDialog(parent), ui(new Ui::dialogNego) {
     ui->setupUi(this);
+    ui->dateEdit->setDate(QDate::currentDate());
 }
 
 dialogNego::~dialogNego() { delete ui; }

@@ -1,19 +1,64 @@
 {
     "Owner": [
         {
-            "Nombre": "aa",
+            "Nombre": "El Corte Inglés",
             "Negos": [
                 {
                     "ptr_wrapper": {
                         "id": 2147483649,
                         "data": {
-                            "Origen": "david",
-                            "Destino": "david",
-                            "Numero_de_Plazas": 1,
+                            "Origen": "Madrid",
+                            "Destino": "Roma",
+                            "Numero_de_Plazas": 196,
                             "Fecha": {
                                 "Día": 1,
                                 "Mes": 1,
-                                "Año": 2000
+                                "Año": 2015
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483650,
+                        "data": {
+                            "Origen": "Roma",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 200,
+                            "Fecha": {
+                                "Día": 23,
+                                "Mes": 6,
+                                "Año": 2015
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483651,
+                        "data": {
+                            "Origen": "Berlin",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 150,
+                            "Fecha": {
+                                "Día": 23,
+                                "Mes": 6,
+                                "Año": 2015
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483652,
+                        "data": {
+                            "Origen": "Madrid",
+                            "Destino": "Berlin",
+                            "Numero_de_Plazas": 150,
+                            "Fecha": {
+                                "Día": 23,
+                                "Mes": 6,
+                                "Año": 2015
                             }
                         }
                     }
@@ -21,21 +66,100 @@
             ],
             "Oficinas": [
                 {
-                    "Nombre": "laylolay",
-                    "País": "spain",
-                    "Continente": "",
-                    "Peticiones": []
+                    "Nombre": "Madrid #1",
+                    "País": "España",
+                    "Continente": "Europa",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 7,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        },
+                        {
+                            "Plazas Pedidas": 5,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 1
+                                }
+                            }
+                        }
+                    ]
                 },
                 {
-                    "Nombre": "lalalala",
-                    "País": "ffffff",
-                    "Continente": "",
+                    "Nombre": "Madrid #2",
+                    "País": "España",
+                    "Continente": "Europa",
                     "Peticiones": []
                 }
             ]
         },
         {
-            "Nombre": "aaa",
+            "Nombre": "Viajes Marsans",
+            "Negos": [
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483653,
+                        "data": {
+                            "Origen": "Barcelona",
+                            "Destino": "Madrid",
+                            "Numero_de_Plazas": 300,
+                            "Fecha": {
+                                "Día": 23,
+                                "Mes": 6,
+                                "Año": 2015
+                            }
+                        }
+                    }
+                },
+                {
+                    "ptr_wrapper": {
+                        "id": 2147483654,
+                        "data": {
+                            "Origen": "Madrid",
+                            "Destino": "Barcelona",
+                            "Numero_de_Plazas": 200,
+                            "Fecha": {
+                                "Día": 23,
+                                "Mes": 6,
+                                "Año": 2015
+                            }
+                        }
+                    }
+                }
+            ],
+            "Oficinas": [
+                {
+                    "Nombre": "Barcelona",
+                    "País": "España",
+                    "Continente": "Europa",
+                    "Peticiones": [
+                        {
+                            "Plazas Pedidas": 100,
+                            "Nego": {
+                                "ptr_wrapper": {
+                                    "id": 6
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Nombre": "Halcón Viajes",
+            "Negos": [],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "Travel Club",
+            "Negos": [],
+            "Oficinas": []
+        },
+        {
+            "Nombre": "Viajes Zeppelin",
             "Negos": [],
             "Oficinas": []
         }

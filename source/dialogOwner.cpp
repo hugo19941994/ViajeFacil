@@ -15,7 +15,7 @@ dialogOwner::dialogOwner(QWidget *parent) :
 
 dialogOwner::~dialogOwner() { delete ui; }
 
-void dialogOwner::accept(){
+void dialogOwner::accept() {
     if (maybeSave) {
         done(1);  // Termina y emite accepted
     }
@@ -25,14 +25,16 @@ void dialogOwner::on_buttonBox_accepted() {
     maybeSave = true;
     if (editando) {
         if (ui->lineEdit->text().isEmpty()) {
-            QMessageBox::information(this, "",QString ("Nombre no puede ser vacío"));
+            QMessageBox::information(this, "Information",
+                                     "Nombre no puede ser vacío");
             maybeSave = false;
             accept();
         }
 
         for (auto it : *listaOw)
             if (ui->lineEdit->text().toStdString() == it.getNombre()) {
-                QMessageBox::information(this, "",QString ("Ya hay un owner con este nombre"));
+                QMessageBox::information(this, "Information",
+                                         "Ya hay un owner con este nombre");
                 maybeSave = false;
                 accept();
             }
@@ -42,8 +44,7 @@ void dialogOwner::on_buttonBox_accepted() {
             maybeSave = true;
             accept();
         }
-    }
-    else {  // Creando un owner nuevo
+    } else {  // Creando un owner nuevo
         maybeSave = true;
         accept();
     }
