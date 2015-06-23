@@ -678,3 +678,14 @@ void mainWindow::on_actionInforme_Owners_que_mejor_consumen_Negos_triggered() {
     di.setRadio(1);
     di.exec();
 }
+
+void mainWindow::on_actionSobre_ViajeFacil_triggered() {
+    QMessageBox::information(this, "Sobre ViajeFácil",
+                         "ViajeFácil v0.4 - 23/06/2015\n\n"
+                         "Proyecto Integrador de 1º\n"
+                         "Grado en Ingeniería Informatica - 2015\n"
+                         "UEM con Unisys\n\n"
+                         "Página Web:\n"
+                         "https://hugo19941994.github.io/ViajeFacil\n\n"
+                         "MIT License");
+}
