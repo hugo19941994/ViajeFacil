@@ -4,16 +4,21 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ViajeFacil
 TEMPLATE = app
-CONFIG += c++11
-QMAKE_CXXFLAGS += -Wall -DEXEC_TEST
+CONFIG += c++14
 INCLUDEPATH += ../../source/include/
 RC_FILE = ../../source/myapp.rc
+QMAKE_CXX = clang++
+QMAKE_CC = clang
+QMAKE_LINK=clang++
+QMAKE_CXXFLAGS += "-DEXEC_TEST -Wall -fsanitize=address -fno-omit-frame-pointer -fprofile-instr-generate -fcoverage-mapping"
+QMAKE_CFLAGS += "-DEXEC_TEST -Wall -fsanitize=address -fno-omit-frame-pointer -fprofile-instr-generate -fcoverage-mapping"
+QMAKE_LFLAGS += "-fsanitize=address -fprofile-instr-generate -fcoverage-mapping"
 
 SOURCES += ../../source/fecha.cpp \
     ../../source/main.cpp \
@@ -32,7 +37,7 @@ SOURCES += ../../source/fecha.cpp \
     ../../source/test.cpp \
     ../../source/bcrypt.cpp
 
-HEADERS  += ../../source/fecha.hpp \
+HEADERS += ../../source/fecha.hpp \
     ../../source/nego.hpp \
     ../../source/oficina.hpp \
     ../../source/owner.hpp \
@@ -48,7 +53,7 @@ HEADERS  += ../../source/fecha.hpp \
     ../../source/pelVector.hpp \
     ../../source/bcrypt.h
 
-FORMS    += ../../source/dialogOficinas.ui \
+FORMS += ../../source/dialogOficinas.ui \
     ../../source/dialogOwner.ui \
     ../../source/dialogNego.ui \
     ../../source/dialogPeticiones.ui \
