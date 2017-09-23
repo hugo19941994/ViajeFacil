@@ -18,6 +18,7 @@
 int main(int argc, char *argv[]) {
     #ifdef EXEC_TEST
     Catch::Session().run(argc, argv);
+    return 0;
     #endif
 
     QApplication a(argc, argv);
