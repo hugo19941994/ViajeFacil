@@ -19,7 +19,7 @@ $ make
 $ make clean
 ```
 
-## Equipo
+## Equipo
 
 * [Hugo Ferrando Seage](https://hugofs.com)
 * [David Jiménez Cuevas](https://github.com/jimecu12)
