@@ -10,15 +10,14 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ViajeFacil
 TEMPLATE = app
-CONFIG += c++11
 INCLUDEPATH += include
 RC_FILE = myapp.rc
 QMAKE_CXX = g++
 QMAKE_CC = gcc
 QMAKE_LINK = g++
-QMAKE_CXXFLAGS += "-DEXEC_TEST -Wall -fprofile-arcs -ftest-coverage"
-QMAKE_CFLAGS += "-DEXEC_TEST -Wall -fprofile-arcs -ftest-coverage"
-QMAKE_LFLAGS += "-fprofile-arcs -ftest-coverage"
+QMAKE_CXXFLAGS += "-DEXEC_TEST -Wall -std=c++17 -fprofile-arcs -ftest-coverage"
+QMAKE_CFLAGS += "-DEXEC_TEST -Wall -std=c++17 -fprofile-arcs -ftest-coverage"
+QMAKE_LFLAGS += "-std=c++17 -fprofile-arcs -ftest-coverage"
 QMAKE_CLEAN += *.gcda *.gcno
 
 SOURCES += fecha.cpp \
