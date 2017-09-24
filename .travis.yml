@@ -1,4 +1,5 @@
 language: cpp
+sudo: required
 compiler:
   - gcc
 addons:
@@ -18,6 +19,8 @@ before_install:
   - gcc --version
   - g++ --version
 script:
+  - ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
+  - ln -s /usr/bin/g++-6 /usr/local/bin/g++
   - cd source
   - qmake -qt=qt5
   - make
