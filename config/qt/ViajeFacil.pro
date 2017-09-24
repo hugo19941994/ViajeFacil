@@ -10,15 +10,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ViajeFacil
 TEMPLATE = app
-CONFIG += c++14
+CONFIG += c++11
 INCLUDEPATH += ../../source/include/
 RC_FILE = ../../source/myapp.rc
-QMAKE_CXX = clang++
-QMAKE_CC = clang
-QMAKE_LINK=clang++
-QMAKE_CXXFLAGS += "-DEXEC_TEST -Wall -fsanitize=address -fno-omit-frame-pointer -fprofile-instr-generate -fcoverage-mapping"
-QMAKE_CFLAGS += "-DEXEC_TEST -Wall -fsanitize=address -fno-omit-frame-pointer -fprofile-instr-generate -fcoverage-mapping"
-QMAKE_LFLAGS += "-fsanitize=address -fprofile-instr-generate -fcoverage-mapping"
+QMAKE_CXX = g++
+QMAKE_CC = g
+QMAKE_LINK = g++
+QMAKE_CXXFLAGS += "-DEXEC_TEST -Wall --coverage"
+QMAKE_CFLAGS += "-DEXEC_TEST -Wall --coverage"
+QMAKE_LFLAGS += "--coverage"
 
 SOURCES += ../../source/fecha.cpp \
     ../../source/main.cpp \
