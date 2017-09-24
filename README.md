@@ -8,12 +8,20 @@ Software para gestionar agencias de vuelos.
 
 Proyecto integrador de 1º de la [Universidad Europea de Madrid (UEM)](http://madrid.universidadeuropea.es/) con [Unisys](http://www.unisys.es/) - 2015
 
-![Foto Ejemplo](config/Foto1.png "Logo Title Text 1")
+![Foto Ejemplo](foto.png "Foto de ejemplo")
 
----
+## Compilar
 
-Los integrantes del equipo son:
-* [Hugo Ferrando Seage](https://www.hugofs.com)
+```bash
+$ cd source
+$ qmake
+$ make
+$ make clean
+```
+
+## Equipo
+
+* [Hugo Ferrando Seage](https://hugofs.com)
 * [David Jiménez Cuevas](https://github.com/jimecu12)
 * [Estefanía Ortego García](https://github.com/Estefania1007)
 * [Guillermo González Moreno](https://github.com/guilleglezmo)
