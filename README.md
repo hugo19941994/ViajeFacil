@@ -1,6 +1,8 @@
 # :globe_with_meridians: ViajeFácil :airplane:
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hugo19941994/ViajeFacil/master/LICENSE?token=AGIhm-LXN0zbS8HTBwbIoF73LEwAAm69ks5VSFaowA%3D%3D)
+[![Build Status](https://travis-ci.org/hugo19941994/ViajeFacil.svg?branch=master)](https://travis-ci.org/hugo19941994/ViajeFacil)
+[![Coverage Status](https://coveralls.io/repos/github/hugo19941994/ViajeFacil/badge.svg?branch=master)](https://coveralls.io/github/hugo19941994/ViajeFacil?branch=master)
+[![license](https://img.shields.io/github/license/hugo19941994/ViajeFacil.svg)](https://github.com/hugo19941994/ViajeFacil/blob/master/LICENSE)
 
 Software para gestionar agencias de vuelos.
 
