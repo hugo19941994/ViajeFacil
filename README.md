@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/hugo19941994/ViajeFacil.svg?branch=master)](https://travis-ci.org/hugo19941994/ViajeFacil)
 [![Coverage Status](https://coveralls.io/repos/github/hugo19941994/ViajeFacil/badge.svg?branch=master)](https://coveralls.io/github/hugo19941994/ViajeFacil?branch=master)
-[![license](https://img.shields.io/github/license/hugo19941994/ViajeFacil.svg)](https://github.com/hugo19941994/ViajeFacil/blob/master/LICENSE.md)
 
 Software para gestionar agencias de vuelos.
 
